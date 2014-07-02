@@ -213,6 +213,31 @@
             </div>
             
           </div>
+
+         
+ <div class="chatbox">
+   <div class="row">
+     <div class="col-sm-12 header">
+       <h6 class="user-title">Benjamin Button</h6>
+       <div class="uiSelector"><a class="closechat" role="button"><i class="fa fa-times"></i></a></div>
+     </div>
+     <div class="col-sm-12 display-box">
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+
+     </div>
+     <div class="col-sm-12 _552h"><textarea rows="1" id="chatwrite"class="chatinput"></textarea></div>
+   </div>
+ </div>
         </div> <!--Profile-->
 
 
@@ -411,7 +436,6 @@
 
 
               <div class="col-sm-6 post-job">
-               
                   <div class="row">
                     <div class="col-sm-12" style="text-align: center;">
                           <h3>What <h2 style="color: rgb(150, 205, 128);">INDUSTRY</h2></h3> <h3>is your company in?</h3>
@@ -461,24 +485,61 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/docs.min.js"></script>
     <script type="text/javascript">
-var placeholder = 'This is a line \nthis should be a new line';
-$('textarea.placeholder4').attr('value', placeholder);
 
-$('textarea').focus(function(){
-    if($(this).val() === placeholder){
-        $(this).val('')
-               .removeClass('placeholder4');
+    var observe;
+if (window.attachEvent) {
+    observe = function (element, event, handler) {
+        element.attachEvent('on'+event, handler);
+    };
+}
+else {
+    observe = function (element, event, handler) {
+        element.addEventListener(event, handler, false);
+    };
+}
+function init () {
+    var text = document.getElementById('chatwrite');
+    function resize () {
+        text.style.height = 'auto';
+        text.style.height = text.scrollHeight+'px';
     }
-});
+    /* 0-timeout to get the already changed text */
+    function delayedResize () {
+        window.setTimeout(resize, 0);
+    }
+    observe(text, 'change',  resize);
+    observe(text, 'cut',     delayedResize);
+    observe(text, 'paste',   delayedResize);
+    observe(text, 'drop',    delayedResize);
+    observe(text, 'keydown', delayedResize);
 
-$('textarea').blur(function(){
-    if($(this).val() ===''){
-        $(this).val(placeholder)
-               .addClass('placeholder4');
-    }    
-});
+    text.focus();
+    text.select();
+    resize();
+}
 
-$('textarea').val(placeholder);
+init();
+
+    </script>
+    <script type="text/javascript">
+// var placeholder = 'This is a line \nthis should be a new line';
+// $('textarea.placeholder4').attr('value', placeholder);
+
+// $('textarea').focus(function(){
+//     if($(this).val() === placeholder){
+//         $(this).val('')
+//                .removeClass('placeholder4');
+//     }
+// });
+
+// $('textarea').blur(function(){
+//     if($(this).val() ===''){
+//         $(this).val(placeholder)
+//                .addClass('placeholder4');
+//     }    
+// });
+
+// $('textarea').val(placeholder);
   </script>
   </body>
 </html>
