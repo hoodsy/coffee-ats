@@ -203,6 +203,15 @@ p.quote {
 .tab-content .tab-pane {
 	padding-left: 14px;
 }
+
+.tab-content .tab-pane .wrapper {
+	margin-bottom: 0px;
+}
+
+.tab-content .tab-pane .wrapper .col-sm-10 {
+	margin-bottom: 0px;
+}
+
 .row {
 	margin-left: 0px;
 	margin-right: 0px;
@@ -363,6 +372,66 @@ fieldset[disabled] .btn-message.active {
 .btn-message .badge {
   color: rgb(74, 138, 142);
   background-color: #fff;
+}
+
+.chatbox {
+	width: 300px;
+	height: 300px;
+	background-color: white;
+	position: absolute;
+	margin-left: 740px;
+	margin-top: -302px;
+	z-index: 50000;
+	border: 1px solid rgb(160, 160, 160);
+
+	font-family: Helvetica, Arial, 'lucida grande', tahoma, verdana, arial, sans-serif;
+}
+
+.chatbox .row .col-sm-12 {
+	overflow: scroll;
+}
+
+.chatbox .row .col-sm-12 .user-title {
+	font-size: 12px;
+	margin-top: 0px;
+	display: inline-block;
+}
+
+.chatbox .row .col-sm-12 .uiSelector {
+	display: inline-block;
+	float: right;
+	cursor: pointer;
+}
+
+.display-box {
+	height: 240px;
+}
+
+._552h {
+	border-top: 1px solid #c9d0da;
+	cursor: text;
+	max-height: 77px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 3.5px;
+	position: relative;
+	resize: none;
+	outline: none;
+	margin: 0;
+}
+
+.chatinput {
+	overflow: hidden;
+	padding: 0;
+	outline: none;
+	resize: none;
+	border: 0 none white;
+	height: 1em;
+	font-size: 12px;
+	font-weight: lighter;
+
+	font-family: Helvetica, Arial, 'lucida grande', tahoma, verdana, arial, sans-serif;
+	color: black;
 }
 
 /*This is for the Matches Tab*/
