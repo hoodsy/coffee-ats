@@ -9,6 +9,7 @@
     <link rel="icon" href="../../favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="img/coffeelogo.ico"/>
     <title>Coffee</title>
 
     <!-- Bootstrap core CSS -->
@@ -81,13 +82,13 @@
         <div class="tab-pane fade in active col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="profile">
           <h3 class="text-center title"><strong>13</strong> total applicants</h3><p class="text-center quote">(Marketing Interns)</p>
 
-          <div class="row placeholders wrapper" style="border: 1px solid purple;">
-            <div class="col-sm-1 swipe left" style="border-top: 1px solid green;">
+          <div class="row placeholders wrapper">
+            <div class="col-sm-1 swipe left">
               <button type="button" class="btn btn-danger btn-block"><i class="fa fa-chevron-left"></i></button>
             </div>
 
 
-            <div class="col-sm-10 placeholder" style="border: 1px solid yellow;">
+            <div class="col-sm-10 placeholder" style="border: none;">
               <div class="popover-header"><p> *Ex Finance guy working in startups. Would love to start helping you do some really cool stuff at this point in my career and help your company grow.  </p></div>
               <div class="row">
                 <div class="col-sm-6 left-col">
@@ -199,7 +200,7 @@
                   </div>
                   <div class="row">
                     <div class="col-sm-12 placeholder right-col message">
-                    <button class="btn btn-message">Message <i class="fa fa-envelope"></i></button>
+                    <button id="chatmessage" class="btn btn-message">Message <i class="fa fa-envelope"></i></button>
                     </div>
                 </div>
                 </div>
@@ -208,7 +209,7 @@
 
 
 </div>
-            <div class="col-sm-1 swipe right" style="border-top: 1px solid blue;">
+            <div class="col-sm-1 swipe right">
               <button type="button" class="btn btn-success btn-block"><i class="fa fa-chevron-right"></i></button>
             </div>
             
@@ -218,10 +219,19 @@
  <div class="chatbox">
    <div class="row">
      <div class="col-sm-12 header">
-       <h6 class="user-title">Benjamin Button</h6>
-       <div class="uiSelector"><a class="closechat" role="button"><i class="fa fa-times"></i></a></div>
+      <div class="chat-header">
+       <h6 class="user-title">Benjamin Button</h6></div>
+       <div class="uiSelector"><a class="" role="button"><i id="closechat" class="fa fa-times"></i></a></div>
      </div>
+     <div class="chatter-wrap">
      <div class="col-sm-12 display-box">
+      <div class="image-col col-sm-2"></div>
+      <div class="speech-col col-sm-10">
+        <p class="speech-bubble">dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       
+
+       <p class="speech-bubble-right">dwadawd awdawd awdaw dawda wdawdaw dawd awdawd awdaw dawda wdawdaa</p>
+      <!--  <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
        <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
        <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
        <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
@@ -229,13 +239,13 @@
        <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
        <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
        <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
-       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
-       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
-       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
-       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p>
+       <p>dwadawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaa</p> -->
+      </div>
+       
 
      </div>
      <div class="col-sm-12 _552h"><textarea rows="1" id="chatwrite"class="chatinput"></textarea></div>
+     </div>
    </div>
  </div>
         </div> <!--Profile-->
@@ -485,6 +495,20 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/docs.min.js"></script>
     <script type="text/javascript">
+
+$("#closechat").click(function() {
+  $("div.chatbox").toggleClass( "close-chat");
+});
+
+$("#chatmessage").click(function() {
+  $("div.chatbox").removeClass( "close-chat");
+    
+});
+
+$(".chat-header").click(function() {
+  $("div.chatbox").toggleClass( "minimize-chat");
+  $("div.chatter-wrap").toggleClass( "close-chat");
+});
 
     var observe;
 if (window.attachEvent) {
