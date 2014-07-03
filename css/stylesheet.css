@@ -457,7 +457,6 @@ fieldset[disabled] .btn-message.active {
 }
 
 .minimize-chat {
-	
 	height: 0px;
 	margin-top: -32px;
 }
@@ -470,116 +469,16 @@ fieldset[disabled] .btn-message.active {
 
 .speech-col {
 	margin-top: 5px;
-padding: 0px;
-width: 248.328px;
+	padding: 0px;
+	overflow: auto;
+
 }
 
-/*p.speech-bubble {
-	font-size: 11px;
-	word-wrap: break-word;
-
-	position: relative;
-	display:inline-block;
-	max-width:225px;
-	min-height:1.5em;
+.chatbox .image-col {
 	padding: 5px;
-	background: #FFFFFF;
-	border: #7F7F7F solid 2px;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
+	
 }
 
-p.speech-bubble:before {
-	content: " ";
-	position: absolute;
-	bottom: -16px;
-	left: calc(10% - 1px) ;
-	border-style: solid;
-	border-width: 14px 14px 0;
-	border-color: #7F7F7F transparent;
-	display: block;
-	width: 0;
-	z-index: 0;
-}
-
-p.speech-bubble:after {
-	content: " ";
-	position: absolute;
-	bottom: -13.5px;
-	left: 10%;
-	border-style: solid;
-	border-width: 13px 13px 0;
-	border-color: #FFFFFF transparent;
-	display: block;
-	width: 0;
-	z-index: 1;
-}*/
-
-
-p.speech-bubble {
-font-size: 10px;
-word-wrap: break-word;
-display: inline-block;
-
-position: relative;
-max-width: 225px;
-min-height: 1.5em;
-
-background: rgb(150, 205, 128);
--webkit-border-radius: 13px;
--moz-border-radius: 13px;
-border-radius: 13px;
-padding: 7px;
-}
-
-p.speech-bubble:after {
-content: '';
-position: absolute;
-border-style: solid;
-border-width: 17px 13px 0;
-border-color: rgb(150, 205, 128) transparent;
-display: block;
-width: 0;
-z-index: 1;
-margin-left: -13px;
-bottom: -8px;
-left: 10%;
-}
-
-p.speech-bubble-right {
-
-font-size: 10px;
-word-wrap: break-word;
-display: inline-block;
-padding: 7px;
-padding-right: 2px;
-margin-top: 10px;
-margin-left: 20px;
-
-position: relative;
-max-width: 225px;
-min-height: 1.5em;
-background: rgb(205, 201, 200);
--webkit-border-radius: 13px;
--moz-border-radius: 13px;
-border-radius: 13px;
-}
-
-p.speech-bubble-right:after 
-{
-content: '';
-position: absolute;
-border-style: solid;
-border-width: 16px 11px 0;
-border-color: rgb(205, 201, 200) transparent;
-display: block;
-width: 0;
-z-index: 1;
-margin-left: -11px;
-bottom: -8px;
-left: 91%;
-}
 
 
 /*This is for the Matches Tab*/
