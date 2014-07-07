@@ -150,20 +150,23 @@ app.controller('ChatController' , function($scope,socket,ConversationFactory){
 
 
 	//create a message and send it to the server
-	$scope.addMessage = function(userId) {
+	$scope.addMessage = function(chatWindow) {
+
+		//don't add a message if the input area is blank
+		if( chatWindow.messageInput === '' ){ return; }
 
 		var message = {
   				//firstName : 'James',
   				//lastName : 'Staley',
   				created : Date.now,
-  				recipient: userId,
+  				recipient: chatWindow.userId,
   				sender : $scope.tempUser,
-  				text : $scope.chatWindows[userId].messageInput
+  				text : chatWindow.messageInput
   			}
 
   			socket.emit( 'send' , message );
-  			$scope.chatWindows[ userId ].messages.push(message);
-  			$scope.chatWindows[ userId ].messageInput = ''; 
+  			chatWindow.messages.push(message);
+  			chatWindow.messageInput = ''; 
   		};
 
 		//Send Message Clicked
