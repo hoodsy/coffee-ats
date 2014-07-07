@@ -34,6 +34,45 @@ app.factory('ConversationFactory', function($resource){
 })
 
 
+
+//provided uner MIT license 
+app.directive('scrollGlue', function(){
+        return {
+            priority: 1,
+            require: ['?ngModel'],
+            restrict: 'A',
+            link: function(scope, $el, attrs, ctrls){
+
+                var el = $el[0],
+                    ngModel = ctrls[0] ;
+
+                function scrollToBottom(){
+                    el.scrollTop = el.scrollHeight;
+                }
+
+                function shouldActivateAutoScroll(){
+                    // + 1 catches off by one errors in chrome
+                    return el.scrollTop + el.clientHeight + 1 >= el.scrollHeight;
+                }
+
+                scope.$watch(function(){
+                    if(ngModel){
+                        scrollToBottom();
+                    }
+                });
+
+                $el.bind('scroll', function(){
+                    var activate = shouldActivateAutoScroll();
+                    if(activate !== ngModel.$viewValue){
+                        scope.$apply(ngModel.$setViewValue.bind(ngModel, activate));
+                    }
+                });
+            }
+        };
+    });
+
+
+//provided under MIT license
 app.directive('ngEnter', function () {
 	return function (scope, element, attrs) {
 		element.bind("keydown keypress", function (event) {
@@ -103,11 +142,14 @@ app.controller('ChatController' , function($scope,socket,ConversationFactory){
  //  			$scope.data.messageInput = ''; 
 	// };
 
+
 		//slice out the indicated chat window
 	$scope.removeChatWindow = function(userId){
 		delete $scope.chatWindows[userId];
 	}	
 
+
+	//create a message and send it to the server
 	$scope.addMessage = function(userId) {
 
 		var message = {
@@ -119,7 +161,6 @@ app.controller('ChatController' , function($scope,socket,ConversationFactory){
   				text : $scope.chatWindows[userId].messageInput
   			}
 
-  			console.log(message);
   			socket.emit( 'send' , message );
   			$scope.chatWindows[ userId ].messages.push(message);
   			$scope.chatWindows[ userId ].messageInput = ''; 
@@ -130,9 +171,10 @@ app.controller('ChatController' , function($scope,socket,ConversationFactory){
 		//get the conversation between the people TODO: what if the users haven't spoken yet? 
 		ConversationFactory.get({source:$scope.tempUser , target:user._id}).$promise.then(function(res){
 			$scope.conversation = res.data;
-			if( $scope.chatWindows.hasOwnProperty( user._id ) ){ 		//if the chat window assciated with the user already exists, just display it
-				console.log('chat window exists for ', user.firstName) 
-				$scope.chatWindows[ user._id ].show = true; //set the display value to true (assuming its not)
+
+			if( $scope.chatWindows.hasOwnProperty( user._id ) ){ 
+		//if the chat window assciated with the user already exists, just display it
+				// $scope.chatWindows[ user._id ].show = true; //set the display value to true (assuming its not)
 				$scope.chatWindows[ user._id ].messages = $scope.conversation; //set the messages to be the retrieved convo
 			}
 			else{ //otherwise make a new chat window
@@ -140,21 +182,31 @@ app.controller('ChatController' , function($scope,socket,ConversationFactory){
 				$scope.chatWindows[ user._id ] = {
 					name : '' + user.firstName + ' ' + user.lastName,
 					userId : user._id,
-					show : true,
+					showEnterText : true,
 					messageInput : 'Enter Text Here',
 					messages: $scope.conversation //make a copy that we can append to
 				}
+
 			}
 
-
 					//TODO: remove this, only for cleanliness while only 1 chat window is usable at a time
-		for( var uId in $scope.chatWindows ){
+		   for( var uId in $scope.chatWindows ){
+
 			if( uId !== user._id ){
 				$scope.removeChatWindow(uId);
 			}
 		}
 
 		});
+	}
+
+	//take the chat window, if its still has the 'enter text here' remove it
+	$scope.removeText = function( chatWindow ){
+		if( chatWindow.showEnterText ){
+			chatWindow.messageInput = ''; 
+			chatWindow.showEnterText = false;
+		}
+		return;
 	}
 
 
@@ -168,10 +220,9 @@ app.controller('ChatController' , function($scope,socket,ConversationFactory){
 		console.log('disconnected from server')
 	})
 	socket.on('receive', function(data){
-		console.log('server has recieved the message ' , data);
-
+		console.log('Recieved the message ' , data);
+		data._id = data.sender;
 		$scope.messageUser( data )
-		// $scope.chatWindows[ data.sender ].messages.push( data );
 	})
 	socket.on('error', function(){
 		console.log('error recieved')

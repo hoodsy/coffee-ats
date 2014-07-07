@@ -206,30 +206,29 @@
                <div class="col-sm-12 header" ng-click='minimize = !minimize'>
                 <div class="chat-header" ng-class="{'minimize-chat' : minimize }">
                  <h6 class="user-title">{{chatWindow.name}}</h6></div>
-                 <div class="uiSelector"><a class="" role="button" ng-click='removeChatWindow(chatWindow.userId)'><i id="closechat" class="fa fa-times"></i></a></div>
+                 <div class="uiSelector"><a class="" role="button" ng-click='removeChatWindow(chatWindow.userId)'    ><i id="closechat" class="fa fa-times"></i></a></div>
                </div>
-               <div class="chatter-wrap">
-                 <div class="col-sm-12 display-box">
+               <div class="chatter-wrap" >
+
+                 <div scroll-glue class="col-sm-12 display-box" ng-model='glued'>
 
                   <div class="speech-col col-sm-12" id="speech-holder">
-
-                  <div ng-repeat='message in chatWindow.messages track by $index'>
-                   <div class="row sender-message" ng-if='message.sender === chatWindow.userId'>
-                    <div class="col-sm-2 image-col" ><img class="img-responsive img-circle" src="img/manager.png"></div>
-                    <div class="col-sm-10"><p class="bubble green">{{message.text}}</p></div>
-                  </div>
-                  <div class="row user-message" ng-if='message.sender === tempUser'>
-                   <div class="col-sm-12">
-                     <p class="bubble bubble-alt gray">{{message.text}}</p>
-                     <!-- <p class="bubble bubble-alt gray">How about we set up an interview for Monday afternoon?</p> -->
+                    <div ng-repeat='message in chatWindow.messages track by $index'>
+                     <div class="row sender-message" ng-if='message.sender === chatWindow.userId'>
+                      <div class="col-sm-2 image-col" ><img class="img-responsive img-circle" src="img/manager.png"></div>
+                      <div class="col-sm-10"><p class="bubble green">{{message.text}}</p></div>
+                    </div>
+                    <div class="row user-message" ng-if='message.sender === tempUser'>
+                     <div class="col-sm-12">
+                       <p class="bubble bubble-alt gray">{{message.text}}</p>
+                     </div>
                    </div>
                  </div>
                </div>
-     </div>
 
 
    </div>
-   <div class="col-sm-12 _552h"><textarea rows="1" id="chatwrite" class="chatinput" ng-model='chatWindow.messageInput' ng-enter='addMessage(chatWindow.userId)'></textarea></div>
+   <div class="col-sm-12 _552h"><textarea rows="1" id="chatwrite" class="chatinput" ng-model='chatWindow.messageInput' ng-enter='addMessage(chatWindow.userId)' ng-click="removeText(chatWindow)"></textarea></div>
  </div>
 </div>
 </div>
@@ -288,13 +287,13 @@
           <a id="drop4" href="#" role="button" data-toggle="dropdown">More<span class="caret"></span></a>
           <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
             <li role="presentation">
-              <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">One</a>
+              <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">TwitterOne</a>
             </li>
             <li role="presentation">
-              <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">Two</a>
+              <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">TwitterTwo</a>
             </li>
             <li role="presentation">
-              <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">Three</a>
+              <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">TwitterThree</a>
             </li>
           </ul>
         </li>
