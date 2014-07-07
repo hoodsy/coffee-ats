@@ -102,7 +102,7 @@ background-color: inherit;
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: rgb(160, 160, 160);
+  color: rgb(205, 201, 200);
   cursor: default;
   background-color: transparent;
   border: 0px solid #ddd;
@@ -110,7 +110,7 @@ background-color: inherit;
 }
 
 #no-highlight {
-	margin-left: 6%;
+	margin-left: 10px;
 } /*Centering the sidebar icons*/
 
 .col-md-2 {
@@ -119,7 +119,7 @@ background-color: inherit;
 }
 
 .sidebar ul li a:hover{
-	color: rgb(160, 160, 160); /* Controls hover color for sidebar icons*/
+	color: rgb(205, 201, 200);
 }
 
 #no-highlight :hover {
@@ -127,7 +127,7 @@ background-color: inherit;
 }
 
 .sidebar ul li {
-	margin-bottom: 33%; /* Spacing between icons*/
+	margin-bottom: 50px; /* Spacing between icons*/
 }
 
 
@@ -175,14 +175,12 @@ p.quote {
 
 .swipe {
 	margin-top: 26.5%;
-	padding: 0px;
 }
 
 .header {
 	background-color: rgb(150, 205, 128);
 	padding-top: 5px;
 	padding-bottom: 5px;
-	padding-right: 18px;
 }
 
 .header h6 {
@@ -209,7 +207,7 @@ p.quote {
 .header-icon {
 	font-size: 25px;
 	color: white;
-	
+	margin-left: 28px;
 }
 
 		/* LEFT CONTAINER*/
@@ -235,10 +233,6 @@ p.quote {
 	margin-bottom: 0px;
 }
 
-.left-col .row > .col-sm-12 {
-	padding-bottom: 5px;
-}
-
 .popover-header {
 	padding: 0 100px;
 	font-size: 12px;
@@ -247,16 +241,11 @@ p.quote {
 
 .profile {
 	height: 150px;
-	height: 100%;
 	margin-bottom: 10px;
 }
 
 .profile-pic {
-	position: relative;
-  	top: 50%;
-  	-webkit-transform: translateY(25%);
-  	-ms-transform: translateY(-50%);
-  	transform: translateY(-50%);
+	margin-top: 25%;
 }
 
 .description {
@@ -265,14 +254,12 @@ p.quote {
 
 .experience {
 	height: 240px;
-	height: 100%;
 	margin-bottom: 10px;
 	border-top: white;
 }
 
 .education {
 	height: 110px;
-	height: 100%;
 	margin-bottom: 10px;
 	border-top: white;
 }
@@ -304,7 +291,6 @@ color: rgb(160, 160, 160);
 
 		/* RIGHT CONTAINER*/
 .right-col {
-
 	margin-bottom: 0px;
 }
 
@@ -315,7 +301,6 @@ color: rgb(160, 160, 160);
 
 .about {
 	height: 200px;
-	height: 100%;
 	margin-bottom: 10px;
 	border-top: white;
 }
@@ -328,10 +313,7 @@ color: rgb(160, 160, 160);
 	float: left;
 }
 
-
-
 .seeking-tag {
-	color: white;
 	font-size: 8px;
 	font-weight: lighter;
 	margin: 5px;
@@ -342,13 +324,12 @@ color: rgb(160, 160, 160);
 }
 
 .fa-user {
-	margin-left: 5px; /* Adjusting User-icon's position*/
+	margin-left: 35px; /* Adjusting User-icon's position*/
 }
 
 .want {
 	height: 240px;
-	height: 100%;
-	/*margin-bottom: 30%;*/
+	margin-bottom: 10px;
 	border-top: white;
 }
 
@@ -356,14 +337,7 @@ color: rgb(160, 160, 160);
 	border: none;
 }
 
-.btn:hover,
-.btn:focus {
-  color: transparent;
-  text-decoration: none;
-}
-
 .btn-message {
-	margin-top: 10px;
 	padding: 8px 40px;
 	font-size: 25px;
 }
@@ -373,7 +347,7 @@ color: rgb(160, 160, 160);
 .btn-message:active,
 .btn-message.active,
 .open .dropdown-toggle.btn-message {
-  color: white;
+  color: #fff;
   background-color: rgb(74, 138, 142);
   
 }
@@ -417,8 +391,8 @@ fieldset[disabled] .btn-message.active {
 	height: 300px;
 	background-color: white;
 	position: absolute;
-	bottom:0px;
-	margin-left: 71%;
+	margin-left: 738px;
+	margin-top: -303px;
 	z-index: 50000;
 	border: 1px solid rgb(160, 160, 160);
 
@@ -484,7 +458,7 @@ fieldset[disabled] .btn-message.active {
 
 .minimize-chat {
 	height: 0px;
-	margin-bottom: 3%;
+	margin-top: -32px;
 }
 
 .chatbox .row .display-box {
@@ -593,40 +567,6 @@ div.user-matches .description p {
 	font-weight: 100;
 }
 
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus {
-  outline: none;
-}
-.btn:hover,
-.btn:focus {
-  color: #333;
-  text-decoration: none;
-}
-.btn:active,
-.btn.active {
-  background-image: none;
-  outline: 0;
-}
-
-.btn-reject {
-	background-color: transparent;
-	color: transparent;
-	border-color: transparent;
-	outline: none;
-	border: none;
-	background: none transparent;
-}
-
-.btn-reject img {
-	background-color: transparent;
-	color: transparent;
-	border-color: transparent;
-	outline: none;
-	border: none;
-	background: none transparent;
-}
-
 .btn-round {
 	display: inline-block;
 	margin-top: 50%;
@@ -707,7 +647,3 @@ textarea {
 textarea.placeholder4 {
 	color: gray;
 }
-
-/* */
-
-
