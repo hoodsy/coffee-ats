@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel = 'stylesheet' href='css/styles.css' >
   <link rel="icon" href="../../favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="img/coffeelogo.ico"/>
@@ -30,7 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
 
-      <!-- Hardcoded path for socket.io, TODO: make into variable in angular app or controller -->
+
       <script type='text/javascript' src='http://localhost:3000/socket.io/socket.io.js'></script>
 
       <script type="text/javascript" src="js/angular.js"></script>
@@ -39,6 +39,7 @@
       <script type="text/javascript" src='js/socket.js'></script> 
 
       <script src="js/app.js" type="text/javascript"></script>
+
 
       <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     </head>
@@ -94,12 +95,12 @@
 
             <div class="row placeholders wrapper" ng-controller="UserController as userCtrl">
               <div class="col-sm-1 swipe left">
-                <button type="button" class="btn btn-danger btn-block" ng-click='prevApplicant()'><i class="fa fa-chevron-left"></i></button>
+                <button type="button" class="btn btn-reject" ng-click='prevApplicant()'><img src="img/X.png"></button>
               </div>
 
 
               <div class="col-sm-10 placeholder" style="border: none;">
-                <div class="popover-header"><p> {{user.about}} </p></div>
+                <div class="popover-header"><p> {{user.about}}</p></div>
                 <div class="row">
                   <div class="col-sm-6 left-col">
                     <div class="row">
@@ -121,7 +122,7 @@
                     <div class="row">
                       <div class="col-sm-12 placeholder left-col experience">
 
-                        <div class="col-sm-12 header"> <div class="col-sm-10"><h6 class="header-title">Experience</h6></div><div class="col-sm-1"><i class="fa fa-briefcase header-icon"></i></div></div>
+                        <div class="col-sm-12 header"> <div class="col-sm-10"><h6 class="header-title">Experience</h6></div><div class="col-sm-1 col-sm-offset-1"><i class="fa fa-briefcase header-icon"></i></div></div>
 
                         <div class="row" ng-repeat="t in [0,1,2]">
                           <div class="col-sm-12">
@@ -137,8 +138,7 @@
                     </div>
                     <div class="row">
                       <div class="col-sm-12 placeholder left-col education">
-                        <div class="col-sm-12 header"> <div class="col-sm-10"><h6 class="header-title">Education</h6></div><div class="col-sm-1"><i class="fa fa-graduation-cap header-icon"></i></div></div>
-                        <!-- NOTE , this is only showing the first one, which is the most recent? -->
+                        <div class="col-sm-12 header"> <div class="col-sm-10"><h6 class="header-title">Education</h6></div><div class="col-sm-1 col-sm-offset-1"><i class="fa fa-graduation-cap header-icon"></i></div></div>
                         <div class="row">
                           <div class="col-sm-12">
                             <h6 class="title-tag">{{user.extendedInfo.education[0].school}}</h6>
@@ -152,7 +152,7 @@
                   <div class="col-sm-6 right col">
                     <div class="row">
                       <div class="col-sm-12 placeholder right-col about">
-                        <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">I am...</h6></div><div class="col-sm-1"><i class="fa fa-user header-icon"></i></div></div>
+                        <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">I am...</h6></div><div class="col-sm-1 col-sm-offset-1"><i class="fa fa-user header-icon"></i></div></div>
                         <div class="row">
                           <div class="col-sm-12">
                             <button class="btn btn-success user-tag" ng-repeat='tag in user.tags'>  {{tag}} </button>
@@ -185,7 +185,7 @@
                     </div>
                     <div class="row">
                       <div class="col-sm-12 placeholder right-col message">
-                        <button id="chatmessage" class="btn btn-message" ng-click='messageUser(user)'>Message <i class="fa fa-envelope"></i></button>
+                        <button id="chatmessage" class="btn btn-message" ng-click='messageUser(user)'>Message <i class="fa fa-comment"></i></button>
                       </div>
                     </div>
                   </div>
@@ -195,11 +195,10 @@
 
               </div>
               <div class="col-sm-1 swipe right">
-                <button type="button" class="btn btn-success btn-block" ng-click='nextApplicant()'><i class="fa fa-chevron-right"></i></button>
+                <button type="button" class="btn btn-reject" ng-click='nextApplicant()'><img src="img/coffeebean.png"></button>
               </div>
 
             </div>
-
 
             <div class="chatbox" ng-repeat='chatWindow in chatWindows' ng-init='minimize=false'>
              <div class="row" >
@@ -227,246 +226,247 @@
                </div>
 
 
-   </div>
-   <div class="col-sm-12 _552h"><textarea rows="1" id="chatwrite" class="chatinput" ng-model='chatWindow.messageInput' ng-enter='addMessage(chatWindow)' ng-click="removeText(chatWindow)"></textarea></div>
- </div>
-</div>
-</div>
-</div> <!--Profile-->
+             </div>
+             <div class="col-sm-12 _552h"><textarea rows="1" id="chatwrite" class="chatinput" ng-model='chatWindow.messageInput' ng-enter='addMessage(chatWindow)' ng-click="removeText(chatWindow)"></textarea></div>
+           </div>
+         </div>
+       </div>
+
+     </div> <!--Profile-->
 
 
 
 
-<div class="tab-pane fade col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="matches">
-  <div class="tab content col-sm-6 left-col two" style="background-color: rgb(48, 42, 40);">
+     <div class="tab-pane fade col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="matches">
+      <div class="tab content col-sm-6 left-col two" style="background-color: rgb(48, 42, 40);">
 
-    <div class="nav">
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="active matches-tabs"><a href="#status" class="matches-tab" role="tab" data-toggle="tab">By Status</a></li>
-        <li class="matches-tabs"><a href="#position" class="matches-tab" role="tab" data-toggle="tab">By Position</a></li>
-      </ul>
-      <p id="approval"style="float: right;">Approved by</p>
-    </div><!--Navbar-->
+        <div class="nav">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="active matches-tabs"><a href="#status" class="matches-tab" role="tab" data-toggle="tab">By Status</a></li>
+            <li class="matches-tabs"><a href="#position" class="matches-tab" role="tab" data-toggle="tab">By Position</a></li>
+          </ul>
+          <p id="approval"style="float: right;">Approved by</p>
+        </div><!--Navbar-->
 
 
 
-    <div class="row user-matches">
-      <div class="col-sm-12">
-        <div class="tab-content" style="padding: 15px;">
-          <div class="tab-pane fade in active" id="status">
+        <div class="row user-matches">
+          <div class="col-sm-12">
+            <div class="tab-content" style="padding: 15px;">
+              <div class="tab-pane fade in active" id="status">
 
-            <div class="applicant">
-              <div class="row">
-                <div class="col-sm-2 profile-pic-container"><img class="img-responsive img-rounded profile-pic" src="img/propic.png"></div>
-                <div class="col-sm-6">
-                  <div class="sidebar-module sidebar-module-inset description">
-                    <h4 id="user-name">Benjamin Button</h4>
-                    <p>Hello Ruth, I saw that you were an iOS developer, and I was wondering if we might talk...</p>
+                <div class="applicant">
+                  <div class="row">
+                    <div class="col-sm-2 profile-pic-container"><img class="img-responsive img-rounded profile-pic" src="img/propic.png"></div>
+                    <div class="col-sm-6">
+                      <div class="sidebar-module sidebar-module-inset description">
+                        <h4 id="user-name">Benjamin Button</h4>
+                        <p>Hello Ruth, I saw that you were an iOS developer, and I was wondering if we might talk...</p>
+                      </div>
+                    </div>
+                    <div class="col-sm-2"><button class="btn-round btn-approved"></button></div>
+                    <div class="col-sm-2"><img src="img/manager.png" class="img-responsive img-rounded manager-pic"></div>
                   </div>
-                </div>
-                <div class="col-sm-2"><button class="btn-round btn-approved"></button></div>
-                <div class="col-sm-2"><img src="img/manager.png" class="img-responsive img-rounded manager-pic"></div>
-              </div>
-              <div class="col-sm-10 col-sm-offset-2" style="border: 1px solid white;">   </div>
+                  <div class="col-sm-10 col-sm-offset-2" style="border: 1px solid white;">   </div>
 
+                </div>
+              </div>
+              <div class="tab-pane fade" id="position"></div>
             </div>
           </div>
-          <div class="tab-pane fade" id="position"></div>
-        </div>
+        </div><!-- Row-->
+
       </div>
-    </div><!-- Row-->
 
-  </div>
+      <div class="col-sm-6 right-col two">
+        <div class="anything">
 
-  <div class="col-sm-6 right-col two">
-    <div class="anything">
-
-      <ul class="nav nav-pills navbar-right">
-        <!-- <li class="active display-tabs"><a href="#">Regular Link</a></li> -->
-        <li class="display-tabs dropdown">
-          <a id="drop4" href="#" role="button" data-toggle="dropdown">More<span class="caret"></span></a>
-          <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
-            <li role="presentation">
-              <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">TwitterOne</a>
-            </li>
-            <li role="presentation">
-              <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">TwitterTwo</a>
-            </li>
-            <li role="presentation">
-              <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">TwitterThree</a>
+          <ul class="nav nav-pills navbar-right">
+            <!-- <li class="active display-tabs"><a href="#">Regular Link</a></li> -->
+            <li class="display-tabs dropdown">
+              <a id="drop4" href="#" role="button" data-toggle="dropdown">More<span class="caret"></span></a>
+              <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                <li role="presentation">
+                  <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">One</a>
+                </li>
+                <li role="presentation">
+                  <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">Two</a>
+                </li>
+                <li role="presentation">
+                  <a class="dropdown" role="menuitem" tabindex="-1" href="http://twitter.com">Three</a>
+                </li>
+              </ul>
             </li>
           </ul>
-        </li>
-      </ul>
 
-    </div> <!--End of tab-->
+        </div> <!--End of tab-->
 
 
 
 
 
-    <div class="col-sm-12">
+        <div class="col-sm-12">
 
-      <div class="popover-header" style="padding: 0px;"><p>*Ex Finance guy working in startups. Would love to start helping you do some really cool stuff at this point in my career and help your company grow.</p></div>
-
-      <div class="row">
-        <div class="col-sm-9 placeholder middle-col experience">
-
-          <div class="col-sm-12 header"> <div class="col-sm-10"><h6 class="header-title">Experience</h6></div><div class="col-sm-1"><i class="fa fa-briefcase header-icon"></i></div></div>
+          <div class="popover-header" style="padding: 0px;"><p>*Ex Finance guy working in startups. Would love to start helping you do some really cool stuff at this point in my career and help your company grow.</p></div>
 
           <div class="row">
-            <div class="col-sm-12">
-              <h6 class="title-tag">VP of Operations</h6>
-              <p class="organization-tag">JP Morgan Chase</p>
-              <p class="time-tag">June 2013 - Present (7 months) Hong Kong</p>
+            <div class="col-sm-9 placeholder middle-col experience">
+
+              <div class="col-sm-12 header"> <div class="col-sm-10"><h6 class="header-title">Experience</h6></div><div class="col-sm-1"><i class="fa fa-briefcase header-icon"></i></div></div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <h6 class="title-tag">VP of Operations</h6>
+                  <p class="organization-tag">JP Morgan Chase</p>
+                  <p class="time-tag">June 2013 - Present (7 months) Hong Kong</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <h6 class="title-tag">Founder</h6>
+                  <p class="organization-tag">BU Urban Business Accelerator</p>
+                  <p class="time-tag">January 2012 - June 2013 (1 year 6 months) Boston</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <h6 class="title-tag">Co-Founder & Director</h6>
+                  <p class="organization-tag">AnaGenesis</p>
+                  <p class="time-tag">June 2011 - March 2012 (10months) India and Boston</p>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-sm-12">
-              <h6 class="title-tag">Founder</h6>
-              <p class="organization-tag">BU Urban Business Accelerator</p>
-              <p class="time-tag">January 2012 - June 2013 (1 year 6 months) Boston</p>
+            <div class="col-sm-9 placeholder middle-col education">
+              <div class="col-sm-12 header"> <div class="col-sm-10"><h6 class="header-title">Education</h6></div><div class="col-sm-1"><i class="fa fa-graduation-cap header-icon"></i></div></div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <h6 class="title-tag">Boston University - School of Management</h6>
+                  <p class="organization-tag">BSBA, Operations & Technology Management</p>
+                  <p class="time-tag">2008-2012</p>
+                </div>
+              </div>
             </div>
           </div>
 
+
           <div class="row">
-            <div class="col-sm-12">
-              <h6 class="title-tag">Co-Founder & Director</h6>
-              <p class="organization-tag">AnaGenesis</p>
-              <p class="time-tag">June 2011 - March 2012 (10months) India and Boston</p>
+            <div class="col-sm-9 placeholder middle-col about">
+              <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">I am...</h6></div><div class="col-sm-1"><i class="fa fa-user header-icon"></i></div></div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <button class="btn btn-success user-tag">developer</button>
+                  <button class="btn btn-success user-tag">designer</button>
+                  <button class="btn btn-success user-tag">startup</button>
+                  <button class="btn btn-success user-tag">iOS</button>
+                  <button class="btn btn-success user-tag">Mobile Apps</button>
+                  <button class="btn btn-success user-tag">Entrepreneurship</button>
+                  <button class="btn btn-success user-tag">Finance</button>
+                  <button class="btn btn-success user-tag">Ecommerce</button>
+                  <button class="btn btn-success user-tag">Product Design</button>
+                  <button class="btn btn-success user-tag">Investor</button>
+                  <button class="btn btn-success user-tag">Marketing</button>
+
+                </div>
+              </div>
             </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-sm-9 placeholder middle-col want">
+              <div class="col-sm-12 header-want" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Looking for...</h6></div><div class="col-sm-1"></div></div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <button class="btn btn-success seeking-tag">developer</button>
+                  <button class="btn btn-success seeking-tag">designer</button>
+                  <button class="btn btn-success seeking-tag">startup</button>
+                  <button class="btn btn-success seeking-tag">iOS</button>
+                  <button class="btn btn-success seeking-tag">Mobile Apps</button>
+                  <button class="btn btn-success seeking-tag">Entrepreneurship</button>
+                  <button class="btn btn-success seeking-tag">Finance</button>
+                  <button class="btn btn-success seeking-tag">Ecommerce</button>
+                  <button class="btn btn-success seeking-tag">Product Design</button>
+                  <button class="btn btn-success seeking-tag">Investor</button>
+                  <button class="btn btn-success seeking-tag">Marketing</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+    </div> <!--Matches-->
+
+    <div  class="tab-pane fade" id="jobs">
+     <div class="row">
+
+      <div class="col-sm-6 post-job">
+        <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Location</h6></div></div>
+        <div class="row">
+          <div class="col-sm-12 text-input">
+            <input placeholder="New York, NY">
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-9 placeholder middle-col education">
-          <div class="col-sm-12 header"> <div class="col-sm-10"><h6 class="header-title">Education</h6></div><div class="col-sm-1"><i class="fa fa-graduation-cap header-icon"></i></div></div>
-          <div class="row">
-            <div class="col-sm-12">
-              <h6 class="title-tag">Boston University - School of Management</h6>
-              <p class="organization-tag">BSBA, Operations & Technology Management</p>
-              <p class="time-tag">2008-2012</p>
-            </div>
+      <div class="col-sm-6 post-job">
+        <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Headline</h6></div></div>
+        <div class="row">
+          <div class="col-sm-12 text-input">
+            <textarea class="placeholder4"></textarea>
           </div>
         </div>
       </div>
 
 
-      <div class="row">
-        <div class="col-sm-9 placeholder middle-col about">
-          <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">I am...</h6></div><div class="col-sm-1"><i class="fa fa-user header-icon"></i></div></div>
-          <div class="row">
-            <div class="col-sm-12">
-              <button class="btn btn-success user-tag">developer</button>
-              <button class="btn btn-success user-tag">designer</button>
-              <button class="btn btn-success user-tag">startup</button>
-              <button class="btn btn-success user-tag">iOS</button>
-              <button class="btn btn-success user-tag">Mobile Apps</button>
-              <button class="btn btn-success user-tag">Entrepreneurship</button>
-              <button class="btn btn-success user-tag">Finance</button>
-              <button class="btn btn-success user-tag">Ecommerce</button>
-              <button class="btn btn-success user-tag">Product Design</button>
-              <button class="btn btn-success user-tag">Investor</button>
-              <button class="btn btn-success user-tag">Marketing</button>
-
-            </div>
+      <div class="col-sm-6 post-job">
+        <div class="row">
+          <div class="col-sm-12" style="text-align: center;">
+            <h3>What <h2 style="color: rgb(150, 205, 128);">INDUSTRY</h2></h3> <h3>is your company in?</h3>
           </div>
         </div>
       </div>
 
 
-      <div class="row">
-        <div class="col-sm-9 placeholder middle-col want">
-          <div class="col-sm-12 header-want" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Looking for...</h6></div><div class="col-sm-1"></div></div>
+      <div class="col-sm-6 post-job">
+        <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Industry</h6></div></div>
+        <div class="row">
+          <div class="col-sm-12 text-input">
+            <input>
+          </div>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="col-sm-12">
-              <button class="btn btn-success seeking-tag">developer</button>
-              <button class="btn btn-success seeking-tag">designer</button>
-              <button class="btn btn-success seeking-tag">startup</button>
-              <button class="btn btn-success seeking-tag">iOS</button>
-              <button class="btn btn-success seeking-tag">Mobile Apps</button>
-              <button class="btn btn-success seeking-tag">Entrepreneurship</button>
-              <button class="btn btn-success seeking-tag">Finance</button>
-              <button class="btn btn-success seeking-tag">Ecommerce</button>
-              <button class="btn btn-success seeking-tag">Product Design</button>
-              <button class="btn btn-success seeking-tag">Investor</button>
-              <button class="btn btn-success seeking-tag">Marketing</button>
+      <div class="col-sm-6 post-job">
+        <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Job Description</h6></div></div>
+        <div class="row">
+          <div class="col-sm-12 text-input">
+            <input>
+          </div>
+        </div>
+      </div>
 
-            </div>
+      <div class="col-sm-6 post-job">
+        <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Salary Range</h6></div></div>
+        <div class="row">
+          <div class="col-sm-12 text-input">
+            <input>
           </div>
         </div>
       </div>
 
     </div>
-
-
-
-  </div>
-</div> <!--Matches-->
-
-<div  class="tab-pane fade" id="jobs">
- <div class="row">
-
-  <div class="col-sm-6 post-job">
-    <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Location</h6></div></div>
-    <div class="row">
-      <div class="col-sm-12 text-input">
-        <input placeholder="New York, NY">
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 post-job">
-    <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Headline</h6></div></div>
-    <div class="row">
-      <div class="col-sm-12 text-input">
-        <textarea class="placeholder4"></textarea>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="col-sm-6 post-job">
-    <div class="row">
-      <div class="col-sm-12" style="text-align: center;">
-        <h3>What <h2 style="color: rgb(150, 205, 128);">INDUSTRY</h2></h3> <h3>is your company in?</h3>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="col-sm-6 post-job">
-    <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Industry</h6></div></div>
-    <div class="row">
-      <div class="col-sm-12 text-input">
-        <input>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 post-job">
-    <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Job Description</h6></div></div>
-    <div class="row">
-      <div class="col-sm-12 text-input">
-        <input>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 post-job">
-    <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">Salary Range</h6></div></div>
-    <div class="row">
-      <div class="col-sm-12 text-input">
-        <input>
-      </div>
-    </div>
-  </div>
-
-</div>
-</div> <!--jobs-->
+  </div> <!--jobs-->
 </div> <!-- tab-content -->
 
 </div>
@@ -482,6 +482,7 @@
 
     $("#closechat").click(function() {
       $("div.chatbox").toggleClass( "close-chat");
+
     });
 
     $("#chatmessage").click(function() {
@@ -493,6 +494,16 @@
       $("div.chatbox").toggleClass( "minimize-chat");
       $("div.chatter-wrap").toggleClass( "close-chat");
     });
+
+
+    var height = 0;
+    $('div.speech-col p').each(function(i, value){
+      height += parseInt($(this).height());
+    });
+
+    height += '';
+
+    $('.speech-col').animate({scrollTop: height});
 
     var observe;
     if (window.attachEvent) {
@@ -527,6 +538,7 @@
     }
 
     init();
+
 
     </script>
     <script type="text/javascript">
