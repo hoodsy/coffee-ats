@@ -44,7 +44,7 @@
       <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     </head>
 
-    <body>
+    <body ng-controller='UserController as userCtrl'>
 
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -59,7 +59,7 @@
           </div>
           <div id="punch-line"><p>Connecting the next generation of professionals</p></div>
           <div class="navbar name-identifier">
-            <p id="user-name">Benjamin</p>
+            <p id="user-name">{{user.firstName}}</p>
           </div>
         </div>
       </div> <!-- Nav Bar -->
@@ -93,14 +93,14 @@
           <div class="tab-pane fade in active col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="profile">
             <h3 class="text-center title"><strong>13</strong> total applicants</h3><p class="text-center quote">(Marketing Interns)</p>
 
-            <div class="row placeholders wrapper" ng-controller="UserController as userCtrl">
+            <div class="row placeholders wrapper" ng-controller="ApplicantController as applicantCtrl">
               <div class="col-sm-1 swipe left">
                 <button type="button" class="btn btn-reject" ng-click='prevApplicant()'><img src="img/X.png"></button>
               </div>
 
 
               <div class="col-sm-10 placeholder" style="border: none;">
-                <div class="popover-header"><p> {{user.about}}</p></div>
+                <div class="popover-header"><p> {{applicant.about}}</p></div>
                 <div class="row">
                   <div class="col-sm-6 left-col">
                     <div class="row">
@@ -109,11 +109,11 @@
                           <div class="col-sm-4"><img class="img-responsive img-circle profile-pic" src="img/propic.png"></div>
                           <div class="col-sm-7">
                             <div class="sidebar-module sidebar-module-inset description">
-                              <h4> {{user.firstName}} </h4>
-                              <h5> {{user.lastName}} </h5>
-                              <h5> {{user.organization}} </h5>
-                              <h6> {{user.industry}} </h6>
-                              <h6> {{user.location}} </h6>
+                              <h4> {{applicant.firstName}} </h4>
+                              <h5> {{applicant.lastName}} </h5>
+                              <h5> {{applicant.organization}} </h5>
+                              <h6> {{applicant.industry}} </h6>
+                              <h6> {{applicant.location}} </h6>
                             </div>
                           </div>
                         </div>
@@ -126,9 +126,9 @@
 
                         <div class="row" ng-repeat="t in [0,1,2]">
                           <div class="col-sm-12">
-                            <h6 class="title-tag">{{user.extendedInfo.experience[t].position}}</h6>
-                            <p class="organization-tag">{{user.extendedInfo.experience[t].organization}}</p>
-                            <p class="time-tag">{{user.extendedInfo.experience[t].timeSpan}}</p>
+                            <h6 class="title-tag">{{applicant.extendedInfo.experience[t].position}}</h6>
+                            <p class="organization-tag">{{applicant.extendedInfo.experience[t].organization}}</p>
+                            <p class="time-tag">{{applicant.extendedInfo.experience[t].timeSpan}}</p>
                           </div>
                         </div>
 
@@ -141,9 +141,9 @@
                         <div class="col-sm-12 header"> <div class="col-sm-10"><h6 class="header-title">Education</h6></div><div class="col-sm-1 col-sm-offset-1"><i class="fa fa-graduation-cap header-icon"></i></div></div>
                         <div class="row">
                           <div class="col-sm-12">
-                            <h6 class="title-tag">{{user.extendedInfo.education[0].school}}</h6>
-                            <p class="organization-tag">{{user.extendedInfo.education[0].degree}}</p>
-                            <p class="time-tag">{{user.extendedInfo.education[0].timeSpan}}</p>
+                            <h6 class="title-tag">{{applicant.extendedInfo.education[0].school}}</h6>
+                            <p class="organization-tag">{{applicant.extendedInfo.education[0].degree}}</p>
+                            <p class="time-tag">{{applicant.extendedInfo.education[0].timeSpan}}</p>
                           </div>
                         </div>
                       </div>
@@ -155,7 +155,7 @@
                         <div class="col-sm-12 header" style="margin-bottom: 5px;"> <div class="col-sm-10"><h6 class="header-title">I am...</h6></div><div class="col-sm-1 col-sm-offset-1"><i class="fa fa-user header-icon"></i></div></div>
                         <div class="row">
                           <div class="col-sm-12">
-                            <button class="btn btn-success user-tag" ng-repeat='tag in user.tags'>  {{tag}} </button>
+                            <button class="btn btn-success user-tag" ng-repeat='tag in applicant.tags'>  {{tag}} </button>
                           </div>
                         </div>
                       </div>
@@ -185,7 +185,7 @@
                     </div>
                     <div class="row">
                       <div class="col-sm-12 placeholder right-col message">
-                        <button id="chatmessage" class="btn btn-message" ng-click='messageUser(user)'>Message <i class="fa fa-comment"></i></button>
+                        <button id="chatmessage" class="btn btn-message" ng-click='messageApplicant(applicant)'>Message <i class="fa fa-comment"></i></button>
                       </div>
                     </div>
                   </div>
@@ -217,7 +217,7 @@
                       <div class="col-sm-2 image-col" ><img class="img-responsive img-circle" src="img/manager.png"></div>
                       <div class="col-sm-10"><p class="bubble green">{{message.text}}</p></div>
                     </div>
-                    <div class="row user-message" ng-if='message.sender === tempUser'>
+                    <div class="row user-message" ng-if='message.sender === user._id'>
                      <div class="col-sm-12">
                        <p class="bubble bubble-alt gray">{{message.text}}</p>
                      </div>
