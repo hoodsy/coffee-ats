@@ -1,0 +1,7 @@
+<h1>{{ user.firstName }} {{ user.lastName }}</h1>
+<blockquote>{{ user.headline }}</blockquote>
+<div>
+  <span class="glyphicon glyphicon-map-marker"></span>
+  <span>{{ user.location.join(',') }}</span>
+</div>
+<img ng-src="{{user.picture}}" alt="user picture"/>
