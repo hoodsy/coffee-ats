@@ -8,6 +8,7 @@ app.config(function($stateProvider) {
     url: '/jobs',
     views: {
       'main': {
+        controller: 'JobDashboardCtrl',
         templateUrl: 'modules/job/partials/job-main.html'
       }
     }
