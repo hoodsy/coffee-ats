@@ -1,4 +1,4 @@
-<table st-table="jobsTable" class="table table-striped">
+<table st-table="jobsTable" class="table table-hover">
   <thead>
     <th class="form-group"> 
       <a type="submit"
@@ -19,28 +19,24 @@
       />
     </th>
   </thead>
-
-  <thead>
-    <th st-sort="title">Title</th>
-    <th st-sort="company">Company</th>
-    <th st-sort="datePosted">Date Posted</th>
-    <th st-sort="numApplicants">Applicants</th>
+  <thead class="cursorPointer">
+    <th class="col-lg-3" st-sort="title">Title</th>
+    <th class="col-lg-3" st-sort="company">Company</th>
+    <th class="col-lg-3" st-sort="datePosted">Date Posted</th>
+    <th class="col-lg-3" st-sort="numApplicants">Applicants</th>
   </thead>
-
   <tbody>
+  <tr st-select-row="job" st-select-mode="multiple" ng-repeat="job in jobs" ng-init="getJobs(job)">
   <tr st-select-row="job" st-select-mode="multiple" ng-repeat="job in jobsTable">
-    <td>
-      <input type="checkbox" ng-model="job.selected"/>  
-      {{job.title}}
-    </td>
+    <td>{{job.title}}</td>
     <td>{{job.company}}</td>
-    <td>{{job.datePosted}}</td>
-    <td>{{job.numApplicants}}</td>
+    <td>{{job.created}}</td>
+    <td>{{job.applicants.length}}</td>
   </tr>
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="5" class="text-center">
+      <td colspan="5" class="cursorPointer text-center">
         <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
       </td>
     </tr>

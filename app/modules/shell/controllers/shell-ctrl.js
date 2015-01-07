@@ -1,5 +1,4 @@
 'use strict';
 
-angular.module('shell').controller('ShellCtrl', function ($scope) {
-
+angular.module('shell').controller('ShellCtrl', function ($scope, $cookies) {
 });
