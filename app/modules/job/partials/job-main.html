@@ -8,36 +8,48 @@
         New Opportunity
       </a>
     </th>
-    <th></th>
-    <th></th>
     <th>
       <input 
         st-search
         placeholder="Search" 
         class="input-sm form-control" 
-        type="search"
-      />
+        type="search"/>
     </th>
   </thead>
   <thead class="cursorPointer">
-    <th class="col-lg-3" st-sort="title">Title</th>
-    <th class="col-lg-3" st-sort="company">Company</th>
-    <th class="col-lg-3" st-sort="datePosted">Date Posted</th>
-    <th class="col-lg-3" st-sort="numApplicants">Applicants</th>
+    <th class="col-lg-1" st-sort="title">Title</th>
+    <th class="col-lg-3" st-sort="headline">Headline</th>
+    <th class="col-lg-1" st-sort="tags">Tags</th>
+    <th class="col-lg-1" st-sort="company">Company</th>
+    <th class="col-lg-1" st-sort="company">Location</th>
+    <th class="col-lg-1" st-sort="salaryMin">Min. Salary</th>
+    <th class="col-lg-1" st-sort="salaryMax">Max Salary</th>
+    <th class="col-lg-1" st-sort="schedule">Schedule</th>
+    <th class="col-lg-2" st-sort="datePosted">Date Posted</th>
+    <th class="col-lg-1" st-sort="numApplicants">Applicants</th>
   </thead>
   <tbody>
-  <tr st-select-row="job" st-select-mode="multiple" ng-repeat="job in jobs" ng-init="getJobs(job)">
+  <!-- <tr st-select-row="job" st-select-mode="multiple" ng-repeat="job in jobs" ng-init="getJobs(job)"> -->
   <tr st-select-row="job" st-select-mode="multiple" ng-repeat="job in jobsTable">
     <td>{{job.title}}</td>
+    <td>{{job.headline}}</td>
+    <td>
+      <!-- <p ng-repeat="tag in job.tags"></p> -->
+      {{job.tags}}
+    </td>
     <td>{{job.company}}</td>
-    <td>{{job.created}}</td>
-    <td>{{job.applicants.length}}</td>
+    <td>{{job.location}}</td>
+    <td>{{job.salaryMin}}</td>
+    <td>{{job.salaryMax}}</td>
+    <td>{{job.schedule}}</td>
+    <td>{{job.datePosted}}</td>
+    <td>{{job.numApplicants}}</td>
   </tr>
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="5" class="cursorPointer text-center">
-        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+      <td colspan="12" class="text-center">
+        <div class="cursorPointer" st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
       </td>
     </tr>
   </tfoot>

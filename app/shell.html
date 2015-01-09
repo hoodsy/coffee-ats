@@ -20,6 +20,7 @@
     <!-- build:js scripts/modernizr.js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -48,7 +49,8 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+    <script src="bower_components/stripe-angular/stripe-angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -59,11 +61,13 @@
     <script src="modules/shell/index.js"></script>
     <script src="modules/user/index.js"></script>
     <script src="modules/job/index.js"></script>
+    <script src="modules/job/controllers/job-billing-ctrl.js"></script>
     <script src="modules/job/controllers/job-create-ctrl.js"></script>
+    <script src="modules/job/controllers/job-dash-ctrl.js"></script>
     <script src="modules/shell/controllers/shell-ctrl.js"></script>
     <script src="modules/user/controllers/user-ctrl.js"></script>
-    <script src="modules/job/routes/routes.js"></script>
     <script src="modules/shell/routes/routes.js"></script>
+    <script src="modules/job/routes/routes.js"></script>
     <script src="modules/user/routes/routes.js"></script>
     <script src="modules/job/services/job-resource.js"></script>
     <script src="modules/user/services/user-resource.js"></script>

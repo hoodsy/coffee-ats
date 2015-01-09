@@ -21,5 +21,14 @@ app.config(function($stateProvider) {
         templateUrl: 'modules/job/partials/job-create.html'
       }
     }
-  });
+  })
+  .state('home.job.billing', {
+    url: '/billing',
+    views: {
+      'main@home': {
+        controller: 'JobBillingCtrl',
+        templateUrl: 'modules/job/partials/job-billing.html'
+      }
+    }
+  })
 });

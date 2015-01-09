@@ -4,5 +4,6 @@ angular.module('job', [
   'ngResource',
   'ui.router',
   //'ui.bootstrap',
-  'smart-table'
+  'smart-table',
+  'stripe'
 ]);

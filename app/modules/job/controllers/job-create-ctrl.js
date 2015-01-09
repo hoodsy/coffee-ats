@@ -6,7 +6,7 @@ angular.module('job')
   	$scope.postJob = function() {
   		var newJob = new Job($scope.job);
   		newJob.$save();
-  		$state.go('home.job');
+  		$state.go('home.job.billing');
   	}
   
   });

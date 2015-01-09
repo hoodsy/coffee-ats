@@ -1,0 +1,97 @@
+<!-- <form action="/api/payment" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_IEQwtzhdbsPKufsG3Vko3bnW"
+    data-amount="2000"
+    data-name="Demo Site"
+    data-description="2 widgets ($20.00)"
+    data-image="/128x128.png">
+  </script>
+</form> -->
+
+<script type="text/javascript">
+  Stripe.setPublishableKey('pk_test_IEQwtzhdbsPKufsG3Vko3bnW');
+</script>
+
+<form stripe-form='processPayment'>
+  <h2>Enter Billing Information</h2>
+  </br>
+</div>
+  <div class="form-group">
+    <div>
+      <label for="input-card-number">Card Number</label>
+    </div>
+    <div class="col-sm-3">
+      <input type="text"
+        id="input-card-number"
+        class="form-control"
+        required
+        placeholder="**** **** **** ****"
+        data-stripe="number"/>
+    </div>
+    </br></br>
+  </div>
+
+  <div class="form-group">
+    <div>
+      <label for="input-card-cvc">CVC</label>
+    </div>
+    <div class="col-sm-1">
+      <input type="text"
+        id="input-card-cvc"
+        class="form-control"
+        required
+        placeholder="***"
+        data-stripe="cvc"/>
+    </div>
+    </br></br>
+  </div>
+
+    <div class="form-group ">
+    <div>
+      <label for="input-card-exp">Expiration</label>
+    </div>
+    <div class="col-sm-1">
+      <input type="number"
+        id="input-card-expMonth"
+        class="form-control"
+        required
+        placeholder="MM"
+        data-stripe="exp-month"/>
+    </div>
+    <div class="col-sm-1">
+      <input type="text"
+        id="input-card-expYear"
+        class="form-control"
+        required
+        placeholder="YYYY"
+        data-stripe="exp-year"/>
+    </div>
+    </br></br>
+  </div>
+  <div>
+    <label for="input-card-save">Save Card Information? 
+      <input type="checkbox" ng-model="saveCard" id="input-card-save"/>
+    </label>
+    </br></br>
+  </div>
+  <div>
+    <label>Your Purchase: 
+    <input class="form-control" type="text" size="3" 
+      ng-model="purchase.num"
+      ng-change="getTotal()"
+      id="input-numPurchases"/>
+    </label> x Opportunity Post ($50.00)
+    </br></br>
+  </div>
+  <div>
+    <label>Total: ${{purchase.total}}.00</label>
+    </br></br>
+  </div>
+  <div class="form-group ">
+    <button type="submit"
+      class="btn btn-primary">
+      Confirm Payment
+    </button>
+  </div>
+</form>
