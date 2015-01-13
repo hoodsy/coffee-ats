@@ -3,7 +3,7 @@
 angular.module('job', [
   'ngResource',
   'ui.router',
-  //'ui.bootstrap',
+  'ui.bootstrap',
   'smart-table',
   'stripe'
 ]);

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-static-top navbar-inverse">
   <div class="navbar-header">
-    <a class="navbar-brand" href="/index.html">
+    <a class="navbar-brand" href="/shell.html">
       Coffee
     </a>
   </div>
@@ -10,6 +10,10 @@
       <li><a data-ui-sref="home.user">User</a></li>
       <li><a data-ui-sref="home.job.billing">Billing</a></li>
       <li><a href="/api/auth/linkedin">Sign in with LinkedIn</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a data-ui-sref="home.user">{{user.firstName}}</a></li>
+      <li><i class="glyphicon glyphicon-user"></i></li>
     </ul>
   </div>
 </nav>

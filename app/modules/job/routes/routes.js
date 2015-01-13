@@ -31,4 +31,13 @@ app.config(function($stateProvider) {
       }
     }
   })
+  .state('home.job.details', {
+    url: '/id/details',
+    views: {
+      'main@home': {
+        controller: 'JobDetailsCtrl',
+        templateUrl: 'modules/job/partials/job-details.html'
+      }
+    }
+  })
 });

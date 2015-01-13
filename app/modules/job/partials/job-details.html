@@ -1,0 +1,60 @@
+<h2 class="pull-right btn btn-primary" ng-click="canEdit = !canEdit">
+  <i class="glyphicon glyphicon-cog"/>
+  Edit Mode
+</h2>
+<div ng-show="!canEdit">
+  <h1>{{ job.title }}</h1>
+  <h2>{{ job.headline }}</h2>
+  <h3>{{ job.company }} - {{ job.location }} - {{ job.tags }}</h3>
+</div>
+<div ng-show="canEdit">
+  <div ng-include="'modules/job/partials/job-edit-headline.html'"></div>
+</div>
+<accordion close-others="oneAtATime">
+  <accordion-group is-open="overviewIsOpen">
+    <accordion-heading>
+      <i class="pull-left glyphicon" ng-class="{'glyphicon-minus': overviewIsOpen, 'glyphicon-plus': !overviewIsOpen}"></i>
+      <h4>Overview</h4>
+    </accordion-heading>
+    <div ng-show="!canEdit">
+      <p>{{ job.overview }}</p>
+      <p>Posted: {{ job.datePosted }}</p>
+      <p>Employment Schedule: {{ job.schedule }}</p>
+      <p>Salary: ${{ job.salaryMin }}-{{ job.salaryMax }}</p>
+    </div>
+    <div ng-show="canEdit">
+      <div ng-include="'modules/job/partials/job-edit-details.html'"></div>
+    </div>
+  </accordion-group>
+  <accordion-group is-open="applicantsIsOpen">
+    <accordion-heading>
+      <i class="pull-left glyphicon" ng-class="{'glyphicon-minus': applicantsIsOpen, 'glyphicon-plus': !applicantsIsOpen}"></i>
+      <h4>Applicants ({{ job.numApplicants }})
+        <span class="pull-right">
+          <button class="btn btn-primary">Accept</button>
+          <button class="btn btn-danger">Reject</button>
+          <button class="btn btn-success">Message</button> 
+        </span>
+      </h4>
+  </accordion-heading>
+  <table st-table="applicantsTable" class="table table-hover">
+  <thead>
+    <th>
+      <input 
+        st-search
+        placeholder="Search" 
+        class="input-sm form-control" 
+        type="search"/>
+    </th>
+  </thead>
+  <tbody>
+  <tr st-select-row="user" st-select-mode="multiple" ng-repeat="user in applicantsTable">
+    <td><img ng-src="{{ user.picture }}"> {{  user.firstName  }} {{  user.lastName  }}</td>
+    <td>{{ user.headline }}</td>
+    <td>{{ user.location }}</td>
+    <td>{{ user.tags }}</td>
+  </tr>
+  </tbody>
+</table>
+  </accordion-group>
+</accordion>

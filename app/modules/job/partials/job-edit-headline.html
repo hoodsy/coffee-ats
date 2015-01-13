@@ -1,0 +1,59 @@
+<form ng-submit="saveChanges()"> 
+  <div class="form-group ">
+    <div>
+      <label for="input-job-title">Title</label>
+    </div>
+    <div class="col-sm-4">
+      <input type="text"
+        id="input-job-title"
+        class="form-control"
+        required
+        placeholder="Cheese Critic, Mall Cop..."
+        ng-model="job.title"/>
+    </div>
+    </br></br>
+  </div>
+  <div class="form-group">
+    <div>
+      <label for="input-job-headline">Headline</label>
+    </div>
+    <div class="col-sm-6">
+      <input type="text"
+        id="input-job-headline"
+        class="form-control"
+        required
+        placeholder="Senior taster with ripening experience"
+        ng-model="job.headline"/>
+    </div>
+    </br></br>
+  </div>
+  <div class="form-group ">
+    <div>
+      <label for="input-job-location">Location</label>
+    </div>
+    <div class="col-sm-4">
+      <input type="text"
+        id="input-job-location"
+        class="form-control"
+        required
+        placeholder="Madison, WI"
+        ng-model="job.location"/>
+    </div>
+    </br></br>
+  </div>
+  <div class="form-group ">
+    <div>
+      <label for="input-job-tags">Tags</label>
+    </div>
+    <div class="col-sm-8">
+      <input type="text"
+        id="input-job-tags"
+        class="form-control"
+        placeholder="Cheese, Engineer, Javascript..."
+        ng-model="job.tags"/>
+    </div>
+    </br></br>
+  </div>
+  <button type="submit" class="btn btn-primary">Save Changes</button>
+  </br></br>
+</form>

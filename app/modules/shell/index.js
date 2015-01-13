@@ -3,5 +3,6 @@
 angular.module('shell', [
   'user',
   'job',
-  'ui.router'
-]);
+  'ui.router',
+  'stripe'
+])

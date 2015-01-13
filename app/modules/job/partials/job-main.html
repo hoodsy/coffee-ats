@@ -31,19 +31,19 @@
   <tbody>
   <!-- <tr st-select-row="job" st-select-mode="multiple" ng-repeat="job in jobs" ng-init="getJobs(job)"> -->
   <tr st-select-row="job" st-select-mode="multiple" ng-repeat="job in jobsTable">
-    <td>{{job.title}}</td>
-    <td>{{job.headline}}</td>
+    <td><a data-ui-sref="home.job.details">{{ job.title }}</a></td>
+    <td>{{ job.headline }}</td>
     <td>
       <!-- <p ng-repeat="tag in job.tags"></p> -->
-      {{job.tags}}
+      {{ job.tags }}
     </td>
-    <td>{{job.company}}</td>
-    <td>{{job.location}}</td>
-    <td>{{job.salaryMin}}</td>
-    <td>{{job.salaryMax}}</td>
-    <td>{{job.schedule}}</td>
-    <td>{{job.datePosted}}</td>
-    <td>{{job.numApplicants}}</td>
+    <td>{{ job.company }}</td>
+    <td>{{ job.location }}</td>
+    <td>{{ job.salaryMin }}</td>
+    <td>{{ job.salaryMax }}</td>
+    <td>{{ job.schedule }}</td>
+    <td>{{ job.datePosted }}</td>
+    <td>{{ job.numApplicants }}</td>
   </tr>
   </tbody>
   <tfoot>
