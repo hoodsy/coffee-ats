@@ -1,4 +1,4 @@
-<table st-table="opportunitysTable" class="table table-hover">
+<table st-table="opportunitiesTable" class="table table-hover">
   <thead>
     <th class="form-group">
       <a type="submit"
@@ -29,7 +29,7 @@
     <th class="col-lg-1" st-sort="numApplicants">Applicants</th>
   </thead>
   <tbody>
-  <!-- <tr st-select-row="opportunity" st-select-mode="multiple" ng-repeat="opportunity in opportunitys" ng-init="getopportunitys(opportunity)"> -->
+  <!-- <tr st-select-row="opportunity" st-select-mode="multiple" ng-repeat="opportunity in opportunities" ng-init="getopportunitiesTable(opportunity)"> -->
   <tr st-select-row="opportunity" st-select-mode="multiple" ng-repeat="opportunity in opportunitiesTable">
     <td><a data-ui-sref="home.opportunity.details">{{ opportunity.title }}</a></td>
     <td>{{ opportunity.headline }}</td>

@@ -5,7 +5,7 @@ var app = angular.module('opportunity');
 app.config(function($stateProvider) {
   $stateProvider
   .state('home.opportunity', {
-    url: '/opportunitys',
+    url: '/opportunities',
     views: {
       'main': {
         controller: 'OpportunityDashboardCtrl',
