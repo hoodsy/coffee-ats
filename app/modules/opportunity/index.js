@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('job', [
+angular.module('opportunity', [
   'ngResource',
   'ui.router',
   'ui.bootstrap',

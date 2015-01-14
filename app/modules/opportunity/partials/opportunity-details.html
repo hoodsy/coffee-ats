@@ -3,12 +3,12 @@
   Edit Mode
 </h2>
 <div ng-show="!canEdit">
-  <h1>{{ job.title }}</h1>
-  <h2>{{ job.headline }}</h2>
-  <h3>{{ job.company }} - {{ job.location }} - {{ job.tags }}</h3>
+  <h1>{{ opportunity.title }}</h1>
+  <h2>{{ opportunity.headline }}</h2>
+  <h3>{{ opportunity.company }} - {{ opportunity.location }} - {{ opportunity.tags }}</h3>
 </div>
 <div ng-show="canEdit">
-  <div ng-include="'modules/job/partials/job-edit-headline.html'"></div>
+  <div ng-include="'modules/opportunity/partials/opportunity-edit-headline.html'"></div>
 </div>
 <accordion close-others="oneAtATime">
   <accordion-group is-open="overviewIsOpen">
@@ -17,33 +17,33 @@
       <h4>Overview</h4>
     </accordion-heading>
     <div ng-show="!canEdit">
-      <p>{{ job.overview }}</p>
-      <p>Posted: {{ job.datePosted }}</p>
-      <p>Employment Schedule: {{ job.schedule }}</p>
-      <p>Salary: ${{ job.salaryMin }}-{{ job.salaryMax }}</p>
+      <p>{{ opportunity.overview }}</p>
+      <p>Posted: {{ opportunity.datePosted }}</p>
+      <p>Employment Schedule: {{ opportunity.schedule }}</p>
+      <p>Salary: ${{ opportunity.salaryMin }}-{{ opportunity.salaryMax }}</p>
     </div>
     <div ng-show="canEdit">
-      <div ng-include="'modules/job/partials/job-edit-details.html'"></div>
+      <div ng-include="'modules/opportunity/partials/opportunity-edit-details.html'"></div>
     </div>
   </accordion-group>
   <accordion-group is-open="applicantsIsOpen">
     <accordion-heading>
       <i class="pull-left glyphicon" ng-class="{'glyphicon-minus': applicantsIsOpen, 'glyphicon-plus': !applicantsIsOpen}"></i>
-      <h4>Applicants ({{ job.numApplicants }})
+      <h4>Applicants ({{ opportunity.numApplicants }})
         <span class="pull-right">
           <button class="btn btn-primary">Accept</button>
           <button class="btn btn-danger">Reject</button>
-          <button class="btn btn-success">Message</button> 
+          <button class="btn btn-success">Message</button>
         </span>
       </h4>
   </accordion-heading>
   <table st-table="applicantsTable" class="table table-hover">
   <thead>
     <th>
-      <input 
+      <input
         st-search
-        placeholder="Search" 
-        class="input-sm form-control" 
+        placeholder="Search"
+        class="input-sm form-control"
         type="search"/>
     </th>
   </thead>

@@ -1,66 +1,66 @@
 <form ng-submit="saveChanges()">
   <div class="form-group ">
     <div>
-      <label for="input-job-overview">Overview</label>
+      <label for="input-opportunity-overview">Overview</label>
     </div>
     <div class="col-sm-12">
       <textarea type="text"
-        id="input-job-overview"
+        id="input-opportunity-overview"
         class="form-control"
         required
         placeholder="Critique various cheeses, manage team of tasters..."
-        ng-model="job.overview">
+        ng-model="opportunity.overview">
     </textarea>
     </div>
     </br></br>
   </div>
   <div class="form-group ">
     <div>
-      <label for="input-job-datePosted">Date Posted</label>
+      <label for="input-opportunity-datePosted">Date Posted</label>
     </div>
     <div class="col-sm-4">
       <input type="text"
-        id="input-job-datePosted"
-        class="form-control" 
-        ng-model="job.datePosted" 
+        id="input-opportunity-datePosted"
+        class="form-control"
+        ng-model="opportunity.datePosted"
         ng-required>
     </div>
     </br></br>
   </div>
   <div class="form-group ">
     <div>
-      <label for="input-job-schedule">Employment Schedule</label>
+      <label for="input-opportunity-schedule">Employment Schedule</label>
     </div>
     <div class="col-sm-4">
       <input type="text"
-        id="input-job-schedule"
+        id="input-opportunity-schedule"
         class="form-control"
         placeholder="Full-Time, Part-Time..."
-        ng-model="job.schedule"/>
+        ng-model="opportunity.schedule"/>
     </div>
     </br></br>
   </div>
   <div class="form-group ">
     <div>
-      <label for="input-job-Salary">Salary</label>
+      <label for="input-opportunity-Salary">Salary</label>
     </div>
     <div class="col-sm-2">
       <input type="text"
-        id="input-job-salaryMin"
+        id="input-opportunity-salaryMin"
         class="form-control"
         required
         placeholder="50,000"
-        ng-model="job.salaryMin"/>
+        ng-model="opportunity.salaryMin"/>
     </div>
     <div class="col-sm-2">
       <input type="text"
-        id="input-job-salaryMax"
+        id="input-opportunity-salaryMax"
         class="form-control"
         required
         placeholder="100,000"
-        ng-model="job.salaryMax"/>
+        ng-model="opportunity.salaryMax"/>
     </div>
     </br></br>
   </div>
   <button type="submit" class="btn btn-primary">Save Changes</button>
-</form> 
+</form>

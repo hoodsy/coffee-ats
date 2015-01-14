@@ -2,6 +2,6 @@
 
 angular.module('shell', [
   'user',
-  'job',
+  'opportunity',
   'ui.router'
 ])

@@ -1,18 +1,18 @@
-<table st-table="jobsTable" class="table table-hover">
+<table st-table="opportunitysTable" class="table table-hover">
   <thead>
-    <th class="form-group"> 
+    <th class="form-group">
       <a type="submit"
         class="btn btn-primary"
-        data-ui-sref="home.job.create">
+        data-ui-sref="home.opportunity.create">
         <span class="glyphicon glyphicon-plus"></span>
         New Opportunity
       </a>
     </th>
     <th>
-      <input 
+      <input
         st-search
-        placeholder="Search" 
-        class="input-sm form-control" 
+        placeholder="Search"
+        class="input-sm form-control"
         type="search"/>
     </th>
   </thead>
@@ -29,21 +29,21 @@
     <th class="col-lg-1" st-sort="numApplicants">Applicants</th>
   </thead>
   <tbody>
-  <!-- <tr st-select-row="job" st-select-mode="multiple" ng-repeat="job in jobs" ng-init="getJobs(job)"> -->
-  <tr st-select-row="job" st-select-mode="multiple" ng-repeat="job in jobsTable">
-    <td><a data-ui-sref="home.job.details">{{ job.title }}</a></td>
-    <td>{{ job.headline }}</td>
+  <!-- <tr st-select-row="opportunity" st-select-mode="multiple" ng-repeat="opportunity in opportunitys" ng-init="getopportunitys(opportunity)"> -->
+  <tr st-select-row="opportunity" st-select-mode="multiple" ng-repeat="opportunity in opportunitiesTable">
+    <td><a data-ui-sref="home.opportunity.details">{{ opportunity.title }}</a></td>
+    <td>{{ opportunity.headline }}</td>
     <td>
-      <!-- <p ng-repeat="tag in job.tags"></p> -->
-      {{ job.tags }}
+      <!-- <p ng-repeat="tag in opportunity.tags"></p> -->
+      {{ opportunity.tags }}
     </td>
-    <td>{{ job.company }}</td>
-    <td>{{ job.location }}</td>
-    <td>{{ job.salaryMin }}</td>
-    <td>{{ job.salaryMax }}</td>
-    <td>{{ job.schedule }}</td>
-    <td>{{ job.datePosted }}</td>
-    <td>{{ job.numApplicants }}</td>
+    <td>{{ opportunity.company }}</td>
+    <td>{{ opportunity.location }}</td>
+    <td>{{ opportunity.salaryMin }}</td>
+    <td>{{ opportunity.salaryMax }}</td>
+    <td>{{ opportunity.schedule }}</td>
+    <td>{{ opportunity.datePosted }}</td>
+    <td>{{ opportunity.numApplicants }}</td>
   </tr>
   </tbody>
   <tfoot>

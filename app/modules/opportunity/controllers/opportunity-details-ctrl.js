@@ -1,20 +1,20 @@
 'use strict';
 
-angular.module('job')
-  .controller('JobDetailsCtrl', function ($scope, getJobList, getJob) {
+angular.module('opportunity')
+  .controller('OpportunityDetailsCtrl', function ($scope) {
 
     $scope.job = {
       title: 'Front End Developer',
-      active: true, 
+      active: true,
       headline:'Make UIs with Javascript, HTML, CSS',
-      overview: 'The Front End Web Developer is passionate about usability, interaction, accessibility, and technology. The developer excels at working with multidisciplinary teams to develop great user experiences across GM Financial. This position works with designers, software developers, project managers, and business owners to develop web-based products and services. The developer helps evaluate and improve existing systems. The developer designs, develops, tests, and publishes web content on the companys Internet and intranet sites. Enhancements and defect resolution will be required on an ongoing basis. Best practices and design methods will be utilized to ensure the success of projects. The developer is client-focused and able to prioritize and manage a fluctuating workload that is comprised of longer term projects and every day activities. The position requires flexibility, adaptability and the ability to learn quickly.', 
-      tags:'Javascript, AngularJS', 
-      company: 'Twitter', 
-      location: 'New York, NY', 
-      salaryMin:'80,000', 
-      salaryMax:'100,000', 
-      schedule:'Full-Time', 
-      datePosted: '2014-10-26', 
+      overview: 'The Front End Web Developer is passionate about usability, interaction, accessibility, and technology. The developer excels at working with multidisciplinary teams to develop great user experiences across GM Financial. This position works with designers, software developers, project managers, and business owners to develop web-based products and services. The developer helps evaluate and improve existing systems. The developer designs, develops, tests, and publishes web content on the companys Internet and intranet sites. Enhancements and defect resolution will be required on an ongoing basis. Best practices and design methods will be utilized to ensure the success of projects. The developer is client-focused and able to prioritize and manage a fluctuating workload that is comprised of longer term projects and every day activities. The position requires flexibility, adaptability and the ability to learn quickly.',
+      tags:'Javascript, AngularJS',
+      company: 'Twitter',
+      location: 'New York, NY',
+      salaryMin:'80,000',
+      salaryMax:'100,000',
+      schedule:'Full-Time',
+      datePosted: '2014-10-26',
       numApplicants: 20
     };
 
