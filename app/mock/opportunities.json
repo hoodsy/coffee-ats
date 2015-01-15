@@ -17,7 +17,8 @@
         "tags": ["Javascript", "AngularJS"],
         "creatorId": "101",
         "creatorName": "Jamie Jameson",
-        "creatorHeadline": "Hi, I'm Jamie, I enjoy technical recruiting and fly fishing."
+        "creatorHeadline": "Hi, I'm Jamie, I enjoy technical recruiting and fly fishing.",
+        "creatorPicture": "https://avatars0.githubusercontent.com/u/10442188?v=3&s=460"
     },
     {
         "id": "2",
