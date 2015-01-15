@@ -13,6 +13,15 @@ app.config(function($stateProvider) {
       }
     }
   })
+  .state('home.opportunity.details', {
+    url: '/:id/details',
+    views: {
+      'main@home': {
+        controller: 'OpportunityDetailsCtrl',
+        templateUrl: 'modules/opportunity/partials/opportunity-details.html'
+      }
+    }
+  })
   .state('home.opportunity.create', {
     url: '/new',
     views: {
@@ -28,15 +37,6 @@ app.config(function($stateProvider) {
       'main@home': {
         controller: 'OpportunityBillingCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-billing.html'
-      }
-    }
-  })
-  .state('home.opportunity.details', {
-    url: '/:id/details',
-    views: {
-      'main@home': {
-        controller: 'OpportunityDetailsCtrl',
-        templateUrl: 'modules/opportunity/partials/opportunity-details.html'
       }
     }
   })

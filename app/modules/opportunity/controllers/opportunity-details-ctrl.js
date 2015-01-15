@@ -16,9 +16,4 @@ angular.module('opportunity')
 
     $scope.overviewIsOpen = false;
     $scope.applicantsIsOpen = false;
-
-    $scope.saveChanges = function () {
-      $scope.canEdit = false;
-    }
-
   });
