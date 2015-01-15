@@ -1,0 +1,59 @@
+
+<a class="btn btn-primary"
+  data-ui-sref="home.opportunity.create">
+  <span class="glyphicon glyphicon-plus"></span>
+  New Opportunity
+</a>
+
+<table data-st-table="opportunitiesTable" class="table table-hover">
+
+  <thead>
+    <th>
+    <input type="search"
+      placeholder="Search"
+      class="input-sm form-control"
+      data-st-search />
+    </th>
+  </thead>
+
+  <thead class="cursorPointer">
+    <th class="col-lg-1" data-st-sort="title">Title</th>
+    <th class="col-lg-3" data-st-sort="headline">Headline</th>
+    <th class="col-lg-1">Tags</th>
+    <th class="col-lg-1" data-st-sort="company">Company</th>
+    <th class="col-lg-1" data-st-sort="company">Location</th>
+    <th class="col-lg-1" data-st-sort="salaryMin">Salary</th>
+    <th class="col-lg-1" data-st-sort="schedule">Schedule</th>
+  </thead>
+
+  <tbody>
+    <tr data-st-select-row="opportunity" data-st-select-mode="multiple" ng-repeat="opportunity in opportunitiesTable">
+      <td>
+        <a data-ui-sref="home.opportunity.details({ id: opportunity.id })">
+          {{ opportunity.title }}
+        </a>
+      </td>
+      <td>{{ opportunity.headline }}</td>
+      <td>
+        <span ng-repeat="tag in opportunity.tags">{{ tag }} </span>
+      </td>
+      <td>{{ opportunity.companyName }}</td>
+      <td>{{ opportunity.location }}</td>
+      <td>{{ opportunity.salaryMin | salary:opportunity.salaryMax:opportunity.salaryCurrency }}</td>
+      <td>{{ opportunity.schedule }}</td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="12" class="text-center">
+        <div class="cursorPointer"
+          data-st-pagination=""
+          data-st-items-by-page="itemsByPage"
+          data-st-displayed-pages="10">
+        </div>
+      </td>
+    </tr>
+  </tfoot>
+
+</table>

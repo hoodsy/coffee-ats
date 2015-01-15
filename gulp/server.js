@@ -98,12 +98,12 @@ function appFiles(module) {
 function serve(module) {
   browserSyncInit('app', appFiles(module), proxyMiddleware, module);
 }
-gulp.task('serve', ['watch'], _.wrap('shell', serve));
+gulp.task('serve:proxy', ['watch'], _.wrap('shell', serve));
 
 function serveMock(module) {
  browserSyncInit('app', appFiles(module), mockMiddleware, module);
 }
-gulp.task('serve:mock', ['watch'], _.wrap('shell', serveMock));
+gulp.task('serve', ['watch'], _.wrap('shell', serveMock));
 
 // Serve distribution mode
 //

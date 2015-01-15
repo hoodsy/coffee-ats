@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
     views: {
       'main': {
         controller: 'OpportunityDashboardCtrl',
-        templateUrl: 'modules/opportunity/partials/opportunity-main.html'
+        templateUrl: 'modules/opportunity/partials/opportunity-dashboard.html'
       }
     }
   })
