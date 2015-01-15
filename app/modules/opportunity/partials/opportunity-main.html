@@ -31,7 +31,7 @@
   <tbody>
   <!-- <tr st-select-row="opportunity" st-select-mode="multiple" ng-repeat="opportunity in opportunities" ng-init="getopportunitiesTable(opportunity)"> -->
   <tr st-select-row="opportunity" st-select-mode="multiple" ng-repeat="opportunity in opportunitiesTable">
-    <td><a data-ui-sref="home.opportunity.details">{{ opportunity.title }}</a></td>
+    <td><a data-ui-sref="home.opportunity.details({ id: opportunity.id })">{{ opportunity.title }}</a></td>
     <td>{{ opportunity.headline }}</td>
     <td>
       <!-- <p ng-repeat="tag in opportunity.tags"></p> -->

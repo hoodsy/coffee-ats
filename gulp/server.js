@@ -1,5 +1,6 @@
 'use strict';
 
+var fs = require('fs');
 var gulp = require('gulp');
 var path = require('path');
 var browserSync = require('browser-sync');
@@ -24,6 +25,49 @@ function proxyMiddleware(req, res, next) {
   }
 }
 
+/*
+ * mockMiddleware forwards static file requests to BrowserSync server
+ * and gets dynamic requests from local mock store
+ */
+var mockData = {};
+function mockMiddleware(req, res, next) {
+
+  if (/api/.test(req.url)) {
+    var id = null,
+      url = req.url.split('/');
+
+    // If this is an ID route we extract that from the URL
+    if (url[url.length-1].search(/[0-9]+$/) > -1) {
+      var id = url.pop();
+    }
+
+    // Get the entity type, e.g. opportunities
+    var entity = url.pop();
+
+    // If <entity>.json data has not been loaded yet, read mock data and store
+    if (mockData[entity] === undefined) {
+      var jsonData = fs.readFileSync('app/mock/' + entity + '.json').toString();
+      mockData[entity] = JSON.parse(jsonData);
+    }
+
+    var response = mockData[entity];
+
+    // Lookup the ID from the stored mock data
+    if (id !== null) {
+      response = _.find(mockData[entity], {id: id});
+    }
+
+    // Send a regular json response
+    res.setHeader("Content-Type", "application/json");
+    res.statusCode = 200;
+    res.write(JSON.stringify(response));
+    res.end();
+
+  } else {
+    next();
+  }
+}
+
 function browserSyncInit(baseDir, files, middleware, module) {
   if (module === undefined) {
     module = 'index';
@@ -32,7 +76,7 @@ function browserSyncInit(baseDir, files, middleware, module) {
     startPath: '/' + module + '.html',
     server: {
       baseDir: baseDir,
-      middleware: proxyMiddleware
+      middleware: middleware
     },
     browser: 'default'
   });
@@ -56,6 +100,10 @@ function serve(module) {
 }
 gulp.task('serve', ['watch'], _.wrap('shell', serve));
 
+function serveMock(module) {
+ browserSyncInit('app', appFiles(module), mockMiddleware, module);
+}
+gulp.task('serve:mock', ['watch'], _.wrap('shell', serveMock));
 
 // Serve distribution mode
 //

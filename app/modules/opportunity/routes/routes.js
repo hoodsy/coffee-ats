@@ -32,7 +32,7 @@ app.config(function($stateProvider) {
     }
   })
   .state('home.opportunity.details', {
-    url: '/id/details',
+    url: '/:id/details',
     views: {
       'main@home': {
         controller: 'OpportunityDetailsCtrl',
