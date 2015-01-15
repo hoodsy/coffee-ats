@@ -46,12 +46,13 @@ gulp.task('jshint:nofail', jshint(false));
 //
 
 gulp.task('bootstrap-stylus', function() {
-  return gulp.src('app/bower_components/bootstrap-stylus/stylus/bootstrap.styl')
+  return gulp.src('app/modules/bootstrap/styles/bootstrap-custom.styl')
     .pipe($.stylus({
       use: [nib()],
       errors: true,
       linenos: true,
-      compress: false
+      compress: false,
+      include: ['app/modules/common/styles', 'app/bower_components/bootstrap-stylus/stylus']
     }))
     .pipe(gulp.dest('app/shell-static/styles'))
     .pipe($.size());
@@ -60,7 +61,8 @@ gulp.task('bootstrap-stylus', function() {
 function styles(module) {
   return gulp.src(util.modStyles(module))
     .pipe($.stylus({
-      errors: true
+      errors: true,
+      include: 'app/modules/common/styles'
     }))
     .pipe($.concat('main.css'))
     .pipe(gulp.dest(path.join('app', module + '-static', 'styles')))
