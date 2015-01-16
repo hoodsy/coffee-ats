@@ -18,7 +18,9 @@
         "creatorId": "101",
         "creatorName": "Jamie Jameson",
         "creatorHeadline": "Hi, I'm Jamie, I enjoy technical recruiting and fly fishing.",
-        "creatorPicture": "https://avatars0.githubusercontent.com/u/10442188?v=3&s=460"
+        "creatorPicture": "https://avatars0.githubusercontent.com/u/10442188?v=3&s=460",
+        "applicantsCount": 1,
+        "applicants": ["101"]
     },
     {
         "id": "2",

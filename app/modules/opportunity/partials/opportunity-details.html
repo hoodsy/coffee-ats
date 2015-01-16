@@ -46,7 +46,9 @@
     <div class="col-xs-10 col-xs-offset-1 col-lg-5 col-lg-offset-1 text-center-md">
       <div class="row">
         <div class="col-xs-12 col-lg-4 text-right-lg">
-          <img data-ng-src="{{ opportunity.picture }}" alt="opportunity img"/>
+          <img class="rounded"
+            alt="opportunity img"
+            data-ng-src="{{ opportunity.picture }}"/>
         </div>
         <div class="col-xs-12 col-lg-8">
           <h2 class="header">About {{ opportunity.companyName }}</h2>
@@ -61,7 +63,9 @@
     <div class="col-xs-10 col-xs-offset-1 col-lg-5 col-lg-offset-0 text-center-md">
       <div class="row">
         <div class="col-xs-12 col-lg-4 text-right-lg">
-          <img data-ng-src="{{ opportunity.creatorPicture }}" alt="creator img"/>
+          <img class="rounded"
+            alt="creator img"
+            data-ng-src="{{ opportunity.creatorPicture }}"/>
         </div>
         <div class="col-xs-12 col-lg-8">
           <h2 class="header">About {{ opportunity.creatorName }}</h2>
