@@ -46,7 +46,7 @@ gulp.task('jshint:nofail', jshint(false));
 //
 
 gulp.task('bootstrap-stylus', function() {
-  return gulp.src('app/modules/common-styles/styles/bootstrap-custom.styl')
+  return gulp.src('app/modules/common-styles/bootstrap-custom.styl')
     .pipe($.stylus({
       use: [nib()],
       errors: true,
