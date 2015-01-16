@@ -1,0 +1,28 @@
+<div class="coffee-card user-coffee-card text-center">
+  <div class="row">
+    <img class="rounded"
+      alt="user img"
+      data-ng-src="{{ model.picture }}"/>
+  </div>
+  <div class="row">
+    <div class="quote">{{ model.headline }}</div>
+  </div>
+  <div class="row">
+    <span class="uppercase">{{ model.name }}</span>
+  </div>
+  <div class="row">
+    <span class="uppercase">{{ model.position }} @
+      <strong>{{ model.organization }}</strong> |
+      {{ model.locations[0] }}
+    </span>
+  </div>
+  <div class="tags-container">
+    <div class="tag-octothorpe">#</div>
+    <ul class="tags-list">
+      <li class="uppercase"
+        data-ng-repeat="tag in model.tags">
+        {{ tag }}
+      </li>
+    </ul>
+  </div>
+</div>

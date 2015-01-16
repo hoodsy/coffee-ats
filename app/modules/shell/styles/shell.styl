@@ -1,7 +1,23 @@
+@import 'colors'
+
 h1, h2, h3, h4, h5, h6
   &.header
-    text-transform uppercase
     margin-bottom 20px
+
+.quote
+  margin 1em 0
+
+.uppercase
+  text-transform uppercase
+
+.coffee-card
+  box-shadow 1px 1px 2px color-grey-50, -1px 1px 2px color-grey-50
+  transition transform .1s ease-out
+
+  &:hover
+    box-shadow 2px 2px 2px color-grey-50, -2px 2px 2px color-grey-50
+    transform scale(1.01)
+    cursor pointer
 
 @media (max-width: 1200px)
   .text-right-md

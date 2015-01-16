@@ -2,7 +2,7 @@
   "type": "user",
   "id": "507f1f77bcf86cd799439011",
   "name": "Justin de Guzman",
-  "picture": "http://www.example.com/example.png",
+  "picture": "https://avatars0.githubusercontent.com/u/3936029?v=3&s=400",
   "headline": "Hello",
   "position": "Engineer",
   "organization": "Coffeetheapp",
@@ -12,7 +12,7 @@
 }, {
   "type": "opportunity",
   "id": "10b3ef5709ae1940245",
-  "picture": "http://www.twitter.com/example.png",
+  "picture": "https://g.twimg.com/Twitter_logo_blue.png",
   "headline": "Twitter is looking for NodeJS engineers to...",
   "creator": "Jamie Jameson",
   "creatorPosition": "Web Developer",
