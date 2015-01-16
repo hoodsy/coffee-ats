@@ -2,5 +2,5 @@
 
 angular.module('user')
   .factory('User', function ($resource) {
-    return $resource('/api/user/:id');
+    return $resource('/api/users/:id');
   });

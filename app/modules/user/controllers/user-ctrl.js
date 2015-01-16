@@ -2,5 +2,5 @@
 
 angular.module('user')
   .controller('UserCtrl', function ($scope, $stateParams, $cookies, User) {
-    $scope.user = User.get({ id: $cookies.userID });
+    $scope.user = User.get({ id: $scope._user.id });
   });
