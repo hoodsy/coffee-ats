@@ -1,13 +1,8 @@
 <nav class="navbar collapse navbar-collapse navbar-static-top navbar-inverse">
-<!--     <div class="navbar-header">
-    <a class="navbar-brand" href="/shell.html">
-      Coffee
-    </a>
-  </div> -->
   <div id="navbar" class="container">
     <ul class="nav navbar-nav">
       <li>
-        <a data-ui-sref="home">
+        <a data-ui-sref="shell.feed">
           <i class="fa fa-home"></i>
           Home
         </a>
@@ -19,7 +14,7 @@
         </a>
       </li>
       <li>
-        <a data-ui-sref="home.opportunity">
+        <a data-ui-sref="shell.opportunity">
           <i class="fa fa-suitcase"></i>
           Jobs
         </a>
@@ -27,7 +22,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <a data-ui-sref="home.user">
+        <a data-ui-sref="shell.user">
           <img class="avatar"
             alt="user avatar"
             data-ng-src="{{ _user.picture }}"/>

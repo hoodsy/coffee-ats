@@ -4,37 +4,37 @@ var app = angular.module('opportunity');
 
 app.config(function($stateProvider) {
   $stateProvider
-  .state('home.opportunity', {
+  .state('shell.opportunity', {
     url: '/opportunities',
     views: {
-      'main': {
+      'main@shell': {
         controller: 'OpportunityDashboardCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-dashboard.html'
       }
     }
   })
-  .state('home.opportunity.details', {
-    url: '/:id/details',
+  .state('shell.opportunity.details', {
+    url: '/:id',
     views: {
-      'main@home': {
+      'main@shell': {
         controller: 'OpportunityDetailsCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-details.html'
       }
     }
   })
-  .state('home.opportunity.create', {
+  .state('shell.opportunity.create', {
     url: '/new',
     views: {
-      'main@home': {
+      'main@shell': {
         controller: 'OpportunityCreateCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-create.html'
       }
     }
   })
-  .state('home.opportunity.billing', {
+  .state('shell.opportunity.billing', {
     url: '/billing',
     views: {
-      'main@home': {
+      'main@shell': {
         controller: 'OpportunityBillingCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-billing.html'
       }

@@ -3,10 +3,10 @@
 var app = angular.module('user');
 
 app.config(function($stateProvider) {
-  $stateProvider.state('home.user', {
+  $stateProvider.state('shell.user', {
     url: '/user/:id',
     views: {
-      'main': {
+      'main@shell': {
         controller: 'UserCtrl',
         templateUrl: 'modules/user/partials/user-main.html'
       }

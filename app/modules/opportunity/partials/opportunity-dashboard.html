@@ -1,6 +1,6 @@
 
 <a class="btn btn-primary"
-  data-ui-sref="home.opportunity.create">
+  data-ui-sref="shell.opportunity.create">
   <span class="glyphicon glyphicon-plus"></span>
   New Opportunity
 </a>
@@ -29,7 +29,7 @@
   <tbody>
     <tr data-st-select-row="opportunity" data-st-select-mode="multiple" ng-repeat="opportunity in opportunitiesTable">
       <td>
-        <a data-ui-sref="home.opportunity.details({ id: opportunity.id })">
+        <a data-ui-sref="shell.opportunity.details({ id: opportunity.id })">
           {{ opportunity.title }}
         </a>
       </td>

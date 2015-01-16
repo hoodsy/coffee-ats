@@ -3,12 +3,11 @@
 var app = angular.module('shell');
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('login');
+    $urlRouterProvider.otherwise('/feed');
     $stateProvider
-      .state('home', {
-        url: '',
-        templateUrl: 'modules/shell/partials/shell.html',
-        controller: 'ShellCtrl'
+      .state('shell', {
+        abstract: true,
+        templateUrl: 'modules/shell/partials/shell.html'
       })
       .state('login', {
         url: '/login',
