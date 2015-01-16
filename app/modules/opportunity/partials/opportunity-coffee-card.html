@@ -1,0 +1,25 @@
+<div class="coffee-card user-coffee-card text-center">
+  <img class="rounded"
+    alt="user img"
+    data-ng-src="{{ model.picture }}"/>
+  <div class="quote">{{ model.headline }}</div>
+  <div>
+    <span class="uppercase">{{ model.name }}</span>
+    <span class="uppercase">{{ model.creator }} | {{ model.creatorPosition }}</span>
+  </div>
+  <div class="tags-container">
+    <ul class="tags-list">
+      <li class="uppercase">
+        {{ model.salaryMin | salary:model.salaryMax:model.salaryCurrency }}
+      </li>
+      <li class="uppercase">
+        <i class="fa fa-clock-o"></i>
+        {{ model.schedule }}
+      </li>
+      <li class="uppercase">
+        <i class="fa fa-map-marker"></i>
+        {{ model.location }}
+      </li>
+    </ul>
+  </div>
+</div>
