@@ -8,7 +8,8 @@ app.config(function ($stateProvider) {
         url: '/feed',
         views: {
           'main@shell': {
-            templateUrl: 'modules/feed/partials/feed.html'
+            templateUrl: 'modules/feed/partials/feed.html',
+            controller: 'FeedCtrl'
           }
         }
       });
