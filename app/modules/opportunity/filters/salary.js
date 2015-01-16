@@ -6,27 +6,27 @@ var currencySymbols = {
 };
 
 angular.module('opportunity')
-  .filter("salary", function() {
-  return function(salaryMin, salaryMax, salaryCurrency) {
+  .filter('salary', function() {
+    return function(salaryMin, salaryMax, salaryCurrency) {
 
-    salaryCurrency = salaryCurrency || 'USD';
+      salaryCurrency = salaryCurrency || 'USD';
 
-    var suffix = '';
+      var suffix = '';
 
-    if (salaryMin > 1000 && salaryMax > 1000) {
-      salaryMin /= 1000;
-      salaryMax /= 1000;
-      suffix = 'K';
-    }
+      if (salaryMin > 1000 && salaryMax > 1000) {
+        salaryMin /= 1000;
+        salaryMax /= 1000;
+        suffix = 'K';
+      }
 
-    var formattedSalary = [
-      currencySymbols[salaryCurrency],
-      +salaryMin,
-      '-',
-      +salaryMax,
-      suffix
-    ];
+      var formattedSalary = [
+        currencySymbols[salaryCurrency],
+        +salaryMin,
+        '-',
+        +salaryMax,
+        suffix
+      ];
 
-    return formattedSalary.join('');
-  };
+      return formattedSalary.join('');
+    };
 });

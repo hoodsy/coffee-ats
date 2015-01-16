@@ -39,5 +39,5 @@ app.config(function($stateProvider) {
         templateUrl: 'modules/opportunity/partials/opportunity-billing.html'
       }
     }
-  })
+  });
 });
