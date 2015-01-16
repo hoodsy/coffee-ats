@@ -1,12 +1,5 @@
 @import 'colors'
 
-.user-coffee-card
-  padding 1em 0 0 0
-  background-color color-people-50
-
-  .tags-container
-    background-color color-people-55
-
 .tags-container
   margin-top 20px
   height 2em
@@ -16,6 +9,41 @@
   height 100%
   padding 0px 6px
   font-size 1.5em
-  background-color color-people
   border-right 1px solid color-grey-80
 
+.user-coffee-card
+  padding 1em 0 0 0
+
+  &.index-0
+    background-color color-green-3
+    >.tags-container
+      background-color color-green-3a
+    .tag-octothorpe
+      background-color color-green-3b
+  &.index-1
+    color color-white
+    background-color color-green-1
+    >.tags-container
+      background-color color-green-1a
+    .tag-octothorpe
+      background-color color-green-1b
+  &.index-2
+    background-color color-grey-1
+    >.tags-container
+      background-color color-grey-1a
+    .tag-octothorpe
+      background-color color-grey-1b
+  &.index-3
+    color color-white
+    background-color color-green-2
+    >.tags-container
+      background-color color-green-2a
+    .tag-octothorpe
+      background-color color-green-2b
+  &.index-4
+    color color-white
+    background-color color-grey-2
+    >.tags-container
+      background-color color-grey-2a
+    .tag-octothorpe
+      background-color color-grey-2b
