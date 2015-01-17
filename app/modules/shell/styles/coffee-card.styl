@@ -1,18 +1,23 @@
 @import 'colors'
 
-/* Remove Bootstrap gutter spacing on mobile */
 @media (max-width: 767px)
   .tags-container
     width 100%
 
-  .feed-container > .row
-    margin-left 0
-    margin-right 0
-
   .col-lg-4[data-coffee-card]
-    padding-left 0
-    padding-right 0
     margin-bottom 1px
+
+@media (min-width: 992px)
+  .tags-container
+    width 455px
+
+@media (min-width: 1200px)
+  .tags-container
+    width 360px
+
+.tags-container
+    position absolute
+    bottom 0
 
 @media (min-width: 768px)
   .tags-container
@@ -29,18 +34,6 @@
 
   .col-lg-4[data-coffee-card]
     margin-bottom 1em
-
-@media (min-width: 992px)
-  .tags-container
-    width 455px
-
-@media (min-width: 1200px)
-  .tags-container
-    width 360px
-
-.tags-container
-    position absolute
-    bottom 0
 
 .coffee-card
   height 200px

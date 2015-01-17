@@ -1,6 +1,6 @@
 <div class="container text-center palette-{{ palette }}">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+  <div class="row xs-clear-margin">
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 xs-clear-padding">
 
       <div class="user-coffee-card">
         <img class="rounded"
@@ -17,7 +17,7 @@
       </div>
 
       <div class="user-sub-profile">
-        <h2>Experience</h2>
+        <h2 class="header">Experience</h2>
         <ul class="user-experience-list">
           <li data-ng-repeat="experience in user.experiences">
             <ul class="experience-data-list">
@@ -28,7 +28,7 @@
           </li>
         </ul>
 
-        <h2>Education</h2>
+        <h2 class="header">Education</h2>
         <ul class="user-education-list">
           <li data-ng-repeat="education in user.educations">
             <ul class="education-data-list">
