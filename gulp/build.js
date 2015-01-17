@@ -64,6 +64,10 @@ function styles(module) {
       errors: true,
       include: 'app/modules/common-styles'
     }))
+    .pipe($.autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+    }))
     .pipe($.concat('main.css'))
     .pipe(gulp.dest(path.join('app', module + '-static', 'styles')))
     .pipe($.size());
