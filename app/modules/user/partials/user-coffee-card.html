@@ -1,4 +1,5 @@
-<div class="coffee-card user-coffee-card text-center index-{{ count }}">
+<div class="coffee-card user-coffee-card text-center palette-{{ count }}"
+  data-ui-sref="shell.user({ id: model.id, palette: count })">
   <img class="rounded"
     alt="user img"
     data-ng-src="{{ model.picture }}"/>

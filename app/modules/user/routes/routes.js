@@ -4,7 +4,7 @@ var app = angular.module('user');
 
 app.config(function($stateProvider) {
   $stateProvider.state('shell.user', {
-    url: '/user/:id',
+    url: '/user/:id?:palette',
     views: {
       'main@shell': {
         controller: 'UserCtrl',
