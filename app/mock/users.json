@@ -10,7 +10,7 @@
   "position": "Engineer",
   "about": "I am an engineer.",
   "locations": ["New York City", "San Francisco"],
-  "tags": ["Janitor", "Entrepreneur"],
+  "tags": ["Janitor", "Entrepreneur", "NodeJS", "Programming", "NYU", "Tag", "Blah", "Foobar", "Code", "Tech", "NYC"],
   "experiences": [{
     "position": "Engineer",
     "organization": "Coffeetheapp",

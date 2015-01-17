@@ -1,41 +1,51 @@
-<div class="container text-center">
-
+<div class="container text-center palette-{{ palette }}">
   <div class="row">
-    <div class="col-sm-4 palette-{{ palette }} user-coffee-card">
-      <img class="rounded"
-        alt="user img"
-        data-ng-src="{{ user.picture }}"/>
-      <div class="quote">{{ user.headline }}</div>
-      <div class="uppercase">{{ user.firstName }} {{ user.lastName }}</div>
-      <div>
-        <span class="uppercase">{{ user.position }} @
-        <strong>{{ user.organization }}</strong> |
-        {{ user.locations[0] }}
-        </span>
-      </div>
-    </div>
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
-    <div class="col-sm-6 col-sm-offset-1 user-sub-profile">
-      <h2>Experience</h2>
-      <ul class="user-experience-list">
-        <li data-ng-repeat="experience in user.experiences">
-          <ul class="experience-data-list">
-            <li><strong>{{ experience.organization }}</strong></li>
-            <li>{{ experience.position }}</li>
-            <li>{{ experience.time }}</li>
-          </ul>
-        </li>
-      </ul>
-      <h2>Education</h2>
-      <ul class="user-education-list">
-        <li data-ng-repeat="education in user.educations">
-          <ul class="education-data-list">
-            <li><strong>{{ education.school }}</strong></li>
-            <li>{{ education.degree }} {{ education.major }}</li>
-            <li>{{ education.time }}</li>
-          </ul>
-        </li>
-      </ul>
+      <div class="user-coffee-card">
+        <img class="rounded"
+          alt="user img"
+          data-ng-src="{{ user.picture }}"/>
+        <div class="quote">{{ user.headline }}</div>
+        <div class="uppercase">{{ user.firstName }} {{ user.lastName }}</div>
+        <div>
+          <span class="uppercase">{{ user.position }} @
+          <strong>{{ user.organization }}</strong> |
+          {{ user.locations[0] }}
+          </span>
+        </div>
+      </div>
+
+      <div class="user-sub-profile">
+        <h2>Experience</h2>
+        <ul class="user-experience-list">
+          <li data-ng-repeat="experience in user.experiences">
+            <ul class="experience-data-list">
+              <li><strong>{{ experience.organization }}</strong></li>
+              <li>{{ experience.position }}</li>
+              <li>{{ experience.time }}</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2>Education</h2>
+        <ul class="user-education-list">
+          <li data-ng-repeat="education in user.educations">
+            <ul class="education-data-list">
+              <li><strong>{{ education.school }}</strong></li>
+              <li>{{ education.degree }} {{ education.major }}</li>
+              <li>{{ education.time }}</li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Tags -->
+        <ul class="user-tags-list">
+          <li data-ng-repeat="tag in user.tags">
+            <span>{{ tag }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
