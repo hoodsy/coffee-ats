@@ -2,32 +2,37 @@
   <div id="navbar" class="container">
     <ul class="nav navbar-nav">
       <li>
-        <a data-ui-sref="shell.feed">
+        <a data-ui-sref="shell.feed"
+          data-ui-sref-active="nav-active">
           <i class="fa fa-home"></i>
           <span class="hidden-xs">Home</span>
         </a>
       </li>
       <li>
-        <a data-ui-sref="messages">
+        <a data-ui-sref="messages"
+          data-ui-sref-active="nav-active">
           <i class="fa fa-comment"></i>
           <span class="hidden-xs">Messages</span>
         </a>
       </li>
       <li>
-        <a data-ui-sref="shell.opportunity">
+        <a data-ui-sref="shell.opportunity"
+          data-ui-sref-active="nav-active">
           <i class="fa fa-suitcase"></i>
           <span class="hidden-xs">Jobs</span>
         </a>
       </li>
       <li class="visible-xs-block">
-        <a data-ui-sref="shell.user">
+        <a data-ui-sref="shell.user"
+          data-ui-sref-active="nav-active">
           <i class="fa fa-user"></i>
         </a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="hidden-xs">
-        <a data-ui-sref="shell.user">
+        <a data-ui-sref="shell.user"
+          data-ui-sref-active="nav-active">
           <img class="avatar"
             alt="user avatar"
             data-ng-src="{{ _user.picture }}"/>
