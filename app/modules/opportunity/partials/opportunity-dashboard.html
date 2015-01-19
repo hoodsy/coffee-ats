@@ -29,7 +29,7 @@
   <tbody>
     <tr data-st-select-row="opportunity" data-st-select-mode="multiple" ng-repeat="opportunity in opportunitiesTable">
       <td>
-        <a data-ui-sref="shell.opportunity.details({ id: opportunity.id })">
+        <a data-ui-sref=".detail({ id: opportunity.id })">
           {{ opportunity.title }}
         </a>
       </td>

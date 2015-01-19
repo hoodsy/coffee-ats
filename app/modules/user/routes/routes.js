@@ -4,10 +4,14 @@ var app = angular.module('user');
 
 app.config(function($stateProvider) {
   $stateProvider.state('shell.user', {
-    url: '/user/:id?:palette',
+    url: '/users',
+    abstract: true
+  })
+  .state('shell.user.detail', {
+    url: '/:id?:palette',
     views: {
       'main@shell': {
-        controller: 'UserCtrl',
+        controller: 'UserDetailCtrl',
         templateUrl: 'modules/user/partials/user-detail.html'
       }
     }
