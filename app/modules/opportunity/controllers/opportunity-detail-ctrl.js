@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('opportunity')
-  .controller('OpportunityDetailsCtrl', function ($scope, $stateParams, Opportunity) {
+  .controller('OpportunityDetailCtrl', function ($scope, $stateParams, Opportunity) {
 
-    console.log($stateParams);
+    $scope.palette = $stateParams.palette || '1';
 
     Opportunity.get({ id: $stateParams.id }, function(response) {
       $scope.opportunity = response;

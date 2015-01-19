@@ -3,14 +3,14 @@
 .user-experience-list,
 .user-education-list,
 .education-data-list,
-.experience-data-list,
-.user-tags-list
+.experience-data-list
   list-style-type none
   margin 0
   padding 0
 
 .user-coffee-card
   padding 1em 0 0 0
+
 
 /*
  * User's tags
@@ -26,22 +26,6 @@
   padding 0px 6px
   font-size 1.5em
   border-right 1px solid color-grey-80
-
-.user-tags-list
-  margin-top 2em
-  display flex
-  flex-direction row
-  justify-content space-between
-  flex-wrap wrap
-
-  >li
-    text-transform uppercase
-    flex-basis 30%
-    margin .25em .5em
-    padding .6em
-
-    &:nth-child(even)
-      flex-grow 2
 
 
 /*
@@ -60,7 +44,7 @@
   .tag-octothorpe
     background-color color-green-3b
 
-  .user-tags-list > li
+  .user-detail-tags-list > li
     border 1px solid color-green-3
 
 .palette-1
@@ -76,7 +60,7 @@
   .tag-octothorpe
     background-color color-green-1b
 
-  .user-tags-list > li
+  .user-detail-tags-list > li
     border 1px solid color-green-1
 
 .palette-2
@@ -91,7 +75,7 @@
   .tag-octothorpe
     background-color color-grey-1b
 
-  .user-tags-list > li
+  .user-detail-tags-list > li
     border 1px solid color-grey-1
 
 .palette-3
@@ -107,7 +91,7 @@
   .tag-octothorpe
     background-color color-green-2b
 
-  .user-tags-list > li
+  .user-detail-tags-list > li
     border 1px solid color-green-2
 
 .palette-4
@@ -123,5 +107,5 @@
   .tag-octothorpe
     background-color color-grey-2b
 
-  .user-tags-list > li
+  .user-detail-tags-list > li
     border 1px solid color-grey-2

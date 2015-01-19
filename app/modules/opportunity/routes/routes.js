@@ -13,12 +13,12 @@ app.config(function($stateProvider) {
       }
     }
   })
-  .state('shell.opportunity.details', {
-    url: '/:id',
+  .state('shell.opportunity.detail', {
+    url: '/:id?:palette',
     views: {
       'main@shell': {
-        controller: 'OpportunityDetailsCtrl',
-        templateUrl: 'modules/opportunity/partials/opportunity-details.html'
+        controller: 'OpportunityDetailCtrl',
+        templateUrl: 'modules/opportunity/partials/opportunity-detail.html'
       }
     }
   })
