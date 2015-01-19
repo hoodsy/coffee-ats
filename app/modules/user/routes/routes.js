@@ -8,7 +8,7 @@ app.config(function($stateProvider) {
     views: {
       'main@shell': {
         controller: 'UserCtrl',
-        templateUrl: 'modules/user/partials/user-main.html'
+        templateUrl: 'modules/user/partials/user-detail.html'
       }
     }
   });
