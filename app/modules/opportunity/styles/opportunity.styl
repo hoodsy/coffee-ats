@@ -26,6 +26,10 @@ img.rounded
   margin 0
   padding 0
 
+/*
+ * Opportunity Post cards
+ */
+
 .add-opportunity-post-card
   background-color color-grey-50
   color color-grey-20
@@ -33,6 +37,17 @@ img.rounded
   flex-direction row
   justify-content center
   align-items center
+  height 150px
+
+.opportunity-post-card-main
+  height 125px
+
+.opportunity-post-card-info
+  height 25px
+
+  > div:first-child
+    border-right 1px solid color-grey-80
+
 
 /*
  * Palette variations
@@ -46,7 +61,8 @@ img.rounded
     color-grey-30
     background-color color-blue-3
 
-    >.tags-container
+    >.tags-container,
+    >.opportunity-post-card-info
       background-color color-blue-3a
 
   .opportunity-infobox,
@@ -61,7 +77,8 @@ img.rounded
     color color-white
     background-color color-blue-1
 
-    >.tags-container
+    >.tags-container,
+    >.opportunity-post-card-info
       background-color color-blue-1a
 
   .opportunity-infobox,
@@ -76,7 +93,8 @@ img.rounded
     color color-white
     background-color color-blue-2
 
-    >.tags-container
+    >.tags-container,
+    >.opportunity-post-card-info
       background-color color-blue-2a
 
   .opportunity-infobox,

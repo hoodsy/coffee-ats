@@ -1,15 +1,34 @@
-<div class="row clear-margin card-shadow opportunity-post-card palette-{{ count }}"
-  data-ui-sref=".detail({ id: model.id, palette: count })">
-  <div class="col-xs-2 col-lg-1 clear-padding">
-    <img class="rounded"
-      alt="opportunity img"
-      data-ng-src="{{ model.picture }}"/>
+<div class="card-shadow opportunity-post-card palette-{{ count }}">
+  <div class="row clear-margin opportunity-post-card-main"
+    data-ui-sref=".detail({ id: model.id, palette: count })">
+
+    <div class="col-xs-2 clear-padding flex-center">
+      <img class="rounded"
+        alt="opportunity img"
+        data-ng-src="{{ model.picture }}"/>
+    </div>
+    <div class="col-xs-8">
+      <h2 class="uppercase">
+        {{ model.title }} @
+        {{ model.companyName }}
+      </h2>
+      <div class="quote">{{ model.headline }}</div>
+    </div>
+    <div class="col-xs-2 flex-center">
+      <span class="fa-stack">
+        <i class="fa fa-circle-o fa-stack-2x"></i>
+        <i class="fa fa-ellipsis-h fa-stack-1x"></i>
+      </span>
+    </div>
   </div>
-  <div class="col-xs-8">
-    <h1 class="header uppercase">
-      {{ model.title }} @
-      {{ model.companyName }}
-    </h1>
-    <div class="quote">{{ model.headline }}</div>
+
+  <div class="row clear-margin opportunity-post-card-info"
+    data-ui-sref=".detail({ id: model.id, palette: count })">
+    <div class="col-xs-6 clear-padding flex-center">
+      {{ model.applicantsCount }} Applicants
+    </div>
+    <div class="col-xs-6 flex-center">
+      Matches
+    </div>
   </div>
 </div>
