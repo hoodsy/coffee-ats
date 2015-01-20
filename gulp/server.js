@@ -74,6 +74,7 @@ function browserSyncInit(baseDir, files, middleware, module) {
   }
   browserSync.instance = browserSync.init(files, {
     startPath: '/' + module + '.html',
+    port: 8080,
     server: {
       baseDir: baseDir,
       middleware: middleware
