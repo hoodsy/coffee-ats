@@ -1,0 +1,15 @@
+<div class="row clear-margin card-shadow opportunity-post-card palette-{{ count }}"
+  data-ui-sref=".detail({ id: model.id, palette: count })">
+  <div class="col-xs-2 col-lg-1 clear-padding">
+    <img class="rounded"
+      alt="opportunity img"
+      data-ng-src="{{ model.picture }}"/>
+  </div>
+  <div class="col-xs-8">
+    <h1 class="header uppercase">
+      {{ model.title }} @
+      {{ model.companyName }}
+    </h1>
+    <div class="quote">{{ model.headline }}</div>
+  </div>
+</div>

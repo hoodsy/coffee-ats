@@ -33,12 +33,18 @@ ul.navbar-nav >  li > a.nav-active
     .fa
       font-size 1.5em
 
+/* Navbar is fixed so move down the main content with a margin */
+.main-content
+  margin-top 65px
+
+/*
+ * Headers
+ */
+
 h1, h2, h3, h4, h5, h6
   &.header
     margin 1.6em 0
 
-.main-content
-  margin-top 65px
 
 /* Remove gutters on mobile views */
 @media (max-width: 767px)
@@ -56,6 +62,15 @@ h1, h2, h3, h4, h5, h6
   .xs-clear-margin.row
     margin-left 0
     margin-right 0
+
+.clear-padding[class*="col-"]
+  padding-left 0
+  padding-right 0
+
+.clear-margin.row
+  margin-left 0
+  margin-right 0
+
 
 .quote
   margin 1em 0

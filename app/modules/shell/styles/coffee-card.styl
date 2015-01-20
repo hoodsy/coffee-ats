@@ -4,7 +4,8 @@
   .tags-container
     width 100%
 
-  .col-lg-4[data-coffee-card]
+  [data-coffee-card],
+  [data-opportunity-post-coffee-card]
     margin-bottom 1px
 
 .tags-container
@@ -15,7 +16,7 @@
   .tags-container
     width 470px
 
-  .coffee-card
+  .card-shadow
     box-shadow 1px 1px 2px color-grey-50, -1px 1px 2px color-grey-50
     transition transform .1s ease
 
@@ -24,7 +25,8 @@
       transform scale(1.01)
       cursor pointer
 
-  .col-lg-4[data-coffee-card]
+  [data-coffee-card],
+  [data-opportunity-post-coffee-card]
     margin-bottom 1em
 
 @media (min-width: 992px)
@@ -35,8 +37,12 @@
   .tags-container
     width 360px
 
-.coffee-card
+[class*="-coffee-card"]
   height 200px
+
+.opportunity-post-card,
+.add-opportunity-post-card
+  height 150px
 
 .tags-list
   font-size .8em
