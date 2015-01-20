@@ -5,7 +5,7 @@ angular.module('common')
     return {
       restrict: 'A',
       link: function(scope, element) {
-        var e = $interpolate('<div data-{{ item.type }}-coffee-card data-model="item"></div>')(scope);
+        var e = $interpolate('<div data-{{ item.type }}-card data-model="item"></div>')(scope);
         element.append($compile(e)(scope));
       }
     };

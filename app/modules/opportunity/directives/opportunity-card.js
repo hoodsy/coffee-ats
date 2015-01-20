@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('opportunity')
-  .directive('opportunityPostCoffeeCard', function() {
+  .directive('opportunityCard', function() {
 
     var count = 0;
 
@@ -10,7 +10,7 @@ angular.module('opportunity')
       scope: {
         model: '='
       },
-      templateUrl: 'modules/opportunity/partials/opportunity-post-coffee-card.html',
+      templateUrl: 'modules/opportunity/partials/opportunity-card.html',
       link: function(scope) {
         count = (count + 1) % 3;
         scope.count = count;
