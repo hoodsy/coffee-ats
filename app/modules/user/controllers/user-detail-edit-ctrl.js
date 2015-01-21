@@ -25,7 +25,7 @@ angular.module('user')
     // Only logged in user may edit their own profile
     $scope.isEditable = function(user) {
       if ($rootScope._user && user) {
-        return $rootScope._user.id === user.id;
+        return $rootScope._user._id === user._id;
       }
     };
 
@@ -76,7 +76,7 @@ angular.module('user')
     };
 
     $scope.save = function(user) {
-      user.$save(function(response) {
+      user.$update(function(response) {
         console.log('success');
       }, function(response) {
         console.log('error');
