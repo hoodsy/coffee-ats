@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row xs-clear-margin">
+    <div class="col-sm-8 col-sm-offset-2 xs-clear-padding">
+
+<!--       <table class="edit-table table">
+        <tbody>
+          <tr>
+            <td>
+              <img class="rounded"
+                alt="user img"
+                data-ng-src="{{ user.picture }}"/>
+            </td>
+            <td>
+              {{ user.firstName }} {{ user.lastName }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fa fa-map-marker fa-2x"></i>
+              <h3 class="uppercase">Location</h3>
+            </td>
+            <td>
+              {{ user.locations }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fa fa-suitcase fa-2x"></i>
+              <h3 class="uppercase">Position</h3>
+            </td>
+            <td>
+              {{ user.position }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fa fa-building fa-2x"></i>
+              <h3 class="uppercase">Company</h3>
+            </td>
+            <td>
+              {{ user.organization }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+  <div class="row edit-row xs-clear-margin">
+    <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+      <img class="rounded"
+      alt="user img"
+      data-ng-src="{{ user.picture }}"/>
+    </div>
+    <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
+      <input type="text" ng-model="user.firstName" />
+    </div>
+  </div>
+  <div class="row edit-row xs-clear-margin">
+    <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+      <i class="fa fa-map-marker fa-2x"></i>
+      <h3 class="uppercase">Location</h3>
+    </div>
+    <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
+      <input type="text" ng-model="user.location" />
+    </div>
+  </div>
+  <div class="row edit-row xs-clear-margin">
+    <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+      <i class="fa fa-suitcase fa-2x"></i>
+      <h3 class="uppercase">Position</h3>
+    </div>
+    <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
+      <input type="text" ng-model="user.position" />
+    </div>
+  </div>
+  <div class="row edit-row xs-clear-margin">
+    <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+      <i class="fa fa-building fa-2x"></i>
+      <h3 class="uppercase">Company</h3>
+    </div>
+    <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
+      <input type="text" ng-model="user.organization" />
+    </div>
+  </div>
+</div>

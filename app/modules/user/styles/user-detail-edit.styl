@@ -1,0 +1,34 @@
+@import 'colors'
+
+.edit-table
+  table-layout fixed
+  border-collapse collapse
+  border 1px solid color-grey-30
+
+.edit-row
+  height 100px
+
+  &:first-child
+    >.edit-col
+      border-top 1px solid color-grey-30
+
+  >.edit-col
+    height 100%
+    border-bottom 1px solid color-grey-30
+
+    &:first-child
+      border-right 1px solid color-grey-30
+
+    @media (min-width: 768px)
+
+      &:first-child
+        border-left 1px solid color-grey-30
+
+      &:last-child
+        border-right 1px solid color-grey-30
+
+
+@media (max-width: 767px)
+  .edit-row:last-child
+    >.edit-col
+      border-bottom none

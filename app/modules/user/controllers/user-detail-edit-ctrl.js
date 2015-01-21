@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('user')
-  .controller('UserDetailCtrl', function ($scope, $rootScope, $stateParams, User) {
+  .controller('UserDetailEditCtrl', function ($scope, $rootScope, $stateParams, User) {
     $scope.palette = $stateParams.palette || '1';
     $scope.user = User.get({ id: $stateParams.id });
 
