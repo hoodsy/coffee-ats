@@ -11,6 +11,17 @@ angular.module('user')
 
     $scope.newTag = '';
 
+    // On mobile views we split edit form across multiple pages
+    $scope.page = 0;
+
+    $scope.previousPage = function() {
+      $scope.page -= 1;
+    };
+
+    $scope.nextPage = function() {
+      $scope.page += 1;
+    };
+
     // Only logged in user may edit their own profile
     $scope.isEditable = function(user) {
       if ($rootScope._user && user) {
