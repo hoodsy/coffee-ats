@@ -11,6 +11,13 @@
   justify-content space-between
   flex-wrap wrap
 
+  // To compensate for the per-item margin below, we adjust the edges of the
+  // entire tags container
+
+  @media (min-width: 768px)
+    margin-left -.5em
+    margin-right -.5em
+
   >li
     text-transform uppercase
     flex-basis 30%

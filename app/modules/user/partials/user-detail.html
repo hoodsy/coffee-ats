@@ -4,7 +4,7 @@
 
       <div class="user-card">
         <a data-ui-sref=".edit({ id: user.id, palette: palette })"
-          data-ng-if="isEditable()">
+          data-ng-if="isEditable(user)">
           <i class="edit-user-btn fa fa-pencil-square-o fa-2x"></i>
         </a>
         <img class="rounded"

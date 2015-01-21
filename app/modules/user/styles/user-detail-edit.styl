@@ -1,34 +1,64 @@
 @import 'colors'
 
+border-color = color-grey-30
+
 .edit-table
   table-layout fixed
   border-collapse collapse
-  border 1px solid color-grey-30
+  border 1px solid border-color
 
 .edit-row
   height 100px
 
   &:first-child
     >.edit-col
-      border-top 1px solid color-grey-30
+      border-top 1px solid border-color
 
   >.edit-col
     height 100%
-    border-bottom 1px solid color-grey-30
+    border-bottom 1px solid border-color
 
     &:first-child
-      border-right 1px solid color-grey-30
+      border-right 1px solid border-color
 
     @media (min-width: 768px)
 
       &:first-child
-        border-left 1px solid color-grey-30
+        border-left 1px solid border-color
 
       &:last-child
-        border-right 1px solid color-grey-30
+        border-right 1px solid border-color
 
 
 @media (max-width: 767px)
   .edit-row:last-child
     >.edit-col
       border-bottom none
+
+.edit-sub-row
+  border-bottom 1px solid color-grey-80
+  line-height 1.8em
+  height 33%
+
+  &:last-child
+    border-bottom none
+
+.edit-add-btn
+  width 100%
+  background color-white
+  border-top 1px solid border-color
+  border-bottom 1px solid border-color
+  border-left none
+  border-right none
+
+  @media (min-width: 768px)
+    border-left 1px solid border-color
+    border-right 1px solid border-color
+
+.edit-delete-btn
+  position absolute
+  top .5em
+  left .5em
+
+  &:hover
+    cursor pointer
