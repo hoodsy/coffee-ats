@@ -8,7 +8,7 @@ angular.module('user')
     // Only logged in user may edit their own profile
     $scope.isEditable = function() {
       if ($rootScope._user && $scope.user) {
-        return $rootScope._user.id === $scope.user.id;
+        return ($rootScope._user._id === $scope.user._id);
       }
     };
   });
