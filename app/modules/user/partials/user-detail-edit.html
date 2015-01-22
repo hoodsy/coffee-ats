@@ -11,27 +11,27 @@
         </button>
         <div class="col-xs-8 edit-page-header flex-center"
           data-ng-if="page === 0">
-          <i class="fa fa-user fa-3x"></i>
-          <span class="uppercase">Profile</span>
+          <i class="ci ci-person-card ci-3x"></i>
+          <span class="uppercase">Profile Card</span>
         </div>
         <div class="col-xs-8 edit-page-header flex-center"
           data-ng-if="page === 1">
-          <i class="fa fa-user fa-3x"></i>
-          <span class="uppercase">Profile</span>
+          <i class="ci ci-person-card ci-3x"></i>
+          <span class="uppercase">Profile Card</span>
         </div>
         <div class="col-xs-8 edit-page-header flex-center"
           data-ng-if="page === 2">
-          <i class="fa fa-suitcase fa-3x"></i>
+          <span class="ci ci-suitcase ci-3x"></span>
           <span class="uppercase">Experience</span>
         </div>
         <div class="col-xs-8 edit-page-header flex-center"
           data-ng-if="page === 3">
-          <i class="fa fa-graduation-cap fa-3x"></i>
+          <i class="ci ci-grad-cap fa-3x"></i>
           <span class="uppercase">Education</span>
         </div>
         <div class="col-xs-8 edit-page-header flex-center"
           data-ng-if="page === 4">
-          <i class="fa fa-user fa-3x"></i>
+          <i class="fa fa-tags fa-2x"></i>
           <span class="uppercase">Tags</span>
         </div>
         <button class="col-xs-2 flex-center btn btn-default"
@@ -55,7 +55,7 @@
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="fa fa-map-marker fa-2x"></i>
+            <i class="ci ci-map-marker ci-3x"></i>
             <h3 class="uppercase">Location</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
@@ -64,7 +64,7 @@
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="fa fa-suitcase fa-2x"></i>
+            <i class="ci ci-suitcase ci-3x"></i>
             <h3 class="uppercase">Position</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
@@ -73,7 +73,7 @@
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="fa fa-building fa-2x"></i>
+            <i class="ci ci-building ci-3x"></i>
             <h3 class="uppercase">Company</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
@@ -89,14 +89,14 @@
         <div class="row edit-row xs-clear-margin">
           <button class="col-sm-8 col-sm-offset-2 edit-add-btn flex-center"
             data-ng-click="addExperience(user)">
-            <i class="glyphicon glyphicon-plus fa-3x"></i>
+            <i class="ci ci-plus ci-3x"></i>
             <span class="uppercase">Add Experience</span>
           </button>
         </div>
         <div class="row edit-row xs-clear-margin"
           data-ng-repeat="experience in user.experiences">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="fa fa-times-circle edit-delete-btn"
+            <i class="ci ci-x-circle edit-delete-btn"
               data-ng-click="deleteExeperience(user, $index)">
             </i>
             <h3 class="uppercase">{{ $index + 1 }}</h3>
@@ -128,14 +128,14 @@
         <div class="row edit-row xs-clear-margin">
           <button class="col-sm-8 col-sm-offset-2 edit-add-btn flex-center"
             data-ng-click="addEducation(user)">
-            <i class="glyphicon glyphicon-plus fa-3x"></i>
+            <i class="ci ci-plus ci-3x"></i>
             <span class="uppercase">Add Education</span>
           </button>
         </div>
         <div class="row edit-row xs-clear-margin"
           data-ng-repeat="education in user.educations">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="fa fa-times-circle edit-delete-btn"
+            <i class="ci ci-x-circle edit-delete-btn"
               data-ng-click="deleteEducation(user, $index)">
             </i>
             <h3 class="uppercase">{{ $index + 1 }}</h3>
