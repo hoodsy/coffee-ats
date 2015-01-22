@@ -189,7 +189,27 @@ gulp.task('final-html', ['styles', 'scripts', 'partials', 'fonts'], _.wrap('shel
 // Fonts
 //
 
-gulp.task('fonts', function () {
+gulp.task('iconfonts', function(){
+  return gulp.src(['app/svg/*.svg'])
+    .pipe($.iconfont({
+      fontName: 'coffee-iconfont'
+    }))
+    .on('codepoints', function(codepoints, options) {
+      gulp.src('gulp/iconfont-template.tmpl')
+        .pipe($.consolidate('lodash', {
+          glyphs: codepoints,
+          fontName: 'coffee-iconfont',
+          fontPath: '../fonts/',
+          className: 'ci'
+        }))
+        .pipe($.rename('coffee-iconfont.css'))
+        .pipe(gulp.dest('app/shell-static/styles/'));
+    })
+    .pipe(gulp.dest('app/shell-static/fonts'))
+    .pipe(gulp.dest('shell-dist/fonts'));
+});
+
+gulp.task('fonts', ['iconfonts'], function () {
   return gulp.src('app/bower_components/bootstrap-stylus/**/*.{eot,svg,ttf,woff}')
     .pipe($.flatten())
     .pipe(gulp.dest('app/shell-static/fonts/'))
