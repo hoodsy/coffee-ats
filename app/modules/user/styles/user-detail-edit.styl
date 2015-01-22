@@ -35,6 +35,18 @@ border-color = color-grey-30
     >.edit-col
       border-bottom none
 
+  // Fix the edit button along the bottom
+  .edit-submit-btn
+    position fixed
+    bottom 0
+    height 36px
+
+  // Adjust form container to clear the submit button
+  .edit-form
+    height calc(100% - 36px)
+    bottom 36px
+    overflow-y scroll
+
 .edit-quote
   position absolute
   left -.5em
@@ -43,7 +55,7 @@ border-color = color-grey-30
 .edit-sub-row
   border-bottom 1px solid color-grey-80
   line-height 1.8em
-  height 33%
+  height 33.33%
 
   &:last-child
     border-bottom none

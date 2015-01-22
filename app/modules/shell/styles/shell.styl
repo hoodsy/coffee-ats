@@ -35,7 +35,10 @@ ul.navbar-nav >  li > a.nav-active
 
 /* Navbar is fixed so move down the main content with a margin */
 .main-content
-  margin-top 65px
+  position absolute
+  width 100%
+  height calc(100% - 55px)
+  top 55px
 
 /*
  * Headers
@@ -48,12 +51,9 @@ h1, h2, h3, h4, h5, h6
 
 /* Remove gutters on mobile views */
 @media (max-width: 767px)
-  .main-content
-    margin-top 50px
-
-    .container
-      padding-left 0
-      padding-right 0
+  .main-content .container
+    padding-left 0
+    padding-right 0
 
   .xs-clear-padding[class^="col-"]
     padding-left 0
