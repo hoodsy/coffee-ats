@@ -8,8 +8,4 @@ angular.module('opportunity')
     Opportunity.get({ id: $stateParams.id }, function(response) {
       $scope.opportunity = response;
     });
-
-    $scope.updateOpportunity = function() {
-      console.log('save changes made to opportunity');
-    };
   });

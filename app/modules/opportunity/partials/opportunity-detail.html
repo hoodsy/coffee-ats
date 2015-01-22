@@ -3,6 +3,9 @@
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 xs-clear-padding">
 
       <div class="opportunity-card text-center">
+        <a data-ui-sref=".edit"
+          <i class="edit-user-btn fa fa-pencil-square-o fa-2x"></i>
+        </a>
         <img class="rounded"
           alt="opportunity img"
           data-ng-src="{{ opportunity.picture }}"/>
@@ -54,7 +57,7 @@
       <div class="row xs-clear-margin">
         <div class="col-xs-10 col-xs-offset-1">
           <h2 class="header uppercase">Responsibilities</h2>
-          <p editable-textarea="opportunity.overview" 
+          <p editable-textarea="opportunity.overview"
            onaftersave="updateOpportunity()">
             {{ opportunity.overview }}
           </p>
