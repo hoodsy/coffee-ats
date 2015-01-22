@@ -1,6 +1,6 @@
 [
     {
-        "id": "1",
+        "_id": "1",
         "active": true,
         "companyName": "Twitter",
         "companyAbout": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -24,7 +24,7 @@
         "applicants": ["101"]
     },
     {
-        "id": "2",
+        "_id": "2",
         "active": true,
         "companyName": "Yahoo",
         "companyAbout": "Yahoo is a large digital technology company",
@@ -41,7 +41,7 @@
         "tags": ["Illustrator", "Photoshop"]
     },
     {
-        "id": "3",
+        "_id": "3",
         "active": false,
         "companyName": "Facebook",
         "companyAbout": "Facebook is one of the first social networks",
@@ -57,7 +57,7 @@
         "tags": ["Java"]
     },
     {
-        "id": "4",
+        "_id": "4",
         "active": true,
         "companyName": "McGladrey",
         "companyAbout": "McGladrey is an innovative research firm",
@@ -73,7 +73,7 @@
         "tags": ["Java", "JSP"]
     },
     {
-        "id": "5",
+        "_id": "5",
         "active": true,
         "companyName": "CUNA",
         "companyAbout": "CUNA is a leading technology firm",
@@ -89,7 +89,7 @@
         "tags": ["Marketing", "Analytics"]
     },
     {
-        "id": "6",
+        "_id": "6",
         "active": true,
         "companyName": "EFI",
         "companyAbout": "EFI is a technology company",
@@ -105,7 +105,7 @@
         "tags": ["Javascript", "AJAX"]
     },
     {
-        "id": "7",
+        "_id": "7",
         "active": false,
         "companyName": "CSC",
         "companyAbout": "CSC builds cool things",

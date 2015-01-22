@@ -1,6 +1,6 @@
 [{
   "type": "user",
-  "id": "507f1f77bcf86cd799439011",
+  "_id": "507f1f77bcf86cd799439011",
   "name": "Justin de Guzman",
   "picture": "https://avatars0.githubusercontent.com/u/3936029?v=3&s=400",
   "headline": "Hello",
@@ -11,7 +11,7 @@
   "likes": true
 }, {
   "type": "opportunity",
-  "id": "1",
+  "_id": "1",
   "picture": "https://g.twimg.com/Twitter_logo_blue.png",
   "headline": "Twitter is looking for NodeJS engineers to...",
   "creator": "Jamie Jameson",
@@ -25,7 +25,7 @@
   "likes": false
 }, {
   "type": "user",
-  "id": "507f1f77bcf86cd799439011",
+  "_id": "507f1f77bcf86cd799439011",
   "name": "Justin de Guzman",
   "picture": "https://avatars0.githubusercontent.com/u/3936029?v=3&s=400",
   "headline": "Hello",
@@ -36,7 +36,7 @@
   "likes": true
 }, {
   "type": "opportunity",
-  "id": "1",
+  "_id": "1",
   "picture": "https://g.twimg.com/Twitter_logo_blue.png",
   "headline": "Twitter is looking for NodeJS engineers to...",
   "creator": "Jamie Jameson",
@@ -50,7 +50,7 @@
   "likes": false
 }, {
   "type": "user",
-  "id": "507f1f77bcf86cd799439011",
+  "_id": "507f1f77bcf86cd799439011",
   "name": "Justin de Guzman",
   "picture": "https://avatars0.githubusercontent.com/u/3936029?v=3&s=400",
   "headline": "Hello",
@@ -61,7 +61,7 @@
   "likes": true
 }, {
   "type": "opportunity",
-  "id": "1",
+  "_id": "1",
   "picture": "https://g.twimg.com/Twitter_logo_blue.png",
   "headline": "Twitter is looking for NodeJS engineers to...",
   "creator": "Jamie Jameson",
@@ -75,7 +75,7 @@
   "likes": false
 }, {
   "type": "user",
-  "id": "507f1f77bcf86cd799439011",
+  "_id": "507f1f77bcf86cd799439011",
   "name": "Justin de Guzman",
   "picture": "https://avatars0.githubusercontent.com/u/3936029?v=3&s=400",
   "headline": "Hello",
@@ -86,7 +86,7 @@
   "likes": true
 }, {
   "type": "opportunity",
-  "id": "1",
+  "_id": "1",
   "picture": "https://g.twimg.com/Twitter_logo_blue.png",
   "headline": "Twitter is looking for NodeJS engineers to...",
   "creator": "Jamie Jameson",
@@ -100,7 +100,7 @@
   "likes": false
 }, {
   "type": "user",
-  "id": "507f1f77bcf86cd799439011",
+  "_id": "507f1f77bcf86cd799439011",
   "name": "Justin de Guzman",
   "picture": "https://avatars0.githubusercontent.com/u/3936029?v=3&s=400",
   "headline": "Hello",
@@ -111,7 +111,7 @@
   "likes": true
 }, {
   "type": "opportunity",
-  "id": "1",
+  "_id": "1",
   "picture": "https://g.twimg.com/Twitter_logo_blue.png",
   "headline": "Twitter is looking for NodeJS engineers to...",
   "creator": "Jamie Jameson",
