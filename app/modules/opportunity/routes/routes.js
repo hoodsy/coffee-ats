@@ -22,6 +22,15 @@ app.config(function($stateProvider) {
       }
     }
   })
+  .state('shell.opportunity.detail.edit', {
+    url: '/edit',
+    views: {
+      'main@shell': {
+        controller: 'OpportunityDetailEditCtrl',
+        templateUrl: 'modules/opportunity/partials/opportunity-detail-edit.html'
+      }
+    }
+  })
   .state('shell.opportunity.create', {
     url: '/new',
     views: {

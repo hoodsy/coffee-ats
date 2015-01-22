@@ -9,12 +9,7 @@
         <img class="rounded"
           alt="opportunity img"
           data-ng-src="{{ opportunity.picture }}"/>
-        <div class="quote">
-          <span editable-text="opportunity.headline"
-           onaftersave="updateOpportunity()">
-            {{ opportunity.headline }}
-          </span>
-        </div>
+        <div class="quote">{{ opportunity.headline }}</div>
         <div>
           <span class="uppercase">
             {{ opportunity.creatorName }} |
@@ -24,43 +19,30 @@
       </div>
 
       <h1 class="header uppercase">
-        <span
-         editable-text="opportunity.title" onaftersave="updateOpportunity()">
-          {{ opportunity.title }}
-        </span>
-           @ {{ opportunity.companyName }}
+        {{ opportunity.title }} @
+        {{ opportunity.companyName }}
       </h1>
 
       <div class="row xs-clear-margin">
         <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
-          <span editable-text="opportunity.salaryMax"
-           onaftersave="updateOpportunity()">
+          <span>
             {{ opportunity.salaryMin | salary:opportunity.salaryMax:opportunity.salaryCurrency }}
           </span>
         </div>
         <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
           <i class="fa fa-clock-o"></i>
-          <span editable-text="opportunity.schedule"
-           onaftersave="updateOpportunity()">
-            {{ opportunity.schedule }}
-          </span>
+          <span>{{ opportunity.schedule }}</span>
         </div>
         <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
           <i class="fa fa-map-marker"></i>
-          <span editable-text="opportunity.location"
-           onaftersave="updateOpportunity()">
-            {{ opportunity.location }}
-          </span>
+          <span>{{ opportunity.location }}</span>
         </div>
       </div>
 
       <div class="row xs-clear-margin">
         <div class="col-xs-10 col-xs-offset-1">
           <h2 class="header uppercase">Responsibilities</h2>
-          <p editable-textarea="opportunity.overview"
-           onaftersave="updateOpportunity()">
-            {{ opportunity.overview }}
-          </p>
+          <p>{{ opportunity.overview }}</p>
 
           <!-- About Company -->
           <img class="rounded"
@@ -85,10 +67,7 @@
             alt="creator img"
             data-ng-src="{{ opportunity.creatorPicture }}"/>
           <h2 class="header uppercase">About {{ opportunity.creatorName }}</h2>
-          <p editable-textarea="opportunity.creatorHeadline"
-           onaftersave="updateOpportunity()">
-            {{ opportunity.creatorHeadline }}
-          </p>
+          <p>{{ opportunity.creatorHeadline }}</p>
         </div>
       </div>
 
