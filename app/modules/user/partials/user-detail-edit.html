@@ -84,6 +84,21 @@
 
       <hr class="hidden-xs">
 
+      <!-- Headline -->
+      <div data-ng-class="{ 'hidden-xs': page !== 1 }">
+        <div class="row edit-row xs-clear-margin">
+          <div class="col-xs-8 col-xs-offset-2 flex-center-vert">
+            <i class="ci ci-quote edit-quote ci-3x"></i>
+            <textarea
+              placeholder="Driven professional with a background in..."
+              ng-model="user.headline">
+            </textarea>
+          </div>
+        </div>
+      </div>
+
+      <hr class="hidden-xs">
+
       <!-- Experience Detail -->
       <div data-ng-class="{ 'hidden-xs': page !== 2 }">
         <div class="row edit-row xs-clear-margin">
