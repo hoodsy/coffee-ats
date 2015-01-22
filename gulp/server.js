@@ -33,12 +33,12 @@ var mockData = {};
 function mockMiddleware(req, res, next) {
 
   if (/api/.test(req.url)) {
-    var id = null,
+    var _id = null,
       url = req.url.split('/');
 
     // If this is an ID route we extract that from the URL
     if (url[url.length-1].search(/[0-9]+$/) > -1) {
-      var id = url.pop();
+      var _id = url.pop();
     }
 
     // Get the entity type, e.g. opportunities
@@ -52,9 +52,9 @@ function mockMiddleware(req, res, next) {
 
     var response = mockData[entity];
 
-    // Lookup the ID from the stored mock data
-    if (id !== null) {
-      response = _.find(mockData[entity], {id: id});
+    // Lookup the _id from the stored mock data
+    if (_id !== null) {
+      response = _.find(mockData[entity], {_id: _id});
     }
 
     // Send a regular json response
