@@ -22,4 +22,28 @@
     "degree": "B.Sc.",
     "time": "2014-05/2015-01"
   }]
+}, {
+  "_id": "102",
+  "firstName": "Juan",
+  "lastName": "Lasheras",
+  "email": "juan.lasheras@example.com",
+  "headline": "Hello",
+  "deviceToken": "1234",
+  "picture": "https://avatars3.githubusercontent.com/u/1295565?v=3&s=140",
+  "organization": "Twitter",
+  "position": "Recruiter",
+  "about": "I am a recruiter.",
+  "locations": ["New York City", "San Francisco"],
+  "tags": ["Recruiting", "NodeJS", "Programming", "CMU", "Tag", "Blah", "Foobar", "Code", "Tech", "NYC"],
+  "experiences": [{
+    "position": "Recruiter",
+    "organization": "Twitter",
+    "time": "2014-05/Present"
+  }],
+  "educations": [{
+    "school": "CMU",
+    "major": "ECE",
+    "degree": "B.Sc.",
+    "time": "2005-05/2009-01"
+  }]
 }]

@@ -25,14 +25,14 @@
   "likes": false
 }, {
   "type": "user",
-  "_id": "101",
-  "name": "Justin de Guzman",
-  "picture": "https://avatars0.githubusercontent.com/u/3936029?v=3&s=400",
+  "_id": "102",
+  "name": "Juan Lasheras",
+  "picture": "https://avatars3.githubusercontent.com/u/1295565?v=3&s=140",
   "headline": "Hello",
-  "position": "Engineer",
-  "organization": "Coffeetheapp",
+  "position": "Recruiter",
+  "organization": "Twitter",
   "locations": ["New York City", "San Francisco"],
-  "tags": ["Software", "Mobile", "Networking"],
+  "tags": ["Recruiting", "NodeJS", "Programming", "CMU", "Tag", "Blah", "Foobar", "Code", "Tech", "NYC"],
   "likes": true
 }, {
   "type": "opportunity",
