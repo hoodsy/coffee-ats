@@ -2,6 +2,9 @@
 
 angular.module('messaging')
   .controller('MessagingCtrl', function ($scope, UserMatch) {
+
+    $scope.detailShow = -1;
+
     UserMatch.query(function(response) {
       $scope.matches = response;
 
@@ -22,4 +25,17 @@ angular.module('messaging')
         }
       });
     });
+
+
+    $scope.toggleDetail = function(index) {
+      if ($scope.detailShow === index) {
+        $scope.detailShow = -1;
+      } else {
+        $scope.detailShow = index;
+      }
+    };
+
+    $scope.showDetail = function(index) {
+      return ($scope.detailShow === index);
+    };
   });

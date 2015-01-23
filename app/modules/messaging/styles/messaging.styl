@@ -7,16 +7,40 @@ border-color = color-grey-80
   margin 0
   padding 0
 
+.matches-list-item
+    border-bottom 1px solid border-color
+
 .match-card
-  height 150px
-  border-bottom 1px solid border-color
+  height 175px
+  position relative
+  left 0
+  transition left .2s ease-in-out
 
-  @media (min-width 768px)
-    border-left 1px solid border-color
-    border-right 1px solid border-color
+  &.slide-left
+    position relative
+    left -200px
 
-    &:first-child
-      border-top 1px solid border-color
+.match-latest-message
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden
 
-.match-card-avatar
-  background linear-gradient(to right, rgba(255,0,0,1) 50%, rgba(0,0,0,0) 100%)
+.match-unread-badge
+  height .75em
+  width .75em
+  position relative
+  top -.75em
+  right -1em
+  border-radius 50%
+  background-color color-green-1
+
+
+// Controls revealed on the right side of match card
+.detail-controls
+  position absolute
+  right 0
+  transition right .2s ease-in-out
+
+  &.grow[class*='col-']
+    position absolute
+    right -200px
