@@ -15,7 +15,7 @@
     <div class="tag-octothorpe">#</div>
     <ul class="tags-list">
       <li class="uppercase"
-        data-ng-repeat="tag in model.tags">
+        data-ng-repeat="tag in model.tags | limitTo:3">
         <div>{{ tag }}</div>
       </li>
     </ul>
