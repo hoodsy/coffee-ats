@@ -4,52 +4,59 @@
 
       <!-- Profile Edit navigation on mobile -->
       <div class="row edit-row xs-clear-margin visible-xs-block">
-        <button class="col-xs-2 edit-page-button flex-center btn btn-default"
+        <button class="col-xs-2 edit-page-btn btn btn-default"
           data-ng-click="previousPage()"
           data-ng-disabled="page <= 0">
-          <i class="fa fa-caret-left fa-3x"></i>
+          <i class="fa fa-caret-left fa-2x"></i>
         </button>
-        <div class="col-xs-8 edit-page-header flex-center"
+        <div class="col-xs-8 edit-page-header flex-center uppercase"
           data-ng-if="page === 0">
-<!--           <i class="ci ci-person-card ci-3x"></i> -->
-          <span class="uppercase">
+          <span class="edit-page-header-txt">
             {{ opportunity.title }} @
             {{ opportunity.companyName }}
             </br>
-            <small>Job Card</small>
+          </span>
+          <span class="text-center edit-page-header-txt2">
+            Job Card
           </span>
         </div>
-        <div class="col-xs-8 edit-page-header flex-center"
+        <div class="col-xs-8 edit-page-header flex-center uppercase"
           data-ng-if="page === 1">
-          <span class="uppercase">
+          <span class="edit-page-header-txt">
             {{ opportunity.title }} @
             {{ opportunity.companyName }}
             </br>
-            <small>Job Card 2</small>
+          </span>
+          <span class="text-center edit-page-header-txt2">
+            Job Card 2
           </span>
         </div>
-        <div class="col-xs-8 edit-page-header flex-center"
+        <div class="col-xs-8 edit-page-header flex-center uppercase"
           data-ng-if="page === 2">
-          <span class="uppercase">
+          <span class="edit-page-header-txt">
             {{ opportunity.title }} @
             {{ opportunity.companyName }}
             </br>
-            <small>About the Position</small>
+          </span>
+          <span class="text-center edit-page-header-txt2">
+            About the Position
           </span>
         </div>
-        <div class="col-xs-8 edit-page-header flex-center"
+        <div class="col-xs-8 edit-page-header flex-center uppercase"
           data-ng-if="page === 3">
-          <span class="uppercase">
+          <span class="edit-page-header-txt">
             {{ opportunity.title }} @
             {{ opportunity.companyName }}
             </br>
-            <small>Tags</small>
+          </span>
+          <span class="text-center edit-page-header-txt2">
+            Tags
           </span>
         </div>
-        <button class="col-xs-2 edit-page-button flex-center btn btn-default"
+        <button class="col-xs-2 edit-page-btn btn btn-default"
           data-ng-click="nextPage()"
           data-ng-disabled="page >= 3">
-          <i class="fa fa-caret-right fa-3x"></i>
+          <i class="fa fa-caret-right fa-2x"></i>
         </button>
       </div>
 
@@ -67,7 +74,7 @@
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-person-card ci-3x"></i>
+            <i class="ci ci-person-card ci-2x"></i>
             <h3 class="uppercase">Position</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
@@ -76,7 +83,7 @@
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-salary ci-3x"></i>
+            <i class="ci ci-salary ci-2x"></i>
             <h3 class="uppercase">Salary</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
@@ -86,7 +93,7 @@
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-clock ci-3x"></i>
+            <i class="ci ci-clock ci-2x"></i>
             <h3 class="uppercase">Type</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
@@ -95,7 +102,7 @@
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-map-marker ci-3x"></i>
+            <i class="ci ci-map-marker ci-2x"></i>
             <h3 class="uppercase">Location</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
