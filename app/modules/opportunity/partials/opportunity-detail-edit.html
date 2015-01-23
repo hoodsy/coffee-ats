@@ -4,7 +4,7 @@
 
       <!-- Profile Edit navigation on mobile -->
       <div class="row edit-row xs-clear-margin visible-xs-block">
-        <button class="col-xs-2 edit-page-button btn btn-default"
+        <button class="col-xs-2 edit-page-button flex-center btn btn-default"
           data-ng-click="previousPage()"
           data-ng-disabled="page <= 0">
           <i class="fa fa-caret-left fa-3x"></i>
@@ -15,7 +15,8 @@
           <span class="uppercase">
             {{ opportunity.title }} @
             {{ opportunity.companyName }}
-            Job Card
+            </br>
+            <small>Job Card</small>
           </span>
         </div>
         <div class="col-xs-8 edit-page-header flex-center"
@@ -23,7 +24,8 @@
           <span class="uppercase">
             {{ opportunity.title }} @
             {{ opportunity.companyName }}
-            Job Card 2
+            </br>
+            <small>Job Card 2</small>
           </span>
         </div>
         <div class="col-xs-8 edit-page-header flex-center"
@@ -31,7 +33,8 @@
           <span class="uppercase">
             {{ opportunity.title }} @
             {{ opportunity.companyName }}
-            About the Position
+            </br>
+            <small>About the Position</small>
           </span>
         </div>
         <div class="col-xs-8 edit-page-header flex-center"
@@ -39,10 +42,11 @@
           <span class="uppercase">
             {{ opportunity.title }} @
             {{ opportunity.companyName }}
-            Tags
+            </br>
+            <small>Tags</small>
           </span>
         </div>
-        <button class="col-xs-2 edit-page-button btn btn-default"
+        <button class="col-xs-2 edit-page-button flex-center btn btn-default"
           data-ng-click="nextPage()"
           data-ng-disabled="page >= 3">
           <i class="fa fa-caret-right fa-3x"></i>
@@ -105,29 +109,27 @@
       <!-- Opportunity Description -->
       <div data-ng-class="{ 'hidden-xs': page !== 1 }">
         <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 text-center flex-center">
-            <i class="ci ci-quote edit-quote ci-3x"/>
-            <strong>{{ opportunity.companyName }}</strong> is looking for <strong>{{ opportunity.title }}s</strong> to:
+          <div class="col-sm-8 col-sm-offset-2 text-center edit-page-label">
+            <i class="ci ci-quote edit-quote ci-2x"/>
+            <strong>{{ opportunity.companyName }}</strong> is looking for </br>
+            <strong>{{ opportunity.title }}s</strong> to:
           </div>
-          <div class="col-sm-8 col-sm-offset-2 clear-padding">
-            <input
-              ng-model="opportunity.headline"/>
+          <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
+            <textarea class="text-center" rows="2" ng-model="opportunity.headline"/>
           </div>
         </div>
       </div>
 
-      <hr class="hidden-xs">
+      <hr data-ng-class="{ 'hidden-xs': page !== 1 }">
 
       <!-- Company About -->
       <div data-ng-class="{ 'hidden-xs': page !== 1 }">
         <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 text-center flex-center">
+          <div class="col-sm-8 col-sm-offset-2 text-center edit-page-label">
             About <strong>{{ opportunity.companyName }}</strong>
           </div>
-          <div class="col-sm-8 col-sm-offset-2 clear-padding">
-            <textarea
-              rows="4"
-              ng-model="opportunity.companyAbout"/>
+          <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
+            <textarea class="text-center" rows="4" ng-model="opportunity.companyAbout"/>
           </div>
         </div>
       </div>
@@ -137,13 +139,11 @@
       <!-- Opportunity Responsibilities -->
       <div data-ng-class="{ 'hidden-xs': page !== 2 }">
         <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 text-center flex-center">
+          <div class="col-sm-8 col-sm-offset-2 text-center edit-page-label">
             <strong>Responsibilities</strong>
           </div>
-          <div class="col-sm-8 col-sm-offset-2 clear-padding">
-            <textarea
-              rows="4"
-              ng-model="opportunity.overview"/>
+          <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
+            <textarea class="text-center" rows="4" ng-model="opportunity.overview"/>
           </div>
         </div>
       </div>
@@ -153,7 +153,7 @@
       <!-- Tags -->
       <div data-ng-class="{ 'hidden-xs': page !== 3 }">
         <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 clear-padding">
+          <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-tag-input">
             <input class="text-center form-control"
               type="text"
               placeholder="ADD TAG"
