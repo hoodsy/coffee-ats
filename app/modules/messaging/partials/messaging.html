@@ -1,0 +1,32 @@
+<div class="container">
+  <ul class="row xs-clear-margin matches-list">
+    <li class="col-sm-8 col-sm-offset-2 xs-clear-padding"
+      data-ng-repeat="match in matches">
+
+      <div class="row clear-margin palette-{{ match._palette }} {{ match._paletteClass }} match-card">
+
+        <div class="col-xs-2 clear-padding flex-center match-card-avatar">
+          <img class="rounded"
+            alt="match img"
+            data-ng-src="{{ match.picture }}"/>
+        </div>
+
+        <div class="col-xs-8">
+          <h2 class="uppercase">
+            {{ match.title }}
+          </h2>
+          <h3 class="uppercase">
+            {{ match.subtitle }}
+          </h3>
+          <p>
+            {{ match.latest }}
+          </p>
+        </div>
+
+        <div class="col-xs-2 flex-center">
+          <i class="ci ci-info ci-lg"></i>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

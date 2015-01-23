@@ -6,8 +6,28 @@
   }],
   "updated": "2015-01-06T03:51:57Z",
   "unread": true,
-  "title": "Jamie @ Twitter",
+  "title": "Juan @ Twitter",
   "subtitle": "NodeJS Engineer",
-  "picture": "http://twitter.com/example.png",
+  "picture": "https://avatars3.githubusercontent.com/u/1295565?v=3&s=140",
+  "latest": "What have you been up to? Let's do something this weekend."
+}, {
+  "_id": "1002",
+  "matchedUserId": "103",
+  "matchedOpportunities": [],
+  "updated": "2015-01-06T03:51:57Z",
+  "unread": false,
+  "title": "Nathan @ Coffeetheapp",
+  "subtitle": "",
+  "picture": "https://media.licdn.com/mpr/mpr/shrink_240_240/p/4/005/022/288/303be8b.jpg",
+  "latest": "What have you been up to? Let's do something this weekend."
+}, {
+  "_id": "1003",
+  "matchedUserId": "104",
+  "matchedOpportunities": [],
+  "updated": "2015-01-06T03:51:57Z",
+  "unread": true,
+  "title": "Sawyer @ Coffeetheapp",
+  "subtitle": "",
+  "picture": "https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/000/218/1eb/0c09564.jpg",
   "latest": "What have you been up to? Let's do something this weekend."
 }]

@@ -1,0 +1,22 @@
+@import 'colors'
+
+border-color = color-grey-80
+
+.matches-list
+  list-style-type none
+  margin 0
+  padding 0
+
+.match-card
+  height 150px
+  border-bottom 1px solid border-color
+
+  @media (min-width 768px)
+    border-left 1px solid border-color
+    border-right 1px solid border-color
+
+    &:first-child
+      border-top 1px solid border-color
+
+.match-card-avatar
+  background linear-gradient(to right, rgba(255,0,0,1) 50%, rgba(0,0,0,0) 100%)

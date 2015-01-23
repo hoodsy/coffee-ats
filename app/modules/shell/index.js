@@ -6,6 +6,7 @@ angular.module('shell', [
   'user',
   'common',
   'opportunity',
+  'messaging',
   'ui.router'
 ]).run(function(authService) {
   authService();
