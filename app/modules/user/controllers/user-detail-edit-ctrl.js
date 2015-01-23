@@ -29,9 +29,14 @@ angular.module('user')
       }
     };
 
+    $scope.canAddExperience = function(user) {
+      return (user.experiences &&
+              user.experiences.length < MAX_EXPERIENCE);
+    };
+
     // Add an experience slot to user object
     $scope.addExperience = function(user) {
-      if (user.experiences.length < MAX_EXPERIENCE) {
+      if ($scope.canAddExperience(user)) {
         user.experiences.push({
           organization: '',
           position: '',
@@ -45,9 +50,14 @@ angular.module('user')
       user.experiences.splice(index, 1);
     };
 
+    $scope.canAddEducation = function(user) {
+      return (user.educations &&
+              user.educations.length < MAX_EDUCATION);
+    };
+
     // Add an education slot to user object
     $scope.addEducation = function(user) {
-      if (user.educations.length < MAX_EDUCATION) {
+      if ($scope.canAddEducation(user)) {
         user.educations.push({
           school: '',
           major: '',

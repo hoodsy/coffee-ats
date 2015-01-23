@@ -14,6 +14,17 @@ button,
 input
   -webkit-appearance none !important
 
+button.btn:focus
+  outline none
+
+@media (max-width 767px)
+  button.btn.btn.btn-default
+    &:hover,
+    &:focus
+      box-shadow none
+      background-color color-grey-50
+      border-color transparent
+
 button.btn
   text-transform uppercase
 

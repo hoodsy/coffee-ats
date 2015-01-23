@@ -1,0 +1,16 @@
+[Unit]
+Requires=mongod.service
+Requires=redis.service
+Before=mongod.service
+Before=redis.service
+
+[Service]
+WorkingDirectory=/root/ats
+ExecStart=/bin/bash deploy/deploy.sh
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=coffee-ats
+
+[Install]
+WantedBy=multi-user.target

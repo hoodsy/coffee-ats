@@ -1,5 +1,6 @@
 'use strict';
 
 angular.module('common', [
-  'ui.router'
+  'ui.router',
+  'ngTouch'
 ]);

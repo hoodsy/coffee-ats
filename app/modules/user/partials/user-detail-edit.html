@@ -1,10 +1,10 @@
-<form class="container edit-form">
+<form class="container edit-form" onsubmit="return false;">
   <div class="row xs-clear-margin">
     <div class="col-sm-8 col-sm-offset-2 xs-clear-padding">
 
       <!-- Profile Edit navigation on mobile -->
       <div class="row edit-row xs-clear-margin visible-xs-block">
-        <button class="col-xs-2 flex-center btn btn-default"
+        <button class="col-xs-2 btn btn-default edit-page-btn"
           data-ng-click="previousPage()"
           data-ng-disabled="page <= 0">
           <i class="fa fa-caret-left fa-3x"></i>
@@ -34,7 +34,7 @@
           <i class="fa fa-tags fa-2x"></i>
           <span class="uppercase">Tags</span>
         </div>
-        <button class="col-xs-2 flex-center btn btn-default"
+        <button class="col-xs-2 btn btn-default edit-page-btn"
           data-ng-click="nextPage()"
           data-ng-disabled="page >= 4">
           <i class="fa fa-caret-right fa-3x"></i>
@@ -101,13 +101,6 @@
 
       <!-- Experience Detail -->
       <div data-ng-class="{ 'hidden-xs': page !== 2 }">
-        <div class="row edit-row xs-clear-margin">
-          <button class="col-sm-8 col-sm-offset-2 edit-add-btn flex-center"
-            data-ng-click="addExperience(user)">
-            <i class="ci ci-plus ci-3x"></i>
-            <span class="uppercase">Add Experience</span>
-          </button>
-        </div>
         <div class="row edit-row xs-clear-margin"
           data-ng-repeat="experience in user.experiences">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
@@ -134,19 +127,20 @@
             </div>
           </div>
         </div>
+        <div class="row edit-row xs-clear-margin"
+          data-ng-if="canAddExperience(user)">
+          <button class="col-sm-8 col-sm-offset-2 edit-add-btn edit-page-btn"
+            data-ng-click="addExperience(user)">
+            <i class="ci ci-plus ci-3x"></i>
+            <div class="uppercase">Add Experience</div>
+          </button>
+        </div>
       </div>
 
       <hr class="hidden-xs">
 
       <!-- Education Detail -->
       <div data-ng-class="{ 'hidden-xs': page !== 3 }">
-        <div class="row edit-row xs-clear-margin">
-          <button class="col-sm-8 col-sm-offset-2 edit-add-btn flex-center"
-            data-ng-click="addEducation(user)">
-            <i class="ci ci-plus ci-3x"></i>
-            <span class="uppercase">Add Education</span>
-          </button>
-        </div>
         <div class="row edit-row xs-clear-margin"
           data-ng-repeat="education in user.educations">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
@@ -172,6 +166,14 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="row edit-row xs-clear-margin"
+          data-ng-if="canAddEducation(user)">
+          <button class="col-sm-8 col-sm-offset-2 edit-add-btn edit-page-btn"
+            data-ng-click="addEducation(user)">
+            <i class="ci ci-plus ci-3x"></i>
+            <div class="uppercase">Add Education</div>
+          </button>
         </div>
       </div>
 
