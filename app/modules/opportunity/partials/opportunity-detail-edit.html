@@ -4,29 +4,47 @@
 
       <!-- Profile Edit navigation on mobile -->
       <div class="row edit-row xs-clear-margin visible-xs-block">
-        <button class="col-xs-2 flex-center btn btn-default"
+        <button class="col-xs-2 edit-page-button btn btn-default"
           data-ng-click="previousPage()"
           data-ng-disabled="page <= 0">
           <i class="fa fa-caret-left fa-3x"></i>
         </button>
         <div class="col-xs-8 edit-page-header flex-center"
           data-ng-if="page === 0">
-          <i class="fa fa-user fa-3x"></i>
-          <span class="uppercase">Profile</span>
+<!--           <i class="ci ci-person-card ci-3x"></i> -->
+          <span class="uppercase">
+            {{ opportunity.title }} @
+            {{ opportunity.companyName }}
+            Job Card
+          </span>
         </div>
         <div class="col-xs-8 edit-page-header flex-center"
           data-ng-if="page === 1">
-          <i class="fa fa-user fa-3x"></i>
-          <span class="uppercase">Profile</span>
+          <span class="uppercase">
+            {{ opportunity.title }} @
+            {{ opportunity.companyName }}
+            Job Card 2
+          </span>
         </div>
         <div class="col-xs-8 edit-page-header flex-center"
-          data-ng-if="page === 4">
-          <i class="fa fa-user fa-3x"></i>
-          <span class="uppercase">Tags</span>
+          data-ng-if="page === 2">
+          <span class="uppercase">
+            {{ opportunity.title }} @
+            {{ opportunity.companyName }}
+            About the Position
+          </span>
         </div>
-        <button class="col-xs-2 flex-center btn btn-default"
+        <div class="col-xs-8 edit-page-header flex-center"
+          data-ng-if="page === 3">
+          <span class="uppercase">
+            {{ opportunity.title }} @
+            {{ opportunity.companyName }}
+            Tags
+          </span>
+        </div>
+        <button class="col-xs-2 edit-page-button btn btn-default"
           data-ng-click="nextPage()"
-          data-ng-disabled="page >= 4">
+          data-ng-disabled="page >= 3">
           <i class="fa fa-caret-right fa-3x"></i>
         </button>
       </div>
@@ -45,7 +63,7 @@
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="fa fa-suitcase fa-2x"></i>
+            <i class="ci ci-person-card ci-3x"></i>
             <h3 class="uppercase">Position</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
@@ -54,17 +72,17 @@
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="fa fa-dollar fa-2x"></i>
+            <i class="ci ci-salary ci-3x"></i>
             <h3 class="uppercase">Salary</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" ng-model="opportunity.salaryMin" />
-            <input class="pull-right" type="text" ng-model="opportunity.salaryMax" />
+            <input type="text" ng-model="opportunity.salaryMin"/>
+            <input class="pull-right" type="text" ng-model="opportunity.salaryMax"/>
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="fa fa-clock-o fa-2x"></i>
+            <i class="ci ci-clock ci-3x"></i>
             <h3 class="uppercase">Type</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
@@ -73,7 +91,7 @@
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="fa fa-map-marker fa-2x"></i>
+            <i class="ci ci-map-marker ci-3x"></i>
             <h3 class="uppercase">Location</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
@@ -87,11 +105,12 @@
       <!-- Opportunity Description -->
       <div data-ng-class="{ 'hidden-xs': page !== 1 }">
         <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 text-center">
+          <div class="col-sm-8 col-sm-offset-2 text-center flex-center">
+            <i class="ci ci-quote edit-quote ci-3x"/>
             <strong>{{ opportunity.companyName }}</strong> is looking for <strong>{{ opportunity.title }}s</strong> to:
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding">
-            <input class="form-control"
+            <input
               ng-model="opportunity.headline"/>
           </div>
         </div>
@@ -102,11 +121,11 @@
       <!-- Company About -->
       <div data-ng-class="{ 'hidden-xs': page !== 1 }">
         <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 text-center">
+          <div class="col-sm-8 col-sm-offset-2 text-center flex-center">
             About <strong>{{ opportunity.companyName }}</strong>
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding">
-            <textarea class="form-control opp-input-lg"
+            <textarea
               rows="4"
               ng-model="opportunity.companyAbout"/>
           </div>
@@ -118,11 +137,11 @@
       <!-- Opportunity Responsibilities -->
       <div data-ng-class="{ 'hidden-xs': page !== 2 }">
         <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 text-center">
+          <div class="col-sm-8 col-sm-offset-2 text-center flex-center">
             <strong>Responsibilities</strong>
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding">
-            <textarea class="form-control opp-input-lg"
+            <textarea
               rows="4"
               ng-model="opportunity.overview"/>
           </div>
@@ -132,7 +151,7 @@
       <hr class="hidden-xs">
 
       <!-- Tags -->
-      <div data-ng-class="{ 'hidden-xs': page !== 4 }">
+      <div data-ng-class="{ 'hidden-xs': page !== 3 }">
         <div class="row xs-clear-margin">
           <div class="col-sm-8 col-sm-offset-2 clear-padding">
             <input class="text-center form-control"
@@ -157,7 +176,7 @@
       <div class="row xs-clear-margin">
         <div class="col-sm-8 col-sm-offset-2 clear-padding">
           <button type="submit"
-            class="btn btn-default btn-block"
+            class="edit-submit-btn btn btn-default btn-block"
             data-ng-click="save(opportunity)">
             Save &amp; Finish
           </button>
