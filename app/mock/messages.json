@@ -1,0 +1,21 @@
+[{
+  "senderId": "101",
+  "senderName": "Justin de Guzman",
+  "text": "Hello, how are you?",
+  "created": "2015-01-06T03:50:57Z"
+}, {
+  "senderId": "102",
+  "senderName": "Juan Lasheras",
+  "text": "I'm fine, thanks!",
+  "created": "2015-01-06T03:52:30Z"
+}, {
+  "senderId": "101",
+  "senderName": "Juan Lasheras",
+  "text": "Cool, great!",
+  "created": "2015-01-06T03:53:30Z"
+}, {
+  "senderId": "102",
+  "senderName": "Juan Lasheras",
+  "text": "Yep!",
+  "created": "2015-01-06T03:54:30Z"
+}]

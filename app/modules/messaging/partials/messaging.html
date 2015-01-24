@@ -6,7 +6,8 @@
       <div class="row clear-margin palette-{{ match._palette }} {{ match._paletteClass }} match-card"
         data-ng-class="{ 'slide-left': showDetail($index) }">
 
-        <div class="col-xs-3 col-sm-2 clear-padding flex-center match-card-avatar">
+        <div class="col-xs-3 col-sm-2 clear-padding flex-center match-card-avatar"
+          data-ui-sref=".detail({ id: match._id })">
           <img class="rounded"
             alt="match img"
             data-ng-src="{{ match.picture }}"/>
@@ -15,7 +16,8 @@
           </div>
         </div>
 
-        <div class="col-xs-6 col-sm-8">
+        <div class="col-xs-6 col-sm-8 match-card-detail"
+          data-ui-sref=".detail({ id: match._id })">
           <h2 class="uppercase">
             {{ match.title }}
           </h2>
@@ -27,7 +29,7 @@
           </p>
         </div>
 
-        <div class="detail-controls flex-center"
+        <div class="match-card-controls flex-center"
           data-ng-class="{
           'col-xs-3 col-sm-2': !showDetail($index),
           'col-xs-8 col-sm-4 grow': showDetail($index)

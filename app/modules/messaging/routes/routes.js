@@ -12,5 +12,14 @@ app.config(function ($stateProvider) {
             controller: 'MessagingCtrl'
           }
         }
+      })
+      .state('shell.messaging.detail', {
+        url: '/:id',
+        views: {
+          'main@shell': {
+            templateUrl: 'modules/messaging/partials/messaging-detail.html',
+            controller: 'MessagingDetailCtrl'
+          }
+        }
       });
   });
