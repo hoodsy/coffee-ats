@@ -2,6 +2,49 @@
 
 border-color = color-grey-80
 
+// Adjust form container to clear the submit button
+.row.messaging-detail
+  position absolute
+  top 0
+  bottom 36px
+  height calc(100% - 36px)
+
+  @media (min-width 768px)
+    bottom 5em
+    height calc(100% - 60px)
+
+.row.messaging-detail,
+.row.messaging-detail-input
+  width 100%
+
+  @media (min-width: 768px)
+    width 750px
+
+  @media (min-width: 992px)
+    width 970px
+
+  @media (min-width: 1200px)
+    width 1170px
+
+
+.well.messaging-detail-well
+  position absolute
+  height 100%
+
+div.messaging-detail-profile
+  float right
+  height 100%
+  overflow-y auto
+
+.messaging-detail-input
+  position absolute
+  bottom 0
+  height 36px
+
+  @media (min-width 768px)
+    height 60px
+    padding 12px 0
+
 /*
  * Messages
  */
