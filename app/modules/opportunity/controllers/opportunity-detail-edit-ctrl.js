@@ -36,7 +36,7 @@ angular.module('opportunity')
     };
 
     $scope.save = function(opportunity) {
-      opportunity.$update(function(response) {
+      Opportunity.update(opportunity, function(response) {
         console.log('success');
       }, function(response) {
         console.log('error');

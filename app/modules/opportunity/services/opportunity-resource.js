@@ -3,7 +3,10 @@
 angular.module('opportunity')
   .factory('Opportunity', function ($resource) {
     return $resource('/api/opportunities/:id', { id: '@_id'},
-      {'save': {method: 'POST', isArray: true}} );
+      {
+        'save': {method: 'POST', isArray: true},
+        'update': {method: 'PUT'}
+    });
   })
   .factory('chargeCustomer', function($resource){
     return $resource('/api/payment/:tokenID/:numItems');

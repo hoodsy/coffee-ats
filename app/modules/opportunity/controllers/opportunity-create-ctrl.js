@@ -38,6 +38,8 @@ angular.module('opportunity')
     $scope.create = function(opportunity) {
       Opportunity.save(opportunity, function(response) {
         console.log('success');
+      }, function(response) {
+        console.log('error');
       });
     };
   });
