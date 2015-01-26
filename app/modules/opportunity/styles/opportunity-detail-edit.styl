@@ -20,8 +20,10 @@
 .edit-page-header-txt2
   font-size 12px
 
-.edit-row
-  height 95px
+@media (max-width: 767px)
+  .edit-row:last-child
+    >.edit-col
+      border-bottom 1px solid #4c4c4c
 
-.edit-row
-  border-bottom 1px solid #4c4c4c
+  .edit-row
+    height 95px
