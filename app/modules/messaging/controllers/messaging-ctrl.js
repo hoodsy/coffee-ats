@@ -27,7 +27,7 @@ angular.module('messaging')
     });
 
 
-    $scope.toggleDetail = function(index) {
+    $scope.toggleControls = function(index) {
       if ($scope.detailShow === index) {
         $scope.detailShow = -1;
       } else {
@@ -35,7 +35,7 @@ angular.module('messaging')
       }
     };
 
-    $scope.showDetail = function(index) {
+    $scope.showControls = function(index) {
       return ($scope.detailShow === index);
     };
 

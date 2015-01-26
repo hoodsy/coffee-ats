@@ -4,7 +4,7 @@
       data-ng-repeat="match in matches">
 
       <div class="row clear-margin palette-{{ match._palette }} {{ match._paletteClass }} match-card"
-        data-ng-class="{ 'slide-left': showDetail($index) }">
+        data-ng-class="{ 'slide-left': showControls($index) }">
 
         <div class="col-xs-3 col-sm-2 clear-padding flex-center match-card-avatar"
           data-ui-sref=".detail({ id: match._id })">
@@ -31,19 +31,19 @@
 
         <div class="match-card-controls flex-center"
           data-ng-class="{
-          'col-xs-3 col-sm-2': !showDetail($index),
-          'col-xs-8 col-sm-4 grow': showDetail($index)
+          'col-xs-3 col-sm-2': !showControls($index),
+          'col-xs-8 col-sm-4 grow': showControls($index)
           }">
           <button class="btn btn-transparent"
-            data-ng-click="toggleDetail($index)"
-            data-ng-if="!showDetail($index)">
+            data-ng-click="toggleControls($index)"
+            data-ng-if="!showControls($index)">
             <i class="ci ci-info ci-lg"></i>
           </button>
 
           <div class="row"
-            data-ng-if="showDetail($index)">
+            data-ng-if="showControls($index)">
             <button class="btn btn-transparent"
-              data-ng-click="toggleDetail($index)">
+              data-ng-click="toggleControls($index)">
               <i class="ci ci-info ci-lg"></i>
             </button>
 
