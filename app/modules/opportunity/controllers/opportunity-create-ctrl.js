@@ -3,12 +3,6 @@
 angular.module('opportunity')
   .controller('OpportunityCreateCtrl', function ($scope, $state, $stateParams, Opportunity) {
 
-    // $scope.postOpportunity = function() {
-    //   var newOpportunity = new Opportunity($scope.opportunity);
-    //   newOpportunity.$save();
-    //   $state.go('home.opportunity.billing');
-    // }
-
     $scope.palette = $stateParams.palette || '1';
 
     $scope.newTag = '';
@@ -41,11 +35,9 @@ angular.module('opportunity')
       opportunity.tags.splice(index, 1);
     };
 
-    $scope.save = function(opportunity) {
-      opportunity.$update(function(response) {
+    $scope.create = function(opportunity) {
+      Opportunity.save(opportunity, function(response) {
         console.log('success');
-      }, function(response) {
-        console.log('error');
       });
     };
   });
