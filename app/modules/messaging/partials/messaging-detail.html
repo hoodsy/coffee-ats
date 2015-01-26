@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="row xs-clear-margin">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-1 well xs-clear-padding">
+  <div class="row xs-clear-margin messaging-detail">
+    <div class="col-xs-12 col-sm-8 well xs-clear-padding messaging-detail-well">
 
       <ul class="messages-list">
         <li class="row xs-clear-margin"
           data-ng-repeat="message in matchMessages"
           data-ng-class="{ 'user-message' : (message.senderId === _user._id) }">
 
-          <div class="col-xs-1 flex-center">
+          <div class="col-xs-1 flex-center xs-clear-padding">
             <img class="rounded message-image"
               alt="match img"
               data-ng-src="{{ match.picture }}"
@@ -18,7 +18,7 @@
             <div class="chat-bubble">{{ message.text }}</div>
           </div>
 
-          <div class="col-xs-1 flex-center">
+          <div class="col-xs-1 flex-center xs-clear-padding">
             <img class="rounded message-image"
               alt="user img"
               data-ng-src="{{ _user.picture }}"
@@ -28,20 +28,20 @@
       </ul>
     </div>
 
-    <div class="hidden-xs col-sm-3">
-      profile
+    <div class="hidden-xs col-sm-4 messaging-detail-profile">
+      <div data-ng-include="'modules/user/partials/user-detail-sub.html'"></div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-xs-10 col-sm-8 col-sm-offset-1">
+  <div class="row messaging-detail-input xs-clear-margin">
+    <div class="col-xs-9 col-sm-10 clear-padding">
       <input type="text"
         class="form-control"
         placeholder="Hello..."
         data-ng-model="content" />
     </div>
-    <div class="col-xs-2 col-sm-2">
-      <button class="btn btn-primary">
+    <div class="col-xs-3 col-sm-2 clear-padding">
+      <button class="btn btn-primary btn-block">
         Send
       </button>
     </div>

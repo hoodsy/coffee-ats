@@ -1,0 +1,50 @@
+<div class="text-center palette-{{ palette }}">
+  <div class="user-card">
+    <a data-ui-sref=".edit({ id: user._id, palette: palette })"
+      data-ng-if="isEditable(user)">
+      <i class="edit-user-btn fa fa-pencil-square-o fa-2x"></i>
+    </a>
+    <img class="rounded"
+      alt="user img"
+      data-ng-src="{{ user.picture }}"/>
+    <div class="quote">{{ user.headline }}</div>
+    <div class="uppercase">{{ user.firstName }} {{ user.lastName }}</div>
+    <div>
+      <span class="uppercase">{{ user.position }} @
+      <strong>{{ user.organization }}</strong> |
+      {{ user.locations[0] }}
+      </span>
+    </div>
+  </div>
+
+  <div class="user-sub-profile">
+    <h2 class="header">Experience</h2>
+    <ul class="user-experience-list">
+      <li data-ng-repeat="experience in user.experiences">
+        <ul class="experience-data-list">
+          <li><strong>{{ experience.organization }}</strong></li>
+          <li>{{ experience.position }}</li>
+          <li>{{ experience.time }}</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2 class="header">Education</h2>
+    <ul class="user-education-list">
+      <li data-ng-repeat="education in user.educations">
+        <ul class="education-data-list">
+          <li><strong>{{ education.school }}</strong></li>
+          <li>{{ education.degree }} {{ education.major }}</li>
+          <li>{{ education.time }}</li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Tags -->
+    <ul class="detail-tags-list user-detail-tags-list">
+      <li data-ng-repeat="tag in user.tags">
+        <span>{{ tag }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
