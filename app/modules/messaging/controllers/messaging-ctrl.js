@@ -3,6 +3,7 @@
 angular.module('messaging')
   .controller('MessagingCtrl', function ($scope, $modal, UserMatch, Incident) {
 
+    // Flag to activate match controls
     $scope.canShowControls = -1;
 
     UserMatch.query(function(response) {
@@ -25,7 +26,6 @@ angular.module('messaging')
         }
       });
     });
-
 
     $scope.toggleControls = function(index) {
       if ($scope.canShowControls === index) {
@@ -52,12 +52,11 @@ angular.module('messaging')
 
       // Handle affirmative response
       modalInstance.result.then(function() {
-        Incident.save({ userId: userId }, function() {
-          modalInstance.dismiss();
-        }, function() {
+        Incident.save({ userId: userId }, function() {}, function() {
           console.log('Implement me');
-          modalInstance.dismiss();
         });
+      }).finally(function() {
+        modalInstance.dismiss();
       });
     };
 
@@ -74,12 +73,11 @@ angular.module('messaging')
 
       // Handle affirmative response
       modalInstance.result.then(function() {
-        UserMatch.delete({ id: matchId }, function() {
-          modalInstance.dismiss();
-        }, function() {
+        UserMatch.delete({ id: matchId }, function() {}, function() {
           console.log('Implement me');
-          modalInstance.dismiss();
         });
+      }).finally(function() {
+        modalInstance.dismiss();
       });
     };
   });
