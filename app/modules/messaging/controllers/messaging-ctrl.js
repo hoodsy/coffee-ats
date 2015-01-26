@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('messaging')
-  .controller('MessagingCtrl', function ($scope, UserMatch) {
+  .controller('MessagingCtrl', function ($scope, $modal, UserMatch, Incident) {
 
     $scope.detailShow = -1;
 
@@ -37,5 +37,23 @@ angular.module('messaging')
 
     $scope.showDetail = function(index) {
       return ($scope.detailShow === index);
+    };
+
+    // Launch Report model
+    $scope.report = function(userId) {
+      var modalInstance = $modal.open({
+        templateUrl: 'modules/messaging/partials/report-modal.html',
+        size: 'sm'
+      });
+
+      // Handle affirmative
+      modalInstance.result.then(function() {
+        Incident.save({ userId: userId }, function() {
+          modalInstance.dismiss();
+        }, function() {
+          console.log('Implement me');
+          modalInstance.dismiss();
+        });
+      });
     };
   });

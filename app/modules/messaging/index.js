@@ -1,6 +1,8 @@
 'use strict';
 
 angular.module('messaging', [
+  'common',
   'ngResource',
-  'ui.router'
+  'ui.router',
+  'ui.bootstrap'
 ]);
