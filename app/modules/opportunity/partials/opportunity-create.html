@@ -7,7 +7,7 @@
         <button class="col-xs-2 edit-page-btn btn edit-page-header"
           data-ng-click="previousPage()"
           data-ng-disabled="page <= 0">
-          <i class="fa fa-caret-left fa-2x"></i>
+          <i class="fa fa-caret-left fa-3x"></i>
         </button>
         <div class="col-xs-8 edit-page-header flex-center uppercase"
           data-ng-if="page === 0">
@@ -56,7 +56,7 @@
         <button class="col-xs-2 edit-page-btn btn edit-page-header"
           data-ng-click="nextPage()"
           data-ng-disabled="page >= 3">
-          <i class="fa fa-caret-right fa-2x"></i>
+          <i class="fa fa-caret-right fa-3x"></i>
         </button>
       </div>
 
@@ -64,48 +64,54 @@
       <div data-ng-class="{ 'hidden-xs': page !== 0 }">
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-building ci-2x"></i>
+            <i class="ci ci-building ci-3x"></i>
             <h3 class="uppercase">Company</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" ng-model="opportunity.companyName" />
+            <input type="text" placeholder="e.g. Twitter" ng-model="opportunity.companyName" />
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-person-card ci-2x"></i>
+            <i class="ci ci-person-card ci-3x"></i>
             <h3 class="uppercase">Position</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" ng-model="opportunity.title" />
+            <input type="text" placeholder="e.g. Web Developer" ng-model="opportunity.title" />
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-salary ci-2x"></i>
+            <i class="ci ci-salary ci-3x"></i>
             <h3 class="uppercase">Salary</h3>
           </div>
-          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" ng-model="opportunity.salaryMin"/>
-            <input class="pull-right" type="text" ng-model="opportunity.salaryMax"/>
+          <div class="edit-col col-xs-8 col-sm-5">
+            <div class="pull-left flex-center-vert">
+              <input type="text" size="4" placeholder="10000" ng-model="opportunity.salaryMin"/>
+            </div>
+            <span class="col-xs-1 flex-center-vert">-</span>
+            <div class="pull-left flex-center-vert">
+              <input type="text" size="6" placeholder="1000000" ng-model="opportunity.salaryMax"/>
+            </div>
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-clock ci-2x"></i>
+            <i class="ci ci-clock ci-3x"></i>
             <h3 class="uppercase">Type</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" ng-model="opportunity.schedule" />
+            <select ng-model="opportunity.schedule"
+              ng-options="schedule for schedule in schedules"/>
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-map-marker ci-2x"></i>
+            <i class="ci ci-map-marker ci-3x"></i>
             <h3 class="uppercase">Location</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" ng-model="opportunity.location" />
+            <input type="text" placeholder="e.g. Boston, MA" ng-model="opportunity.location" />
           </div>
         </div>
       </div>
@@ -116,12 +122,12 @@
       <div data-ng-class="{ 'hidden-xs': page !== 1 }">
         <div class="row xs-clear-margin">
           <div class="col-sm-8 col-sm-offset-2 text-center edit-page-label">
-            <i class="ci ci-quote edit-quote ci-2x"/>
+            <i class="ci ci-quote edit-quote ci-3x"/>
             <strong>{{ opportunity.companyName }}</strong> is looking for </br>
             <strong>{{ opportunity.title }}s</strong> to:
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
-            <textarea class="text-center" rows="2" ng-model="opportunity.headline"/>
+            <textarea class="text-center" rows="2" placeholder="e.g. Build websites." ng-model="opportunity.headline"/>
           </div>
         </div>
       </div>
@@ -135,7 +141,7 @@
             About <strong>{{ opportunity.companyName }}</strong>
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
-            <textarea class="text-center" rows="4" ng-model="opportunity.companyAbout"/>
+            <textarea class="text-center" rows="4" placeholder="e.g. Social media platform." ng-model="opportunity.companyAbout"/>
           </div>
         </div>
       </div>
@@ -149,7 +155,7 @@
             <strong>Responsibilities</strong>
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
-            <textarea class="text-center" rows="4" ng-model="opportunity.overview"/>
+            <textarea class="text-center" rows="4" placeholder="e.g. Design and develop web applications." ng-model="opportunity.overview"/>
           </div>
         </div>
       </div>
@@ -164,7 +170,7 @@
               type="text"
               placeholder="ADD TAG"
               data-ng-model="newTag"
-              data-ui-keypress="{13:'addTag(opportunity, newTag)'}"/>
+              data-ui-keypress="{13:'addTag(opportunity, newTag, $event)'}"/>
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding">
             <ul class="detail-tags-list user-detail-tags-list">

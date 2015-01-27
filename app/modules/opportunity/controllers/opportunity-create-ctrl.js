@@ -7,6 +7,8 @@ angular.module('opportunity')
 
     $scope.newTag = '';
 
+    $scope.schedules = ['Full-time', 'Part-time', 'Other'];
+
     // On mobile views we split edit form across multiple pages
     $scope.page = 0;
 
@@ -23,11 +25,12 @@ angular.module('opportunity')
     $scope.opportunity.tags = [];
 
     // Add a tag to the opportunity's tags
-    $scope.addTag = function(opportunity, tag) {
+    $scope.addTag = function(opportunity, tag, $event) {
       if (opportunity.tags.indexOf(tag) === -1) {
         opportunity.tags.push(tag);
       }
       $scope.newTag = '';
+      $event.preventDefault();
     };
 
     // Remove a tag by index number (0-indexed)
