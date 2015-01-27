@@ -2,9 +2,9 @@
   <div class="row xs-clear-margin">
     <div class="col-sm-8 col-sm-offset-2 xs-clear-padding">
 
-      <!-- Profile Edit navigation on mobile -->
-      <div class="row edit-row xs-clear-margin visible-xs-block">
-        <button class="col-xs-2 edit-page-btn btn btn-default"
+      <!-- Opportunity Edit navigation on mobile -->
+      <div class="row edit-row xs-clear-margin visible-xs-block palette-{{ palette }} edit-page-header">
+        <button class="col-xs-2 edit-page-btn btn edit-page-header"
           data-ng-click="previousPage()"
           data-ng-disabled="page <= 0">
           <i class="fa fa-caret-left fa-2x"></i>
@@ -37,6 +37,7 @@
             {{ opportunity.title }} @
             {{ opportunity.companyName }}
             </br>
+            </br>
           </span>
           <span class="text-center edit-page-header-txt2">
             About the Position
@@ -53,7 +54,7 @@
             Tags
           </span>
         </div>
-        <button class="col-xs-2 edit-page-btn btn btn-default"
+        <button class="col-xs-2 edit-page-btn btn edit-page-header"
           data-ng-click="nextPage()"
           data-ng-disabled="page >= 3">
           <i class="fa fa-caret-right fa-2x"></i>
@@ -183,7 +184,7 @@
       <div class="row xs-clear-margin">
         <div class="col-sm-8 col-sm-offset-2 clear-padding">
           <button type="submit"
-            class="edit-submit-btn btn btn-default btn-block"
+            class="edit-submit-btn btn btn-block"
             data-ng-click="save(opportunity)"
             data-ui-sref="shell.opportunity.detail">
             Save &amp; Finish

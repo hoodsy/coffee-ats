@@ -4,7 +4,7 @@
 
       <!-- Profile Edit navigation on mobile -->
       <div class="row edit-row xs-clear-margin visible-xs-block">
-        <button class="col-xs-2 edit-page-btn btn btn-default"
+        <button class="col-xs-2 edit-page-btn btn edit-page-header"
           data-ng-click="previousPage()"
           data-ng-disabled="page <= 0">
           <i class="fa fa-caret-left fa-2x"></i>
@@ -53,7 +53,7 @@
             Tags
           </span>
         </div>
-        <button class="col-xs-2 edit-page-btn btn btn-default"
+        <button class="col-xs-2 edit-page-btn btn edit-page-header"
           data-ng-click="nextPage()"
           data-ng-disabled="page >= 3">
           <i class="fa fa-caret-right fa-2x"></i>
@@ -182,7 +182,7 @@
       <div class="row xs-clear-margin">
         <div class="col-sm-8 col-sm-offset-2 clear-padding">
           <button type="submit"
-            class="edit-submit-btn btn btn-default btn-block"
+            class="edit-submit-btn btn btn-block"
             data-ng-click="create(opportunity)"
             data-ui-sref="shell.opportunity">
             Save &amp; Finish
