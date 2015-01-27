@@ -1,5 +1,11 @@
 @import 'colors'
 
+.btn-like
+  visibility hidden
+  position absolute
+  top .5em
+  right .5em
+
 @media (max-width: 767px)
   .tags-container
     width 100%
@@ -24,6 +30,9 @@
       box-shadow 2px 2px 2px color-grey-50, -2px 2px 2px color-grey-50
       transform scale(1.01)
       cursor pointer
+
+      .btn-like
+        visibility visible
 
   [data-coffee-card],
   [data-opportunity-post-card]

@@ -8,7 +8,8 @@ angular.module('user')
     return {
       restrict: 'A',
       scope: {
-        model: '='
+        model: '=',
+        likeCard: '&'
       },
       templateUrl: 'modules/user/partials/user-card.html',
       link: function(scope) {

@@ -1,5 +1,9 @@
 <div class="card-shadow opportunity-card text-center palette-{{ count }}"
   data-ui-sref=".opportunity.detail({ id: model._id, palette: count })">
+  <button class="btn btn-transparent btn-like"
+    data-ng-click="likeCard({ $event: $event })">
+    <i class="ci ci-mug ci-lg"></i>
+  </button>
   <img class="rounded"
     alt="opportunity img"
     data-ng-src="{{ model.picture }}"/>

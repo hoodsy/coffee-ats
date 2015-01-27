@@ -8,7 +8,8 @@ angular.module('opportunity')
     return {
       restrict: 'A',
       scope: {
-        model: '='
+        model: '=',
+        likeCard: '&'
       },
       templateUrl: 'modules/opportunity/partials/opportunity-card.html',
       link: function(scope) {
