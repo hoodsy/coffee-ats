@@ -4,7 +4,7 @@ git pull origin master
 # install deps. exit if it fails
 npm cache clean
 rm -rf node_modules
-npm install
+npm --unsafe-perm install
 rc=$?;
 if [[ $rc != 0 ]]; then
     echo 'npm install failed.';
