@@ -12,6 +12,14 @@ angular.module('opportunity')
       }
     };
 
+    $scope.enableControls = function(id) {
+      $scope.showControlsId = id;
+    };
+
+    $scope.disableControls = function(id) {
+      $scope.showControlsId = null;
+    };
+
     $scope.showControls = function(id) {
       return ($scope.showControlsId === id);
     };
