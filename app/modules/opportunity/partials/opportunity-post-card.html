@@ -1,5 +1,6 @@
 <div class="card-shadow opportunity-post-card palette-{{ count }}">
   <div class="row clear-margin opportunity-post-card-main"
+    data-ng-class="{ 'slide-left': showControls(model._id) }"
     data-ui-sref=".detail({ id: model._id, palette: count })">
 
     <div class="col-xs-2 clear-padding flex-center">
@@ -14,11 +15,34 @@
       </h2>
       <div class="quote">{{ model.headline }}</div>
     </div>
-    <div class="col-xs-2 flex-center">
-      <span class="fa-stack">
-        <i class="fa fa-circle-o fa-stack-2x"></i>
-        <i class="fa fa-ellipsis-h fa-stack-1x"></i>
-      </span>
+    <div class="opportunity-post-card-controls flex-center"
+      data-ng-class="{
+      'col-xs-2': !showControls(model._id),
+      'col-xs-6 col-sm-4 grow': showControls(model._id)
+      }">
+      <button class="btn btn-transparent"
+        data-ng-click="toggleControls($event, model._id)"
+        data-ng-if="!showControls(model._id)">
+        <i class="ci ci-more ci-lg"></i>
+      </button>
+
+      <div class="row"
+        data-ng-if="showControls(model._id)">
+        <button class="btn btn-transparent"
+          data-ng-click="toggleControls($event, model._id)">
+          <i class="ci ci-more ci-lg"></i>
+        </button>
+
+        <button class="btn btn-transparent"
+          data-ng-click="filled($event, model)">
+          <i class="ci ci-person-check ci-lg"></i>
+        </button>
+
+        <button class="btn btn-transparent"
+          data-ng-click="delete($event, match._id)">
+          <i class="ci ci-trash ci-lg"></i>
+        </button>
+      </div>
     </div>
   </div>
 
