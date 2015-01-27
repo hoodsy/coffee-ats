@@ -8,9 +8,11 @@ angular.module('opportunity')
     return {
       restrict: 'A',
       scope: {
-        model: '='
+        model: '=',
+        showControlsId: '='
       },
       templateUrl: 'modules/opportunity/partials/opportunity-post-card.html',
+      controller: 'OpportunityPostCardCtrl',
       link: function(scope) {
         count = (count + 1) % 3;
         scope.count = count;

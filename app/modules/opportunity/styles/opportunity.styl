@@ -30,6 +30,19 @@ img.rounded
  * Opportunity Post cards
  */
 
+.opportunity-post-card
+  overflow-x hidden
+
+.opportunity-post-card-controls
+  position absolute
+  right 0
+  transition right .2s ease-in-out
+
+  &.grow[class*='col-']
+    position absolute
+    right -100px
+
+
 .add-opportunity-post-card
   background-color color-grey-50
   color color-grey-20
@@ -37,6 +50,14 @@ img.rounded
 
 .opportunity-post-card-main
   height 150px
+  position relative
+  left 0
+  transition left .2s ease-in-out
+
+  &.slide-left
+    position relative
+    left -100px
+
 
 .opportunity-post-card-info
   height 25px
