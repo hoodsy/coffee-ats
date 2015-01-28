@@ -14,5 +14,20 @@ if [[ $rc != 0 ]]; then
     exit $rc;
 fi
 
+#install bower deps
+bower install --allow-root
+rc=$?;
+if [[ $rc != 0 ]]; then
+    echo 'bower install failed.';
+    exit $rc;
+fi
+
+gulp build
+rc=$?;
+if [[ $rc != 0 ]]; then
+    echo 'gulp build failed.';
+    exit $rc;
+fi
+
 # start the server
 npm start
