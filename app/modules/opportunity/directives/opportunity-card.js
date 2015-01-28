@@ -9,8 +9,10 @@ angular.module('opportunity')
       restrict: 'A',
       scope: {
         model: '=',
-        likeCard: '&',
-        askDelete: '&'
+        cardLike: '&',
+        cardAskDelete: '&',
+        cardCancelDelete: '&',
+        cardDelete: '&'
       },
       templateUrl: 'modules/opportunity/partials/opportunity-card.html',
       link: function(scope) {

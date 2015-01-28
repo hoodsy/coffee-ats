@@ -25,8 +25,13 @@
   bottom 0
 
 /*
- * Sliding effect on a Like action
+ * Sliding effect on a Like / Delete action
  */
+
+.card-shadow
+  // Allows the slide left effect to be occulted by card dimensions
+  overflow hidden
+
 .card-main.like-slide,
 .tags-container.like-slide
   animation-name like-slide
@@ -39,9 +44,6 @@
     margin-right -90%
     opacity 0
 
-/*
- * Sliding effect on a Delete action
- */
 .card-main.ask-delete-slide,
 .tags-container.ask-delete-slide
   animation-name ask-delete-slide
@@ -77,12 +79,6 @@
   [data-opportunity-post-card]
     margin-bottom 1em
 
-[data-user-card],
-[data-opportunity-card]
-  // Allows the slide left effect to be occulted by card dimensions
-  overflow hidden
-
-
 @media (min-width: 992px)
   .tags-container
     width 455px
@@ -91,7 +87,6 @@
   .tags-container
     width 360px
 
-[data-coffee-card],
 .user-card,
 .opportunity-card
   position relative

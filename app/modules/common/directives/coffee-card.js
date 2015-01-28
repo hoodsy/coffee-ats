@@ -7,7 +7,13 @@ angular.module('common')
       controller: 'CoffeeCardCtrl',
       link: function(scope, element) {
         var original = $interpolate(
-          '<div data-{{ item.type }}-card data-model="item" data-like-card="likeCard($event)" data-ask-delete="askDelete()"></div>')(scope);
+          '<div data-{{ item.type }}-card ' +
+          'data-model="item" ' +
+          'data-card-like="like($event, model)" ' +
+          'data-card-ask-delete="askDelete(model)" ' +
+          'data-card-cancel-delete="cancelDelete($event, model)" ' +
+          'data-card-delete="delete($event, model)"></div>')(scope);
+
         element.append($compile(original)(scope));
       }
     };

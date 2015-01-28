@@ -9,8 +9,10 @@ angular.module('user')
       restrict: 'A',
       scope: {
         model: '=',
-        likeCard: '&',
-        askDelete: '&'
+        cardLike: '&',
+        cardAskDelete: '&',
+        cardCancelDelete: '&',
+        cardDelete: '&'
       },
       templateUrl: 'modules/user/partials/user-card.html',
       link: function(scope) {
