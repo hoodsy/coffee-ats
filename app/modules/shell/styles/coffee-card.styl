@@ -24,10 +24,42 @@
   position absolute
   bottom 0
 
+/*
+ * Sliding effect on a Like action
+ */
+.card-main.like-slide,
+.tags-container.like-slide
+  animation-name like-slide
+  animation-fill-mode forwards
+  animation-duration .4s
+
+@keyframes like-slide
+  to
+    padding-left 90%
+    margin-right -90%
+    opacity 0
+
+/*
+ * Sliding effect on a Delete action
+ */
+.card-main.ask-delete-slide,
+.tags-container.ask-delete-slide
+  animation-name ask-delete-slide
+  animation-fill-mode forwards
+  animation-duration .4s
+
+@keyframes ask-delete-slide
+  to
+    padding-right 90%
+    margin-left -90%
+    opacity 0
+
+
 @media (min-width: 768px)
   .tags-container
     width 470px
 
+  // Box shadow and hover effect
   .card-shadow
     box-shadow 1px 1px 2px color-grey-50, -1px 1px 2px color-grey-50
     transition transform .1s ease
@@ -37,6 +69,7 @@
       transform scale(1.01)
       cursor pointer
 
+      // Display like button when hovering
       .btn-like
         visibility visible
 

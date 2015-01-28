@@ -1,25 +1,32 @@
 <div class="card-shadow user-card text-center palette-{{ model._palette }}"
   data-ui-sref=".user.detail({ id: model._id, palette: model._palette })"
-  data-ng-swipe-right="likeCard({ $event: $event })">
-  <button class="btn btn-transparent btn-like"
-    data-ng-click="likeCard({ $event: $event })">
-    <i class="ci ci-mug ci-lg"></i>
-  </button>
-  <img class="rounded"
-    alt="user img"
-    data-ng-src="{{ model.picture }}"/>
-  <i class="feed-is-liked fa fa-check"
-    title="This user has already matched with you!">
-  </i>
-  <div class="quote">{{ model.headline }}</div>
-  <div class="uppercase">{{ model.name }}</div>
-  <div>
-    <span class="uppercase">{{ model.position }} @
-    <strong>{{ model.organization }}</strong> |
-    {{ model.locations[0] }}
-    </span>
+  data-ng-swipe-right="likeCard({ $event: $event })"
+  data-ng-swipe-left="askDelete()">
+
+  <div data-ng-include="'modules/common/partials/coffee-card-states.html'"></div>
+
+  <div class="card-main {{ model._cssClass }}">
+    <button class="btn btn-transparent btn-like"
+      data-ng-click="likeCard({ $event: $event })">
+      <i class="ci ci-mug ci-lg"></i>
+    </button>
+    <img class="rounded"
+      alt="user img"
+      data-ng-src="{{ model.picture }}"/>
+    <i class="feed-is-liked fa fa-check"
+      title="This user has already matched with you!">
+    </i>
+    <div class="quote">{{ model.headline }}</div>
+    <div class="uppercase">{{ model.name }}</div>
+    <div>
+      <span class="uppercase">{{ model.position }} @
+      <strong>{{ model.organization }}</strong> |
+      {{ model.locations[0] }}
+      </span>
+    </div>
   </div>
-  <div class="tags-container">
+
+  <div class="tags-container {{ model._cssClass }}">
     <div class="tag-octothorpe">#</div>
     <ul class="tags-list">
       <li class="uppercase"

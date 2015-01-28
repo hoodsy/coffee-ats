@@ -9,7 +9,8 @@ angular.module('opportunity')
       restrict: 'A',
       scope: {
         model: '=',
-        likeCard: '&'
+        likeCard: '&',
+        askDelete: '&'
       },
       templateUrl: 'modules/opportunity/partials/opportunity-card.html',
       link: function(scope) {

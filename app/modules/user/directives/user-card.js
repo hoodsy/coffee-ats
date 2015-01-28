@@ -9,7 +9,8 @@ angular.module('user')
       restrict: 'A',
       scope: {
         model: '=',
-        likeCard: '&'
+        likeCard: '&',
+        askDelete: '&'
       },
       templateUrl: 'modules/user/partials/user-card.html',
       link: function(scope) {
