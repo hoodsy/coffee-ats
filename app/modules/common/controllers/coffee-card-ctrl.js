@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('common')
-  .controller('CoffeeCardCtrl', function ($scope, UserLike, Feed) {
+  .controller('CoffeeCardCtrl', function ($scope, $timeout, UserLike, Feed) {
 
     var CARD_STATES = {
       LIKED: 'liked',
       ASK_DELETE: 'askDelete',
-      DELETED: 'deleted'
+      HIDDEN: 'hidden'
     };
 
     var CARD_CSS_CLASSES = {
@@ -38,6 +38,10 @@ angular.module('common')
       }, function(err) {
 
         model._state = CARD_STATES.LIKED;
+        $timeout(function() {
+          model._state = CARD_STATES.HIDDEN;
+        }, 2000);
+
         console.log('err');
       });
     };
@@ -73,7 +77,7 @@ angular.module('common')
         console.log('success');
       }, function(err) {
 
-        model._state = CARD_STATES.DELETED;
+        model._state = CARD_STATES.HIDDEN;
         console.log('err');
       });
     };
