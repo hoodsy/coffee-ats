@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('user')
-  .controller('UserDetailEditCtrl', function ($scope, $rootScope, $stateParams, User) {
+  .controller('UserDetailEditCtrl', function ($scope, $rootScope, $state, $stateParams, User) {
 
     var MAX_EXPERIENCE = 3;
     var MAX_EDUCATION = 3;
@@ -86,8 +86,8 @@ angular.module('user')
     };
 
     $scope.save = function(user) {
-      user.$update(function(response) {
-        console.log('success');
+      user.$update({}, function(response) {
+        $state.go('^');
       }, function(response) {
         console.log('error');
       });
