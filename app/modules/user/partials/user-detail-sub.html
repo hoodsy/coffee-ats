@@ -1,8 +1,8 @@
 <div class="text-center palette-{{ palette }}">
   <div class="user-card">
-    <a data-ui-sref=".edit({ id: user._id, palette: palette })"
+    <a data-ui-sref="shell.user.detail.edit({ id: user._id, palette: palette })"
       data-ng-if="isEditable(user)">
-      <i class="edit-user-btn fa fa-pencil-square-o fa-2x"></i>
+      <i class="edit-user-btn ci ci-edit ci-lg"></i>
     </a>
     <img class="rounded"
       alt="user img"

@@ -4,7 +4,7 @@
 
       <div class="opportunity-card text-center">
         <a data-ui-sref=".edit"
-          <i class="edit-user-btn fa fa-pencil-square-o fa-2x"></i>
+          <i class="edit-user-btn ci ci-edit ci-lg"></i>
         </a>
         <img class="rounded"
           alt="opportunity img"
@@ -25,16 +25,17 @@
 
       <div class="row xs-clear-margin">
         <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
+          <i class="ci ci-salary ci-lg"></i>
           <span>
             {{ opportunity.salaryMin | salary:opportunity.salaryMax:opportunity.salaryCurrency }}
           </span>
         </div>
         <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
-          <i class="fa fa-clock-o"></i>
+          <i class="ci ci-clock ci-lg"></i>
           <span>{{ opportunity.schedule }}</span>
         </div>
         <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
-          <i class="fa fa-map-marker"></i>
+          <i class="ci ci-map-marker ci-lg"></i>
           <span>{{ opportunity.location }}</span>
         </div>
       </div>
