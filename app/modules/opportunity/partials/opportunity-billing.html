@@ -13,7 +13,7 @@
   Stripe.setPublishableKey('pk_test_IEQwtzhdbsPKufsG3Vko3bnW');
 </script>
 
-<form stripe-form='processPayment'>
+<!-- <form stripe-form='processPayment'>
   <h2>Enter Billing Information</h2>
   </br>
 </div>
@@ -70,14 +70,14 @@
     </br></br>
   </div>
   <div>
-    <label for="input-card-save">Save Card Information? 
+    <label for="input-card-save">Save Card Information?
       <input type="checkbox" ng-model="saveCard" id="input-card-save"/>
     </label>
     </br></br>
   </div>
   <div>
-    <label>Your Purchase: 
-    <input class="form-control" type="text" size="3" 
+    <label>Your Purchase:
+    <input class="form-control" type="text" size="3"
       ng-model="purchase.num"
       ng-change="getTotal()"
       id="input-numPurchases"/>
@@ -93,5 +93,125 @@
       class="btn btn-primary">
       Confirm Payment
     </button>
+  </div>
+</form> -->
+
+<form class="container edit-form" stripe-form="processPayment">
+  <div class="row xs-clear-margin">
+    <div class="col-sm-8 col-sm-offset-2 xs-clear-padding">
+
+
+      <!-- Opportunity Edit navigation on mobile -->
+      <div class="row edit-row xs-clear-margin visible-xs-block edit-page-header">
+        <div class="col-xs-12 edit-page-header flex-center uppercase">
+          <span class="edit-page-header-txt">
+            {{ opportunity.title }} @
+            {{ opportunity.companyName }}
+            </br>
+          </span>
+          <span class="text-center edit-page-header-txt2">
+            Billing
+          </span>
+        </div>
+      </div>
+
+      <!-- Opportunity Detail -->
+      <div>
+        <div class="row edit-row xs-clear-margin">
+          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+            <i class="ci ci-person-card2 ci-3x"></i>
+            <h3 class="uppercase">Card Number</h3>
+          </div>
+          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
+            <input type="text"
+              id="input-card-number"
+              required
+              placeholder="**** **** **** ****"
+              data-stripe="number"/>
+          </div>
+        </div>
+        <div class="row edit-row xs-clear-margin">
+          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+            <i class="ci ci-info2 ci-3x"></i>
+            <h3 class="uppercase">CVC</h3>
+          </div>
+          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
+            <input type="text"
+              id="input-card-cvc"
+              required
+              placeholder="***"
+              data-stripe="cvc"/>
+          </div>
+        </div>
+        <div class="row edit-row xs-clear-margin">
+          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+            <i class="ci ci-clock ci-3x"></i>
+            <h3 class="uppercase">Expiration</h3>
+          </div>
+          <div class="edit-col col-xs-8 col-sm-5">
+            <div class="pull-left flex-center-vert">
+              <input type="text"
+                id="input-card-expMonth"
+                size="3"
+                required
+                placeholder="MM"
+                data-stripe="exp-month"/>
+            </div>
+            <div class="pull-left flex-center-vert">
+              <input type="text"
+                id="input-card-expYear"
+                size="5"
+                required
+                placeholder="YYYY"
+                data-stripe="exp-year"/>
+            </div>
+          </div>
+        </div>
+        <div class="row edit-row xs-clear-margin">
+          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+            <i class="ci ci-person-check ci-3x"></i>
+            <h3 class="uppercase">Save Info?</h3>
+          </div>
+          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
+            <input type="checkbox"
+              ng-model="saveCard"
+              class="billing-page-checkbox col-xs-1 col-sm-1"/>
+          </div>
+        </div>
+        <div class="row edit-row xs-clear-margin">
+          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+            <i class="ci ci-check-circle ci-3x"></i>
+            <h3 class="uppercase">Purchase</h3>
+          </div>
+          <div class="edit-col col-xs-8 col-sm-5">
+            <div class="pull-left flex-center-vert">
+              <strong><input type="number"
+                ng-model="purchase.num"
+                ng-change="getTotal()"
+                id="input-numPurchases"/></strong>
+            </div>
+            <div class="pull-left flex-center-vert col-xs-9">
+              <span class="billing-page-purchase">
+                Month(s) x $10.00 =
+                <strong>${{purchase.total}}.00</strong>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="row xs-clear-margin">
+        <div class="col-sm-8 col-sm-offset-2 clear-padding">
+          <button type="submit"
+            class="edit-submit-btn btn btn-block"
+            data-ng-click="create(opportunity)"
+            data-ui-sref="shell.opportunity">
+            Save &amp; Finish
+          </button>
+        </div>
+      </div>
+
+    </div>
   </div>
 </form>

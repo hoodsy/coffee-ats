@@ -1,23 +1,30 @@
 'use strict';
 
 angular.module('opportunity')
-  .controller('OpportunityBillingCtrl', function ($scope, $state, chargeCustomer, saveCustomer) {
+  .controller('OpportunityBillingCtrl', function ($scope, $stateParams, Opportunity, chargeCustomer, saveCustomer) {
+
+    Opportunity.get({ id: $stateParams.id }, function(response) {
+      $scope.opportunity = response;
+    });
 
     $scope.saveCard = false;
-    $scope.purchase = {};
-    $scope.purchase.num = 1;
-    $scope.purchase.total = 50;
 
-    // 50 = $50.00, cost of an opportunity
+    $scope.purchase = {};
+
+    $scope.purchase.num = 1;
+
+    $scope.purchase.total = 10;
+
+    // 10 = $10.00, cost of an opportunity
     $scope.getTotal = function () {
-      $scope.purchase.total = $scope.purchase.num * 50;
+      $scope.purchase.total = $scope.purchase.num * 10;
     }
 
     /*
-      Attempt to charge provided Card.
-      One time charge, or one time charge and Customer ID
-      created and associated with current User
-    */
+     * Attempt to charge provided Card.
+     * One time charge, or one time charge and Customer ID
+     * created and associated with current User (info saved)
+     */
     $scope.processPayment = function (status, response) {
       if ($scope.saveCard == true) {
         var customer = new saveCustomer(
@@ -29,6 +36,5 @@ angular.module('opportunity')
           { tokenID: response.id, numItems: $scope.purchase.num } );
         charge.$save();
       }
-      $state.go('home.opportunity');
     }
   });
