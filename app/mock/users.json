@@ -12,11 +12,24 @@
   "locations": ["New York City", "San Francisco"],
   "tags": ["Janitor", "Entrepreneur", "NodeJS", "Programming", "NYU", "Tag", "Blah", "Foobar", "Code", "Tech", "NYC"],
   "experiences": [{
-    "position": "Engineer",
+    "position": "Senior Engineer",
     "organization": "Coffeetheapp",
     "time": "2014-05/Present"
+  }, {
+    "position": "Engineer",
+    "organization": "Twitter",
+    "time": "2013-05/2014-04"
+  }, {
+    "position": "Jr. Engineer",
+    "organization": "IBM",
+    "time": "2012-05/2013-04"
   }],
   "educations": [{
+    "school": "NYU",
+    "major": "Computer Science",
+    "degree": "MS",
+    "time": "2014-05/2015-01"
+  }, {
     "school": "NYU",
     "major": "Computer Science",
     "degree": "B.Sc.",
