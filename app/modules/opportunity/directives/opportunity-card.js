@@ -14,7 +14,7 @@ angular.module('opportunity')
       templateUrl: 'modules/opportunity/partials/opportunity-card.html',
       link: function(scope) {
         count = (count + 1) % 3;
-        scope.count = count;
+        scope.model._palette = count;
       }
     };
 });

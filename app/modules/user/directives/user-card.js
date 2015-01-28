@@ -14,7 +14,7 @@ angular.module('user')
       templateUrl: 'modules/user/partials/user-card.html',
       link: function(scope) {
         count = (count + 1) % 5;
-        scope.count = count;
+        scope.model._palette = count;
       }
     };
 });

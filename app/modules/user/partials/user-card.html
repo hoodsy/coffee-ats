@@ -1,5 +1,6 @@
-<div class="card-shadow user-card text-center palette-{{ count }}"
-  data-ui-sref=".user.detail({ id: model._id, palette: count })">
+<div class="card-shadow user-card text-center palette-{{ model._palette }}"
+  data-ui-sref=".user.detail({ id: model._id, palette: model._palette })"
+  data-ng-swipe-right="likeCard({ $event: $event })">
   <button class="btn btn-transparent btn-like"
     data-ng-click="likeCard({ $event: $event })">
     <i class="ci ci-mug ci-lg"></i>
