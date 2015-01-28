@@ -8,7 +8,7 @@ angular.module('common')
       UserLike.save([{ type: $scope.item.type, id: $scope.item._id }], function() {
         console.log('success');
       }, function(err) {
-        delete $scope.item._action;
+        // delete $scope.item._action;
         console.log('err');
       })
     };
