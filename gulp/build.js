@@ -6,6 +6,8 @@ var stylus = require('gulp-stylus');
 var serve = require('gulp-serve');
 var _ = require('lodash');
 var nib = require('nib');
+var del = require('del');
+var vinylPaths = require('vinyl-paths');
 
 var util = require('./util');
 
@@ -132,7 +134,7 @@ gulp.task('partials', _.wrap('shell', partials));
 function jsPipeline() {
   var jsFilter = $.filter('**/*.js');
   return jsFilter
-    .pipe($.ngmin())
+    .pipe($.ngAnnotate())
     .pipe($.uglify())
     .pipe(jsFilter.restore());
 }
@@ -218,7 +220,7 @@ gulp.task('fonts', ['iconfonts'], function () {
 });
 
 gulp.task('clean', function () {
-  return gulp.src(['app/*static', '*dist'], { read: false }).pipe($.rimraf());
+  return gulp.src(['app/*static', '*dist'], { read: false }).pipe(vinylPaths(del));
 });
 
 gulp.task('build', ['jshint:nofail', 'favicon', 'final-html']);
