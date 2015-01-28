@@ -39,6 +39,12 @@ angular.module('messaging')
       $scope.canShowControls = index;
     };
 
+    $scope.disableControls = function(index) {
+      if ($scope.canShowControls === index) {
+        $scope.canShowControls = -1;
+      }
+    };
+
     $scope.showControls = function(index) {
       return ($scope.canShowControls === index);
     };
