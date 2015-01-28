@@ -3,7 +3,7 @@
     data-ng-class="{ 'slide-left': showControls(model._id) }"
     data-ui-sref=".detail({ id: model._id, palette: count })"
     data-ng-swipe-left="enableControls(model._id)"
-    data-ng-swipe-right="disableControls()">
+    data-ng-swipe-right="disableControls(model._id)">
 
     <div class="col-xs-2 clear-padding flex-center">
       <img class="rounded"

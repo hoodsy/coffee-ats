@@ -17,7 +17,9 @@ angular.module('opportunity')
     };
 
     $scope.disableControls = function(id) {
-      $scope.showControlsId = null;
+      if ($scope.showControlsId === id) {
+        $scope.showControlsId = null;
+      }
     };
 
     $scope.showControls = function(id) {

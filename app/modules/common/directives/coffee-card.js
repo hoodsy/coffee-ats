@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('common')
-  .directive('coffeeCard', function($compile, $interpolate, $timeout) {
+  .directive('coffeeCard', function($compile, $interpolate) {
     return {
       restrict: 'A',
       controller: 'CoffeeCardCtrl',
