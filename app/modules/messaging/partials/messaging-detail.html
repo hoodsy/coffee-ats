@@ -1,4 +1,26 @@
 <div class="container">
+
+  <div class="row xs-clear-margin visible-xs-block messaging-title">
+    <button class="col-xs-2 btn btn-default edit-page-btn"
+      data-ng-click="previousPage()">
+      <i class="fa fa-caret-left fa-3x"></i>
+    </button>
+    <div class="col-xs-2 flex-center">
+      <img class="rounded"
+        alt="match img"
+        data-ng-src="{{ match.picture }}"/>
+    </div>
+    <div class="col-xs-6 flex-center">
+      <h2 class="uppercase">
+        {{ match.title }}
+      </h2>
+    </div>
+    <button class="col-xs-2 btn btn-default edit-page-btn"
+      data-ng-click="nextPage()">
+      <i class="ci ci-info ci-lg"></i>
+    </button>
+  </div>
+
   <div class="row xs-clear-margin messaging-detail">
     <div class="col-xs-12 col-sm-8 well xs-clear-padding messaging-detail-well">
 
