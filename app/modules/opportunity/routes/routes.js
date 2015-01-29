@@ -26,8 +26,8 @@ app.config(function($stateProvider) {
     url: '/edit',
     views: {
       'main@shell': {
-        controller: 'OpportunityDetailEditCtrl',
-        templateUrl: 'modules/opportunity/partials/opportunity-detail-edit.html'
+        controller: 'OpportunityManageCtrl',
+        templateUrl: 'modules/opportunity/partials/opportunity-manage.html'
       }
     }
   })
@@ -35,8 +35,8 @@ app.config(function($stateProvider) {
     url: '/new',
     views: {
       'main@shell': {
-        controller: 'OpportunityCreateCtrl',
-        templateUrl: 'modules/opportunity/partials/opportunity-create.html'
+        controller: 'OpportunityManageCtrl',
+        templateUrl: 'modules/opportunity/partials/opportunity-manage.html'
       }
     }
   })

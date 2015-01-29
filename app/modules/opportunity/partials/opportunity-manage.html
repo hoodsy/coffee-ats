@@ -1,5 +1,5 @@
-<form class="container">
-  <div class="row xs-clear-margin">
+<form class="container edit-form" ng-init="manageInit()">
+  <div class="row xs-clear-margin palette-{{ palette }}">
     <div class="col-sm-8 col-sm-offset-2 xs-clear-padding">
 
       <!-- Profile Edit navigation on mobile -->
@@ -177,7 +177,7 @@
               data-ui-keypress="{13:'addTag(opportunity, newTag, $event)'}"/>
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding">
-            <ul class="detail-tags-list user-detail-tags-list">
+            <ul class="detail-tags-list opportunity-detail-tags-list">
               <li class="text-center"
                 data-ng-repeat="tag in opportunity.tags"
                 data-ng-click="deleteTag(opportunity, $index)">
@@ -193,8 +193,7 @@
         <div class="col-sm-8 col-sm-offset-2 clear-padding">
           <button type="submit"
             class="edit-submit-btn btn btn-block"
-            data-ng-click="create(opportunity)"
-            data-ui-sref="shell.opportunity.billing">
+            data-ng-click="finish(opportunity)">
             Save &amp; Finish
           </button>
         </div>
