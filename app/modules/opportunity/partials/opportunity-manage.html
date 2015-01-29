@@ -1,13 +1,15 @@
-<form class="container edit-form" ng-init="manageInit()">
-  <div class="row xs-clear-margin palette-{{ palette }}">
+<form class="container edit-form opportunity-edit-form palette-{{ palette }}" ng-init="manageInit()">
+  <div class="row xs-clear-margin">
     <div class="col-sm-8 col-sm-offset-2 xs-clear-padding">
 
       <!-- Profile Edit navigation on mobile -->
       <div class="row edit-row xs-clear-margin visible-xs-block">
-        <button class="col-xs-2 edit-page-btn btn edit-page-header"
+        <button class="col-xs-2 edit-page-btn btn"
           data-ng-click="previousPage()"
           data-ng-disabled="page <= 0">
-          <i class="fa fa-caret-left fa-3x"></i>
+          <i class="fa fa-caret-left fa-3x"
+            data-ng-if="page > 0">
+          </i>
         </button>
         <div class="col-xs-8 edit-page-header flex-center uppercase"
           data-ng-if="page === 0">
@@ -53,10 +55,12 @@
             Tags
           </span>
         </div>
-        <button class="col-xs-2 edit-page-btn btn edit-page-header"
+        <button class="col-xs-2 edit-page-btn btn"
           data-ng-click="nextPage()"
           data-ng-disabled="page >= 3">
-          <i class="fa fa-caret-right fa-3x"></i>
+          <i class="fa fa-caret-right fa-3x"
+            data-ng-if="page < 3">
+          </i>
         </button>
       </div>
 
@@ -187,17 +191,13 @@
           </div>
         </div>
       </div>
-
-      <!-- Submit Button -->
-      <div class="row xs-clear-margin">
-        <div class="col-sm-8 col-sm-offset-2 clear-padding">
-          <button type="submit"
-            class="edit-submit-btn btn btn-block"
-            data-ng-click="finish(opportunity)">
-            Save &amp; Finish
-          </button>
-        </div>
-      </div>
     </div>
   </div>
+
+  <!-- Submit Button -->
+  <button type="submit"
+    class="edit-submit-btn btn btn-block"
+    data-ng-click="finish(opportunity)">
+    Save &amp; Finish
+  </button>
 </form>

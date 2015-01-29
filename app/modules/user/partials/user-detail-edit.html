@@ -1,4 +1,4 @@
-<form class="container edit-form" onsubmit="return false;">
+<form class="container edit-form user-edit-form" onsubmit="return false;">
   <div class="row xs-clear-margin">
     <div class="col-sm-8 col-sm-offset-2 xs-clear-padding">
 
@@ -7,7 +7,9 @@
         <button class="col-xs-2 btn btn-default edit-page-btn"
           data-ng-click="previousPage()"
           data-ng-disabled="page <= 0">
-          <i class="fa fa-caret-left fa-3x"></i>
+          <i class="fa fa-caret-left fa-3x"
+            data-ng-if="page > 0">
+          </i>
         </button>
         <div class="col-xs-8 edit-page-header flex-center"
           data-ng-if="page === 0">
@@ -37,7 +39,9 @@
         <button class="col-xs-2 btn btn-default edit-page-btn"
           data-ng-click="nextPage()"
           data-ng-disabled="page >= 4">
-          <i class="fa fa-caret-right fa-3x"></i>
+          <i class="fa fa-caret-right fa-3x"
+            data-ng-if="page < 4">
+          </i>
         </button>
       </div>
 
@@ -204,13 +208,9 @@
   </div>
 
   <!-- Submit Button -->
-  <div class="row xs-clear-margin">
-    <div class="col-sm-8 col-sm-offset-2 clear-padding">
-      <button type="submit"
-        class="btn btn-default btn-block edit-submit-btn"
-        data-ng-click="save(user)">
-        Save &amp; Finish
-      </button>
-    </div>
-  </div>
+  <button type="submit"
+    class="btn btn-default btn-block edit-submit-btn"
+    data-ng-click="save(user)">
+    Save &amp; Finish
+  </button>
 </form>
