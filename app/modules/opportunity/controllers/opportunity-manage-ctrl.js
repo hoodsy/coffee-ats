@@ -5,8 +5,7 @@ angular.module('opportunity')
 
     $scope.palette = $stateParams.palette || '1';
 
-    if ($stateParams.palette) { $scope.isEditable = true; };
-    console.log($scope.isEditable);
+    if ($stateParams.id) { $scope.isEditable = true; };
 
     // Initialize operations for create/edit
     $scope.manageInit = function() {

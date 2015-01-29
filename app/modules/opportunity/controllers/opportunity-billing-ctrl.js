@@ -9,11 +9,7 @@ angular.module('opportunity')
 
     $scope.saveCard = false;
 
-    $scope.purchase = {};
-
-    $scope.purchase.num = 1;
-
-    $scope.purchase.total = 10;
+    $scope.purchase = {'num': 1, 'total': 10};
 
     // 10 = $10.00, cost of an opportunity
     $scope.getTotal = function () {
@@ -26,7 +22,7 @@ angular.module('opportunity')
      * created and associated with current User (info saved)
      */
     $scope.processPayment = function (status, response) {
-      if ($scope.saveCard == true) {
+      if ($scope.saveCard) {
         var customer = new saveCustomer(
           { tokenID: response.id, numItems: $scope.purchase.num} );
         customer.$save();
