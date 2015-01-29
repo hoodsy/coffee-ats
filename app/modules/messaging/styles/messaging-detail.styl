@@ -1,0 +1,99 @@
+@import 'colors'
+@import 'layout'
+
+title-height = 75px
+input-height = 60px
+input-xs-height = 36px
+
+
+.row.messaging-title
+  color color-white
+  background color-grey-50
+  height title-height
+
+// Adjust messages container to clear the submit button
+.row.messaging-detail
+  position absolute
+  bottom input-xs-height
+
+  @media (max-width screen-xs-max)
+    top title-height
+    height "calc(100% - %s - %s)" % (input-xs-height title-height)
+
+  @media (min-width screen-sm-min)
+    top 0
+    bottom input-height
+    height "calc(100% - %s)" % input-height
+
+.row.messaging-detail,
+.row.messaging-detail-input
+  width 100%
+
+  @media (min-width: screen-sm-min)
+    width 750px
+
+  @media (min-width: screen-md-min)
+    width 970px
+
+  @media (min-width: screen-lg-min)
+    width 1170px
+
+
+.well.messaging-detail-well
+  position absolute
+  height 100%
+  overflow-y auto
+  margin 0
+
+div.messaging-detail-profile
+  float right
+  height 100%
+  overflow-y auto
+
+.messaging-detail-input
+  position absolute
+  bottom 0
+  height input-xs-height
+
+  @media (min-width screen-sm-min)
+    height input-height
+    padding 12px 0
+
+/*
+ * Messages
+ */
+
+img.message-image
+  height 1.5em
+  width 1.5em
+
+.user-message
+  position relative
+  text-align right
+
+  .chat-bubble
+    background-color color-green-2
+
+  .chat-bubble:after
+    border-color transparent color-green-2
+    border-width: .5em 0 .5em .5em
+    right .5em
+    top .25em
+    left initial
+
+.chat-bubble
+  display inline-block
+  padding .5em
+  background color-white
+
+.chat-bubble:after
+  content ''
+  position absolute
+  border-style solid
+  border-width .5em .5em .5em 0
+  border-color transparent #FFFFFF
+  z-index 1
+  left .5em
+  top .25em
+  height 0
+  width 0
