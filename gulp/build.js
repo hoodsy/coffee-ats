@@ -211,13 +211,17 @@ gulp.task('iconfonts', function(){
     .pipe(gulp.dest('shell-dist/fonts'));
 });
 
-gulp.task('fonts', ['iconfonts'], function () {
-  return gulp.src('app/bower_components/bootstrap-stylus/**/*.{eot,svg,ttf,woff}')
+function fonts(module) {
+  return gulp
+    .src(util.modFonts(module)
+         .concat('app/bower_components/bootstrap-stylus/**/*.{eot,svg,ttf,woff}'))
     .pipe($.flatten())
-    .pipe(gulp.dest('app/shell-static/fonts/'))
-    .pipe(gulp.dest('shell-dist/fonts/'))
+    .pipe(gulp.dest('app/' + module + '-static/fonts/'))
+    .pipe(gulp.dest(module + '-dist/fonts/'))
     .pipe($.size());
-});
+}
+
+gulp.task('fonts', ['iconfonts'], _.wrap('shell', fonts));
 
 gulp.task('clean', function () {
   return gulp.src(['app/*static', '*dist'], { read: false }).pipe(vinylPaths(del));
