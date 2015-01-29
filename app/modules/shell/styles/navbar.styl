@@ -38,9 +38,16 @@ ul.navbar-nav > li > a
   overflow-y auto
   -webkit-overflow-scrolling touch
 
+  // Make inner container relative so children of container can be absolute
   > .container
     position relative
     height 100%
 
   @media (min-width: screen-sm-min)
     padding-top 12px
+
+// User profile icon
+img.avatar
+  height 30px
+  width 30px
+  border-radius 2px
