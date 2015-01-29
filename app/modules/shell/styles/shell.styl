@@ -1,52 +1,9 @@
-@import 'colors'
 @import 'layout'
 
 ul
   list-style-type none
   margin 0
   padding 0
-
-/*
- * Navbar
- */
-
-nav.navbar.navbar-fixed-top
-  border none
-
-#navbar > .navbar-nav > li > a
-  line-height 30px
-
-ul.nav
-  display flex
-  flex-direction row
-  justify-content space-between
-
-  > li
-    text-align center
-    float left
-
-ul.navbar-nav >  li > a.nav-active
-  color color-green-2
-  border-bottom 5px solid color-green-2
-
-@media (max-width: screen-xs-max)
-  ul.navbar-nav.nav
-    margin 0
-
-    > li
-      width 25%
-
-    .fa
-      font-size 1.5em
-
-/* Navbar is fixed so move down the main content with a margin */
-.main-content
-  position absolute
-  width 100%
-  height calc(100% - 55px)
-  top 55px
-  overflow-y auto
-  -webkit-overflow-scrolling touch
 
 /*
  * Headers

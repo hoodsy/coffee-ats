@@ -1,0 +1,46 @@
+@import 'colors'
+@import 'layout'
+
+navbar-height = 55px
+
+nav.navbar.navbar-fixed-top
+  border none
+
+ul.nav
+  display flex
+  flex-direction row
+  justify-content space-between
+
+  > li
+    text-align center
+    float left
+
+ul.navbar-nav > li > a
+  line-height 30px
+
+  &.nav-active
+    color color-green-2
+    border-bottom 5px solid color-green-2
+
+@media (max-width: screen-xs-max)
+  ul.navbar-nav.nav
+    margin 0
+
+    > li
+      width 25%
+
+// Navbar is fixed so move down the main content
+.main-content
+  position absolute
+  width 100%
+  height 'calc(100% - %s)' % navbar-height
+  top navbar-height
+  overflow-y auto
+  -webkit-overflow-scrolling touch
+
+  > .container
+    position relative
+    height 100%
+
+  @media (min-width: screen-sm-min)
+    padding-top 12px
