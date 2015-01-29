@@ -1,28 +1,33 @@
 @import 'colors'
 
-.btn-like
-  visibility hidden
-  position absolute
-  top .5em
-  right .5em
+.user-card,
+.opportunity-card
+  position relative
+  height 200px
 
+// Is already liked checkmark
 .feed-is-liked
   display block
   position absolute
   top .25em
   left .25em
 
-@media (max-width: 767px)
-  .tags-container
-    width 100%
+/*
+ * Like button (i.e. coffee mug)
+ */
 
-  [data-coffee-card],
-  [data-opportunity-post-card]
-    margin-bottom 1px
-
-.tags-container
+.btn-like
+  visibility hidden
   position absolute
-  bottom 0
+  top .5em
+  right .5em
+
+// Display like button when hovering
+@media (min-width: 768px)
+  .card-shadow:hover
+    .btn-like
+      visibility visible
+
 
 /*
  * Sliding effect on a Like / Delete action
@@ -57,10 +62,11 @@
     opacity 0
 
 
-@media (min-width: 768px)
-  .tags-container
-    width 470px
+/*
+ * Box shadow and hover cursor
+ */
 
+@media (min-width: 768px)
   // Box shadow and hover effect
   .card-shadow
     box-shadow 1px 1px 2px color-grey-50, -1px 1px 2px color-grey-50
@@ -71,13 +77,22 @@
       transform scale(1.01)
       cursor pointer
 
-      // Display like button when hovering
-      .btn-like
-        visibility visible
 
-  [data-coffee-card],
-  [data-opportunity-post-card]
-    margin-bottom 1em
+/*
+ * Tags
+ */
+
+.tags-container
+  position absolute
+  bottom 0
+
+@media (max-width: 767px)
+  .tags-container
+    width 100%
+
+@media (min-width: 768px)
+  .tags-container
+    width 470px
 
 @media (min-width: 992px)
   .tags-container
@@ -86,11 +101,6 @@
 @media (min-width: 1200px)
   .tags-container
     width 360px
-
-.user-card,
-.opportunity-card
-  position relative
-  height 200px
 
 .tags-list
   font-size .8em
@@ -112,3 +122,19 @@
 
     &:nth-child(even)
       flex-grow 2
+
+
+/*
+ * Inter-card margins
+ */
+
+@media (max-width: 767px)
+  [data-coffee-card],
+  [data-opportunity-post-card]
+    margin-bottom 1px
+
+@media (min-width: 768px)
+  [data-coffee-card],
+  [data-opportunity-post-card]
+    margin-bottom 1em
+
