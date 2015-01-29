@@ -19,9 +19,9 @@
 
   <div class="user-sub-profile">
     <h2 class="header">Experience</h2>
-    <ul class="user-experience-list">
+    <ul>
       <li data-ng-repeat="experience in user.experiences">
-        <ul class="experience-data-list">
+        <ul>
           <li><strong>{{ experience.organization }}</strong></li>
           <li>{{ experience.position }}</li>
           <li>{{ experience.time }}</li>
@@ -30,9 +30,9 @@
     </ul>
 
     <h2 class="header">Education</h2>
-    <ul class="user-education-list">
+    <ul>
       <li data-ng-repeat="education in user.educations">
-        <ul class="education-data-list">
+        <ul>
           <li><strong>{{ education.school }}</strong></li>
           <li>{{ education.degree }} {{ education.major }}</li>
           <li>{{ education.time }}</li>
