@@ -1,9 +1,12 @@
 @import 'colors'
+@import 'layout'
+
 
 .user-card,
 .opportunity-card
   position relative
   height 200px
+
 
 // Is already liked checkmark
 .feed-is-liked
@@ -11,6 +14,7 @@
   position absolute
   top .25em
   left .25em
+
 
 /*
  * Like button (i.e. coffee mug)
@@ -23,7 +27,7 @@
   right .5em
 
 // Display like button when hovering
-@media (min-width: 768px)
+@media (min-width: screen-sm-min)
   .card-shadow:hover
     .btn-like
       visibility visible
@@ -66,7 +70,7 @@
  * Box shadow and hover cursor
  */
 
-@media (min-width: 768px)
+@media (min-width: screen-sm-min)
   // Box shadow and hover effect
   .card-shadow
     box-shadow 1px 1px 2px color-grey-50, -1px 1px 2px color-grey-50
@@ -88,19 +92,19 @@
   margin-top 20px
   height 2em
 
-@media (max-width: 767px)
+@media (max-width: screen-xs-max)
   .tags-container
     width 100%
 
-@media (min-width: 768px)
+@media (min-width: screen-sm-min)
   .tags-container
     width 470px
 
-@media (min-width: 992px)
+@media (min-width: screen-md-min)
   .tags-container
     width 455px
 
-@media (min-width: 1200px)
+@media (min-width: screen-lg-min)
   .tags-container
     width 360px
 
@@ -127,12 +131,12 @@
  * Inter-card margins
  */
 
-@media (max-width: 767px)
+@media (max-width: screen-xs-max)
   [data-coffee-card],
   [data-opportunity-post-card]
     margin-bottom 1px
 
-@media (min-width: 768px)
+@media (min-width: screen-sm-min)
   [data-coffee-card],
   [data-opportunity-post-card]
     margin-bottom 1em

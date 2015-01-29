@@ -1,4 +1,5 @@
 @import 'colors'
+@import 'layout'
 
 ul
   list-style-type none
@@ -28,7 +29,7 @@ ul.navbar-nav >  li > a.nav-active
   color color-green-2
   border-bottom 5px solid color-green-2
 
-@media (max-width: 767px)
+@media (max-width: screen-xs-max)
   ul.navbar-nav.nav
     margin 0
 
@@ -57,7 +58,7 @@ h1, h2, h3, h4, h5, h6
 
 
 /* Remove gutters on mobile views */
-@media (max-width: 767px)
+@media (max-width: screen-xs-max)
   .main-content .container
     padding-left 0
     padding-right 0
@@ -97,22 +98,6 @@ h1, h2, h3, h4, h5, h6
 
 .uppercase
   text-transform uppercase
-
-@media (max-width: 1200px)
-  .text-right-md
-    text-align right
-  .text-left-md
-    text-align-left
-  .text-center-md
-    text-align center
-
-@media (min-width: 1200px)
-  .text-right-lg
-    text-align right
-  .text-left-lg
-    text-align left
-  .text-center-lg
-    text-align center
 
 img.avatar
   height 30px
