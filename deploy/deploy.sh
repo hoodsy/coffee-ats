@@ -1,3 +1,5 @@
+# clear the git repo—there shouldn't be any changes here
+git reset --hard HEAD
 # pull the latest changes.
 git pull origin master
 
