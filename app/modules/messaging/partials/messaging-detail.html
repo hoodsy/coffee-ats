@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <div class="row messaging-detail-input xs-clear-margin">
+  <form class="row messaging-detail-input xs-clear-margin">
     <div class="col-xs-9 col-sm-10 clear-padding">
       <input type="text"
         class="form-control"
@@ -63,9 +63,10 @@
         data-ng-model="content" />
     </div>
     <div class="col-xs-3 col-sm-2 clear-padding">
-      <button class="btn btn-primary btn-block">
+      <button class="btn btn-primary btn-block"
+        data-ng-click="sendMessage(content)">
         Send
       </button>
     </div>
-  </div>
+  </form>
 </div>

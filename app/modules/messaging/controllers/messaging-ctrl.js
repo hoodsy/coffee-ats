@@ -15,7 +15,7 @@ angular.module('messaging')
       var userCount = 0;
 
       $scope.matches.forEach(function(match) {
-        if (match.matchedOpportunities.length > 0) {
+        if (match.opportunities.length > 0) {
           opportunityCount = (opportunityCount + 1) % 3;
           match._palette = opportunityCount;
           match._paletteClass = 'opportunity-match-card';
