@@ -44,7 +44,10 @@
             <img class="rounded message-image"
               alt="user img"
               data-ng-src="{{ _user.picture }}"
-              data-ng-if="message.senderId === _user._id"/>
+              data-ng-if="!message._pending && message.senderId === _user._id"/>
+            <div class="fa fa-circle-o-notch fa-spin"
+              data-ng-if="message._pending">
+            </div>
           </div>
         </li>
       </ul>
@@ -55,16 +58,22 @@
     </div>
   </div>
 
-  <form class="row messaging-detail-input xs-clear-margin">
+  <form class="row messaging-detail-input xs-clear-margin"
+    novalidate
+    name="messageForm">
     <div class="col-xs-9 col-sm-10 clear-padding">
       <input type="text"
+        name="text"
+        required
+        maxlength="500"
         class="form-control"
         placeholder="Hello..."
-        data-ng-model="content" />
+        data-ng-model="messageText" />
     </div>
     <div class="col-xs-3 col-sm-2 clear-padding">
       <button class="btn btn-primary btn-block"
-        data-ng-click="sendMessage(content)">
+        data-ng-click="sendMessage()"
+        data-ng-disabled="messageForm.text.$error.required">
         Send
       </button>
     </div>

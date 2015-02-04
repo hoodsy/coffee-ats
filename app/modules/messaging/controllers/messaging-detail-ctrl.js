@@ -6,12 +6,12 @@ angular.module('messaging')
     socket.emit('join', { userId: $scope._user._id });
 
     function handleMessage(data) {
-      $scope.matchMessages.push({
+      var msg = _.findLast($scope.matchMessages, {
         senderId: data.sender,
-        senderName: data.firstname,
         text: data.text,
         created: data.created
       });
+      msg._pending = false;
     }
 
     socket.on('saved', handleMessage);
@@ -36,7 +36,7 @@ angular.module('messaging')
       $scope.matchMessages = response;
     });
 
-    $scope.sendMessage = function(messageText) {
+    $scope.sendMessage = function() {
 
       var data = {
         matchId: $scope.match._id,
@@ -44,12 +44,20 @@ angular.module('messaging')
         recipient: matchedUser._id,
         firstname: $scope._user.firstname,
         lastname: $scope._user.lastname,
-        text: messageText,
+        text: $scope.messageText,
         created: (new Date()).toISOString()
       };
 
+      $scope.matchMessages.push({
+        senderId: data.sender,
+        senderName: data.firstname,
+        text: data.text,
+        created: data.created,
+        _pending: true
+      });
+
       socket.emit('message', data);
+
+      $scope.messageText = '';
     };
-
-
   });
