@@ -37,7 +37,7 @@ function mockMiddleware(req, res, next) {
       url = req.url.split('/');
 
     // If this is an ID route we extract that from the URL
-    if (url[url.length-1].search(/[0-9]+$/) > -1) {
+    if (url[url.length-1].search(/[0-9a-f]+$/) > -1) {
       var _id = url.pop();
     }
 
@@ -46,7 +46,11 @@ function mockMiddleware(req, res, next) {
 
     // If <entity>.json data has not been loaded yet, read mock data and store
     if (mockData[entity] === undefined) {
-      var jsonData = fs.readFileSync('app/mock/' + entity + '.json').toString();
+      var mockPath = 'app/mock/';
+      if (fs.existsSync('app/mongomock/')) {
+        mockPath = 'app/mongomock/';
+      }
+      var jsonData = fs.readFileSync(mockPath + entity + '.json').toString();
       mockData[entity] = JSON.parse(jsonData);
     }
 
