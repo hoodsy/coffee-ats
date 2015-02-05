@@ -3,7 +3,17 @@
 angular.module('messaging')
   .controller('MessagingDetailCtrl', function ($scope, $stateParams, socket, UserMatch, MatchMessages, User) {
 
+    // The ID of the Match entity
     var matchId = $stateParams.id;
+
+    // Reference to user we matched with
+    var matchedUser = null;
+
+    // Color palette index
+    $scope.palette = 1;
+
+
+    // Handlers for message events
 
     function handleSaveMessage(data) {
       var msg = _.findLast($scope.matchMessages, { _id: data.message._id });
@@ -13,18 +23,17 @@ angular.module('messaging')
     function handleMessage(data) {
       if (data.matchId === matchId) {
         $scope.matchMessages.push(data.message);
-      } else {
-        $scope._user.unreadNotifications += 1;
       }
     }
 
-    socket.on('saved', handleSaveMessage);
-    socket.on('message', handleMessage);
+    // Register message handlers with socket service
+    socket.registerHandlers(handleSaveMessage, handleMessage);
 
-    var matchedUser = null;
+    // De-register message handlers when we leave the scope
+    $scope.$on('$destroy', socket.tearDown);
 
-    $scope.palette = 1;
 
+    // Query the Match entity
     UserMatch.get({ id: matchId }, function(response) {
       $scope.match = response;
 
@@ -35,6 +44,7 @@ angular.module('messaging')
       $scope.user = User.get({id: matchedUser._id });
     });
 
+    // Query past messages in this match
     $scope.matchMessages = [];
     MatchMessages.query(function(response) {
       $scope.matchMessages = response;
@@ -61,7 +71,7 @@ angular.module('messaging')
         message: message
       };
 
-      socket.emit('message', data);
+      socket.sendMessage(data);
 
       message._pending = true;
       $scope.matchMessages.push(message);
