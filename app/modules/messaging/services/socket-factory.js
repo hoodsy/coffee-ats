@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('messaging')
-  .factory('socket', function ($rootScope) {
+  .factory('socket', function ($rootScope, socketFactory) {
 
-    var socket = io.connect('http://localhost:4000');
+    var socket = socketFactory({
+      ioSocket: io.connect('http://localhost:4000')
+    });
+
     socket.emit('join', { userId: $rootScope._user._id });
 
     // Handlers registered by other code
@@ -11,15 +14,15 @@ angular.module('messaging')
     var handleMessage = null;
 
     // Private handlers always called
-    var _handleSaveMessage = function() {
+    var _handleSaveMessage = function(data) {
       if (handleSaveMessage) {
-        handleSaveMessage();
+        handleSaveMessage(data);
       }
     };
 
-    var _handleMessage = function() {
+    var _handleMessage = function(data) {
       if (handleMessage) {
-        handleMessage();
+        handleMessage(data);
       } else {
         $rootScope._user.unreadNotificationsCount += 1;
       }
@@ -35,9 +38,9 @@ angular.module('messaging')
     return {
       sendMessage: sendMessage,
 
-      registerHandlers: function (handleSaveMessage, handleMessage) {
-        handleSaveMessage = handleSaveMessage;
-        handleMessage = handleMessage;
+      registerHandlers: function (saveFn, fn) {
+        handleSaveMessage = saveFn;
+        handleMessage = fn;
       },
 
       tearDown: function() {
