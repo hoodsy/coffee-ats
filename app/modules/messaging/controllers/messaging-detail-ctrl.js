@@ -3,25 +3,29 @@
 angular.module('messaging')
   .controller('MessagingDetailCtrl', function ($scope, $stateParams, socket, UserMatch, MatchMessages, User) {
 
-    socket.emit('join', { userId: $scope._user._id });
+    var matchId = $stateParams.id;
 
-    function handleMessage(data) {
-      var msg = _.findLast($scope.matchMessages, {
-        senderId: data.sender,
-        text: data.text,
-        created: data.created
-      });
+    function handleSaveMessage(data) {
+      var msg = _.findLast($scope.matchMessages, { _id: data.message._id });
       msg._pending = false;
     }
 
-    socket.on('saved', handleMessage);
+    function handleMessage(data) {
+      if (data.matchId === matchId) {
+        $scope.matchMessages.push(data.message);
+      } else {
+        $scope._user.unreadNotifications += 1;
+      }
+    }
+
+    socket.on('saved', handleSaveMessage);
     socket.on('message', handleMessage);
 
     var matchedUser = null;
 
     $scope.palette = 1;
 
-    UserMatch.get({ id: $stateParams.id }, function(response) {
+    UserMatch.get({ id: matchId }, function(response) {
       $scope.match = response;
 
       matchedUser = _.find($scope.match.users, function(user) {
@@ -38,26 +42,29 @@ angular.module('messaging')
 
     $scope.sendMessage = function() {
 
-      var data = {
-        matchId: $scope.match._id,
-        sender: $scope._user._id,
-        recipient: matchedUser._id,
-        firstname: $scope._user.firstname,
-        lastname: $scope._user.lastname,
-        text: $scope.messageText,
-        created: (new Date()).toISOString()
+      var date = (new Date()).toISOString();
+      var senderId = $scope._user._id;
+      var recipientId = matchedUser._id;
+      var messageText = $scope.messageText;
+
+      var message = {
+        _id: btoa(date+messageText+senderId+recipientId),
+        senderId: senderId,
+        senderName: $scope._user._firstName,
+        recipientId: recipientId,
+        text: messageText,
+        created: date
       };
 
-      $scope.matchMessages.push({
-        senderId: data.sender,
-        senderName: data.firstname,
-        text: data.text,
-        created: data.created,
-        _pending: true
-      });
+      var data = {
+        matchId: $scope.match._id,
+        message: message
+      };
 
       socket.emit('message', data);
 
+      message._pending = true;
+      $scope.matchMessages.push(message);
       $scope.messageText = '';
     };
   });
