@@ -23,6 +23,8 @@ angular.module('messaging')
     function handleMessage(data) {
       if (data.matchId === matchId) {
         $scope.matchMessages.push(data.message);
+      } else {
+        $scope._user.unreadNotificationsCount += 1;
       }
     }
 
