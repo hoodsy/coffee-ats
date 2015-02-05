@@ -55,6 +55,7 @@ img.avatar
 // User unread notifications
 span.unread-notifications
   position absolute
+  top 1.5em
   background-color red
   border-radius 50% 50%
   width 1.5em
@@ -64,9 +65,10 @@ span.unread-notifications
   color white
 
   @media (min-width: screen-sm-min)
-    top 1.5em
     left 3.25em
 
   @media (max-width: screen-xs-max)
-    top 1.5em
     right 41%
+
+  @media (max-width: screen-iphone5-max)
+    right 32%
