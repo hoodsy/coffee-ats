@@ -51,3 +51,22 @@ img.avatar
   height 30px
   width 30px
   border-radius 2px
+
+// User unread notifications
+span.unread-notifications
+  position absolute
+  background-color red
+  border-radius 50% 50%
+  width 1.5em
+  height 1.5em
+  font-size .5em
+  line-height 1.5em
+  color white !important
+
+  @media (min-width: screen-sm-min)
+    top 1.5em
+    left 3.25em
+
+  @media (max-width: screen-xs-max)
+    top 1.5em
+    right 4em
