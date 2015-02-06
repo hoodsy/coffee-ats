@@ -9,8 +9,17 @@ angular.module('messaging')
     // Reference to user we matched with
     var matchedUser = null;
 
+    // Track the date of the earliest message we have received
+    var earliestMsgDate = null;
+
     // Color palette index
     $scope.palette = 1;
+
+    // Array to hold message objects
+    $scope.matchMessages = [];
+
+    // Flag to mark when UI is loading more messages
+    $scope.loadingMoreMessages = false;
 
 
     // Handlers for message events
@@ -46,11 +55,26 @@ angular.module('messaging')
       $scope.user = User.get({id: matchedUser._id });
     });
 
+    $scope.loadMessages = function() {
+      $scope.loadingMoreMessages = true;
+      MatchMessages.query({ untilDate: earliestMsgDate }, function(response) {
+        // Extend the beginning of matchMessages with response
+        response.unshift(0);
+        response.unshift($scope.matchMessages.length);
+        $scope.matchMessages.splice.apply($scope.matchMessages, response);
+
+        if ($scope.matchMessages.length > 0) {
+          earliestMsgDate = $scope.matchMessages[0].created;
+        }
+
+        $scope.loadingMoreMessages = false;
+      }, function() {
+        $scope.loadingMoreMessages = false;
+      });
+    };
+
     // Query past messages in this match
-    $scope.matchMessages = [];
-    MatchMessages.query(function(response) {
-      $scope.matchMessages = response;
-    });
+    $scope.loadMessages();
 
     $scope.sendMessage = function() {
 

@@ -34,7 +34,7 @@ function mockMiddleware(req, res, next) {
 
   if (/api/.test(req.url)) {
     var _id = null,
-      url = req.url.split('/');
+      url = req.url.split('?')[0].split('/');
 
     // If this is an ID route we extract that from the URL
     if (url[url.length-1].search(/[0-9a-f]+$/) > -1) {
