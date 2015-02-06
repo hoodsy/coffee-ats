@@ -1,7 +1,7 @@
 [{
   "_id": "1001",
-  "matchedUserId": "102",
-  "matchedOpportunities": [{
+  "users": [{"_id": "102"}],
+  "opportunities": [{
     "_id": "1"
   }],
   "updated": "2015-01-06T03:51:57Z",
@@ -12,8 +12,8 @@
   "latest": "What have you been up to? Let's do something this weekend."
 }, {
   "_id": "1002",
-  "matchedUserId": "103",
-  "matchedOpportunities": [],
+  "users": [{"_id": "103"}],
+  "opportunities": [],
   "updated": "2015-01-06T03:51:57Z",
   "unread": false,
   "title": "Nathan @ Coffeetheapp",
@@ -22,8 +22,8 @@
   "latest": "What have you been up to? Let's do something this weekend."
 }, {
   "_id": "1003",
-  "matchedUserId": "104",
-  "matchedOpportunities": [],
+  "users": [{"_id": "104"}],
+  "opportunities": [],
   "updated": "2015-01-06T03:51:57Z",
   "unread": true,
   "title": "Sawyer @ Coffeetheapp",
