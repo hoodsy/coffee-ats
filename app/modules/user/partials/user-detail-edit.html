@@ -1,4 +1,7 @@
-<form class="container edit-form user-edit-form" onsubmit="return false;">
+<form class="container edit-form user-edit-form"
+  name="editForm"
+  onsubmit="return false;"
+  novalidate>
   <div class="row xs-clear-margin">
     <div class="col-sm-8 col-sm-offset-2 xs-clear-padding">
 
@@ -53,8 +56,25 @@
             alt="user img"
             data-ng-src="{{ user.picture }}"/>
           </div>
-          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" ng-model="user.firstName" />
+          <div class="col-xs-8 col-sm-5 edit-col">
+            <div class="row height-100">
+              <div class="col-xs-6 flex-center-vert">
+                <input type="text"
+                  name="firstName"
+                  required
+                  data-coffee-input
+                  placeholder="First"
+                  data-ng-model="user.firstName" />
+              </div>
+              <div class="col-xs-6 flex-center-vert">
+                <input type="text"
+                  name="lastName"
+                  required
+                  data-coffee-input
+                  placeholder="Last"
+                  data-ng-model="user.lastName" />
+              </div>
+            </div>
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
@@ -63,7 +83,12 @@
             <h3 class="uppercase">Location</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" ng-model="user.location" />
+            <input type="text"
+              name="location"
+              required
+              data-coffee-input
+              placeholder="Location"
+              data-ng-model="user.location" />
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
@@ -72,7 +97,12 @@
             <h3 class="uppercase">Position</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" ng-model="user.position" />
+            <input type="text"
+              name="position"
+              required
+              data-coffee-input
+              placeholder="Postiion"
+              data-ng-model="user.position" />
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
@@ -81,7 +111,12 @@
             <h3 class="uppercase">Company</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" ng-model="user.organization" />
+            <input type="text"
+              name="organization"
+              required
+              data-coffee-input
+              placeholder="Organization"
+              data-ng-model="user.organization" />
           </div>
         </div>
       </div>
@@ -116,17 +151,57 @@
           <div class="col-xs-8 col-sm-5 edit-col">
             <div class="row edit-sub-row">
               <div class="col-xs-12">
-                <input type="text" ng-model="experience.organization" />
+                <input type="text"
+                  name="organizationExperience{{$index}}"
+                  required
+                  data-coffee-input
+                  placeholder="Organization"
+                  data-ng-model="experience.organization" />
               </div>
             </div>
             <div class="row edit-sub-row">
               <div class="col-xs-12">
-                <input type="text" ng-model="experience.position" />
+                <input type="text"
+                  name="positionExperience{{$index}}"
+                  required
+                  data-coffee-input
+                  placeholder="Position"
+                  data-ng-model="experience.position" />
               </div>
             </div>
             <div class="row edit-sub-row">
               <div class="col-xs-12">
-                <input type="text" ng-model="experience.time" />
+                <input type="number"
+                  class="input-date"
+                  required
+                  min="1"
+                  max="12"
+                  placeholder="MM"
+                  ng-model="startMonth" />
+                <span>/</span>
+                <input type="number"
+                  class="input-date"
+                  required
+                  min="1900"
+                  max="2100"
+                  placeholder="YYYY"
+                  ng-model="startYear" />
+                <span>&ndash;</span>
+                <input type="number"
+                  class="input-date"
+                  required
+                  min="1"
+                  max="12"
+                  placeholder="MM"
+                  ng-model="endMonth" />
+                <span>/</span>
+                <input type="number"
+                  class="input-date"
+                  required
+                  min="1900"
+                  max="2100"
+                  placeholder="YYYY"
+                  ng-model="endYear" />
               </div>
             </div>
           </div>
@@ -156,17 +231,53 @@
           <div class="col-xs-8 col-sm-5 edit-col">
             <div class="row edit-sub-row">
               <div class="col-xs-12">
-                <input type="text" ng-model="education.school" />
+                <input type="text"
+                  required
+                  placeholder="School"
+                  data-ng-model="education.school" />
               </div>
             </div>
             <div class="row edit-sub-row">
               <div class="col-xs-12">
-                <input type="text" ng-model="education.major" />
+                <input type="text"
+                  required
+                  placeholder="Major"
+                  data-ng-model="education.major" />
               </div>
             </div>
             <div class="row edit-sub-row">
               <div class="col-xs-12">
-                <input type="text" ng-model="education.time" />
+                <input type="number"
+                  class="input-date"
+                  required
+                  min="1"
+                  max="12"
+                  placeholder="MM"
+                  ng-model="startMonth" />
+                <span>/</span>
+                <input type="number"
+                  class="input-date"
+                  required
+                  min="1900"
+                  max="2100"
+                  placeholder="YYYY"
+                  ng-model="startYear" />
+                <span>&ndash;</span>
+                <input type="number"
+                  class="input-date"
+                  required
+                  min="1"
+                  max="12"
+                  placeholder="MM"
+                  ng-model="endMonth" />
+                <span>/</span>
+                <input type="number"
+                  class="input-date"
+                  required
+                  min="1900"
+                  max="2100"
+                  placeholder="YYYY"
+                  ng-model="endYear" />
               </div>
             </div>
           </div>
@@ -211,6 +322,11 @@
   <button type="submit"
     class="btn btn-default btn-block edit-submit-btn"
     data-ng-click="save(user)">
-    Save &amp; Finish
+    <span data-ng-if="!(editForm.$error.required && editForm.$submitted)">
+      Save &amp; Finish
+    </span>
+    <span data-ng-if="editForm.$error.required && editForm.$submitted">
+      Oops, you may have missed something!
+    </span>
   </button>
 </form>

@@ -8,6 +8,9 @@ edit-btn-height = 36px
 .edit-row
   height 100px
 
+  input
+    border-bottom 1px dotted color-grey-80
+
   &:first-child
     >.edit-col
       border-top 1px solid border-color
@@ -26,7 +29,6 @@ edit-btn-height = 36px
 
       &:last-child
         border-right 1px solid border-color
-
 
 @media (max-width: screen-xs-max)
   // Fix the edit button along the bottom
@@ -48,12 +50,21 @@ edit-btn-height = 36px
   top 0
 
 .edit-sub-row
-  border-bottom 1px solid color-grey-80
   line-height 1.8em
   height 33.33%
 
   &:last-child
     border-bottom none
+
+  .input-date
+    text-align center
+    width 20%
+
+    &.ng-invalid-min,
+    &.ng-invalid-max,
+    &.ng-invalid-number
+      color red
+      border-bottom 1px solid red
 
 .edit-form .edit-page-header
   color color-white

@@ -86,6 +86,9 @@ angular.module('user')
     };
 
     $scope.save = function(user) {
+      if ($scope.editForm.$error) {
+        return;
+      }
       user.$update({}, function(response) {
         $state.go('^');
       }, function(response) {
