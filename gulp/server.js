@@ -110,10 +110,16 @@ function serveMock(module) {
 }
 gulp.task('serve', ['watch'], _.wrap('shell', serveMock));
 
+
 // Serve distribution mode
 //
 
 function serveDist(module) {
-  browserSyncInit(module + '-dist', null, proxyMiddleware);
+  browserSyncInit(module + '-dist', null, proxyMiddleware, module);
 }
-gulp.task('serve:dist', ['build'], _.wrap('shell', serve));
+gulp.task('serve:dist:proxy', ['build'], _.wrap('shell', serveDist));
+
+function serveDistMock(module) {
+  browserSyncInit(module + '-dist', null, mockMiddleware, module);
+}
+gulp.task('serve:dist', ['build'], _.wrap('shell', serveDistMock));

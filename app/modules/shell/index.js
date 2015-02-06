@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('shell', [
+  'common',
   'auth',
   'feed',
   'user',
-  'common',
   'opportunity',
   'messaging',
   'ui.router'
