@@ -129,8 +129,11 @@
           <div class="col-xs-8 col-xs-offset-2 flex-center-vert">
             <i class="ci ci-quote edit-quote ci-3x"></i>
             <textarea
+              name="headline"
               placeholder="Driven professional with a background in..."
-              ng-model="user.headline">
+              maxlength="140"
+              data-coffee-input
+              data-ng-model="user.headline">
             </textarea>
           </div>
         </div>
@@ -232,16 +235,20 @@
             <div class="row edit-sub-row">
               <div class="col-xs-12">
                 <input type="text"
+                  name="schoolEducation{{$index}}"
                   required
                   placeholder="School"
+                  data-coffee-input
                   data-ng-model="education.school" />
               </div>
             </div>
             <div class="row edit-sub-row">
               <div class="col-xs-12">
                 <input type="text"
+                  name="majorEducation{{$index}}"
                   required
                   placeholder="Major"
+                  data-coffee-input
                   data-ng-model="education.major" />
               </div>
             </div>
