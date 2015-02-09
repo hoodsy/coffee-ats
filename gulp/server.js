@@ -7,6 +7,10 @@ var browserSync = require('browser-sync');
 var httpProxy = require('http-proxy');
 var _ = require('lodash');
 
+var $ = require('gulp-load-plugins')({
+  pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license']
+});
+
 /* This configuration allow you to configure browser sync to proxy your backend */
 var proxyTarget = 'http://127.0.0.1:3000/'; // The location of your backend
 
@@ -101,6 +105,14 @@ function browserSyncInit(baseDir, files, middleware, module) {
   });
 }
 
+function gulpWebserverInit(middleware) {
+  return gulp.src('app')
+    .pipe($.webserver({
+      port: 8080,
+      middleware: middleware,
+    }));
+}
+
 
 // Serve dev mode
 //
@@ -123,6 +135,11 @@ function serveMock(module) {
  browserSyncInit('app', appFiles(module), mockMiddleware, module);
 }
 gulp.task('serve', ['watch'], _.wrap('shell', serveMock));
+
+function serveMockNosync() {
+  gulpWebserverInit(mockMiddleware);
+}
+gulp.task('serve:nosync', ['watch'], serveMockNosync);
 
 
 // Serve distribution mode
