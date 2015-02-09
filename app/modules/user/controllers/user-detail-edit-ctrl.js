@@ -115,7 +115,7 @@ angular.module('user')
     };
 
     $scope.save = function(user) {
-      if (Object.keys($scope.editForm.$error) > 0) {
+      if (Object.keys($scope.editForm.$error).length > 0) {
         return;
       }
 

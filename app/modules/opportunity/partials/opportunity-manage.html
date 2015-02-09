@@ -1,4 +1,7 @@
-<form class="container edit-form opportunity-edit-form palette-{{ palette }}" ng-init="manageInit()">
+<form name="editForm"
+  novalidate
+  class="container edit-form opportunity-edit-form palette-{{ palette }}"
+  data-ng-init="manageInit()">
   <div class="row xs-clear-margin">
     <div class="col-sm-8 col-sm-offset-2 xs-clear-padding">
 
@@ -72,7 +75,12 @@
             <h3 class="uppercase">Company</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" placeholder="e.g. Twitter" ng-model="opportunity.companyName" />
+            <input type="text"
+              name="companyName"
+              required
+              placeholder="e.g. Twitter"
+              data-coffee-input
+              data-ng-model="opportunity.companyName" />
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
@@ -81,7 +89,12 @@
             <h3 class="uppercase">Position</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" placeholder="e.g. Web Developer" ng-model="opportunity.title" />
+            <input type="text"
+              name="position"
+              required
+              placeholder="e.g. Web Developer"
+              data-coffee-input
+              data-ng-model="opportunity.title" />
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
@@ -91,15 +104,27 @@
           </div>
           <div class="edit-col col-xs-8 col-sm-5">
             <div class="pull-left flex-center-vert">
-              <input type="text" size="7" placeholder="10000"
+              <input type="number"
+                name="salaryMin"
+                required
+                min="1"
+                max="1000000"
+                placeholder="10000"
                 class="text-center"
-                ng-model="opportunity.salaryMin"/>
+                data-coffee-input
+                data-ng-model="opportunity.salaryMin"/>
             </div>
             <span class="col-xs-1 flex-center-vert">-</span>
             <div class="pull-left flex-center-vert">
-              <input type="text" size="7" placeholder="1000000"
+              <input type="number"
+                name="salaryMax"
+                required
+                min="1"
+                max="1000000"
+                placeholder="1000000"
                 class="text-center"
-                ng-model="opportunity.salaryMax"/>
+                data-coffee-input
+                data-ng-model="opportunity.salaryMax"/>
             </div>
           </div>
         </div>
@@ -109,8 +134,11 @@
             <h3 class="uppercase">Type</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <select ng-model="opportunity.schedule"
-              ng-options="schedule for schedule in schedules"/>
+            <select
+              required
+              name="schedule"
+              data-ng-model="opportunity.schedule"
+              data-ng-options="schedule for schedule in schedules"/>
           </div>
         </div>
         <div class="row edit-row xs-clear-margin">
@@ -119,7 +147,11 @@
             <h3 class="uppercase">Location</h3>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text" placeholder="e.g. Boston, MA" ng-model="opportunity.location" />
+            <input type="text"
+              required
+              name="location"
+              placeholder="e.g. Boston, MA"
+              data-ng-model="opportunity.location" />
           </div>
         </div>
       </div>
@@ -135,7 +167,14 @@
             <strong>{{ opportunity.title }}s</strong> to:
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
-            <textarea class="text-center" rows="2" placeholder="e.g. Build websites." ng-model="opportunity.headline"/>
+            <textarea
+              class="text-center"
+              name="headline"
+              required
+              maxlength="140"
+              placeholder="e.g. Build websites."
+              data-coffee-input
+              data-ng-model="opportunity.headline"/>
           </div>
         </div>
       </div>
@@ -149,7 +188,12 @@
             About <strong>{{ opportunity.companyName }}</strong>
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
-            <textarea class="text-center" rows="4" placeholder="e.g. Social media platform." ng-model="opportunity.companyAbout"/>
+            <textarea class="text-center"
+              required
+              name="companyAbout"
+              placeholder="e.g. Social media platform."
+              data-coffee-input
+              data-ng-model="opportunity.companyAbout"/>
           </div>
         </div>
       </div>
@@ -163,7 +207,12 @@
             <strong>Responsibilities</strong>
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
-            <textarea class="text-center" rows="4" placeholder="e.g. Design and develop web applications." ng-model="opportunity.overview"/>
+            <textarea class="text-center"
+              required
+              name="overview"
+              placeholder="e.g. Design and develop web applications."
+              data-coffee-input
+              data-ng-model="opportunity.overview"/>
           </div>
         </div>
       </div>
@@ -176,6 +225,7 @@
           <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-tag-input">
             <input class="text-center form-control"
               type="text"
+              name="newTag"
               placeholder="ADD TAG"
               data-ng-model="newTag"
               data-ui-keypress="{13:'addTag(opportunity, newTag, $event)'}"/>
@@ -196,8 +246,13 @@
 
   <!-- Submit Button -->
   <button type="submit"
-    class="edit-submit-btn btn btn-block"
+    class="btn btn-block edit-submit-btn"
     data-ng-click="finish(opportunity)">
-    Save &amp; Finish
+    <span data-ng-if="!(editForm.$error.required && editForm.$submitted)">
+      Save &amp; Finish
+    </span>
+    <span data-ng-if="editForm.$error.required && editForm.$submitted">
+      Oops, you may have missed something!
+    </span>
   </button>
 </form>

@@ -68,6 +68,10 @@ angular.module('opportunity')
     };
 
     $scope.finish = function(opportunity) {
+      if (Object.keys($scope.editForm.$error).length > 0) {
+        return;
+      }
+
       if ($scope.isEditable) {
         $scope.update(opportunity);
       } else {
