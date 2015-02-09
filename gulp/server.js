@@ -108,7 +108,7 @@ function browserSyncInit(baseDir, files, middleware, module) {
 function gulpWebserverInit(middleware) {
   return gulp.src('app')
     .pipe($.webserver({
-      hose: '0.0.0.0',
+      host: '0.0.0.0',
       port: 8080,
       middleware: middleware,
     }));
