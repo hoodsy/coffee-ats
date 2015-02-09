@@ -32,5 +32,4 @@ if [[ $rc != 0 ]]; then
 fi
 
 # start the server
-pushd shell-dist/
-python -m SimpleHTTPServer
+npm start
