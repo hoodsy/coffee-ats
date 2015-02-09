@@ -38,9 +38,10 @@ edit-btn-height = 36px
     height edit-btn-height
 
   // Adjust form container to clear the submit button
-  .edit-form
-    height 'calc(100% - %s)' % edit-btn-height
+  .edit-form.container
+    top 0
     bottom edit-btn-height
+    height 'calc(100% - %s)' % edit-btn-height
     overflow-y auto
     -webkit-overflow-scrolling auto
 
