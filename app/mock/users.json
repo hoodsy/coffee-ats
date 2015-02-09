@@ -14,26 +14,31 @@
   "experiences": [{
     "position": "Senior Engineer",
     "organization": "Coffeetheapp",
-    "time": "2014-05/Present"
+    "startTime": "2014-01-01T05:00:00Z",
+    "endTime": "2014-05-01T05:00:00Z"
   }, {
     "position": "Engineer",
     "organization": "Twitter",
-    "time": "2013-05/2014-04"
+    "startTime": "2014-01-01T05:00:00Z",
+    "endTime": "2014-05-01T05:00:00Z"
   }, {
     "position": "Jr. Engineer",
     "organization": "IBM",
-    "time": "2012-05/2013-04"
+    "startTime": "2014-01-01T05:00:00Z",
+    "endTime": "2014-05-01T05:00:00Z"
   }],
   "educations": [{
     "school": "NYU",
     "major": "Computer Science",
     "degree": "MS",
-    "time": "2014-05/2015-01"
+    "startTime": "2014-01-01T05:00:00Z",
+    "endTime": "2014-05-01T05:00:00Z"
   }, {
     "school": "NYU",
     "major": "Computer Science",
     "degree": "B.Sc.",
-    "time": "2014-05/2015-01"
+    "startTime": "2014-01-01T05:00:00Z",
+    "endTime": "2014-05-01T05:00:00Z"
   }]
 }, {
   "_id": "102",
@@ -51,12 +56,14 @@
   "experiences": [{
     "position": "Recruiter",
     "organization": "Twitter",
-    "time": "2014-05/Present"
+    "startTime": "2014-01-01T05:00:00Z",
+    "endTime": "2014-05-01T05:00:00Z"
   }],
   "educations": [{
     "school": "CMU",
     "major": "ECE",
     "degree": "B.Sc.",
-    "time": "2005-05/2009-01"
+    "startTime": "2014-01-01T05:00:00Z",
+    "endTime": "2014-05-01T05:00:00Z"
   }]
 }]

@@ -25,7 +25,20 @@
           <ul>
             <li><strong>{{ experience.organization }}</strong></li>
             <li class="uppercase">{{ experience.position }}</li>
-            <li>{{ experience.time }}</li>
+            <li>
+              <span>
+                {{ experience.startTime | date:'MMMM yyyy'}}
+              </span>
+              <span data-ng-if="experience.startTime && experience.endTime">
+                &ndash;
+              </span>
+              <span data-ng-if="experience.endTime">
+                {{ experience.endTime | date:'MMMM yyyy'}}
+              </span>
+              <span data-ng-if="!experience.endTime">
+                Present
+              </span>
+            </li>
           </ul>
         </li>
       </ul>
@@ -36,7 +49,20 @@
           <ul>
             <li><strong>{{ education.school }}</strong></li>
             <li>{{ education.degree }} {{ education.major }}</li>
-            <li>{{ education.time }}</li>
+            <li>
+              <span>
+                {{ education.startTime | date:'MMMM yyyy'}}
+              </span>
+              <span data-ng-if="education.startTime && education.endTime">
+                &ndash;
+              </span>
+              <span data-ng-if="education.endTime">
+                {{ education.endTime | date:'MMMM yyyy'}}
+              </span>
+              <span data-ng-if="!education.endTime">
+                Present
+              </span>
+            </li>
           </ul>
         </li>
       </ul>

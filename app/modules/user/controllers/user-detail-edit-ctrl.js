@@ -7,7 +7,36 @@ angular.module('user')
     var MAX_EDUCATION = 3;
 
     $scope.palette = $stateParams.palette || '1';
-    $scope.user = User.get({ id: $stateParams.id });
+
+    function getTimes(item) {
+      var date;
+      if (item.startTime) {
+        date = new Date(item.startTime);
+        item._startYear = date.getUTCFullYear();
+        item._startMonth = date.getUTCMonth() + 1;
+      }
+      if (item.endTime) {
+        date = new Date(item.endTime);
+        item._endYear = date.getUTCFullYear();
+        item._endMonth = date.getUTCMonth() + 1;
+      }
+    }
+
+    function setTimes(item) {
+      item.startTime = '';
+      item.endTime = '';
+      if (item._startMonth && item._startYear) {
+        item.startTime = Date.UTC(item._startYear, item._startMonth - 1);
+      }
+      if (item._endMonth && item._endYear) {
+        item.endTime = Date.UTC(item._endYear, item._endMonth - 1);
+      }
+    }
+
+    $scope.user = User.get({ id: $stateParams.id }, function(user) {
+      user.educations.forEach(getTimes);
+      user.experiences.forEach(getTimes);
+    });
 
     $scope.newTag = '';
 
@@ -86,9 +115,13 @@ angular.module('user')
     };
 
     $scope.save = function(user) {
-      if ($scope.editForm.$error) {
+      if (Object.keys($scope.editForm.$error) > 0) {
         return;
       }
+
+      user.educations.forEach(setTimes);
+      user.experiences.forEach(setTimes);
+
       user.$update({}, function(response) {
         $state.go('^');
       }, function(response) {
