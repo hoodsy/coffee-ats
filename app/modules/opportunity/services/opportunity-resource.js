@@ -4,7 +4,7 @@ angular.module('opportunity')
   .factory('Opportunity', function ($resource) {
     return $resource('/api/opportunities/:id', { id: '@_id'},
       {
-        'create': {method: 'POST', isArray: true},
+        'create': {method: 'POST'},
         'update': {method: 'PUT'}
     });
   })
