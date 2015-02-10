@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('common')
-  .directive('messageTextarea', function($compile, $interpolate) {
+  .directive('messageTextarea', function() {
     return {
       restrict: 'A',
       scope: {
