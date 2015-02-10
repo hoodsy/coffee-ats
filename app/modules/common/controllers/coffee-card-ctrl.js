@@ -32,7 +32,7 @@ angular.module('common')
 
       model._cssClass = CARD_CSS_CLASSES.LIKED;
 
-      UserLike.save([{ type: model.type, id: model._id }], function() {
+      UserLike.save([{ type: model.type, _id: model._id }], function() {
 
         console.log('success');
       }, function(err) {
