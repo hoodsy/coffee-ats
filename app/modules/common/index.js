@@ -3,5 +3,6 @@
 angular.module('common', [
   'partials',
   'ui.router',
-  'ngTouch'
+  'ngTouch',
+  'monospaced.elastic'  // auto-resizing textarea
 ]);
