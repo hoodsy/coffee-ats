@@ -132,6 +132,11 @@ function serve(module) {
 }
 gulp.task('serve:proxy', ['watch'], _.wrap('shell', serve));
 
+function serveProxyNosync(module) {
+  gulpWebserverInit(proxyMiddleware);
+}
+gulp.task('serve:proxy:nosync', ['watch'], serveProxyNosync);
+
 function serveMock(module) {
  browserSyncInit('app', appFiles(module), mockMiddleware, module);
 }
