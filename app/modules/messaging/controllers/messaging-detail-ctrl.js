@@ -57,7 +57,10 @@ angular.module('messaging')
 
     $scope.loadMessages = function() {
       $scope.loadingMoreMessages = true;
-      MatchMessages.query({ untilDate: earliestMsgDate }, function(response) {
+      MatchMessages.query({
+        id: $stateParams.id,
+        untilDate: earliestMsgDate
+      }, function(response) {
         // Extend the beginning of matchMessages with response
         response.unshift(0);
         response.unshift($scope.matchMessages.length);
