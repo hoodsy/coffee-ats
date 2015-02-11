@@ -19,16 +19,16 @@ angular.module('common')
         scope.$watch(function() {
           return el.scrollHeight;
         }, function(newVal, oldVal) {
-          if (oldVal === newVal) {
-            // Scroll down on initial load (i.e. when oldVal === newVal)
-            element.scrollTop(el.scrollHeight);
-          } else if (ignoreScroll) {
+          if (ignoreScroll) {
             // Ignore scrolling when we call handleScrollTop
             ignoreScroll = false;
           } else if (el.scrollTop === 0) {
             // When our previous scroll was 0 but our height has changed adjust
             // the scroll so it maintains its relative location
             element.scrollTop(newVal - oldVal + element.height());
+          } else {
+            // Scroll down
+            element.scrollTop(el.scrollHeight);
           }
         });
 
