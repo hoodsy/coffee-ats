@@ -103,27 +103,29 @@
             <h3 class="uppercase">Salary</h3>
           </div>
           <div class="edit-col col-xs-8 col-sm-5">
-            <div class="row height-100">
-              <div class="col-xs-5 flex-center-vert">
+            <div class="row height-50">
+              <div class="col-xs-8 col-xs-offset-2 flex-center-vert">
                 <input type="number"
-                  class="width-100 text-center"
+                  class="width-100 text-center clear-warning-text"
                   name="salaryMin"
                   required
                   min="1"
                   max="1000000"
-                  placeholder="10000"
+                  placeholder="Min"
                   data-coffee-input
                   data-ng-model="opportunity.salaryMin"/>
               </div>
-              <span class="col-xs-2 flex-center-vert">-</span>
-              <div class="col-xs-5 flex-center-vert">
+            </div>
+            <!-- <span class="col-xs-2 flex-center-vert">-</span> -->
+            <div class="row height-50">
+              <div class="col-xs-8 col-xs-offset-2 flex-center-vert">
                 <input type="number"
-                  class="width-100 text-center"
+                  class="width-100 text-center clear-warning-text"
                   name="salaryMax"
                   required
                   min="1"
                   max="1000000"
-                  placeholder="1000000"
+                  placeholder="Max"
                   data-coffee-input
                   data-ng-model="opportunity.salaryMax"/>
               </div>
