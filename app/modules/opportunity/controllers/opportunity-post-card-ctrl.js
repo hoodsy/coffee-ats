@@ -55,6 +55,7 @@ angular.module('opportunity')
       modalInstance.result.then(function() {
         Opportunity.delete({ id: id }, function() {
           $scope.showControlsId = null;
+          $scope.onDelete();
         }, function() {
           console.log('failure');
         });

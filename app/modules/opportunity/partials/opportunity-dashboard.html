@@ -12,7 +12,8 @@
       data-ng-repeat="opportunity in opportunities"
       data-opportunity-post-card
       data-model="opportunity"
-      data-show-controls-id="showControls.id">
+      data-show-controls-id="showControls.id"
+      data-on-delete="removeOpportunity($index)">
     </li>
   </ul>
 

@@ -9,7 +9,8 @@ angular.module('opportunity')
       restrict: 'A',
       scope: {
         model: '=',
-        showControlsId: '='
+        showControlsId: '=',
+        onDelete: '&'
       },
       templateUrl: 'modules/opportunity/partials/opportunity-post-card.html',
       controller: 'OpportunityPostCardCtrl',

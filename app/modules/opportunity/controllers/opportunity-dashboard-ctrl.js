@@ -10,4 +10,8 @@ angular.module('opportunity')
     UserOpportunities.query(function(response) {
       $scope.opportunities = response;
     });
+
+    $scope.removeOpportunity = function($index) {
+      $scope.opportunities.splice($index, 1);
+    };
   });
