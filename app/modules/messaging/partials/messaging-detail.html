@@ -24,6 +24,7 @@
   <div class="row xs-clear-margin messaging-detail">
     <div class="col-xs-12 col-sm-8 well xs-clear-padding messaging-detail-well"
       data-message-textarea
+      data-handle-height-change="onHeightChange()"
       data-handle-scroll-to-top="loadMessages()">
 
       <ul>
@@ -74,6 +75,7 @@
       <input type="text"
         name="text"
         required
+        autocomplete="off"
         maxlength="500"
         class="form-control"
         placeholder="Hello..."

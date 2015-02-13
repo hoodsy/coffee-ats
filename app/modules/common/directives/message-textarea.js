@@ -5,30 +5,23 @@ angular.module('common')
     return {
       restrict: 'A',
       scope: {
-        handleScrollToTop: '&'
+        handleScrollToTop: '&',
+        handleHeightChange: '&'
       },
       link: function(scope, element) {
         // Un-wrapped DOM element
         var el = element[0];
 
-        // Flag to ignore the next possible auto-scroll
-        var ignoreScroll = false;
-
-        // When scroll height increases (e.g. when a new message comes in),
-        // automatically scroll down
+        // When scroll height changes we might want to automatically scroll
+        // up or down
         scope.$watch(function() {
           return el.scrollHeight;
         }, function(newVal, oldVal) {
-          if (ignoreScroll) {
-            // Ignore scrolling when we call handleScrollTop
-            ignoreScroll = false;
-          } else if (el.scrollTop === 0) {
-            // When our previous scroll was 0 but our height has changed adjust
-            // the scroll so it maintains its relative location
-            element.scrollTop(newVal - oldVal + element.height());
-          } else {
-            // Scroll down
+          var scrollDirection = scope.handleHeightChange();
+          if (scrollDirection === -1) {
             element.scrollTop(el.scrollHeight);
+          } else if (scrollDirection === 1) {
+            element.scrollTop(newVal - oldVal + element.height());
           }
         });
 
@@ -36,7 +29,6 @@ angular.module('common')
         element.bind('scroll', function() {
           if (el.scrollTop === 0) {
             scope.handleScrollToTop();
-            ignoreScroll = true;
           }
         });
       }

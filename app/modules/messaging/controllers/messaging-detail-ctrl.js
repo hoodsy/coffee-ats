@@ -12,6 +12,12 @@ angular.module('messaging')
     // Track the date of the earliest message we have received
     var earliestMsgDate = null;
 
+    // Track direction of next scroll (1 for up, -1 for down)
+    var nextScroll = null;
+
+    // Flag to mark when all messages have been loaded
+    var allMessagesLoaded = false;
+
     // Color palette index
     $scope.palette = 1;
 
@@ -27,11 +33,13 @@ angular.module('messaging')
     function handleSaveMessage(data) {
       var msg = _.findLast($scope.matchMessages, { _id: data.message._id });
       msg._pending = false;
+      nextScroll = -1;
     }
 
     function handleMessage(data) {
       if (data.matchId === matchId) {
         $scope.matchMessages.push(data.message);
+        nextScroll = -1;
       } else {
         $scope._user.unreadNotificationsCount += 1;
       }
@@ -55,22 +63,37 @@ angular.module('messaging')
       $scope.user = User.get({id: matchedUser._id });
     });
 
+    // Handle loading new or old messages
+    $scope.onHeightChange = function() {
+      return nextScroll;
+    };
+
     $scope.loadMessages = function() {
+
+      if (allMessagesLoaded) {
+        return;
+      }
+
       $scope.loadingMoreMessages = true;
+
       MatchMessages.query({
         id: $stateParams.id,
         untilDate: earliestMsgDate
       }, function(response) {
-        // Extend the beginning of matchMessages with response
-        response.unshift(0);
-        response.unshift($scope.matchMessages.length);
-        $scope.matchMessages.splice.apply($scope.matchMessages, response);
+        $scope.loadingMoreMessages = false;
 
-        if ($scope.matchMessages.length > 0) {
+        if (response.length === 0) {
+          nextScroll = null;
+          allMessagesLoaded = true;
+
+        } else {
+          // Extend the beginning of matchMessages with response
+          response.unshift(0, 0);
+          $scope.matchMessages.splice.apply($scope.matchMessages, response);
           earliestMsgDate = $scope.matchMessages[0].created;
+          nextScroll = 1;
         }
 
-        $scope.loadingMoreMessages = false;
       }, function() {
         $scope.loadingMoreMessages = false;
       });
@@ -101,7 +124,7 @@ angular.module('messaging')
       };
 
       socket.sendMessage(data);
-
+      nextScroll = -1;
       message._pending = true;
       $scope.matchMessages.push(message);
       $scope.messageText = '';
