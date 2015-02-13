@@ -71,7 +71,7 @@ angular.module('messaging')
     };
 
     // Launch Delete model
-    $scope.delete = function(matchId) {
+    $scope.delete = function(matchId, $index) {
       var scope = $scope.$new();
       scope.message = 'Delete?';
 
@@ -83,7 +83,10 @@ angular.module('messaging')
 
       // Handle affirmative response
       modalInstance.result.then(function() {
-        UserMatch.delete({ id: matchId }, function() {}, function() {
+        UserMatch.delete({ id: matchId }, function() {
+          $scope.canShowControls = -1;
+          $scope.matches.splice($index, 1);
+        }, function() {
           console.log('Implement me');
         });
       }).finally(function() {
