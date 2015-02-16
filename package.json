@@ -51,5 +51,11 @@
   "scripts": {
     "start": "gulp serve:nosync",
     "postinstall": "node_modules/.bin/bower install && node_modules/.bin/gulp build"
+  },
+  "devDependencies": {
+    "chai": "^2.0.0",
+    "chai-as-promised": "^4.2.0",
+    "mocha": "2.0.1",
+    "selenium-webdriver": "^2.44.0"
   }
 }
