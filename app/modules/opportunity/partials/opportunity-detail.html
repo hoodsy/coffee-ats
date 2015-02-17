@@ -30,11 +30,11 @@
             {{ opportunity.salaryMin | salary:opportunity.salaryMax:opportunity.salaryCurrency }}
           </span>
         </div>
-        <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
+        <div class="col-xs-8 col-xs-offset-2 opportunity-infobox uppercase">
           <i class="ci ci-clock ci-lg"></i>
           <span>{{ opportunity.schedule }}</span>
         </div>
-        <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
+        <div class="col-xs-8 col-xs-offset-2 opportunity-infobox uppercase">
           <i class="ci ci-map-marker ci-lg"></i>
           <span>{{ opportunity.location }}</span>
         </div>
@@ -55,7 +55,7 @@
       </div>
 
       <!-- Tags -->
-      <ul class="detail-tags-list opportunity-detail-tags-list">
+      <ul class="detail-tags-list opportunity-detail-tags-list uppercase">
         <li data-ng-repeat="tag in opportunity.tags">
           <span>{{ tag }}</span>
         </li>

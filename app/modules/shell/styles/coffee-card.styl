@@ -5,7 +5,13 @@
 .user-card,
 .opportunity-card
   position relative
-  height 200px
+  height 275px
+
+  @media (min-width: screen-sm-min)
+    height 260px
+
+  .card-main
+    padding 0 2em
 
 
 // Is already liked checkmark
@@ -110,11 +116,13 @@
 
 .tags-list
   font-size .8em
-  line-height 2.4em
   height 100%
   display flex
   flex-direction row
   justify-content space-between
+
+  .uppercase
+    line-height 2.4em
 
   li
     padding 0 1em

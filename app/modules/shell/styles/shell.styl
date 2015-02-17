@@ -9,6 +9,19 @@ h1, h2, h3, h4, h5, h6
   &.header
     margin 1.6em 0
 
+@font-face
+  font-family 'seravek'
+  src url('../fonts/seravek.ttf') format('truetype')
+
+.uppercase
+  font-family 'seravek', Helvetica, sans-serif
+  text-transform lowercase
+  font-variant small-caps
+  letter-spacing .05em
+  line-height 1em
+
+  @media (min-width: screen-sm-min)
+    letter-spacing .075em
 
 /* Remove gutters on mobile views */
 @media (max-width: screen-xs-max)
@@ -48,9 +61,6 @@ h1, h2, h3, h4, h5, h6
 
 .quote
   margin 1em 0
-
-.uppercase
-  text-transform uppercase
 
 .height-100
   height 100%
