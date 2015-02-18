@@ -1,17 +1,48 @@
 @import 'colors'
 @import 'layout'
 
+card-height = 19em
+card-height-xs = 20em
+
+tags-height = 2em
+img-height = 3.75em
+img-padding = 1.5em
+
+card-main-height = card-height - tags-height
+card-main-height-xs = card-height-xs - tags-height
+
+card-main-text-height = card-main-height - img-height - img-padding
+card-main-text-height-xs = card-main-height-xs - img-height - img-padding
 
 .user-card,
 .opportunity-card
   position relative
-  height 275px
-
-  @media (min-width: screen-sm-min)
-    height 260px
+  height card-height-xs
 
   .card-main
+    height card-main-height-xs
     padding 0 2em
+
+    img.rounded
+      border-radius 50%
+      height img-height
+      width img-height
+      margin-top img-padding
+
+    .quote
+      margin 0 0 1em 0
+
+    .card-main-text
+      height card-main-text-height-xs
+
+  @media (min-width: screen-sm-min)
+    height card-height
+
+    .card-main
+      height card-main-height
+
+        .card-main-text
+          height card-main-text-height
 
 
 // Is already liked checkmark
@@ -95,8 +126,7 @@
 .tags-container
   position absolute
   bottom 0
-  margin-top 20px
-  height 2em
+  height tags-height
 
 @media (max-width: screen-xs-max)
   .tags-container
