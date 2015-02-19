@@ -7,9 +7,8 @@ git pull origin master
 npm install -g bower gulp
 
 # install deps. exit if it fails
-npm cache clean
 rm -rf node_modules
-npm install --ignore-scripts
+npm install --ignore-scripts --cache=$(mktemp -d -t ats.XXXX)
 rc=$?;
 if [[ $rc != 0 ]]; then
     echo 'npm install failed.';
