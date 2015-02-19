@@ -18,17 +18,18 @@
           </div>
         </div>
 
-        <div class="col-xs-6 col-sm-8 match-card-detail"
+        <div class="col-xs-6 col-sm-8 match-card-detail flex-center-vert"
           data-ui-sref=".detail({ id: match._id })">
-          <h2 class="uppercase">
+          <div class="uppercase">
             {{ match.title }}
-          </h2>
-          <h3 class="uppercase">
+          </div>
+          <div class="uppercase"
+            data-ng-if="match.subtitle">
             {{ match.subtitle }}
-          </h3>
-          <p class="match-latest-message">
+          </div>
+          <div class="match-latest-message">
             {{ match.latest }}
-          </p>
+          </div>
         </div>
 
         <div class="match-card-controls flex-center"

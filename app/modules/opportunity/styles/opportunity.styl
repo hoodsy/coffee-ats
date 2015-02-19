@@ -48,15 +48,22 @@ input[type=number]
 
 
 .add-opportunity-post-card
-  background-color color-grey-50
-  color color-grey-20
+  background-color color-grey-80
+  color color-grey-30
   height 175px
+  margin-bottom 1px
+
+  @media (min-width: screen-sm-min)
+    margin-bottom 1em
 
 .opportunity-post-card-main
-  height 150px
+  height 16em
   position relative
   left 0
   transition left .2s ease-in-out
+
+  @media (min-width: screen-sm-min)
+    height 15em
 
   &.slide-left
     position relative
@@ -64,7 +71,7 @@ input[type=number]
 
 
 .opportunity-post-card-info
-  height 25px
+  height 2em
 
   > div:first-child
     border-right 1px solid color-grey-80

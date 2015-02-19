@@ -5,16 +5,16 @@
     data-ng-swipe-left="enableControls(model._id)"
     data-ng-swipe-right="disableControls(model._id)">
 
-    <div class="col-xs-2 clear-padding flex-center">
+    <div class="col-xs-3 clear-padding flex-center">
       <img class="rounded"
         alt="opportunity img"
         data-ng-src="{{ model.picture }}"/>
     </div>
-    <div class="col-xs-8">
-      <h2 class="uppercase">
+    <div class="col-xs-7 height-100 flex-center-vert">
+      <div class="uppercase">
         {{ model.title }} @
         {{ model.companyName }}
-      </h2>
+      </div>
       <div class="quote">{{ model.headline }}</div>
     </div>
     <div class="opportunity-post-card-controls flex-center"
@@ -48,7 +48,7 @@
     </div>
   </div>
 
-  <div class="row clear-margin opportunity-post-card-info">
+  <div class="row clear-margin opportunity-post-card-info uppercase">
     <div class="col-xs-6 clear-padding flex-center">
       {{ model.applicantsCount }} Applicants
     </div>

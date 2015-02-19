@@ -1,4 +1,4 @@
-<div class="text-center palette-{{ palette }}">
+<div class="text-center palette-{{ palette }} white-bg">
   <div class="user-card">
     <a data-ui-sref="shell.user.detail.edit({ id: user._id, palette: palette })"
       data-ng-if="isEditable(user)">
@@ -19,13 +19,15 @@
 
   <div class="row xs-clear-margin">
     <div class="col-xs-8 col-xs-offset-2">
-      <h2 class="header uppercase"><strong>Experience</strong></h2>
+      <h1 class="header uppercase"><strong>Experience</strong></h1>
       <ul class="user-detail-list">
         <li data-ng-repeat="experience in user.experiences">
-          <ul>
+          <ul class="user-detail-sub-list">
             <li><strong>{{ experience.organization }}</strong></li>
-            <li class="uppercase">{{ experience.position }}</li>
-            <li>
+            <li class="position uppercase">
+              <span>{{ experience.position }}</span>
+            </li>
+            <li class="timespan">
               <span>
                 {{ experience.startTime | date:'MMMM yyyy':'UTC'}}
               </span>
@@ -43,13 +45,15 @@
         </li>
       </ul>
 
-      <h2 class="header uppercase"><strong>Education</strong></h2>
+      <h1 class="header uppercase"><strong>Education</strong></h1>
       <ul class="user-detail-list">
         <li data-ng-repeat="education in user.educations">
-          <ul>
+          <ul class="user-detail-sub-list">
             <li><strong>{{ education.school }}</strong></li>
-            <li>{{ education.degree }} {{ education.major }}</li>
-            <li>
+            <li class="uppercase position">
+              <span>{{ education.degree }} {{ education.major }}</span>
+            </li>
+            <li class="timespan">
               <span>
                 {{ education.startTime | date:'MMMM yyyy':'UTC'}}
               </span>

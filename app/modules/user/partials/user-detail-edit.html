@@ -82,7 +82,7 @@
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
             <i class="ci ci-map-marker ci-3x"></i>
-            <h3 class="uppercase">Location</h3>
+            <div class="uppercase">Location</div>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
             <input type="text"
@@ -96,7 +96,7 @@
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
             <i class="ci ci-suitcase ci-3x"></i>
-            <h3 class="uppercase">Position</h3>
+            <div class="uppercase">Position</div>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
             <input type="text"
@@ -110,7 +110,7 @@
         <div class="row edit-row xs-clear-margin">
           <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
             <i class="ci ci-building ci-3x"></i>
-            <h3 class="uppercase">Company</h3>
+            <div class="uppercase">Company</div>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
             <input type="text"
@@ -152,7 +152,7 @@
             <i class="ci ci-x-circle edit-delete-btn"
               data-ng-click="deleteExeperience(user, $index)">
             </i>
-            <h3 class="uppercase">{{ $index + 1 }}</h3>
+            <div class="uppercase">{{ $index + 1 }}</div>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col">
             <div class="row edit-sub-row">
@@ -230,7 +230,7 @@
             <i class="ci ci-x-circle edit-delete-btn"
               data-ng-click="deleteEducation(user, $index)">
             </i>
-            <h3 class="uppercase">{{ $index + 1 }}</h3>
+            <div class="uppercase">{{ $index + 1 }}</div>
           </div>
           <div class="col-xs-8 col-sm-5 edit-col">
             <div class="row edit-sub-row">
@@ -301,12 +301,12 @@
       <hr class="hidden-xs">
 
       <!-- Tags -->
-      <div data-ng-class="{ 'hidden-xs': page !== 4 }">
+      <div class="uppercase" data-ng-class="{ 'hidden-xs': page !== 4 }">
         <div class="row xs-clear-margin">
           <div class="col-sm-8 col-sm-offset-2 clear-padding">
             <input class="text-center form-control"
               type="text"
-              placeholder="ADD TAG"
+              placeholder="add tag"
               data-ng-model="newTag"
               data-ui-keypress="{13:'addTag(user, newTag)'}"/>
           </div>

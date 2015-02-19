@@ -1,4 +1,8 @@
 @import 'layout'
+@import 'colors'
+
+body
+  background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAgAElEQ…XWvobT4sf6JTyqUvWDmRI1Uqidr2Vscdk3bO06uDH2Xv8BA7rgSW4MiGsAAAAASUVORK5CYII=") 50% 50% repeat rgb(249, 249, 249) !important;
 
 ul
   list-style-type none
@@ -11,9 +15,8 @@ h1, h2, h3, h4, h5, h6
 
 img.rounded
   border-radius 50%
-  height: 50px
-  width: 50px
-  margin 1.5em 0 0 0
+  height: 3.75em
+  width: 3.75em
 
 @font-face
   font-family 'seravek'
@@ -76,3 +79,9 @@ img.rounded
 
 .width-100.width-100
   width 100%
+
+.white-bg
+  background-color white
+
+  @media (min-width: screen-sm-min)
+    border 1px solid color-grey-80 !important
