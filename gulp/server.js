@@ -105,8 +105,8 @@ function browserSyncInit(baseDir, files, middleware, module) {
   });
 }
 
-function gulpWebserverInit(middleware) {
-  return gulp.src('app')
+function gulpWebserverInit(baseDir, middleware) {
+  return gulp.src(baseDir)
     .pipe($.webserver({
       host: '0.0.0.0',
       port: 8080,
@@ -133,7 +133,7 @@ function serve(module) {
 gulp.task('serve:proxy', ['watch'], _.wrap('shell', serve));
 
 function serveProxyNosync(module) {
-  gulpWebserverInit(proxyMiddleware);
+  gulpWebserverInit('app', proxyMiddleware);
 }
 gulp.task('serve:proxy:nosync', ['watch'], serveProxyNosync);
 
@@ -143,7 +143,7 @@ function serveMock(module) {
 gulp.task('serve', ['watch'], _.wrap('shell', serveMock));
 
 function serveMockNosync() {
-  gulpWebserverInit(mockMiddleware);
+  gulpWebserverInit('app', mockMiddleware);
 }
 gulp.task('serve:nosync', ['watch'], serveMockNosync);
 
@@ -155,6 +155,11 @@ function serveDist(module) {
   browserSyncInit(module + '-dist', null, proxyMiddleware, module);
 }
 gulp.task('serve:dist:proxy', ['build'], _.wrap('shell', serveDist));
+
+function serveDistProxyNosync(module) {
+  gulpWebserverInit(module + '-dist', proxyMiddleware);
+}
+gulp.task('serve:dist:proxy:nosync', ['build'], _.wrap('shell', serveDistProxyNosync));
 
 function serveDistMock(module) {
   browserSyncInit(module + '-dist', null, mockMiddleware, module);
