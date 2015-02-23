@@ -8,6 +8,7 @@ npm install -g bower gulp
 
 # install deps. exit if it fails
 rm -rf node_modules
+rm -rf app/bower_components
 npm install --ignore-scripts --cache=$(mktemp -d -t ats.XXXX)
 rc=$?;
 if [[ $rc != 0 ]]; then
