@@ -5,7 +5,7 @@ angular.module('messaging')
     return $resource('/api/users/:userId/matches/:id', {
       id: '@_id',
       userId: function() {
-        return $rootScope._user._id;
+        return ($rootScope._user && $rootScope._user._id);
       }
     });
   });
