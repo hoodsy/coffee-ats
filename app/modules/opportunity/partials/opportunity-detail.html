@@ -1,116 +1,77 @@
 <div class="container text-center palette-{{ palette }}">
   <div class="row xs-clear-margin">
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 xs-clear-padding">
-
-      <div class="opportunity-card text-center">
-        <a data-ui-sref=".edit"
-          <i class="edit-user-btn ci ci-edit ci-lg"></i>
-        </a>
-        <img class="rounded"
-          alt="opportunity img"
-          data-ng-src="{{ opportunity.picture }}"/>
-        <div class="quote">{{ opportunity.headline }}</div>
-        <div>
-          <span class="uppercase">
-            {{ opportunity.creatorName }} |
-            {{ opportunity.creatorPosition }}
-          </span>
-        </div>
-      </div>
-
-      <h1 class="header uppercase">
-        {{ opportunity.title }} @
-        {{ opportunity.companyName }}
-      </h1>
-
-      <div class="row xs-clear-margin">
-        <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
-          <i class="ci ci-salary ci-lg"></i>
-          <span>
-            {{ opportunity.salaryMin | salary:opportunity.salaryMax:opportunity.salaryCurrency }}
-          </span>
-        </div>
-        <div class="col-xs-8 col-xs-offset-2 opportunity-infobox uppercase">
-          <i class="ci ci-clock ci-lg"></i>
-          <span>{{ opportunity.schedule }}</span>
-        </div>
-        <div class="col-xs-8 col-xs-offset-2 opportunity-infobox uppercase">
-          <i class="ci ci-map-marker ci-lg"></i>
-          <span>{{ opportunity.location }}</span>
-        </div>
-      </div>
-
-      <div class="row xs-clear-margin">
-        <div class="col-xs-10 col-xs-offset-1">
-          <h2 class="header uppercase">Responsibilities</h2>
-          <p>{{ opportunity.overview }}</p>
-
-          <!-- About Company -->
+      <div class="white-bg">
+        <div class="opportunity-card text-center">
+          <a data-ui-sref=".edit"
+            <i class="edit-user-btn ci ci-edit ci-lg"></i>
+          </a>
           <img class="rounded"
             alt="opportunity img"
             data-ng-src="{{ opportunity.picture }}"/>
-          <h2 class="header uppercase">About {{ opportunity.companyName }}</h2>
-          <p>{{ opportunity.companyAbout }}</p>
+          <div class="quote">{{ opportunity.headline }}</div>
+          <div>
+            <span class="uppercase">
+              {{ opportunity.creatorName }} |
+              {{ opportunity.creatorPosition }}
+            </span>
+          </div>
+        </div>
+
+        <h1 class="header uppercase">
+          {{ opportunity.title }} @
+          {{ opportunity.companyName }}
+        </h1>
+
+        <div class="row xs-clear-margin">
+          <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
+            <i class="ci ci-salary ci-lg"></i>
+            <span>
+              {{ opportunity.salaryMin | salary:opportunity.salaryMax:opportunity.salaryCurrency }}
+            </span>
+          </div>
+          <div class="col-xs-8 col-xs-offset-2 opportunity-infobox uppercase">
+            <i class="ci ci-clock ci-lg"></i>
+            <span>{{ opportunity.schedule }}</span>
+          </div>
+          <div class="col-xs-8 col-xs-offset-2 opportunity-infobox uppercase">
+            <i class="ci ci-map-marker ci-lg"></i>
+            <span>{{ opportunity.location }}</span>
+          </div>
+        </div>
+
+        <div class="row xs-clear-margin">
+          <div class="col-xs-10 col-xs-offset-1">
+            <h2 class="header uppercase">Responsibilities</h2>
+            <p>{{ opportunity.overview }}</p>
+
+            <!-- About Company -->
+            <img class="rounded"
+              alt="opportunity img"
+              data-ng-src="{{ opportunity.picture }}"/>
+            <h2 class="header uppercase">About {{ opportunity.companyName }}</h2>
+            <p>{{ opportunity.companyAbout }}</p>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <ul class="detail-tags-list opportunity-detail-tags-list uppercase">
+          <li data-ng-repeat="tag in opportunity.tags">
+            <span>{{ tag }}</span>
+          </li>
+        </ul>
+
+        <div class="row xs-clear-margin">
+          <div class="col-xs-10 col-xs-offset-1">
+            <!-- About Creator -->
+            <img class="rounded"
+              alt="creator img"
+              data-ng-src="{{ opportunity.creatorPicture }}"/>
+            <h2 class="header uppercase">About {{ opportunity.creatorName }}</h2>
+            <p>{{ opportunity.creatorHeadline }}</p>
+          </div>
         </div>
       </div>
-
-      <!-- Tags -->
-      <ul class="detail-tags-list opportunity-detail-tags-list uppercase">
-        <li data-ng-repeat="tag in opportunity.tags">
-          <span>{{ tag }}</span>
-        </li>
-      </ul>
-
-      <div class="row xs-clear-margin">
-        <div class="col-xs-10 col-xs-offset-1">
-          <!-- About Creator -->
-          <img class="rounded"
-            alt="creator img"
-            data-ng-src="{{ opportunity.creatorPicture }}"/>
-          <h2 class="header uppercase">About {{ opportunity.creatorName }}</h2>
-          <p>{{ opportunity.creatorHeadline }}</p>
-        </div>
-      </div>
-
-<!--       <div ng-show="canEdit">
-        <div ng-include="'modules/opportunity/partials/opportunity-edit-headline.html'"></div>
-      </div>
- -->
-
-<!--       <accordion close-others="oneAtATime">
-        <accordion-group is-open="applicantsIsOpen">
-          <accordion-heading>
-            <i class="pull-left glyphicon" ng-class="{'glyphicon-minus': applicantsIsOpen, 'glyphicon-plus': !applicantsIsOpen}"></i>
-            <h4>Applicants ({{ opportunity.numApplicants }})
-              <span class="pull-right">
-                <button class="btn btn-primary">Accept</button>
-                <button class="btn btn-danger">Reject</button>
-                <button class="btn btn-success">Message</button>
-              </span>
-            </h4>
-        </accordion-heading>
-        <table st-table="applicantsTable" class="table table-hover">
-          <thead>
-            <th>
-              <input
-                st-search
-                placeholder="Search"
-                class="input-sm form-control"
-                type="search"/>
-            </th>
-          </thead>
-          <tbody>
-          <tr st-select-row="user" st-select-mode="multiple" ng-repeat="user in applicantsTable">
-            <td><img ng-src="{{ user.picture }}"> {{  user.firstName  }} {{  user.lastName  }}</td>
-            <td>{{ user.headline }}</td>
-            <td>{{ user.location }}</td>
-            <td>{{ user.tags }}</td>
-          </tr>
-          </tbody>
-        </table>
-        </accordion-group>
-      </accordion> -->
-
     </div>
   </div>
 </div>

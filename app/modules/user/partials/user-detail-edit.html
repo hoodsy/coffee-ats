@@ -3,7 +3,7 @@
   onsubmit="return false;"
   novalidate>
   <div class="row xs-clear-margin">
-    <div class="col-sm-8 col-sm-offset-2 xs-clear-padding">
+    <div class="col-sm-8 col-sm-offset-2 xs-clear-padding white-bg edit-main">
 
       <!-- Profile Edit navigation on mobile -->
       <div class="row edit-row xs-clear-margin visible-xs-block">
@@ -325,14 +325,18 @@
   </div>
 
   <!-- Submit Button -->
-  <button type="submit"
-    class="btn btn-default btn-block edit-submit-btn"
-    data-ng-click="save(user)">
-    <span data-ng-if="!(editForm.$error.required && editForm.$submitted)">
-      Save &amp; Finish
-    </span>
-    <span data-ng-if="editForm.$error.required && editForm.$submitted">
-      Oops, you may have missed something!
-    </span>
-  </button>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 clear-padding">
+      <button type="submit"
+        class="btn btn-default btn-block edit-submit-btn"
+        data-ng-click="save(user)">
+        <span data-ng-if="!(editForm.$error.required && editForm.$submitted)">
+          Save &amp; Finish
+        </span>
+        <span data-ng-if="editForm.$error.required && editForm.$submitted">
+          Oops, you may have missed something!
+        </span>
+      </button>
+    </div>
+  </div>
 </form>
