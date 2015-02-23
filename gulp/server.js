@@ -154,7 +154,7 @@ gulp.task('serve:nosync', ['watch'], serveMockNosync);
 function serveDist(module) {
   browserSyncInit(module + '-dist', null, proxyMiddleware);
 }
-gulp.task('serve:dist:proxy', ['build'], _.wrap('shell', serveDist));
+gulp.task('serve:dist:proxy', ['watch'], _.wrap('shell', serveDist));
 
 function serveDistProxyNosync(module) {
   gulpWebserverInit(module + '-dist', proxyMiddleware);
@@ -164,4 +164,4 @@ gulp.task('serve:dist:proxy:nosync', ['build'], _.wrap('shell', serveDistProxyNo
 function serveDistMock(module) {
   browserSyncInit(module + '-dist', null, mockMiddleware);
 }
-gulp.task('serve:dist', ['build'], _.wrap('shell', serveDistMock));
+gulp.task('serve:dist', ['watch'], _.wrap('shell', serveDistMock));
