@@ -6,11 +6,15 @@ git pull origin master
 #install global deps
 npm install -g bower gulp
 
-# install deps. exit if it fails
+# remove old installed deps
 rm -rf node_modules
 rm -rf app/bower_components
-npm install --ignore-scripts --cache=$(mktemp -d -t ats.XXXX)
+
+# install deps. exit if it fails
+tmpdir=$(mktemp -d -t ats.XXXX)
+npm install --ignore-scripts --cache=$tmpdir
 rc=$?;
+rm -rf $tmpdir
 if [[ $rc != 0 ]]; then
     echo 'npm install failed.';
     exit $rc;
