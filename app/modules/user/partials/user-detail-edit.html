@@ -148,13 +148,13 @@
       <div data-ng-class="{ 'hidden-xs': page !== 2 }">
         <div class="row edit-row xs-clear-margin"
           data-ng-repeat="experience in user.experiences">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+          <div class="col-xs-3 col-sm-3 col-sm-offset-2 edit-col flex-center">
             <i class="ci ci-x-circle edit-delete-btn"
               data-ng-click="deleteExeperience(user, $index)">
             </i>
             <div class="uppercase">{{ $index + 1 }}</div>
           </div>
-          <div class="col-xs-8 col-sm-5 edit-col">
+          <div class="col-xs-9 col-sm-5 edit-col">
             <div class="row edit-sub-row">
               <div class="col-xs-12">
                 <input type="text"
@@ -178,7 +178,7 @@
             <div class="row edit-sub-row">
               <div class="col-xs-12">
                 <input type="number"
-                  class="input-date"
+                  class="input-month"
                   required
                   min="1"
                   max="12"
@@ -186,7 +186,7 @@
                   ng-model="experience._startMonth" />
                 <span>/</span>
                 <input type="number"
-                  class="input-date"
+                  class="input-year"
                   required
                   min="1900"
                   max="2100"
@@ -194,14 +194,14 @@
                   ng-model="experience._startYear" />
                 <span>&ndash;</span>
                 <input type="number"
-                  class="input-date"
+                  class="input-month"
                   min="1"
                   max="12"
                   placeholder="MM"
                   ng-model="experience._endMonth" />
                 <span>/</span>
                 <input type="number"
-                  class="input-date"
+                  class="input-year"
                   min="1900"
                   max="2100"
                   placeholder="YYYY"
@@ -226,13 +226,13 @@
       <div data-ng-class="{ 'hidden-xs': page !== 3 }">
         <div class="row edit-row xs-clear-margin"
           data-ng-repeat="education in user.educations">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
+          <div class="col-xs-3 col-sm-3 col-sm-offset-2 edit-col flex-center">
             <i class="ci ci-x-circle edit-delete-btn"
               data-ng-click="deleteEducation(user, $index)">
             </i>
             <div class="uppercase">{{ $index + 1 }}</div>
           </div>
-          <div class="col-xs-8 col-sm-5 edit-col">
+          <div class="col-xs-9 col-sm-5 edit-col">
             <div class="row edit-sub-row">
               <div class="col-xs-12">
                 <input type="text"
@@ -256,7 +256,7 @@
             <div class="row edit-sub-row">
               <div class="col-xs-12">
                 <input type="number"
-                  class="input-date"
+                  class="input-month"
                   required
                   min="1"
                   max="12"
@@ -264,7 +264,7 @@
                   ng-model="education._startMonth" />
                 <span>/</span>
                 <input type="number"
-                  class="input-date"
+                  class="input-year"
                   required
                   min="1900"
                   max="2100"
@@ -272,14 +272,14 @@
                   ng-model="education._startYear" />
                 <span>&ndash;</span>
                 <input type="number"
-                  class="input-date"
+                  class="input-month"
                   min="1"
                   max="12"
                   placeholder="MM"
                   ng-model="education._endMonth" />
                 <span>/</span>
                 <input type="number"
-                  class="input-date"
+                  class="input-year"
                   min="1900"
                   max="2100"
                   placeholder="YYYY"
