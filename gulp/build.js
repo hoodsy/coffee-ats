@@ -214,7 +214,8 @@ gulp.task('iconfonts', function(){
 function fonts(module) {
   return gulp
     .src(util.modFonts(module)
-         .concat('app/bower_components/bootstrap-stylus/**/*.{eot,svg,ttf,woff}'))
+         .concat('app/bower_components/bootstrap-stylus/**/*.{eot,svg,ttf,woff}')
+         .concat('app/bower_components/font-awesome/**/*.{eot,svg,ttf,woff}'))
     .pipe($.flatten())
     .pipe(gulp.dest('app/' + module + '-static/fonts/'))
     .pipe(gulp.dest(module + '-dist/fonts/'))
