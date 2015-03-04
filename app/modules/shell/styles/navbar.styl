@@ -29,14 +29,16 @@ ul.navbar-nav > li > a
     > li
       width 25%
 
-// Navbar is fixed so move down the main content
 .main-content
   position absolute
   width 100%
-  height 'calc(100% - %s)' % navbar-height
-  top navbar-height
-  overflow-y auto
-  -webkit-overflow-scrolling touch
+
+  // Navbar is fixed so move down the main content
+  @media (max-width: screen-xs-max)
+    height 'calc(100% - %s)' % navbar-height
+    bottom navbar-height
+    overflow-y auto
+    -webkit-overflow-scrolling touch
 
   // Make inner container relative so children of container can be absolute
   > .container
