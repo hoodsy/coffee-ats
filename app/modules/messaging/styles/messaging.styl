@@ -1,13 +1,21 @@
 @import 'colors'
+@import 'layout'
 
 border-color = color-grey-80
+
+img-translate = 3em
+img-translate-xs = 2.5em
 
 /*
  * Matches
  */
 
 .matches-list-item
-  border-bottom 1px solid border-color
+  @media (max-width: screen-xs-max)
+    border-bottom 1px solid border-color
+
+  @media (min-width: screen-sm-min)
+    margin-bottom .5em
 
 .match-card
   height 9em
@@ -19,6 +27,11 @@ border-color = color-grey-80
     position relative
     left -200px
 
+.match-card,
+.match-card-controls
+  background-color color-white
+
+
 .match-latest-message
   text-overflow ellipsis
   white-space nowrap
@@ -29,17 +42,36 @@ border-color = color-grey-80
   width .75em
   position relative
   top -.75em
-  right -1em
   border-radius 50%
   background-color color-green-1
+
+  @media (max-width: screen-xs-max)
+    right -4em
+
+  @media (min-width: screen-sm-min)
+    right -4.5em
 
 .match-card-detail,
 .match-card-avatar
   cursor pointer
   height 100%
 
-.match-card-detail > div
-  margin .25em 0
+.match-card-avatar > img
+  position relative
+  height 5em
+  width 5em
+
+  @media (max-width: screen-xs-max)
+    left img-translate-xs
+
+  @media (min-width: screen-sm-min)
+    left img-translate
+
+div.match-card-detail
+  padding-left img-translate + 0.5em
+
+  > div
+    margin .25em 0
 
 // Controls revealed on the right side of match card
 .match-card-controls

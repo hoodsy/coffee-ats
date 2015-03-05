@@ -29,22 +29,14 @@ input-xs-height = 36px
 .row.messaging-detail-input
   width 100%
 
-  @media (min-width: screen-sm-min)
-    width 750px
-
-  @media (min-width: screen-md-min)
-    width 970px
-
-  @media (min-width: screen-lg-min)
-    width 1170px
-
-
 .well.messaging-detail-well
   position absolute
   right 0
   height 100%
   overflow-y auto
   margin 0
+  background-color color-white
+  border none
 
 div.messaging-detail-profile
   float left
@@ -66,8 +58,8 @@ div.messaging-detail-profile
  */
 
 img.message-image
-  height 1.5em
-  width 1.5em
+  height 2.5em
+  width 2.5em
 
 .message-loading-icon
   position relative
@@ -78,29 +70,13 @@ img.message-image
   text-align right
 
   .chat-bubble
-    background-color color-white
-
-  .chat-bubble:after
-    border-color transparent color-white
-    border-width: .5em 0 .5em .5em
-    right .6em
-    top .25em
-    left initial
+    background-color color-green-3a
+    border none
 
 .chat-bubble
   display inline-block
   padding .5em
-  background color-green-2
+  background color-white
   margin-bottom .5em
-
-.chat-bubble:after
-  content ''
-  position absolute
-  border-style solid
-  border-width .5em .5em .5em 0
-  border-color transparent color-green-2
-  z-index 1
-  left .6em
-  top .25em
-  height 0
-  width 0
+  border-radius 1em
+  border 1px solid color-green-2a

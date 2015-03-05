@@ -29,17 +29,28 @@ ul.navbar-nav > li > a
     > li
       width 25%
 
-div.main-content[data-ui-view="main"]
-  position relative
+#main-container
 
-  // Navbar is fixed so move up the main content
+  // Navbar is fixed so move up the main container
   @media (max-width: screen-xs-max)
-    width 100%
     position absolute
+    width 100%
     height 'calc(100% - %s)' % navbar-height
     bottom navbar-height
     overflow-y auto
     -webkit-overflow-scrolling touch
+
+  @media (min-width: screen-sm-min)
+    position relative
+    height calc(100% - 2em)
+    padding 1em 0
+
+@media (min-width: screen-sm-min)
+  div.main-content[data-ui-view="main"]
+    position absolute
+    right 0
+    height 100%
+
 
 // User profile icon
 img.avatar

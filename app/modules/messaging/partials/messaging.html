@@ -1,70 +1,13 @@
-<ul class="row xs-clear-margin">
-  <li class="col-sm-10 col-sm-offset-1 xs-clear-padding matches-list-item"
-    data-ng-repeat="match in matches"
-    data-ng-swipe-left="enableControls($index)"
-    data-ng-swipe-right="disableControls($index)">
-
-    <div class="row clear-margin palette-{{ match._palette }} {{ match._paletteClass }} match-card"
-      data-ng-class="{ 'slide-left': showControls($index) }">
-
-      <div class="col-xs-3 col-sm-2 clear-padding flex-center match-card-avatar"
-        data-ui-sref=".detail({ id: match._id })">
-        <img class="rounded"
-          alt="match img"
-          data-ng-src="{{ match.picture }}"/>
-        <div class="match-unread-badge"
-          data-ng-if="match.unread">
-        </div>
-      </div>
-
-      <div class="col-xs-6 col-sm-8 match-card-detail flex-center-vert"
-        data-ui-sref=".detail({ id: match._id })">
-        <div class="uppercase">
-          {{ match.title }}
-        </div>
-        <div class="uppercase"
-          data-ng-if="match.subtitle">
-          {{ match.subtitle }}
-        </div>
-        <div class="match-latest-message">
-          {{ match.latest }}
-        </div>
-      </div>
-
-      <div class="match-card-controls flex-center"
-        data-ng-class="{
-        'col-xs-3 col-sm-2': !showControls($index),
-        'col-xs-8 col-sm-4 grow': showControls($index)
-        }">
-        <button class="btn btn-transparent"
-          data-ng-click="toggleControls($index)"
-          data-ng-if="!showControls($index)">
-          <i class="ci ci-more ci-lg"></i>
-        </button>
-
-        <div class="row"
-          data-ng-if="showControls($index)">
-          <button class="btn btn-transparent"
-            data-ng-click="toggleControls($index)">
-            <i class="ci ci-more ci-lg"></i>
-          </button>
-
-          <button class="btn btn-transparent"
-            data-ng-click="share($index)">
-            <i class="ci ci-share ci-lg"></i>
-          </button>
-
-          <button class="btn btn-transparent"
-            data-ng-click="report(match.matchedUserId)">
-            <i class="ci ci-report ci-lg"></i>
-          </button>
-
-          <button class="btn btn-transparent"
-            data-ng-click="delete(match._id, $index)">
-            <i class="ci ci-trash ci-lg"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </li>
-</ul>
+<div class="row xs-clear-margin height-100">
+  <div id="messaging-main"
+    class="col-xs-5 height-100 hidden-xs"
+    data-ui-view="main">
+  </div>
+  <div id="messaging-detail"
+    class="col-xs-7 height-100 hidden-xs"
+    data-ui-view="detail">
+  </div>
+  <div class="col-xs-12 height-100 xs-clear-padding visible-xs-block"
+    data-ui-view="xs">
+  </div>
+</div>

@@ -1,6 +1,10 @@
 @import 'layout'
 @import 'colors'
 
+body,
+html
+  height 100%
+
 body
   background-image url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAgAElEQ…XWvobT4sf6JTyqUvWDmRI1Uqidr2Vscdk3bO06uDH2Xv8BA7rgSW4MiGsAAAAASUVORK5CYII=")
   background-position 50% 50%
@@ -34,7 +38,6 @@ img.rounded
   @media (min-width: screen-sm-min)
     letter-spacing .075em
 
-
 /* Remove gutters on mobile views */
 @media (max-width: screen-xs-max)
   div.container
@@ -48,11 +51,6 @@ img.rounded
   .xs-clear-margin.row
     margin-left 0
     margin-right 0
-
-@media (min-width: screen-sm-min)
-  div.container
-    padding 1em 0
-
 
 .clear-padding[class*="col-"]
   padding-left 0

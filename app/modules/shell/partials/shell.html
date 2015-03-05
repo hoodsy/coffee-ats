@@ -9,7 +9,7 @@
         </a>
       </li>
       <li>
-        <a data-ui-sref="shell.messaging"
+        <a data-ui-sref="shell.messaging.main"
           data-ui-sref-active="nav-active">
           <i class="ci ci-callout2 ci-lg"></i>
           <span class="hidden-xs">Messages</span>
@@ -45,74 +45,74 @@
     </ul>
   </div>
 </nav>
-<div>
-  <div class="container">
-    <div class="row xs-clear-margin">
-      <div class="col-sm-3 hidden-xs">
-        <ul id="sidebar">
-          <li class="row sidebar-item uppercase text-center clear-margin">
-            <div class="col-xs-12 flex-center-vert">
+<div id="main-container" class="container">
+  <div class="row xs-clear-margin height-100">
 
-                <!-- data-ui-sref=".user.detail({ id: model._id, palette: model._palette })" -->
-                  <div class="quote sidebar-quote">{{ _user.headline }}</div>
+    <div class="col-sm-3 hidden-xs">
+      <ul id="sidebar">
+        <li class="row sidebar-item uppercase text-center clear-margin">
+          <div class="col-xs-12 flex-center-vert">
 
-                  <div class="flex-center">
-                    <img class="sidebar-avatar"
-                      alt="user img"
-                      data-ng-src="{{ _user.picture }}"/>
+              <!-- data-ui-sref=".user.detail({ id: model._id, palette: model._palette })" -->
+                <div class="quote sidebar-quote">{{ _user.headline }}</div>
+
+                <div class="flex-center">
+                  <img class="sidebar-avatar"
+                    alt="user img"
+                    data-ng-src="{{ _user.picture }}"/>
+                </div>
+                <div class="card-main-text flex-center-vert">
+
+                  <div class="uppercase">{{ _user.firstName }} {{ _user.lastName }}</div>
+                  <div>
+                    <span class="uppercase">{{ _user.position }} @
+                    <strong>{{ _user.organization }}</strong> |
+                    {{ _user.locations[0] }}
+                    </span>
                   </div>
-                  <div class="card-main-text flex-center-vert">
+                </div>
 
-                    <div class="uppercase">{{ _user.firstName }} {{ _user.lastName }}</div>
-                    <div>
-                      <span class="uppercase">{{ _user.position }} @
-                      <strong>{{ _user.organization }}</strong> |
-                      {{ _user.locations[0] }}
-                      </span>
-                    </div>
-                  </div>
+          </div>
+        </li>
+        <li class="row sidebar-item uppercase clear-margin"
+          data-ui-sref="shell.feed"
+          data-ui-sref-active="nav-active">
+          <div class="col-xs-12 height-100 flex-center-vert">
+            <div>
+              <i class="ci ci-home2 sidebar-item-icon"></i>
+              <span class="sidebar-item-label flex-center-vert">Home</span>
+            </div>
+          </div>
+        </li>
+        <li class="row sidebar-item uppercase clear-margin"
+          data-ui-sref="shell.messaging.main"
+          data-ui-sref-active="nav-active">
+          <div class="col-xs-12 height-100 flex-center-vert">
+            <div>
+              <i class="ci ci-callout2 sidebar-item-icon"></i>
+              <span class="sidebar-item-label flex-center-vert">Messages</span>
+              <span class="unread-notifications"
+                data-ng-if="_user.unreadNotificationsCount">
+                {{ _user.unreadNotificationsCount }}
+              </span>
+            </div>
+          </div>
+        </li>
+        <li class="row sidebar-item uppercase clear-margin"
+          data-ui-sref="shell.opportunity"
+          data-ui-sref-active="nav-active">
+          <div class="col-xs-12 height-100 flex-center-vert">
+            <div>
+              <i class="ci ci-suitcase sidebar-item-icon"></i>
+              <span class="sidebar-item-label flex-center-vert">Opportunities</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-            </div>
-          </li>
-          <li class="row sidebar-item uppercase clear-margin"
-            data-ui-sref="shell.feed"
-            data-ui-sref-active="nav-active">
-            <div class="col-xs-12 height-100 flex-center-vert">
-              <div>
-                <i class="ci ci-home2 sidebar-item-icon"></i>
-                <span class="sidebar-item-label flex-center-vert">Home</span>
-              </div>
-            </div>
-          </li>
-          <li class="row sidebar-item uppercase clear-margin"
-            data-ui-sref="shell.messaging"
-            data-ui-sref-active="nav-active">
-            <div class="col-xs-12 height-100 flex-center-vert">
-              <div>
-                <i class="ci ci-callout2 sidebar-item-icon"></i>
-                <span class="sidebar-item-label flex-center-vert">Messages</span>
-                <span class="unread-notifications"
-                  data-ng-if="_user.unreadNotificationsCount">
-                  {{ _user.unreadNotificationsCount }}
-                </span>
-              </div>
-            </div>
-          </li>
-          <li class="row sidebar-item uppercase clear-margin"
-            data-ui-sref="shell.opportunity"
-            data-ui-sref-active="nav-active">
-            <div class="col-xs-12 height-100 flex-center-vert">
-              <div>
-                <i class="ci ci-suitcase sidebar-item-icon"></i>
-                <span class="sidebar-item-label flex-center-vert">Opportunities</span>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="col-sm-8 col-sm-offset-1 main-content xs-clear-padding"
-        data-ui-view="main">
-      </div>
+    <div class="col-sm-9 main-content xs-clear-padding height-100"
+      data-ui-view="main">
     </div>
   </div>
 </div>
