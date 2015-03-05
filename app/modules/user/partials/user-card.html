@@ -3,31 +3,79 @@
   data-ng-swipe-right="cardLike({ $event: $event, model: model })"
   data-ng-swipe-left="cardAskDelete({ model: model })">
 
-  <div class="height-100"
-    data-ng-if="model._state"
-    data-ng-include="'modules/common/partials/coffee-card-states.html'">
+  <div class="visible-xs-block">
+    <div class="height-100"
+      data-ng-if="model._state"
+      data-ng-include="'modules/common/partials/coffee-card-states.html'">
+    </div>
+
+    <div class="card-main {{ model._cssClass }}">
+      <img class="rounded"
+        alt="user img"
+        data-ng-src="{{ model.picture }}"/>
+      <i class="feed-is-liked fa fa-check"
+        title="This user has already matched with you!">
+      </i>
+      <div class="card-main-text flex-center-vert">
+        <div class="quote">{{ model.headline }}</div>
+        <div class="uppercase">{{ model.name }}</div>
+        <div>
+          <span class="uppercase">{{ model.position }} @
+          <strong>{{ model.organization }}</strong> |
+          {{ model.locations[0] }}
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="card-main {{ model._cssClass }}">
-    <button class="btn btn-transparent btn-like"
-      data-ng-click="cardLike({ $event: $event, model: model })">
-      <span class="uppercase">Invite</span>
-      <i class="ci ci-mug ci-2x"></i>
-    </button>
-    <img class="rounded"
-      alt="user img"
-      data-ng-src="{{ model.picture }}"/>
-    <i class="feed-is-liked fa fa-check"
-      title="This user has already matched with you!">
-    </i>
-    <div class="card-main-text flex-center-vert">
-      <div class="quote">{{ model.headline }}</div>
-      <div class="uppercase">{{ model.name }}</div>
-      <div>
-        <span class="uppercase">{{ model.position }} @
-        <strong>{{ model.organization }}</strong> |
-        {{ model.locations[0] }}
+  <div class="hidden-xs">
+    <div class="height-100"
+      data-ng-if="model._state"
+      data-ng-include="'modules/common/partials/coffee-card-states.html'">
+    </div>
+
+    <div class="card-main-top">
+      <div class="quote height-100 flex-center-vert">
+        <div>
+          <i class="ci ci-quote edit-quote ci-3x"></i>
+          <span>{{ model.headline }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-main {{ model._cssClass }}">
+
+      <button class="btn btn-transparent btn-dislike"
+        data-ng-click="cardAskDelete({ $event: $event, model: model })">
+        <span class="fa-stack fa-2x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-times fa-stack-1x fa-inverse"></i>
         </span>
+      </button>
+      <img class="rounded"
+        alt="user img"
+        data-ng-src="{{ model.picture }}"/>
+      <button class="btn btn-transparent btn-like"
+        data-ng-click="cardLike({ $event: $event, model: model })">
+        <span class="fa-stack fa-2x">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-check fa-stack-1x"></i>
+        </span>
+      </button>
+
+      <i class="feed-is-liked fa fa-check"
+        title="This user has already matched with you!">
+      </i>
+
+      <div class="card-main-text flex-center-vert">
+        <div class="uppercase">{{ model.name }}</div>
+        <div>
+          <span class="uppercase">{{ model.position }} @
+          <strong>{{ model.organization }}</strong> |
+          {{ model.locations[0] }}
+          </span>
+        </div>
       </div>
     </div>
   </div>

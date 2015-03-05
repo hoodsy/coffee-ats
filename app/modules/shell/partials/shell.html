@@ -48,9 +48,9 @@
 <div>
   <div class="container">
     <div class="row xs-clear-margin">
-      <div id="sidebar" class="col-sm-3 hidden-xs">
-        <ul>
-          <li class="row sidebar-item uppercase text-center">
+      <div class="col-sm-3 hidden-xs">
+        <ul id="sidebar">
+          <li class="row sidebar-item uppercase text-center clear-margin">
             <div class="col-xs-12 flex-center-vert">
 
                 <!-- data-ui-sref=".user.detail({ id: model._id, palette: model._palette })" -->
@@ -74,7 +74,7 @@
 
             </div>
           </li>
-          <li class="row sidebar-item uppercase"
+          <li class="row sidebar-item uppercase clear-margin"
             data-ui-sref="shell.feed"
             data-ui-sref-active="nav-active">
             <div class="col-xs-12 height-100 flex-center-vert">
@@ -84,7 +84,7 @@
               </div>
             </div>
           </li>
-          <li class="row sidebar-item uppercase"
+          <li class="row sidebar-item uppercase clear-margin"
             data-ui-sref="shell.messaging"
             data-ui-sref-active="nav-active">
             <div class="col-xs-12 height-100 flex-center-vert">
@@ -98,7 +98,7 @@
               </div>
             </div>
           </li>
-          <li class="row sidebar-item uppercase"
+          <li class="row sidebar-item uppercase clear-margin"
             data-ui-sref="shell.opportunity"
             data-ui-sref-active="nav-active">
             <div class="col-xs-12 height-100 flex-center-vert">
@@ -110,7 +110,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-sm-9 main-content"
+      <div class="col-sm-8 col-sm-offset-1 main-content xs-clear-padding"
         data-ui-view="main">
       </div>
     </div>

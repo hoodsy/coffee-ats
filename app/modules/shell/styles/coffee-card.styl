@@ -1,48 +1,71 @@
 @import 'colors'
 @import 'layout'
 
-card-height = 19em
-card-height-xs = 20em
-
 tags-height = 2em
+card-quote-height = 17.5em
+img-height = 5em
+card-main-text-height = 3em
+card-main-height = card-main-text-height + img-height
+card-height = card-main-height + card-quote-height + tags-height
+
+
 img-height = 3.75em
 img-padding = 1.5em
+card-main-text-height-xs = 14.5
+card-main-height-xs = card-main-text-height-xs + img-height + img-padding
+card-height-xs = card-main-height-xs + tags-height
 
-card-main-height = card-height - tags-height
-card-main-height-xs = card-height-xs - tags-height
 
-card-main-text-height = card-main-height - img-height - img-padding
-card-main-text-height-xs = card-main-height-xs - img-height - img-padding
+@media (max-width: screen-xs-max)
+  .user-card,
+  .opportunity-card
+    position relative
+    height card-height-xs
 
-.user-card,
-.opportunity-card
-  position relative
-  height card-height-xs
+    .card-main
+      height card-main-height-xs
+      padding 0 2em
 
-  .card-main
-    height card-main-height-xs
-    padding 0 2em
+      img.rounded
+        border-radius 50%
+        height img-height
+        width img-height
+        margin-top img-padding
 
-    img.rounded
-      border-radius 50%
-      height img-height
-      width img-height
-      margin-top img-padding
+      .quote
+        margin 0 0 1em 0
 
-    .quote
-      margin 0 0 1em 0
+      .card-main-text
+        height card-main-text-height-xs
 
-    .card-main-text
-      height card-main-text-height-xs
 
-  @media (min-width: screen-sm-min)
+@media (min-width: screen-sm-min)
+  .user-card,
+  .opportunity-card
     height card-height
 
     .card-main
       height card-main-height
+      padding 0 2em
 
-        .card-main-text
-          height card-main-text-height
+      img.rounded
+        border-radius 50%
+        height img-height
+        width img-height
+        position relative
+        top -2.5em
+
+      .card-main-text
+        height card-main-text-height
+        position relative
+        top -1.25em
+
+  .card-main-top
+    background-color color-white
+    color color-text
+    height 245px
+    padding 0 3em
+    line-height 1.5em
 
 
 // Is already liked checkmark
@@ -57,20 +80,25 @@ card-main-text-height-xs = card-main-height-xs - img-height - img-padding
  * Like button (i.e. coffee mug)
  */
 
-.btn-like
+.btn-like,
+.btn-dislike
+  font-size 3em
   visibility hidden
-  position absolute
-  top .5em
-  right .5em
+  position relative
+  top -2.5em
 
-  >span
-    position relative
-    top -.75em
+  .fa-circle
+    color color-bg
+
+  .fa-check,
+  .fa-times
+    color color-text
 
 // Display like button when hovering
 @media (min-width: screen-sm-min)
   .card-shadow:hover
-    .btn-like
+    .btn-like,
+    .btn-dislike
       visibility visible
 
 
@@ -108,45 +136,11 @@ card-main-text-height-xs = card-main-height-xs - img-height - img-padding
 
 
 /*
- * Box shadow and hover cursor
- */
-
-@media (min-width: screen-sm-min)
-  // Box shadow and hover effect
-  .card-shadow
-    box-shadow 1px 1px 2px color-grey-50, -1px 1px 2px color-grey-50
-    transition transform .1s ease
-
-    &:hover
-      box-shadow 2px 2px 2px color-grey-50, -2px 2px 2px color-grey-50
-      transform scale(1.01)
-      cursor pointer
-
-
-/*
  * Tags
  */
 
 .tags-container
-  position absolute
-  bottom 0
   height tags-height
-
-@media (max-width: screen-xs-max)
-  .tags-container
-    width 100%
-
-@media (min-width: screen-sm-min)
-  .tags-container
-    width 470px
-
-@media (min-width: screen-md-min)
-  .tags-container
-    width 455px
-
-@media (min-width: screen-lg-min)
-  .tags-container
-    width 360px
 
 .tags-list
   font-size .8em
