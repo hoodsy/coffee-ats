@@ -3,8 +3,7 @@
 
 border-color = color-grey-80
 
-img-translate = 3em
-img-translate-xs = 2.5em
+img-translate = 50%
 
 /*
  * Matches
@@ -46,10 +45,10 @@ img-translate-xs = 2.5em
   background-color color-green-1
 
   @media (max-width: screen-xs-max)
-    right -4em
+    right -80%
 
   @media (min-width: screen-sm-min)
-    right -4.5em
+    right -75%
 
 .match-card-detail,
 .match-card-avatar
@@ -60,15 +59,10 @@ img-translate-xs = 2.5em
   position relative
   height 5em
   width 5em
-
-  @media (max-width: screen-xs-max)
-    left img-translate-xs
-
-  @media (min-width: screen-sm-min)
-    left img-translate
+  left img-translate
 
 div.match-card-detail
-  padding-left img-translate + 0.5em
+  padding-left 3.5em
 
   > div
     margin .25em 0
