@@ -8,23 +8,40 @@
     data-ng-include="'modules/common/partials/coffee-card-states.html'">
   </div>
 
+  <!-- Mobile card -->
   <div class="visible-xs-block">
     <div class="card-main {{ model._cssClass }}">
-      <img class="rounded"
-        alt="opportunity img"
-        data-ng-src="{{ model.picture }}"/>
+
+      <div class="card-img-container">
+        <div class="flex-center">
+          <img class="rounded"
+            alt="opportunity img"
+            data-ng-src="{{ model.picture }}"/>
+        </div>
+      </div>
+
       <i class="feed-is-liked fa fa-check"
         title="This opportunity has already matched with you!">
       </i>
-      <div class="card-main-text flex-center-vert">
-        <div class="quote">{{ model.headline }}</div>
-        <div>
-          <span class="uppercase">{{ model.creator }} | {{ model.creatorPosition }}</span>
+
+      <div class="quote">
+        <div class="flex-center-vert">
+          {{ model.headline }}
         </div>
       </div>
+
+      <div class="card-main-text">
+        <div class="flex-center-vert">
+          <span class="uppercase">
+            {{ model.creator }} | {{ model.creatorPosition }}
+          </span>
+        </div>
+      </div>
+
     </div>
   </div>
 
+  <!-- Non-mobile card -->
   <div class="hidden-xs">
 
     <div class="card-main-top">

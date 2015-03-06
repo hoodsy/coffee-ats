@@ -1,19 +1,33 @@
 <div class="text-center palette-{{ palette }} white-bg">
+
   <div class="user-card">
     <a data-ui-sref="shell.user.detail.edit({ id: user._id, palette: palette })"
       data-ng-if="isEditable(user)">
       <i class="edit-user-btn ci ci-edit ci-lg"></i>
     </a>
-    <img class="rounded"
-      alt="user img"
-      data-ng-src="{{ user.picture }}"/>
-    <div class="quote">{{ user.headline }}</div>
-    <div class="uppercase">{{ user.firstName }} {{ user.lastName }}</div>
-    <div>
-      <span class="uppercase">{{ user.position }} @
-      <strong>{{ user.organization }}</strong> |
-      {{ user.locations[0] }}
-      </span>
+
+    <div class="card-img-container">
+      <div class="flex-center">
+        <img class="rounded"
+          alt="user img"
+          data-ng-src="{{ user.picture }}"/>
+      </div>
+    </div>
+
+    <div class="quote">
+      <div class="flex-center-vert">
+        {{ user.headline }}
+      </div>
+    </div>
+
+    <div class="card-main-text">
+      <div class="uppercase">{{ user.firstName }} {{ user.lastName }}</div>
+      <div>
+        <span class="uppercase">{{ user.position }} @
+        <strong>{{ user.organization }}</strong> |
+        {{ user.locations[0] }}
+        </span>
+      </div>
     </div>
   </div>
 

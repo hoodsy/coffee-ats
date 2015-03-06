@@ -10,33 +10,32 @@ card-height = card-main-height + card-quote-height + tags-height
 
 
 img-height = 3.75em
-img-padding = 1.5em
-card-main-text-height-xs = 14.5
-card-main-height-xs = card-main-text-height-xs + img-height + img-padding
+card-img-container-height = 6.25em
+card-quote-height-xs = 5em
+card-main-text-height-xs = 5.5em
+
+// Delete ?
+card-main-height-xs = card-main-text-height-xs + card-quote-height-xs + card-img-container-height
 card-height-xs = card-main-height-xs + tags-height
 
 
 @media (max-width: screen-xs-max)
   .user-card,
   .opportunity-card
-    position relative
-    height card-height-xs
 
-    .card-main
-      height card-main-height-xs
-      padding 0 2em
+    .card-img-container
+      height card-img-container-height
 
       img.rounded
         border-radius 50%
         height img-height
         width img-height
-        margin-top img-padding
 
-      .quote
-        margin 0 0 1em 0
+    .quote
+      height card-quote-height-xs
 
-      .card-main-text
-        height card-main-text-height-xs
+    .card-main-text
+      height card-main-text-height-xs
 
 
 @media (min-width: screen-sm-min)
@@ -109,6 +108,7 @@ card-height-xs = card-main-height-xs + tags-height
 .card-shadow
   // Allows the slide left effect to be occulted by card dimensions
   overflow hidden
+  cursor pointer
 
 .card-main.like-slide,
 .tags-container.like-slide
