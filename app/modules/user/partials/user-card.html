@@ -1,15 +1,15 @@
 <div class="card-shadow user-card text-center palette-{{ model._palette }}"
   data-ui-sref=".user.detail({ id: model._id, palette: model._palette })"
   data-ng-swipe-right="cardLike({ $event: $event, model: model })"
-  data-ng-swipe-left="cardAskDelete({ model: model })">
+  data-ng-swipe-left="cardAskDelete({ $event: $event, model: model })">
+
+  <div class="card-states"
+    data-ng-if="model._state"
+    data-ng-include="'modules/common/partials/coffee-card-states.html'">
+  </div>
 
   <!-- Mobile Card -->
   <div class="visible-xs-block">
-    <div class="height-100"
-      data-ng-if="model._state"
-      data-ng-include="'modules/common/partials/coffee-card-states.html'">
-    </div>
-
     <div class="card-main {{ model._cssClass }}">
 
       <div class="card-img-container">
@@ -46,10 +46,8 @@
 
   <!-- Non-mobile card -->
   <div class="hidden-xs">
-    <div class="height-100"
-      data-ng-if="model._state"
-      data-ng-include="'modules/common/partials/coffee-card-states.html'">
-    </div>
+
+    <div class="card-main {{ model._cssClass }}">
 
     <div class="card-main-top">
       <div class="quote flex-center-vert">
@@ -60,7 +58,7 @@
       </div>
     </div>
 
-    <div class="card-main {{ model._cssClass }}">
+    <div class="card-main-center">
 
       <button class="btn btn-transparent btn-dislike"
         data-ng-click="cardAskDelete({ $event: $event, model: model })">
@@ -93,6 +91,7 @@
           </span>
         </div>
       </div>
+    </div>
     </div>
   </div>
 

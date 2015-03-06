@@ -2,6 +2,7 @@
 @import 'layout'
 
 tags-height = 2em
+
 img-height = 5em
 card-quote-height = 17.5em
 card-main-text-height = 3em
@@ -12,6 +13,12 @@ img-height-xs = 3.75em
 card-quote-height-xs = 7em
 card-main-text-height-xs = 5.5em
 
+
+.card-states
+  position absolute
+  width 100%
+  height 100%
+  z-index 9999
 
 .card-img-container
   height card-img-container-height
@@ -32,7 +39,7 @@ card-main-text-height-xs = 5.5em
 @media (min-width: screen-sm-min)
   .hidden-xs
 
-    .card-main > img.rounded
+    .card-main-center > img.rounded
         height img-height
         width img-height
         position relative
@@ -90,9 +97,9 @@ card-main-text-height-xs = 5.5em
  */
 
 .card-shadow
-  // Allows the slide left effect to be occulted by card dimensions
-  overflow hidden
   cursor pointer
+  overflow hidden  // Allows the slide left effect to be occulted by card dimensions
+
 
 .card-main.like-slide,
 .tags-container.like-slide

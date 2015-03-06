@@ -48,7 +48,9 @@ angular.module('common')
 
 
     // User initiates deletion of a feed item, prompt for Deletion
-    $scope.askDelete = function(model) {
+    $scope.askDelete = function($event, model) {
+      $event.stopPropagation();
+
       // Bail if card is in another state
       if (model._state !== null) {
         return;

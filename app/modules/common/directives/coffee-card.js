@@ -10,7 +10,7 @@ angular.module('common')
           '<div data-{{ item.type }}-card ' +
           'data-model="item" ' +
           'data-card-like="like($event, model)" ' +
-          'data-card-ask-delete="askDelete(model)" ' +
+          'data-card-ask-delete="askDelete($event, model)" ' +
           'data-card-cancel-delete="cancelDelete($event, model)" ' +
           'data-card-delete="delete($event, model)"></div>')(scope);
 
