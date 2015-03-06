@@ -2,62 +2,46 @@
 @import 'layout'
 
 tags-height = 2em
-card-quote-height = 17.5em
 img-height = 5em
+card-quote-height = 17.5em
 card-main-text-height = 3em
-card-main-height = card-main-text-height + img-height
-card-height = card-main-height + card-quote-height + tags-height
 
-
-img-height = 3.75em
 card-img-container-height = 6.25em
+
+img-height-xs = 3.75em
 card-quote-height-xs = 5em
 card-main-text-height-xs = 5.5em
 
-// Delete ?
-card-main-height-xs = card-main-text-height-xs + card-quote-height-xs + card-img-container-height
-card-height-xs = card-main-height-xs + tags-height
 
+.card-img-container
+  height card-img-container-height
 
-@media (max-width: screen-xs-max)
-  .user-card,
-  .opportunity-card
+  img.rounded
+    border-radius 50%
+    height img-height-xs
+    width img-height-xs
 
-    .card-img-container
-      height card-img-container-height
+.card-quote
+  height card-quote-height-xs
+  padding 0 3em
 
-      img.rounded
-        border-radius 50%
-        height img-height
-        width img-height
-
-    .quote
-      height card-quote-height-xs
-
-    .card-main-text
-      height card-main-text-height-xs
+.card-main-text
+  height card-main-text-height-xs
 
 
 @media (min-width: screen-sm-min)
-  .user-card,
-  .opportunity-card
-    height card-height
+  .hidden-xs
 
-    .card-main
-      height card-main-height
-      padding 0 2em
-
-      img.rounded
-        border-radius 50%
+    .card-main > img.rounded
         height img-height
         width img-height
         position relative
         top -2.5em
 
-      .card-main-text
-        height card-main-text-height
-        position relative
-        top -1.25em
+    .card-main-text
+      height card-main-text-height
+      position relative
+      top -1.25em
 
   .card-main-top
     background-color color-white
