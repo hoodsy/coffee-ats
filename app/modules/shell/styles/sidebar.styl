@@ -12,12 +12,17 @@ label-size = 1.25em
   border-radius 50%
 
 .sidebar-quote
-  height 8em
+  height 140px
 
 .sidebar-item
+  cursor pointer
   background color-white
   height 7em
   margin-bottom .5em
+  color color-nav
+
+  &.nav-active
+    color color-nav-active
 
   &:first-child
     height 27.5em
@@ -33,3 +38,6 @@ label-size = 1.25em
   height (icon-size/label-size)
   font-size label-size
   margin-left 1em
+
+.sidebar-main-text
+  height 7em

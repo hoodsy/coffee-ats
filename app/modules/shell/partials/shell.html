@@ -50,25 +50,37 @@
 
     <div class="col-sm-3 hidden-xs">
       <ul id="sidebar">
-        <li class="row sidebar-item uppercase text-center clear-margin">
-          <div class="col-xs-12 flex-center-vert">
+        <li class="row sidebar-item uppercase text-center clear-margin"
+          data-ui-sref=".user.detail({ id: _user._id })">
+          <div class="col-xs-12">
 
-              <!-- data-ui-sref=".user.detail({ id: model._id, palette: model._palette })" -->
-                <div class="quote sidebar-quote">{{ _user.headline }}</div>
-
-                <div class="flex-center">
-                  <img class="sidebar-avatar"
-                    alt="user img"
-                    data-ng-src="{{ _user.picture }}"/>
+                <div class="quote sidebar-quote">
+                  <div class="flex-center-vert">
+                    <div>
+                      <i class="ci ci-quote edit-quote ci-2x"></i>
+                      <span>{{ _user.headline }}</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-main-text flex-center-vert">
 
-                  <div class="uppercase">{{ _user.firstName }} {{ _user.lastName }}</div>
-                  <div>
-                    <span class="uppercase">{{ _user.position }} @
-                    <strong>{{ _user.organization }}</strong> |
-                    {{ _user.locations[0] }}
-                    </span>
+                <div>
+                  <div class="flex-center">
+                    <img class="sidebar-avatar"
+                      alt="user img"
+                      data-ng-src="{{ _user.picture }}"/>
+                  </div>
+                </div>
+
+                <div class="sidebar-main-text">
+                  <div class="flex-center-vert">
+
+                    <div class="uppercase">{{ _user.firstName }} {{ _user.lastName }}</div>
+                    <div>
+                      <span class="uppercase">{{ _user.position }} @
+                      <strong>{{ _user.organization }}</strong> |
+                      {{ _user.locations[0] }}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
