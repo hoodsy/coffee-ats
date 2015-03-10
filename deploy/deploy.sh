@@ -30,6 +30,7 @@ fi
 
 # override config on Docker
 if [[ "$DOCKERHOST" ]]; then
+    echo "Overriding with DOCKERHOST"
     sed -i "s/localhost/$DOCKERHOST/" config.json
 fi
 
