@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('messaging')
-  .factory('socket', function ($rootScope, socketFactory) {
+  .factory('socket', function ($rootScope, socketFactory, SOCKETIO_URL) {
 
     var socket = socketFactory({
-      ioSocket: io.connect('http://localhost:4000')
+      ioSocket: io.connect(SOCKETIO_URL)
     });
 
     socket.emit('join', { userId: $rootScope._user._id });

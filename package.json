@@ -55,6 +55,7 @@
   "devDependencies": {
     "chai": "^2.0.0",
     "chai-as-promised": "^4.2.0",
+    "gulp-ng-constant": "^0.3.0",
     "mocha": "2.0.1",
     "selenium-webdriver": "^2.44.0"
   }

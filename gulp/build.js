@@ -44,6 +44,19 @@ function jshint(failOnErr) {
 gulp.task('jshint', jshint(true));
 gulp.task('jshint:nofail', jshint(false));
 
+
+// Config
+//
+gulp.task('config', function () {
+  return gulp.src('config.json')
+    .pipe($.ngConstant({
+      name: 'shell',
+      deps: false
+    }))
+    // Writes config.js to dist/ folder
+    .pipe(gulp.dest('app/modules/shell'));
+});
+
 // Styles
 //
 
@@ -104,7 +117,7 @@ function scripts(module) {
       .pipe(gulp.dest(path.join('app', module + '-static')))
       .pipe($.size());
 }
-gulp.task('scripts', _.wrap('shell', scripts));
+gulp.task('scripts', ['config'], _.wrap('shell', scripts));
 
 
 // Partials
