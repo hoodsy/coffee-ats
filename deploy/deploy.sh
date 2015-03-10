@@ -29,6 +29,7 @@ if [[ $rc != 0 ]]; then
 fi
 
 # override config on Docker
+echo "dockerhost: $DOCKERHOST"
 if [[ "$DOCKERHOST" ]]; then
     echo "Overriding with DOCKERHOST"
     sed -i "s/localhost/$DOCKERHOST/" config.json
