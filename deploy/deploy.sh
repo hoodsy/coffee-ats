@@ -28,6 +28,12 @@ if [[ $rc != 0 ]]; then
     exit $rc;
 fi
 
+# override config on Docker
+if [[ "$DOCKERHOST" ]]; then
+    sed -i "s/localhost/$DOCKERHOST/" config.json
+fi
+
+# build
 gulp build
 rc=$?;
 if [[ $rc != 0 ]]; then
