@@ -33,10 +33,14 @@ input-xs-height = 36px
   position absolute
   right 0
   height 100%
+  width 100%
   overflow-y auto
   margin 0
   background-color color-white
   border none
+
+  @media (min-width: screen-sm-min)
+    height calc(100% - 9em)
 
 div.messaging-detail-profile
   float left

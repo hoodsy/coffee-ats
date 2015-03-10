@@ -5,9 +5,11 @@
   </div>
   <div id="messaging-detail"
     class="col-xs-7 height-100 hidden-xs"
-    data-ui-view="detail">
+    data-ui-view="detail"
+    data-ng-if="isDesktop">
   </div>
   <div class="col-xs-12 height-100 xs-clear-padding visible-xs-block"
-    data-ui-view="xs">
+    data-ui-view="xs"
+    data-ng-if="isMobile">
   </div>
 </div>
