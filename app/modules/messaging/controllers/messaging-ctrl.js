@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('messaging')
-  .controller('MessagingCtrl', function ($scope, $modal, UserMatch, Incident) {
+  .controller('MessagingCtrl', function ($scope, $modal, $q, UserMatch, Incident) {
 
     // Flag to activate match controls
     $scope.canShowControls = -1;
@@ -82,13 +82,18 @@ angular.module('messaging')
       });
 
       // Handle affirmative response
-      modalInstance.result.then(function() {
+      return modalInstance.result.then(function() {
+        var deferred = $q.defer();
+
         UserMatch.delete({ id: matchId }, function() {
           $scope.canShowControls = -1;
           $scope.matches.splice($index, 1);
-        }, function() {
-          console.log('Implement me');
+          deferred.resolve();
+        }, function(err) {
+          deferred.reject(err);
         });
+
+        return deferred.promise;
       }).finally(function() {
         modalInstance.dismiss();
       });

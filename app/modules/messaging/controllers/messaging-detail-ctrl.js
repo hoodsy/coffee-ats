@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('messaging')
-  .controller('MessagingDetailCtrl', function ($scope, $stateParams, socket, UserMatch, MatchMessages, User) {
+  .controller('MessagingDetailCtrl', function ($scope, $state, $stateParams, socket, UserMatch, MatchMessages, User) {
 
     // The ID of the Match entity
     var matchId = $stateParams.id;
@@ -128,5 +128,11 @@ angular.module('messaging')
       message._pending = true;
       $scope.matchMessages.push(message);
       $scope.messageText = '';
+    };
+
+    $scope.delete = function(matchId) {
+      $scope.$parent.delete(matchId).then(function() {
+        $state.go('^');
+      });
     };
   });

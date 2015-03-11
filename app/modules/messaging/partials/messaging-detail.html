@@ -21,6 +21,43 @@
   </div>
 
   <div class="row xs-clear-margin messaging-detail">
+
+    <div class="row clear-margin match-card hidden-xs">
+
+      <div class="col-sm-2 col-sm-offset-1 clear-padding flex-center match-card-avatar"
+        data-ui-sref=".detail({ id: match._id })">
+        <img class="rounded"
+          alt="match img"
+          data-ng-src="{{ match.picture }}"/>
+      </div>
+
+      <div class="col-sm-6 match-card-detail flex-center-vert"
+        data-ui-sref=".detail({ id: match._id })">
+        <div class="uppercase">
+          {{ match.title }}
+        </div>
+        <div class="uppercase"
+          data-ng-if="match.subtitle">
+          {{ match.subtitle }}
+        </div>
+        <div class="match-latest-message">
+          {{ match.latest }}
+        </div>
+      </div>
+
+      <div class="col-sm-3 text-right">
+        <button class="btn btn-transparent"
+          data-ng-click="report(match.matchedUserId)">
+          <i class="ci ci-report ci-lg"></i>
+        </button>
+
+        <button class="btn btn-transparent"
+          data-ng-click="delete(match._id)">
+          <i class="ci ci-trash ci-lg"></i>
+        </button>
+      </div>
+    </div>
+
     <div class="well xs-clear-padding messaging-detail-well"
       data-message-textarea
       data-handle-height-change="onHeightChange()"

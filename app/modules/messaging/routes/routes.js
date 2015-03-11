@@ -8,7 +8,8 @@ app.config(function ($stateProvider) {
         abstract: true,
         views: {
           'main@shell': {
-            templateUrl: 'modules/messaging/partials/messaging.html'
+            templateUrl: 'modules/messaging/partials/messaging.html',
+            controller: 'MessagingCtrl'
           }
         }
       })
@@ -16,12 +17,10 @@ app.config(function ($stateProvider) {
         url: '/messaging',
         views: {
           'main@shell.messaging': {
-            templateUrl: 'modules/messaging/partials/messaging-main.html',
-            controller: 'MessagingCtrl'
+            templateUrl: 'modules/messaging/partials/messaging-main.html'
           },
           'xs@shell.messaging': {
-            templateUrl: 'modules/messaging/partials/messaging-main.html',
-            controller: 'MessagingCtrl'
+            templateUrl: 'modules/messaging/partials/messaging-main.html'
           }
         }
       })
