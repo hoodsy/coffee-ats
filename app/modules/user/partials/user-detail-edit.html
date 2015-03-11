@@ -8,6 +8,7 @@
       <!-- Profile Edit navigation on mobile -->
       <div class="row edit-row xs-clear-margin visible-xs-block">
         <button class="col-xs-2 btn btn-default edit-page-btn"
+          type="button"
           data-ng-click="previousPage()"
           data-ng-disabled="page <= 0">
           <i class="fa fa-caret-left fa-3x"
@@ -40,6 +41,7 @@
           <span class="uppercase">Tags</span>
         </div>
         <button class="col-xs-2 btn btn-default edit-page-btn"
+          type="button"
           data-ng-click="nextPage()"
           data-ng-disabled="page >= 4">
           <i class="fa fa-caret-right fa-3x"
@@ -213,6 +215,7 @@
         <div class="row edit-row xs-clear-margin"
           data-ng-if="canAddExperience(user)">
           <button class="col-sm-8 col-sm-offset-2 edit-add-btn edit-page-btn"
+            type="button"
             data-ng-click="addExperience(user)">
             <i class="ci ci-plus ci-3x"></i>
             <div class="uppercase">Add Experience</div>
@@ -291,6 +294,7 @@
         <div class="row edit-row xs-clear-margin"
           data-ng-if="canAddEducation(user)">
           <button class="col-sm-8 col-sm-offset-2 edit-add-btn edit-page-btn"
+            type="button"
             data-ng-click="addEducation(user)">
             <i class="ci ci-plus ci-3x"></i>
             <div class="uppercase">Add Education</div>
