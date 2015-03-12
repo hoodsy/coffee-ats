@@ -5,6 +5,7 @@ tags-height = 2em
 
 img-height = 5em
 card-quote-height = 17.5em
+card-quote-font-size = 3em
 card-main-text-height = 3em
 
 card-img-container-height = 6.25em
@@ -30,7 +31,7 @@ card-main-text-height-xs = 5.5em
 
 .card-quote
   height card-quote-height-xs
-  padding 0 2em
+  padding 0 3em
 
 .card-main-text
   height card-main-text-height-xs
@@ -54,8 +55,18 @@ card-main-text-height-xs = 5.5em
     background-color color-white
     color color-text
     height 245px
-    padding 0 3em
+    padding 0 4em
     line-height 1.5em
+
+    i.edit-quote
+      position relative
+      left -1em
+      text-align left
+      font-size card-quote-font-size
+
+    .headline-text
+      position relative
+      top (-0.5*card-quote-font-size)
 
 
 // Is already liked checkmark
