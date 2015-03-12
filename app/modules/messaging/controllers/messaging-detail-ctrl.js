@@ -75,7 +75,7 @@ angular.module('messaging')
       return nextScroll;
     };
 
-    $scope.loadMessages = function() {
+    $scope.loadMessages = function(cb) {
 
       if (allMessagesLoaded) {
         return;
@@ -100,14 +100,23 @@ angular.module('messaging')
           earliestMsgDate = $scope.matchMessages[0].created;
           nextScroll = 1;
         }
-
+        if(cb) cb();
       }, function() {
         $scope.loadingMoreMessages = false;
       });
     };
 
     // Query past messages in this match
-    $scope.loadMessages();
+    var loadTimes = Math.ceil($(".messaging-detail-well").height() / 15 / 30);
+
+    (function next(i) {
+      if( (i==0) || allMessagesLoaded) return;
+      $scope.loadMessages(function() {
+        next(--i);
+      });
+    })(loadTimes)
+
+
 
     $scope.sendMessage = function() {
 
