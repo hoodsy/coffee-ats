@@ -18,11 +18,11 @@ angular.module('messaging')
         if (match.opportunities.length > 0) {
           opportunityCount = (opportunityCount + 1) % 3;
           match._palette = opportunityCount;
-          match._paletteClass = 'opportunity-match-card';
+          match._paletteClass = 'opportunity';
         } else {
           userCount = (userCount + 1) % 5;
           match._palette = userCount;
-          match._paletteClass = 'user-match-card';
+          match._paletteClass = 'user';
         }
       });
 

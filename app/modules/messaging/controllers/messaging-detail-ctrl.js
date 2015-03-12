@@ -61,6 +61,13 @@ angular.module('messaging')
       });
 
       $scope.user = User.get({id: matchedUser._id });
+
+      // check if match exists in the parent scope
+      var parentMatch = _.find($scope.$parent.matches, { _id: matchId });
+      if (parentMatch) {
+        $scope.match._palette = parentMatch._palette;
+        $scope.match._paletteClass = parentMatch._paletteClass;
+      }
     });
 
     // Handle loading new or old messages
