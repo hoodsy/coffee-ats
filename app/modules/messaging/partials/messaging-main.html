@@ -8,10 +8,14 @@
       data-ng-class="{ 'slide-left': showControls($index) }">
 
       <div class="col-xs-2 col-sm-3 clear-padding flex-center match-card-avatar"
-        data-ui-sref=".detail({ id: match._id })">
-        <img class="rounded"
-          alt="match img"
-          data-ng-src="{{ match.picture }}"/>
+        data-ui-sref=".detail({ id: match._id })"
+        data-ui-sref-active="active">
+        <div class="img-container">
+          <div class="filter"></div>
+          <img class="rounded"
+            alt="match img"
+            data-ng-src="{{ match.picture }}"/>
+        </div>
         <div class="match-unread-badge"
           data-ng-if="match.unread">
         </div>

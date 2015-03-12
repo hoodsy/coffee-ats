@@ -58,11 +58,28 @@ img-translate = 50%
   cursor pointer
   height 100%
 
-.match-card-avatar > img
-  position relative
-  height 5em
-  width 5em
-  left img-translate
+.match-card-avatar
+  > .img-container
+    position relative
+    height 5em
+    width 5em
+    left img-translate
+
+    img,
+    .filter
+      height 100%
+      width 100%
+
+    .filter
+      position absolute
+      border-radius 50%
+      background rgba(255,255,255,.3)
+      z-index 9999
+      visibility visible
+
+  &.active > .img-container > .filter
+    visibility hidden
+
 
 div.match-card-detail
   padding-left 3.5em

@@ -26,9 +26,11 @@
 
       <div class="col-sm-2 col-sm-offset-1 clear-padding flex-center match-card-avatar"
         data-ui-sref=".detail({ id: match._id })">
-        <img class="rounded"
-          alt="match img"
-          data-ng-src="{{ match.picture }}"/>
+        <div class="img-container">
+          <img class="rounded"
+            alt="match img"
+            data-ng-src="{{ match.picture }}"/>
+          </div>
       </div>
 
       <div class="col-sm-6 match-card-detail flex-center-vert"
