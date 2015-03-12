@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('messaging')
-  .controller('MessagingCtrl', function ($scope, $modal, $q, UserMatch, Incident) {
+  .controller('MessagingCtrl', function ($scope, $modal, $state, $q, UserMatch, Incident) {
 
     // Flag to activate match controls
     $scope.canShowControls = -1;
@@ -25,6 +25,12 @@ angular.module('messaging')
           match._paletteClass = 'user-match-card';
         }
       });
+
+      // Open up the first match already
+      if ($scope.matches.length &&
+          !/detail$/.test($state.current.name)) {
+        $state.go('.detail', { id: $scope.matches[0]._id });
+      }
     });
 
     $scope.toggleControls = function(index) {
