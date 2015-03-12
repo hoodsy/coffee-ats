@@ -103,6 +103,7 @@ angular.module('messaging')
         if(cb) cb();
       }, function() {
         $scope.loadingMoreMessages = false;
+        if(cb) cb(true);
       });
     };
 
@@ -111,7 +112,8 @@ angular.module('messaging')
 
     (function next(i) {
       if( (i==0) || allMessagesLoaded) return;
-      $scope.loadMessages(function() {
+      $scope.loadMessages(function(err) {
+        if(err) return;
         next(--i);
       });
     })(loadTimes)
