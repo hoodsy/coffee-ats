@@ -12,7 +12,8 @@ var $ = require('gulp-load-plugins')({
 });
 
 /* This configuration allow you to configure browser sync to proxy your backend */
-var proxyTarget = 'http://127.0.0.1:3000/'; // The location of your backend
+var proxyHost = process.env.GULP_PROXY || '127.0.0.1';
+var proxyTarget = 'http://' + proxyHost + ':3000/'; // The location of your backend
 
 var proxy = httpProxy.createProxyServer({
   target: proxyTarget
