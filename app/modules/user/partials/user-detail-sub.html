@@ -15,18 +15,21 @@
     </div>
 
     <div class="card-quote">
-      <div class="flex-center-vert">
+      <div class="flex-center-vert t-headline">
         {{ user.headline }}
       </div>
     </div>
 
-    <div class="card-main-text">
-      <div class="uppercase">{{ user.firstName }} {{ user.lastName }}</div>
+    <div class="card-main-text uppercase">
+      <div class="t-username">
+        {{ user.firstName }} {{ user.lastName }}
+      </div>
       <div>
-        <span class="uppercase">{{ user.position }} @
-        <strong>{{ user.organization }}</strong> |
-        {{ user.locations[0] }}
-        </span>
+        <span class="t-position">{{ user.position }}</span>
+        @
+        <span class="t-organization"><strong>{{ user.organization }}</strong></span>
+        |
+        <span class="t-location">{{ user.locations[0] }}</span>
       </div>
     </div>
   </div>
@@ -36,12 +39,14 @@
       <h1 class="header uppercase"><strong>Experience</strong></h1>
       <ul class="user-detail-list">
         <li data-ng-repeat="experience in user.experiences">
-          <ul class="user-detail-sub-list">
-            <li><strong>{{ experience.organization }}</strong></li>
-            <li class="position uppercase">
+          <ul class="user-detail-sub-list t-experience-{{$index}}">
+            <li class="t-organization">
+              <strong>{{ experience.organization }}</strong>
+            </li>
+            <li class="uppercase position t-position">
               <span>{{ experience.position }}</span>
             </li>
-            <li class="timespan">
+            <li class="timespan t-timespan">
               <span>
                 {{ experience.startTime | date:'MMMM yyyy':'UTC'}}
               </span>
@@ -62,12 +67,14 @@
       <h1 class="header uppercase"><strong>Education</strong></h1>
       <ul class="user-detail-list">
         <li data-ng-repeat="education in user.educations">
-          <ul class="user-detail-sub-list">
-            <li><strong>{{ education.school }}</strong></li>
-            <li class="uppercase position">
+          <ul class="user-detail-sub-list t-education-{{$index}}">
+            <li class="t-school">
+              <strong>{{ education.school }}</strong>
+            </li>
+            <li class="uppercase position t-major">
               <span>{{ education.degree }} {{ education.major }}</span>
             </li>
-            <li class="timespan">
+            <li class="timespan t-timespan">
               <span>
                 {{ education.startTime | date:'MMMM yyyy':'UTC'}}
               </span>

@@ -151,7 +151,7 @@
         <div class="row edit-row xs-clear-margin"
           data-ng-repeat="experience in user.experiences">
           <div class="col-xs-3 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-x-circle edit-delete-btn"
+            <i class="ci ci-x-circle edit-delete-btn t-delete-experience-btn"
               data-ng-click="deleteExeperience(user, $index)">
             </i>
             <div class="uppercase">{{ $index + 1 }}</div>
@@ -180,6 +180,7 @@
             <div class="row edit-sub-row">
               <div class="col-xs-12">
                 <input type="number"
+                  name="startMonthExperience{{$index}}"
                   class="input-month"
                   required
                   min="1"
@@ -188,6 +189,7 @@
                   ng-model="experience._startMonth" />
                 <span>/</span>
                 <input type="number"
+                  name="startYearExperience{{$index}}"
                   class="input-year"
                   required
                   min="1900"
@@ -196,6 +198,7 @@
                   ng-model="experience._startYear" />
                 <span>&ndash;</span>
                 <input type="number"
+                  name="endMonthExperience{{$index}}"
                   class="input-month"
                   min="1"
                   max="12"
@@ -203,6 +206,7 @@
                   ng-model="experience._endMonth" />
                 <span>/</span>
                 <input type="number"
+                  name="endYearExperience{{$index}}"
                   class="input-year"
                   min="1900"
                   max="2100"
@@ -214,7 +218,7 @@
         </div>
         <div class="row edit-row xs-clear-margin"
           data-ng-if="canAddExperience(user)">
-          <button class="col-sm-8 col-sm-offset-2 edit-add-btn edit-page-btn"
+          <button class="col-sm-8 col-sm-offset-2 edit-add-btn edit-page-btn t-add-experience-btn"
             type="button"
             data-ng-click="addExperience(user)">
             <i class="ci ci-plus ci-3x"></i>
@@ -230,7 +234,7 @@
         <div class="row edit-row xs-clear-margin"
           data-ng-repeat="education in user.educations">
           <div class="col-xs-3 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-x-circle edit-delete-btn"
+            <i class="ci ci-x-circle edit-delete-btn t-delete-education-btn"
               data-ng-click="deleteEducation(user, $index)">
             </i>
             <div class="uppercase">{{ $index + 1 }}</div>
@@ -259,6 +263,7 @@
             <div class="row edit-sub-row">
               <div class="col-xs-12">
                 <input type="number"
+                  name="startMonthEducation{{$index}}"
                   class="input-month"
                   required
                   min="1"
@@ -267,6 +272,7 @@
                   ng-model="education._startMonth" />
                 <span>/</span>
                 <input type="number"
+                  name="startYearEducation{{$index}}"
                   class="input-year"
                   required
                   min="1900"
@@ -275,6 +281,7 @@
                   ng-model="education._startYear" />
                 <span>&ndash;</span>
                 <input type="number"
+                  name="endMonthEducation{{$index}}"
                   class="input-month"
                   min="1"
                   max="12"
@@ -282,6 +289,7 @@
                   ng-model="education._endMonth" />
                 <span>/</span>
                 <input type="number"
+                  name="endYearEducation{{$index}}"
                   class="input-year"
                   min="1900"
                   max="2100"
@@ -293,7 +301,7 @@
         </div>
         <div class="row edit-row xs-clear-margin"
           data-ng-if="canAddEducation(user)">
-          <button class="col-sm-8 col-sm-offset-2 edit-add-btn edit-page-btn"
+          <button class="col-sm-8 col-sm-offset-2 edit-add-btn edit-page-btn t-add-education-btn"
             type="button"
             data-ng-click="addEducation(user)">
             <i class="ci ci-plus ci-3x"></i>
