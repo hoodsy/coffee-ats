@@ -39,7 +39,7 @@
       <h1 class="header uppercase"><strong>Experience</strong></h1>
       <ul class="user-detail-list">
         <li data-ng-repeat="experience in user.experiences">
-          <ul class="user-detail-sub-list t-experience-{{$index}}">
+          <ul class="user-detail-sub-list t-experience">
             <li class="t-organization">
               <strong>{{ experience.organization }}</strong>
             </li>
@@ -67,7 +67,7 @@
       <h1 class="header uppercase"><strong>Education</strong></h1>
       <ul class="user-detail-list">
         <li data-ng-repeat="education in user.educations">
-          <ul class="user-detail-sub-list t-education-{{$index}}">
+          <ul class="user-detail-sub-list t-education">
             <li class="t-school">
               <strong>{{ education.school }}</strong>
             </li>

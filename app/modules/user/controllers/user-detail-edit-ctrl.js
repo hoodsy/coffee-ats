@@ -26,14 +26,24 @@ angular.module('user')
       item.startTime = '';
       item.endTime = '';
       if (item._startMonth && item._startYear) {
-        item.startTime = Date.UTC(item._startYear, item._startMonth - 1);
+        item.startTime = new Date(Date.UTC(item._startYear, item._startMonth - 1));
+        delete item._startMonth;
+        delete item._startYear;
       }
       if (item._endMonth && item._endYear) {
-        item.endTime = Date.UTC(item._endYear, item._endMonth - 1);
+        item.endTime = new Date(Date.UTC(item._endYear, item._endMonth - 1));
+        delete item._endMonth;
+        delete item._endYear;
       }
     }
 
     $scope.user = User.get({ id: $stateParams.id }, function(user) {
+
+      // Because backend supports array of locations but UI only has single input
+      if (user.locations.length > 0) {
+        user.location = user.locations[0];
+      }
+
       user.educations.forEach(getTimes);
       user.experiences.forEach(getTimes);
     });
@@ -118,6 +128,10 @@ angular.module('user')
       if (Object.keys($scope.editForm.$error).length > 0) {
         return;
       }
+
+      // Because backend supports array of locations but UI only has single input
+      user.locations = [user.location];
+      delete user.location;
 
       user.educations.forEach(setTimes);
       user.experiences.forEach(setTimes);
