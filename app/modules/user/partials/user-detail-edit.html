@@ -317,14 +317,15 @@
         <div class="row xs-clear-margin">
           <div class="col-sm-8 col-sm-offset-2 clear-padding">
             <input class="text-center form-control"
+              name="tag"
               type="text"
               placeholder="add tag"
               data-ng-model="newTag"
-              data-ui-keypress="{13:'addTag(user, newTag)'}"/>
+              data-ui-keypress="{13:'addTag($event, user, newTag)'}"/>
           </div>
           <div class="col-sm-8 col-sm-offset-2 clear-padding">
             <ul class="detail-tags-list user-detail-tags-list">
-              <li class="text-center"
+              <li class="text-center t-tag"
                 data-ng-repeat="tag in user.tags"
                 data-ng-click="deleteTag(user, $index)">
                 <span>{{ tag }}</span>

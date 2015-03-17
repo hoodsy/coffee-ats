@@ -112,7 +112,8 @@ angular.module('user')
     };
 
     // Add a tag to the user's tags
-    $scope.addTag = function(user, tag) {
+    $scope.addTag = function($event, user, tag) {
+      $event.preventDefault();
       if (user.tags.indexOf(tag) === -1) {
         user.tags.push(tag);
       }
