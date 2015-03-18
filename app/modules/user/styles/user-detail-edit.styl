@@ -18,10 +18,12 @@ edit-btn-height = 36px
     border-bottom 1px dotted color-grey-80
 
   &:first-child
-    >.edit-col
+    >.edit-col,
+    >.edit-add-btn
       border-top 1px solid border-color
 
-  >.edit-col
+  >.edit-col,
+  >.edit-add-btn
     height 100%
     border-bottom 1px solid border-color
 
@@ -88,10 +90,7 @@ button.edit-page-btn
 .edit-add-btn
   width 100%
   background color-white
-  border-bottom 1px solid border-color
-  border-left none
-  border-right none
-  border-top none
+  border none
 
   @media (min-width: screen-sm-min)
     border-left 1px solid border-color
