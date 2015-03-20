@@ -3,7 +3,7 @@
 var app = angular.module('shell');
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/feed');
+    $urlRouterProvider.otherwise('/login');
     $stateProvider
       .state('shell', {
         abstract: true,

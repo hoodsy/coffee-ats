@@ -13,10 +13,15 @@
   </div>
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4 text-center">
-      <a href="/api/auth/linkedin">
+      <a href="/api/auth/linkedin"
+        data-ng-if="!authenticating">
         <i class="fa fa-linkedin-square"></i>
         Sign in with LinkedIn
       </a>
+      <div data-ng-if="authenticating">
+        <i class="fa fa-spinner fa-spin"></i>
+        Authenticating
+      </div>
     </div>
   </div>
 </div>
