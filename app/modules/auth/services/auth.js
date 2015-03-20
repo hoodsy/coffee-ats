@@ -7,6 +7,10 @@ angular.module('auth')
 
     return function() {
       $rootScope.authenticating = true;
+
+      var redirect = $state.current.name || 'shell.feed';
+      $state.go('login');
+
       authResource.get(function(response) {
           $rootScope.authenticating = false;
           if (response.status === 401 ||
@@ -15,7 +19,7 @@ angular.module('auth')
             $state.go('login');
           } else {
             $rootScope._user = response.user;
-            $state.go('shell.feed');
+            $state.go(redirect);
           }
       }, function(err) {
         console.log(err);
