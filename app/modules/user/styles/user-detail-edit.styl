@@ -1,15 +1,18 @@
 @import 'colors'
 @import 'layout'
 
-border-color = color-grey-30
+border-color = color-grey-80
 edit-btn-height = 36px
+card-quote-font-size = 3em
+
 
 @media (min-width: screen-sm-min)
   .edit-main
-    padding 1em 0
+    margin-top 0
+    padding-bottom 1em
 
 .edit-row
-  height 100px
+  height 8em
 
   .uppercase
     font-size 1.15em
@@ -17,26 +20,12 @@ edit-btn-height = 36px
   input
     border-bottom 1px dotted color-grey-80
 
-  &:first-child
-    >.edit-col,
-    >.edit-add-btn
-      border-top 1px solid border-color
-
   >.edit-col,
   >.edit-add-btn
     height 100%
-    border-bottom 1px solid border-color
 
-    &:first-child
+  >.edit-col:first-child
       border-right 1px solid border-color
-
-    @media (min-width: screen-sm-min)
-
-      &:first-child
-        border-left 1px solid border-color
-
-      &:last-child
-        border-right 1px solid border-color
 
 @media (max-width: screen-xs-max)
   // Fix the edit button along the bottom
@@ -54,7 +43,7 @@ edit-btn-height = 36px
     -webkit-overflow-scrolling auto
 
 .edit-quote
-  position absolute
+  position relative
   left -.5em
   top 0
 
@@ -92,10 +81,6 @@ button.edit-page-btn
   background color-white
   border none
 
-  @media (min-width: screen-sm-min)
-    border-left 1px solid border-color
-    border-right 1px solid border-color
-
 .edit-delete-btn
   position absolute
   top .5em
@@ -103,3 +88,19 @@ button.edit-page-btn
 
   &:hover
     cursor pointer
+
+.row.white-bg
+  border-bottom none
+
+  @media (min-width: screen-sm-min)
+    &:first-child
+      margin-top 1em
+
+  &.headline-row
+    margin-top 0
+
+  &:last-child
+    border-bottom 1px solid border-color
+
+.tag-input-container
+  padding-top 1em

@@ -3,7 +3,7 @@
   onsubmit="return false;"
   novalidate>
   <div class="row xs-clear-margin">
-    <div class="col-sm-8 col-sm-offset-2 xs-clear-padding white-bg edit-main">
+    <div class="col-sm-12 xs-clear-padding edit-main">
 
       <!-- Profile Edit navigation on mobile -->
       <div class="row edit-row xs-clear-margin visible-xs-block">
@@ -50,90 +50,14 @@
         </button>
       </div>
 
-      <!-- Profile Detail -->
-      <div data-ng-class="{ 'hidden-xs': page !== 0 }">
-        <div class="row edit-row xs-clear-margin">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <img class="rounded"
-            alt="user img"
-            data-ng-src="{{ user.picture }}"/>
-          </div>
-          <div class="col-xs-8 col-sm-5 edit-col">
-            <div class="row height-50">
-              <div class="col-xs-12 flex-center-vert">
-                <input type="text"
-                  name="firstName"
-                  required
-                  data-coffee-input
-                  placeholder="First"
-                  data-ng-model="user.firstName" />
-              </div>
-            </div>
-            <div class="row height-50">
-              <div class="col-xs-12 flex-center-vert">
-                <input type="text"
-                  name="lastName"
-                  required
-                  data-coffee-input
-                  placeholder="Last"
-                  data-ng-model="user.lastName" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row edit-row xs-clear-margin">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-map-marker ci-3x"></i>
-            <div class="uppercase">Location</div>
-          </div>
-          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text"
-              name="location"
-              required
-              data-coffee-input
-              placeholder="Location"
-              data-ng-model="user.location" />
-          </div>
-        </div>
-        <div class="row edit-row xs-clear-margin">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-suitcase ci-3x"></i>
-            <div class="uppercase">Position</div>
-          </div>
-          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text"
-              name="position"
-              required
-              data-coffee-input
-              placeholder="Postiion"
-              data-ng-model="user.position" />
-          </div>
-        </div>
-        <div class="row edit-row xs-clear-margin">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-building ci-3x"></i>
-            <div class="uppercase">Company</div>
-          </div>
-          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text"
-              name="organization"
-              required
-              data-coffee-input
-              placeholder="Organization"
-              data-ng-model="user.organization" />
-          </div>
-        </div>
-      </div>
-
-      <hr class="hidden-xs">
-
       <!-- Headline -->
       <div data-ng-class="{ 'hidden-xs': page !== 1 }">
-        <div class="row edit-row xs-clear-margin">
+        <div class="row edit-row headline-row xs-clear-margin white-bg">
           <div class="col-xs-8 col-xs-offset-2 flex-center-vert">
             <i class="ci ci-quote edit-quote ci-3x"></i>
             <textarea
               name="headline"
+              class="headline-text"
               placeholder="Driven professional with a background in..."
               maxlength="140"
               data-coffee-input
@@ -144,202 +68,281 @@
         </div>
       </div>
 
-      <hr class="hidden-xs">
+      <div class="row xs-clear-margin">
+        <div class="col-sm-6 xs-clear-padding">
 
-      <!-- Experience Detail -->
-      <div data-ng-class="{ 'hidden-xs': page !== 2 }">
-        <div class="row edit-row xs-clear-margin"
-          data-ng-repeat="experience in user.experiences">
-          <div class="col-xs-3 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-x-circle edit-delete-btn t-delete-experience-btn"
-              data-ng-click="deleteExeperience(user, $index)">
-            </i>
-            <div class="uppercase">{{ $index + 1 }}</div>
-          </div>
-          <div class="col-xs-9 col-sm-5 edit-col t-experience">
-            <div class="row edit-sub-row">
-              <div class="col-xs-12">
+          <!-- Profile Detail -->
+          <div data-ng-class="{ 'hidden-xs': page !== 0 }">
+            <div class="row edit-row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-4 edit-col flex-center">
+                <img class="rounded"
+                  alt="user img"
+                  data-ng-src="{{ user.picture }}"/>
+              </div>
+              <div class="col-xs-8 edit-col">
+                <div class="row height-50">
+                  <div class="col-xs-12 flex-center-vert">
+                    <input type="text"
+                      name="firstName"
+                      required
+                      data-coffee-input
+                      placeholder="First"
+                      data-ng-model="user.firstName" />
+                  </div>
+                </div>
+                <div class="row height-50">
+                  <div class="col-xs-12 flex-center-vert">
+                    <input type="text"
+                      name="lastName"
+                      required
+                      data-coffee-input
+                      placeholder="Last"
+                      data-ng-model="user.lastName" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row edit-row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-4 edit-col flex-center">
+                <i class="ci ci-map-marker ci-3x"></i>
+                <div class="uppercase">Location</div>
+              </div>
+              <div class="col-xs-8 edit-col flex-center-vert">
                 <input type="text"
-                  name="organizationExperience{{$index}}"
+                  name="location"
+                  required
+                  data-coffee-input
+                  placeholder="Location"
+                  data-ng-model="user.location" />
+              </div>
+            </div>
+            <div class="row edit-row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-4 edit-col flex-center">
+                <i class="ci ci-suitcase ci-3x"></i>
+                <div class="uppercase">Position</div>
+              </div>
+              <div class="col-xs-8 edit-col flex-center-vert">
+                <input type="text"
+                  name="position"
+                  required
+                  data-coffee-input
+                  placeholder="Postiion"
+                  data-ng-model="user.position" />
+              </div>
+            </div>
+            <div class="row edit-row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-4 edit-col flex-center">
+                <i class="ci ci-building ci-3x"></i>
+                <div class="uppercase">Company</div>
+              </div>
+              <div class="col-xs-8 edit-col flex-center-vert">
+                <input type="text"
+                  name="organization"
                   required
                   data-coffee-input
                   placeholder="Organization"
-                  data-ng-model="experience.organization" />
-              </div>
-            </div>
-            <div class="row edit-sub-row">
-              <div class="col-xs-12">
-                <input type="text"
-                  name="positionExperience{{$index}}"
-                  required
-                  data-coffee-input
-                  placeholder="Position"
-                  data-ng-model="experience.position" />
-              </div>
-            </div>
-            <div class="row edit-sub-row">
-              <div class="col-xs-12">
-                <input type="number"
-                  name="startMonthExperience{{$index}}"
-                  class="input-month"
-                  required
-                  min="1"
-                  max="12"
-                  placeholder="MM"
-                  ng-model="experience._startMonth" />
-                <span>/</span>
-                <input type="number"
-                  name="startYearExperience{{$index}}"
-                  class="input-year"
-                  required
-                  min="1900"
-                  max="2100"
-                  placeholder="YYYY"
-                  ng-model="experience._startYear" />
-                <span>&ndash;</span>
-                <input type="number"
-                  name="endMonthExperience{{$index}}"
-                  class="input-month"
-                  min="1"
-                  max="12"
-                  placeholder="MM"
-                  ng-model="experience._endMonth" />
-                <span>/</span>
-                <input type="number"
-                  name="endYearExperience{{$index}}"
-                  class="input-year"
-                  min="1900"
-                  max="2100"
-                  placeholder="YYYY"
-                  ng-model="experience._endYear" />
+                  data-ng-model="user.organization" />
               </div>
             </div>
           </div>
+
+          <!-- Tags -->
+          <div class="uppercase" data-ng-class="{ 'hidden-xs': page !== 4 }">
+            <div class="row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-12 tag-input-container">
+                <input class="text-center form-control"
+                  name="tag"
+                  type="text"
+                  placeholder="add tag"
+                  data-ng-model="newTag"
+                  data-ui-keypress="{13:'addTag($event, user, newTag)'}"/>
+              </div>
+              <div class="col-xs-12  clear-padding">
+                <ul class="detail-tags-list user-detail-tags-list">
+                  <li class="text-center t-tag"
+                    data-ng-repeat="tag in user.tags"
+                    data-ng-click="deleteTag(user, $index)">
+                    <span>{{ tag }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class="row edit-row xs-clear-margin"
-          data-ng-if="canAddExperience(user)">
-          <button class="col-sm-8 col-sm-offset-2 edit-add-btn edit-page-btn t-add-experience-btn"
-            type="button"
-            data-ng-click="addExperience(user)">
-            <i class="ci ci-plus ci-3x"></i>
-            <div class="uppercase">Add Experience</div>
-          </button>
+        <div class="col-sm-6 xs-clear-padding">
+
+          <!-- Experience Detail -->
+          <div data-ng-class="{ 'hidden-xs': page !== 2 }">
+            <div class="row edit-row xs-clear-margin white-bg half-margin-left"
+              data-ng-repeat="experience in user.experiences">
+              <div class="col-xs-3 edit-col flex-center">
+                <i class="ci ci-x-circle edit-delete-btn t-delete-experience-btn"
+                  data-ng-click="deleteExeperience(user, $index)">
+                </i>
+                <div class="uppercase">{{ $index + 1 }}</div>
+              </div>
+              <div class="col-xs-9 edit-col t-experience">
+                <div class="row edit-sub-row">
+                  <div class="col-xs-12">
+                    <input type="text"
+                      name="organizationExperience{{$index}}"
+                      required
+                      data-coffee-input
+                      placeholder="Organization"
+                      data-ng-model="experience.organization" />
+                  </div>
+                </div>
+                <div class="row edit-sub-row">
+                  <div class="col-xs-12">
+                    <input type="text"
+                      name="positionExperience{{$index}}"
+                      required
+                      data-coffee-input
+                      placeholder="Position"
+                      data-ng-model="experience.position" />
+                  </div>
+                </div>
+                <div class="row edit-sub-row">
+                  <div class="col-xs-12">
+                    <input type="number"
+                      name="startMonthExperience{{$index}}"
+                      class="input-month"
+                      required
+                      min="1"
+                      max="12"
+                      placeholder="MM"
+                      ng-model="experience._startMonth" />
+                    <span>/</span>
+                    <input type="number"
+                      name="startYearExperience{{$index}}"
+                      class="input-year"
+                      required
+                      min="1900"
+                      max="2100"
+                      placeholder="YYYY"
+                      ng-model="experience._startYear" />
+                    <span>&ndash;</span>
+                    <input type="number"
+                      name="endMonthExperience{{$index}}"
+                      class="input-month"
+                      min="1"
+                      max="12"
+                      placeholder="MM"
+                      ng-model="experience._endMonth" />
+                    <span>/</span>
+                    <input type="number"
+                      name="endYearExperience{{$index}}"
+                      class="input-year"
+                      min="1900"
+                      max="2100"
+                      placeholder="YYYY"
+                      ng-model="experience._endYear" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row edit-row xs-clear-margin half-margin-left white-bg"
+              data-ng-if="canAddExperience(user)">
+              <button class="edit-add-btn edit-page-btn t-add-experience-btn"
+                type="button"
+                data-ng-click="addExperience(user)">
+                <i class="ci ci-plus ci-3x"></i>
+                <div class="uppercase">Add Experience</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Education Detail -->
+          <div data-ng-class="{ 'hidden-xs': page !== 3 }">
+            <div class="row edit-row xs-clear-margin white-bg half-margin-left"
+              data-ng-repeat="education in user.educations">
+              <div class="col-xs-3 edit-col flex-center">
+                <i class="ci ci-x-circle edit-delete-btn t-delete-education-btn"
+                  data-ng-click="deleteEducation(user, $index)">
+                </i>
+                <div class="uppercase">{{ $index + 1 }}</div>
+              </div>
+              <div class="col-xs-9 edit-col t-education">
+                <div class="row edit-sub-row">
+                  <div class="col-xs-12">
+                    <input type="text"
+                      name="schoolEducation{{$index}}"
+                      required
+                      placeholder="School"
+                      data-coffee-input
+                      data-ng-model="education.school" />
+                  </div>
+                </div>
+                <div class="row edit-sub-row">
+                  <div class="col-xs-12">
+                    <input type="text"
+                      name="majorEducation{{$index}}"
+                      required
+                      placeholder="Major"
+                      data-coffee-input
+                      data-ng-model="education.major" />
+                  </div>
+                </div>
+                <div class="row edit-sub-row">
+                  <div class="col-xs-12">
+                    <input type="number"
+                      name="startMonthEducation{{$index}}"
+                      class="input-month"
+                      required
+                      min="1"
+                      max="12"
+                      placeholder="MM"
+                      ng-model="education._startMonth" />
+                    <span>/</span>
+                    <input type="number"
+                      name="startYearEducation{{$index}}"
+                      class="input-year"
+                      required
+                      min="1900"
+                      max="2100"
+                      placeholder="YYYY"
+                      ng-model="education._startYear" />
+                    <span>&ndash;</span>
+                    <input type="number"
+                      name="endMonthEducation{{$index}}"
+                      class="input-month"
+                      min="1"
+                      max="12"
+                      placeholder="MM"
+                      ng-model="education._endMonth" />
+                    <span>/</span>
+                    <input type="number"
+                      name="endYearEducation{{$index}}"
+                      class="input-year"
+                      min="1900"
+                      max="2100"
+                      placeholder="YYYY"
+                      ng-model="education._endYear" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row edit-row xs-clear-margin half-margin-left white-bg"
+              data-ng-if="canAddEducation(user)">
+              <button class="edit-add-btn edit-page-btn t-add-education-btn"
+                type="button"
+                data-ng-click="addEducation(user)">
+                <i class="ci ci-plus ci-3x"></i>
+                <div class="uppercase">Add Education</div>
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <hr class="hidden-xs">
-
-      <!-- Education Detail -->
-      <div data-ng-class="{ 'hidden-xs': page !== 3 }">
-        <div class="row edit-row xs-clear-margin"
-          data-ng-repeat="education in user.educations">
-          <div class="col-xs-3 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-x-circle edit-delete-btn t-delete-education-btn"
-              data-ng-click="deleteEducation(user, $index)">
-            </i>
-            <div class="uppercase">{{ $index + 1 }}</div>
-          </div>
-          <div class="col-xs-9 col-sm-5 edit-col t-education">
-            <div class="row edit-sub-row">
-              <div class="col-xs-12">
-                <input type="text"
-                  name="schoolEducation{{$index}}"
-                  required
-                  placeholder="School"
-                  data-coffee-input
-                  data-ng-model="education.school" />
-              </div>
-            </div>
-            <div class="row edit-sub-row">
-              <div class="col-xs-12">
-                <input type="text"
-                  name="majorEducation{{$index}}"
-                  required
-                  placeholder="Major"
-                  data-coffee-input
-                  data-ng-model="education.major" />
-              </div>
-            </div>
-            <div class="row edit-sub-row">
-              <div class="col-xs-12">
-                <input type="number"
-                  name="startMonthEducation{{$index}}"
-                  class="input-month"
-                  required
-                  min="1"
-                  max="12"
-                  placeholder="MM"
-                  ng-model="education._startMonth" />
-                <span>/</span>
-                <input type="number"
-                  name="startYearEducation{{$index}}"
-                  class="input-year"
-                  required
-                  min="1900"
-                  max="2100"
-                  placeholder="YYYY"
-                  ng-model="education._startYear" />
-                <span>&ndash;</span>
-                <input type="number"
-                  name="endMonthEducation{{$index}}"
-                  class="input-month"
-                  min="1"
-                  max="12"
-                  placeholder="MM"
-                  ng-model="education._endMonth" />
-                <span>/</span>
-                <input type="number"
-                  name="endYearEducation{{$index}}"
-                  class="input-year"
-                  min="1900"
-                  max="2100"
-                  placeholder="YYYY"
-                  ng-model="education._endYear" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row edit-row xs-clear-margin"
-          data-ng-if="canAddEducation(user)">
-          <button class="col-sm-8 col-sm-offset-2 edit-add-btn edit-page-btn t-add-education-btn"
-            type="button"
-            data-ng-click="addEducation(user)">
-            <i class="ci ci-plus ci-3x"></i>
-            <div class="uppercase">Add Education</div>
-          </button>
-        </div>
-      </div>
-
-      <hr class="hidden-xs">
-
-      <!-- Tags -->
-      <div class="uppercase" data-ng-class="{ 'hidden-xs': page !== 4 }">
-        <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 clear-padding">
-            <input class="text-center form-control"
-              name="tag"
-              type="text"
-              placeholder="add tag"
-              data-ng-model="newTag"
-              data-ui-keypress="{13:'addTag($event, user, newTag)'}"/>
-          </div>
-          <div class="col-sm-8 col-sm-offset-2 clear-padding">
-            <ul class="detail-tags-list user-detail-tags-list">
-              <li class="text-center t-tag"
-                data-ng-repeat="tag in user.tags"
-                data-ng-click="deleteTag(user, $index)">
-                <span>{{ tag }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
   <!-- Submit Button -->
   <div class="row xs-clear-margin">
-    <div class="col-sm-8 col-sm-offset-2 clear-padding">
+    <div class="clear-padding">
       <button type="submit"
         class="btn btn-default btn-block edit-submit-btn"
         data-ng-click="save(user)">
