@@ -4,12 +4,16 @@
 border-color = color-grey-80
 edit-btn-height = 36px
 card-quote-font-size = 3em
+edit-mobile-header-height = 8em
 
 
 @media (min-width: screen-sm-min)
   .edit-main
     margin-top 0
     padding-bottom 1em
+
+.edit-page
+  height 100%
 
 .edit-row
   height 8em
@@ -72,6 +76,12 @@ card-quote-font-size = 3em
   color color-white
   background-color color-grey-50
 
+.row.edit-mobile-header
+  height edit-mobile-header-height
+
+.edit-mobile-page
+  height 'calc(100% - %s)' % edit-mobile-header-height
+
 button.edit-page-btn
   display block
   height 100%
@@ -96,8 +106,9 @@ button.edit-page-btn
     &:first-child
       margin-top 1em
 
-  &.headline-row
-    margin-top 0
+    &.headline-row
+      margin-top 0
+      height 17.5em
 
   &:last-child
     border-bottom 1px solid border-color

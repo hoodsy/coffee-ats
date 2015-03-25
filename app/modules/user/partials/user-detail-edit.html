@@ -2,11 +2,11 @@
   name="editForm"
   onsubmit="return false;"
   novalidate>
-  <div class="row xs-clear-margin">
-    <div class="col-sm-12 xs-clear-padding edit-main">
+  <div class="row xs-clear-margin height-100">
+    <div class="col-sm-12 xs-clear-padding edit-main height-100">
 
       <!-- Profile Edit navigation on mobile -->
-      <div class="row edit-row xs-clear-margin visible-xs-block">
+      <div class="row edit-row xs-clear-margin visible-xs-block edit-mobile-header">
         <button class="col-xs-2 btn btn-default edit-page-btn"
           type="button"
           data-ng-click="previousPage()"
@@ -51,9 +51,10 @@
       </div>
 
       <!-- Headline -->
-      <div data-ng-class="{ 'hidden-xs': page !== 1 }">
-        <div class="row edit-row headline-row xs-clear-margin white-bg">
-          <div class="col-xs-8 col-xs-offset-2 flex-center-vert">
+      <div class="edit-mobile-page"
+        data-ng-class="{ 'hidden-xs': page !== 1 }">
+        <div class="row headline-row xs-clear-margin white-bg height-100">
+          <div class="col-xs-8 col-xs-offset-2 flex-center-vert height-100">
             <i class="ci ci-quote edit-quote ci-3x"></i>
             <textarea
               name="headline"
@@ -68,8 +69,10 @@
         </div>
       </div>
 
-      <div class="row xs-clear-margin">
-        <div class="col-sm-6 xs-clear-padding">
+      <div class="row xs-clear-margin edit-mobile-page"
+        data-ng-class="{ 'hidden-xs': page === 1 }">
+        <div class="col-sm-6 xs-clear-padding height-100"
+          data-ng-class="{ 'hidden-xs': !(page === 0 || page === 4) }">
 
           <!-- Profile Detail -->
           <div data-ng-class="{ 'hidden-xs': page !== 0 }">
@@ -147,8 +150,9 @@
           </div>
 
           <!-- Tags -->
-          <div class="uppercase" data-ng-class="{ 'hidden-xs': page !== 4 }">
-            <div class="row xs-clear-margin white-bg half-margin-right">
+          <div class="uppercase height-100"
+            data-ng-class="{ 'hidden-xs': page !== 4 }">
+            <div class="row xs-clear-margin white-bg half-margin-right height-100">
               <div class="col-xs-12 tag-input-container">
                 <input class="text-center form-control"
                   name="tag"
@@ -170,7 +174,8 @@
           </div>
 
         </div>
-        <div class="col-sm-6 xs-clear-padding">
+        <div class="col-sm-6 xs-clear-padding"
+          data-ng-class="{ 'hidden-xs': !(page === 2 || page === 3) }">
 
           <!-- Experience Detail -->
           <div data-ng-class="{ 'hidden-xs': page !== 2 }">

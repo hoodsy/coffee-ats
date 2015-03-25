@@ -3,7 +3,7 @@
   class="edit-form opportunity-edit-form palette-{{ palette }}"
   data-ng-init="manageInit()">
   <div class="row xs-clear-margin">
-    <div class="col-sm-8 col-sm-offset-2 xs-clear-padding white-bg edit-main">
+    <div class="col-sm-12 xs-clear-padding edit-main">
 
       <!-- Profile Edit navigation on mobile -->
       <div class="row edit-row xs-clear-margin visible-xs-block">
@@ -69,198 +69,208 @@
         </button>
       </div>
 
-      <!-- Opportunity Detail -->
-      <div data-ng-class="{ 'hidden-xs': page !== 0 }">
-        <div class="row edit-row xs-clear-margin">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-building ci-3x"></i>
-            <h3 class="uppercase">Company</h3>
-          </div>
-          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text"
-              name="companyName"
-              required
-              placeholder="e.g. Twitter"
-              data-coffee-input
-              data-ng-model="opportunity.companyName" />
-          </div>
-        </div>
-        <div class="row edit-row xs-clear-margin">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-person-card ci-3x"></i>
-            <h3 class="uppercase">Position</h3>
-          </div>
-          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text"
-              name="position"
-              required
-              placeholder="e.g. Web Developer"
-              data-coffee-input
-              data-ng-model="opportunity.title" />
-          </div>
-        </div>
-        <div class="row edit-row xs-clear-margin">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-salary ci-3x"></i>
-            <h3 class="uppercase">Salary</h3>
-          </div>
-          <div class="edit-col col-xs-8 col-sm-5">
-            <div class="row height-50">
-              <div class="col-xs-8 col-xs-offset-2 flex-center-vert">
-                <input type="number"
-                  class="width-100 text-center clear-warning-text"
-                  name="salaryMin"
-                  required
-                  min="1"
-                  max="1000000"
-                  placeholder="Min"
-                  data-coffee-input
-                  data-ng-model="opportunity.salaryMin"/>
-              </div>
-            </div>
-            <!-- <span class="col-xs-2 flex-center-vert">-</span> -->
-            <div class="row height-50">
-              <div class="col-xs-8 col-xs-offset-2 flex-center-vert">
-                <input type="number"
-                  class="width-100 text-center clear-warning-text"
-                  name="salaryMax"
-                  required
-                  min="1"
-                  max="1000000"
-                  placeholder="Max"
-                  data-coffee-input
-                  data-ng-model="opportunity.salaryMax"/>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row edit-row xs-clear-margin">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-clock ci-3x"></i>
-            <h3 class="uppercase">Type</h3>
-          </div>
-          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <select
-              class="form-control"
-              required
-              name="schedule"
-              data-ng-model="opportunity.schedule"
-              data-ng-options="schedule for schedule in schedules"/>
-          </div>
-        </div>
-        <div class="row edit-row xs-clear-margin">
-          <div class="col-xs-4 col-sm-3 col-sm-offset-2 edit-col flex-center">
-            <i class="ci ci-map-marker ci-3x"></i>
-            <h3 class="uppercase">Location</h3>
-          </div>
-          <div class="col-xs-8 col-sm-5 edit-col flex-center-vert">
-            <input type="text"
-              required
-              name="location"
-              placeholder="e.g. Boston, MA"
-              data-coffee-input
-              data-ng-model="opportunity.location" />
-          </div>
-        </div>
-      </div>
-
-      <hr class="hidden-xs">
-
       <!-- Opportunity Description -->
       <div data-ng-class="{ 'hidden-xs': page !== 1 }">
-        <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 text-center edit-page-label">
-            <i class="ci ci-quote edit-quote ci-3x"/>
-            <strong>{{ opportunity.companyName }}</strong> is looking for </br>
-            <strong>{{ opportunity.title }}s</strong> to:
-          </div>
-          <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
-            <textarea
-              class="text-center"
-              name="headline"
-              required
-              maxlength="140"
-              placeholder="e.g. Build websites."
-              data-msd-elastic
-              data-coffee-input
-              data-ng-model="opportunity.headline">
-            </textarea>
-          </div>
-        </div>
-      </div>
-
-      <hr data-ng-class="{ 'hidden-xs': page !== 1 }">
-
-      <!-- Company About -->
-      <div data-ng-class="{ 'hidden-xs': page !== 1 }">
-        <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 text-center edit-page-label">
-            About <strong>{{ opportunity.companyName }}</strong>
-          </div>
-          <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
-            <textarea class="text-center"
-              required
-              name="companyAbout"
-              placeholder="e.g. Social media platform."
-              data-msd-elastic
-              data-coffee-input
-              data-ng-model="opportunity.companyAbout">
-            </textarea>
+        <div class="row xs-clear-margin white-bg headline-row flex-center-vert">
+          <div class="col-xs-12">
+            <div class="row xs-clear-margin">
+              <div class="col-xs-8 col-xs-offset-2 ">
+                <i class="ci ci-quote edit-quote ci-3x"/>
+                <div class="headline-text text-center">
+                  <strong>{{ opportunity.companyName }}</strong> is looking for
+                  <strong>{{ opportunity.title }}s</strong> to:
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-8 col-xs-offset-2 clear-padding">
+                <textarea
+                  class="text-center"
+                  name="headline"
+                  required
+                  maxlength="140"
+                  placeholder="e.g. Build websites."
+                  data-msd-elastic
+                  data-coffee-input
+                  data-ng-model="opportunity.headline">
+                </textarea>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <hr class="hidden-xs">
+      <div class="row xs-clear-margin">
+        <div class="col-sm-6 xs-clear-padding">
 
-      <!-- Opportunity Responsibilities -->
-      <div data-ng-class="{ 'hidden-xs': page !== 2 }">
-        <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 text-center edit-page-label">
-            <strong>Responsibilities</strong>
+          <!-- Opportunity Detail -->
+          <div data-ng-class="{ 'hidden-xs': page !== 0 }">
+            <div class="row edit-row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-4 edit-col flex-center">
+                <i class="ci ci-building ci-3x"></i>
+                <h3 class="uppercase">Company</h3>
+              </div>
+              <div class="col-xs-8 edit-col flex-center-vert">
+                <input type="text"
+                  name="companyName"
+                  required
+                  placeholder="e.g. Twitter"
+                  data-coffee-input
+                  data-ng-model="opportunity.companyName" />
+              </div>
+            </div>
+            <div class="row edit-row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-4 edit-col flex-center">
+                <i class="ci ci-person-card ci-3x"></i>
+                <h3 class="uppercase">Position</h3>
+              </div>
+              <div class="col-xs-8 edit-col flex-center-vert">
+                <input type="text"
+                  name="position"
+                  required
+                  placeholder="e.g. Web Developer"
+                  data-coffee-input
+                  data-ng-model="opportunity.title" />
+              </div>
+            </div>
+            <div class="row edit-row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-4 edit-col flex-center">
+                <i class="ci ci-salary ci-3x"></i>
+                <h3 class="uppercase">Salary</h3>
+              </div>
+              <div class="edit-col col-xs-8">
+                <div class="row height-50">
+                  <div class="col-xs-8 col-xs-offset-2 flex-center-vert">
+                    <input type="number"
+                      class="width-100 text-center clear-warning-text"
+                      name="salaryMin"
+                      required
+                      min="1"
+                      max="1000000"
+                      placeholder="Min"
+                      data-coffee-input
+                      data-ng-model="opportunity.salaryMin"/>
+                  </div>
+                </div>
+                <!-- <span class="col-xs-2 flex-center-vert">-</span> -->
+                <div class="row height-50">
+                  <div class="col-xs-8 col-xs-offset-2 flex-center-vert">
+                    <input type="number"
+                      class="width-100 text-center clear-warning-text"
+                      name="salaryMax"
+                      required
+                      min="1"
+                      max="1000000"
+                      placeholder="Max"
+                      data-coffee-input
+                      data-ng-model="opportunity.salaryMax"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row edit-row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-4 edit-col flex-center">
+                <i class="ci ci-clock ci-3x"></i>
+                <h3 class="uppercase">Type</h3>
+              </div>
+              <div class="col-xs-8 edit-col flex-center-vert">
+                <select
+                  class="form-control"
+                  required
+                  name="schedule"
+                  data-ng-model="opportunity.schedule"
+                  data-ng-options="schedule for schedule in schedules"/>
+              </div>
+            </div>
+            <div class="row edit-row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-4 edit-col flex-center">
+                <i class="ci ci-map-marker ci-3x"></i>
+                <h3 class="uppercase">Location</h3>
+              </div>
+              <div class="col-xs-8 edit-col flex-center-vert">
+                <input type="text"
+                  required
+                  name="location"
+                  placeholder="e.g. Boston, MA"
+                  data-coffee-input
+                  data-ng-model="opportunity.location" />
+              </div>
+            </div>
           </div>
-          <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-text">
-            <textarea class="text-center"
-              required
-              name="overview"
-              placeholder="e.g. Design and develop web applications."
-              data-msd-elastic
-              data-coffee-input
-              data-ng-model="opportunity.overview">
-            </textarea>
+
+          <!-- Tags -->
+          <div class="uppercase" data-ng-class="{ 'hidden-xs': page !== 4 }">
+            <div class="row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-12 tag-input-container">
+                <input class="text-center form-control"
+                  name="newTag"
+                  type="text"
+                  placeholder="add tag"
+                  data-ng-model="newTag"
+                  data-ui-keypress="{13:'addTag(opportunity, newTag, $event)'}"/>
+              </div>
+              <div class="col-xs-12  clear-padding">
+                <ul class="detail-tags-list opportunity-detail-tags-list">
+                  <li class="text-center t-tag"
+                    data-ng-repeat="tag in opportunity.tags"
+                    data-ng-click="deleteTag(opportunity, $index)">
+                    <span>{{ tag }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
+
+        </div>
+        <div class="col-sm-6 xs-clear-padding height-100">
+
+          <!-- Company About -->
+          <div data-ng-class="{ 'hidden-xs': page !== 1 }">
+            <div class="row xs-clear-margin white-bg half-margin-left opportunity-text">
+              <div class="col-sm-12 text-center">
+                <h2>About <strong>{{ opportunity.companyName }}</strong></h2>
+              </div>
+              <div class="col-sm-12 clear-padding">
+                <textarea class="text-center"
+                  required
+                  name="companyAbout"
+                  placeholder="e.g. Social media platform."
+                  data-msd-elastic
+                  data-coffee-input
+                  data-ng-model="opportunity.companyAbout">
+                </textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Opportunity Responsibilities -->
+          <div data-ng-class="{ 'hidden-xs': page !== 2 }">
+            <div class="row xs-clear-margin white-bg half-margin-left opportunity-text">
+              <div class="col-sm-12 text-center">
+                <h2>Responsibilities</h2>
+              </div>
+              <div class="col-sm-12 clear-padding">
+                <textarea class="text-center"
+                  required
+                  name="overview"
+                  placeholder="e.g. Design and develop web applications."
+                  data-msd-elastic
+                  data-coffee-input
+                  data-ng-model="opportunity.overview">
+                </textarea>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <hr class="hidden-xs">
-
-      <!-- Tags -->
-      <div data-ng-class="{ 'hidden-xs': page !== 3 }">
-        <div class="row xs-clear-margin">
-          <div class="col-sm-8 col-sm-offset-2 clear-padding edit-page-tag-input">
-            <input class="text-center form-control"
-              type="text"
-              name="newTag"
-              placeholder="ADD TAG"
-              data-ng-model="newTag"
-              data-ui-keypress="{13:'addTag(opportunity, newTag, $event)'}"/>
-          </div>
-          <div class="col-sm-8 col-sm-offset-2 clear-padding">
-            <ul class="detail-tags-list opportunity-detail-tags-list">
-              <li class="text-center"
-                data-ng-repeat="tag in opportunity.tags"
-                data-ng-click="deleteTag(opportunity, $index)">
-                <span>{{ tag }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
   <!-- Submit Button -->
-  <div class="row xs-clear-margin">
-    <div class="col-sm-8 col-sm-offset-2 clear-padding">
+  <div class="row xs-clear-margin white-bg">
+    <div class="col-sm-12 clear-padding">
       <button type="submit"
         class="btn btn-block edit-submit-btn"
         data-ng-click="finish(opportunity)">
