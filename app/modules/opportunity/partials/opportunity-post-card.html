@@ -1,59 +1,78 @@
 <div class="card-shadow opportunity-post-card palette-{{ count }}">
-  <div class="row clear-margin opportunity-post-card-main"
-    data-ng-class="{ 'slide-left': showControls(model._id) }"
-    data-ui-sref=".detail({ id: model._id, palette: count })"
-    data-ng-swipe-left="enableControls(model._id)"
-    data-ng-swipe-right="disableControls(model._id)">
 
-    <div class="col-xs-3 clear-padding flex-center">
-      <img class="rounded"
-        alt="opportunity img"
-        data-ng-src="{{ model.picture }}"/>
-    </div>
-    <div class="col-xs-7 height-100 flex-center-vert">
-      <div class="uppercase">
-        {{ model.title }} @
-        {{ model.companyName }}
+  <div class="row clear-margin">
+    <div class="hidden-xs col-sm-5 clear-padding uppercase">
+      <div class="row clear-margin opportunity-post-card-info">
+        <div class="col-xs-12 clear-padding flex-center">
+          {{ model.applicantsCount }} Applicants
+        </div>
       </div>
-      <div class="quote">{{ model.headline }}</div>
-    </div>
-    <div class="opportunity-post-card-controls flex-center"
-      data-ng-class="{
-      'col-xs-2': !showControls(model._id),
-      'col-xs-6 col-sm-4 grow': showControls(model._id)
-      }">
-      <button class="btn btn-transparent"
-        data-ng-click="toggleControls($event, model._id)"
-        data-ng-if="!showControls(model._id)">
-        <i class="ci ci-more ci-lg"></i>
-      </button>
-
-      <div class="row"
-        data-ng-if="showControls(model._id)">
-        <button class="btn btn-transparent"
-          data-ng-click="toggleControls($event, model._id)">
-          <i class="ci ci-more ci-lg"></i>
-        </button>
-
-        <button class="btn btn-transparent"
-          data-ng-click="filled($event, model)">
-          <i class="ci ci-person-check ci-lg"></i>
-        </button>
-
-        <button class="btn btn-transparent"
-          data-ng-click="delete($event, model._id)">
-          <i class="ci ci-trash ci-lg"></i>
-        </button>
+      <div class="row clear-margin opportunity-post-card-info">
+        <div class="col-xs-12 clear-padding flex-center">
+          Matches
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row clear-margin opportunity-post-card-info uppercase">
-    <div class="col-xs-6 clear-padding flex-center">
-      {{ model.applicantsCount }} Applicants
-    </div>
-    <div class="col-xs-6 flex-center">
-      Matches
+    <div class="col-xs-12 col-sm-7 clear-padding">
+      <div class="row clear-margin opportunity-post-card-main"
+        data-ng-class="{ 'slide-left': showControls(model._id) }"
+        data-ui-sref=".detail({ id: model._id, palette: count })"
+        data-ng-swipe-left="enableControls(model._id)"
+        data-ng-swipe-right="disableControls(model._id)">
+
+        <div class="col-xs-3 clear-padding flex-center opportunity-post-card-img-container">
+          <img class="rounded"
+            alt="opportunity img"
+            data-ng-src="{{ model.picture }}"/>
+        </div>
+
+        <div class="col-xs-7 clear-padding height-100 flex-center-vert">
+          <h2 class="uppercase">
+            {{ model.title }} @ {{ model.companyName }}
+          </h2>
+          <div class="quote">{{ model.headline }}</div>
+        </div>
+
+        <div class="opportunity-post-card-controls flex-center"
+          data-ng-class="{
+          'col-xs-2': !showControls(model._id),
+          'col-xs-6 col-sm-4 grow': showControls(model._id)
+          }">
+          <button class="btn btn-transparent"
+            data-ng-click="toggleControls($event, model._id)"
+            data-ng-if="!showControls(model._id)">
+            <i class="ci ci-more ci-lg"></i>
+          </button>
+
+          <div class="row"
+            data-ng-if="showControls(model._id)">
+            <button class="btn btn-transparent"
+              data-ng-click="toggleControls($event, model._id)">
+              <i class="ci ci-more ci-lg"></i>
+            </button>
+
+            <button class="btn btn-transparent"
+              data-ng-click="filled($event, model)">
+              <i class="ci ci-person-check ci-lg"></i>
+            </button>
+
+            <button class="btn btn-transparent"
+              data-ng-click="delete($event, model._id)">
+              <i class="ci ci-trash ci-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row visible-xs-block clear-margin opportunity-post-card-info uppercase">
+        <div class="col-xs-6 clear-padding flex-center">
+          {{ model.applicantsCount }} Applicants
+        </div>
+        <div class="col-xs-6 clear-padding flex-center">
+          Matches
+        </div>
+      </div>
     </div>
   </div>
 </div>

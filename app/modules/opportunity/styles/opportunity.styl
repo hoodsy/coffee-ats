@@ -1,14 +1,11 @@
 @import 'colors'
 @import 'layout'
 
-.cursorPointer
-  cursor: pointer
+opportunity-post-card-margin = 0.5em
+opportunity-post-card-info-height = 7em
+opportunity-post-card-main-height = (2*opportunity-post-card-info-height) + opportunity-post-card-margin
+opportunity-post-card-info-height-xs = 2em
 
-.st-sort-ascent, .st-sort-descent
-  text-decoration: underline
-
-.st-selected
-  background-color: AliceBlue
 
 .opportunity-infobox
   padding 1em
@@ -56,26 +53,35 @@ input[type=number]
   @media (min-width: screen-sm-min)
     margin-bottom 1em
 
+
 .opportunity-post-card-main
-  height 16em
+  height opportunity-post-card-main-height
   position relative
   left 0
   transition left .2s ease-in-out
-
-  @media (min-width: screen-sm-min)
-    height 15em
 
   &.slide-left
     position relative
     left -100px
 
+  @media (min-width: screen-sm-min)
+    background-color color-white
 
-.opportunity-post-card-info
-  height 2em
 
-  > div:first-child
-    border-right 1px solid color-grey-80
+.row.opportunity-post-card-info
 
+  @media (min-width: screen-sm-min)
+    margin-right opportunity-post-card-margin
+    height opportunity-post-card-info-height
+
+    &:first-child
+      margin-bottom opportunity-post-card-margin
+
+  @media (max-width: screen-xs-max)
+    height opportunity-post-card-info-height-xs
+
+    > div:first-child
+      border-right 1px solid color-grey-80
 
 /*
  * Palette variations
@@ -83,7 +89,19 @@ input[type=number]
 
 .palette-0
 
-  &.opportunity-post-card,
+  .row.opportunity-post-card-info
+    background-color color-blue-3a
+
+  @media (max-width: screen-xs-max)
+    .opportunity-post-card-main
+      color color-grey-30
+      background-color color-blue-3
+
+  @media (min-width: screen-sm-min)
+    .opportunity-post-card-img-container
+      background linear-gradient(to right, color-blue-3 50%, rgba(0,0,0,0) 50%)
+
+  .opportunity-post-card-info,
   .opportunity-card,
   &.opportunity-card,
   &.opportunity-edit-form .edit-page-header,
@@ -92,8 +110,7 @@ input[type=number]
     color color-grey-30
     background-color color-blue-3
 
-    >.tags-container,
-    >.opportunity-post-card-info
+    >.tags-container
       background-color color-blue-3a
 
   .opportunity-infobox,
@@ -105,7 +122,19 @@ input[type=number]
 
 .palette-1
 
-  &.opportunity-post-card,
+  .row.opportunity-post-card-info
+    background-color color-blue-1a
+
+  @media (max-width: screen-xs-max)
+    .opportunity-post-card-main
+      color color-white
+      background-color color-blue-1
+
+  @media (min-width: screen-sm-min)
+    .opportunity-post-card-img-container
+      background linear-gradient(to right, color-blue-1 50%, rgba(0,0,0,0) 50%)
+
+  .opportunity-post-card-info,
   .opportunity-card,
   &.opportunity-card,
   &.opportunity-edit-form .edit-page-header,
@@ -114,8 +143,7 @@ input[type=number]
     color color-white
     background-color color-blue-1
 
-    >.tags-container,
-    >.opportunity-post-card-info
+    >.tags-container
       background-color color-blue-1a
 
   .opportunity-infobox,
@@ -127,7 +155,19 @@ input[type=number]
 
 .palette-2
 
-  &.opportunity-post-card,
+  .row.opportunity-post-card-info
+    background-color color-blue-2a
+
+  @media (max-width: screen-xs-max)
+    .opportunity-post-card-main
+      color color-white
+      background-color color-blue-2
+
+  @media (min-width: screen-sm-min)
+    .opportunity-post-card-img-container
+      background linear-gradient(to right, color-blue-2 50%, rgba(0,0,0,0) 50%)
+
+  .opportunity-post-card-info,
   .opportunity-card,
   &.opportunity-card,
   &.opportunity-edit-form .edit-page-header,
@@ -136,8 +176,7 @@ input[type=number]
     color color-white
     background-color color-blue-2
 
-    >.tags-container,
-    >.opportunity-post-card-info
+    >.tags-container
       background-color color-blue-2a
 
   .opportunity-infobox,
