@@ -37,7 +37,6 @@ ul.navbar-nav > li > a
     width 100%
     height 'calc(100% - %s)' % navbar-height
     bottom navbar-height
-    overflow-y auto
     -webkit-overflow-scrolling touch
 
   @media (min-width: screen-sm-min)
@@ -47,11 +46,13 @@ ul.navbar-nav > li > a
 
 @media (min-width: screen-sm-min)
   div.main-content[data-ui-view="main"]
-    position absolute
-    right 0
+    height 100%
+
+div.main-content[data-ui-view="main"]
+  & > div,
+  & > ul
     height 100%
     overflow-y auto
-
 
 // User profile icon
 img.avatar
