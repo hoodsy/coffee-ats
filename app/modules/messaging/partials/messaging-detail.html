@@ -67,9 +67,11 @@
 
       <ul>
         <li class="row xs-clear-margin"
-          data-ng-if="loadingMoreMessages">
-          <div class="col-xs-4 col-xs-offset-4 flex-center xs-clear-padding">
-            <span class="message-loading-icon fa fa-circle-o-notch fa-spin"></span>
+          data-ng-if="!allMessagesLoaded">
+          <div class="col-xs-12 clear-padding loading-container">
+            <div class="flex-center">
+              <i class="fa fa-spinner fa-spin"></i>
+            </div>
           </div>
         </li>
 

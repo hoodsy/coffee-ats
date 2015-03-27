@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('opportunity')
-  .controller('OpportunityDashboardCtrl', function ($scope, UserOpportunities) {
+  .controller('OpportunityDashboardCtrl', function ($scope, UserOpportunities, DEFAULT_PAGE_SIZE) {
 
     // Flag to track which card has its controls displayed, this variable is
     // data-bound to the child card directives which control the toggling
@@ -14,13 +14,13 @@ angular.module('opportunity')
     var earliestOpportunityDate = null;
 
     // Flag to mark when all opportunities have been loaded
-    var allOpportunitiesLoaded = false;
+    $scope.allOpportunitiesLoaded = false;
 
     // Array to hold opportunity objects
     $scope.opportunities = [];
 
     $scope.loadOpportunities = function() {
-      if (allOpportunitiesLoaded) {
+      if ($scope.allOpportunitiesLoaded) {
         return;
       }
 
@@ -29,8 +29,10 @@ angular.module('opportunity')
       UserOpportunities.query({
         after: earliestOpportunityDate
       }, function(response) {
-        if (response.length === 0) {
-          allOpportunitiesLoaded = true;
+        $scope.loadingMoreOpportunities = false;
+
+        if (response.length < DEFAULT_PAGE_SIZE) {
+          $scope.allOpportunitiesLoaded = true;
 
         } else {
           // Extend the end of opportunities with response

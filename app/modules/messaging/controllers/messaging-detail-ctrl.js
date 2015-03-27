@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('messaging')
-  .controller('MessagingDetailCtrl', function ($scope, $state, $stateParams, socket, UserMatch, MatchMessages, User) {
+  .controller('MessagingDetailCtrl', function (
+      $scope, $state, $stateParams, $timeout, $q,
+      socket, UserMatch, MatchMessages, User, DEFAULT_PAGE_SIZE) {
 
     // The ID of the Match entity
     var matchId = $stateParams.id;
@@ -16,7 +18,7 @@ angular.module('messaging')
     var nextScroll = null;
 
     // Flag to mark when all messages have been loaded
-    var allMessagesLoaded = false;
+    $scope.allMessagesLoaded = false;
 
     // Color palette index
     $scope.palette = 1;
@@ -75,50 +77,56 @@ angular.module('messaging')
       return nextScroll;
     };
 
-    $scope.loadMessages = function(cb) {
+    $scope.loadMessages = function() {
 
-      if (allMessagesLoaded) {
-        return;
+      if ($scope.allMessagesLoaded) {
+        var deferred = $q.defer();
+        deferred.reject();
+        return deferred.promise;
       }
 
       $scope.loadingMoreMessages = true;
 
-      MatchMessages.query({
+      var promise = MatchMessages.query({
         id: $stateParams.id,
         untilDate: earliestMsgDate
-      }, function(response) {
+      }).$promise;
+
+      promise.then(function(response) {
         $scope.loadingMoreMessages = false;
 
-        if (response.length === 0) {
+        if (response.length < DEFAULT_PAGE_SIZE) {
           nextScroll = null;
-          allMessagesLoaded = true;
+          $scope.allMessagesLoaded = true;
 
         } else {
           // Extend the beginning of matchMessages with response
           response.unshift(0, 0);
+          nextScroll = 1;
+          if ($scope.matchMessages.length === 0) {
+            nextScroll = -1;
+          }
           $scope.matchMessages.splice.apply($scope.matchMessages, response);
           earliestMsgDate = $scope.matchMessages[0].created;
-          nextScroll = 1;
         }
-        if(cb) cb();
-      }, function() {
+      }).catch(function() {
         $scope.loadingMoreMessages = false;
-        if(cb) cb(true);
       });
+
+      return promise;
     };
 
     // Query past messages in this match
-    var loadTimes = Math.ceil($(".messaging-detail-well").height() / 15 / 30);
-
-    (function next(i) {
-      if( (i==0) || allMessagesLoaded) return;
-      $scope.loadMessages(function(err) {
-        if(err) return;
-        next(--i);
+    (function next() {
+      if ($(".messaging-detail-well").scrollTop() !== 0
+          || $scope.allMessagesLoaded) {
+        return;
+      }
+      nextScroll = -1;
+      $scope.loadMessages().then(function() {
+        $timeout(next);
       });
-    })(loadTimes)
-
-
+    })();
 
     $scope.sendMessage = function() {
 
