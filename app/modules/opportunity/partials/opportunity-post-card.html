@@ -42,28 +42,30 @@
 
         <div class="opportunity-post-card-controls flex-center"
           data-ng-class="{
-          'col-xs-2': !showControls(model._id),
-          'col-xs-6 col-sm-4 grow': showControls(model._id)
+            'col-xs-2': !showControls(model._id),
+            'col-xs-6 grow': showControls(model._id)
           }">
-          <button class="btn btn-transparent"
+          <button class="btn btn-transparent visible-xs-block"
             data-ng-click="toggleControls($event, model._id)"
             data-ng-if="!showControls(model._id)">
             <i class="ci ci-more ci-lg"></i>
           </button>
 
           <div class="row"
-            data-ng-if="showControls(model._id)">
-            <button class="btn btn-transparent"
+            data-ng-if="showControls(model._id) || $root.isDesktop">
+            <button class="btn btn-transparent visible-xs-inline"
               data-ng-click="toggleControls($event, model._id)">
               <i class="ci ci-more ci-lg"></i>
             </button>
 
             <button class="btn btn-transparent"
+              title="Job Filled"
               data-ng-click="filled($event, model)">
               <i class="ci ci-person-check ci-lg"></i>
             </button>
 
             <button class="btn btn-transparent"
+              title="Delete"
               data-ng-click="delete($event, model._id)">
               <i class="ci ci-trash ci-lg"></i>
             </button>
