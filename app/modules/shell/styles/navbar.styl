@@ -48,11 +48,9 @@ ul.navbar-nav > li > a
   div.main-content[data-ui-view="main"]
     height 100%
 
-div.main-content[data-ui-view="main"]
-  & > div,
-  & > ul
-    height 100%
-    overflow-y auto
+ul[data-scroll-loader]
+  height 100%
+  overflow-y auto
 
 // User profile icon
 img.avatar

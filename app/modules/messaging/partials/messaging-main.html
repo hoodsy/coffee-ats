@@ -1,4 +1,6 @@
-<ul class="row xs-clear-margin">
+<ul class="row xs-clear-margin"
+  data-scroll-loader
+  data-handle-scroll-to-bottom="loadMatches()">
   <li class="col-xs-12 xs-clear-padding matches-list-item"
     data-ng-repeat="match in matches"
     data-ng-swipe-left="enableControls($index)"

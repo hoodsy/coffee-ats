@@ -6,32 +6,68 @@ angular.module('messaging')
     // Flag to activate match controls
     $scope.canShowControls = -1;
 
-    UserMatch.query(function(response) {
-      $scope.matches = response;
+    // Flag for when more matches are being loaded
+    $scope.loadingMoreMatches = false;
 
-      // Iterate through the matches and assign the proper palette
+    // Track the date of the earliest matches we have received
+    var earliestMatchDate = null;
 
-      var opportunityCount = 0;
-      var userCount = 0;
+    // Flag to mark when all matches have been loaded
+    var allMatchesLoaded = false;
 
-      $scope.matches.forEach(function(match) {
-        if (match.opportunities.length > 0) {
-          opportunityCount = (opportunityCount + 1) % 3;
-          match._palette = opportunityCount;
-          match._paletteClass = 'opportunity';
+    // Array to hold opportunity objects
+    $scope.matches = [];
+
+
+    $scope.loadMatches = function() {
+      if (allMatchesLoaded) {
+        return;
+      }
+
+      $scope.loadingMoreMatches = true;
+
+      UserMatch.query({
+        after: earliestMatchDate
+      }, function(response) {
+
+        if (response.length === 0) {
+          allMatchesLoaded = true;
+
         } else {
-          userCount = (userCount + 1) % 5;
-          match._palette = userCount;
-          match._paletteClass = 'user';
+          // Extend the end of matches with response
+          response.unshift($scope.matches.length, 0);
+          $scope.matches.splice.apply($scope.matches, response);
+          earliestMatchDate = $scope.matches[$scope.matches.length-1].updated;
+        }
+
+        // Iterate through the matches and assign the proper palette
+
+        var opportunityCount = 0;
+        var userCount = 0;
+
+        $scope.matches.forEach(function(match) {
+          if (match.opportunities.length > 0) {
+            opportunityCount = (opportunityCount + 1) % 3;
+            match._palette = opportunityCount;
+            match._paletteClass = 'opportunity';
+          } else {
+            userCount = (userCount + 1) % 5;
+            match._palette = userCount;
+            match._paletteClass = 'user';
+          }
+        });
+
+        // Open up the first match already
+        if ($scope.isDesktop &&
+            $scope.matches.length &&
+            !/detail$/.test($state.current.name)) {
+          $state.go('.detail', { id: $scope.matches[0]._id });
         }
       });
+    };
 
-      // Open up the first match already
-      if ($scope.matches.length &&
-          !/detail$/.test($state.current.name)) {
-        $state.go('.detail', { id: $scope.matches[0]._id });
-      }
-    });
+    $scope.loadMatches();
+
 
     $scope.toggleControls = function(index) {
       if ($scope.canShowControls === index) {

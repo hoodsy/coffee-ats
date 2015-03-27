@@ -7,6 +7,9 @@ angular.module('opportunity')
     // data-bound to the child card directives which control the toggling
     $scope.showControls = { id: -1 };
 
+    // Flag for when more opportunities are being loaded
+    $scope.loadingMoreOpportunities = false;
+
     // Track the date of the earliest opportunity we have received
     var earliestOpportunityDate = null;
 
