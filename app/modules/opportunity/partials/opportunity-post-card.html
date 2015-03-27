@@ -3,13 +3,19 @@
   <div class="row clear-margin">
     <div class="hidden-xs col-sm-5 clear-padding uppercase">
       <div class="row clear-margin opportunity-post-card-info">
-        <div class="col-xs-12 clear-padding flex-center">
-          {{ model.applicantsCount }} Applicants
+        <div class="col-xs-6 clear-padding flex-center text-left">
+          <span class="jumbo-count">{{ model.matchesCount }}</span>
+        </div>
+        <div class="col-xs-6 clear-padding flex-center text-right">
+          <h2>Coffee Meetings</h2>
         </div>
       </div>
       <div class="row clear-margin opportunity-post-card-info">
-        <div class="col-xs-12 clear-padding flex-center">
-          Matches
+        <div class="col-xs-6 clear-padding flex-center text-left">
+          <span class="jumbo-count">{{ model.applicantsCount }}</span>
+        </div>
+        <div class="col-xs-6 clear-padding flex-center text-right">
+          <h2>Applicants</h2>
         </div>
       </div>
     </div>
@@ -70,7 +76,7 @@
           {{ model.applicantsCount }} Applicants
         </div>
         <div class="col-xs-6 clear-padding flex-center">
-          Matches
+          {{ model.matchesCount }} Matches
         </div>
       </div>
     </div>
