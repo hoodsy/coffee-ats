@@ -188,6 +188,24 @@ input[type=number]
   &.opportunity > .match-card-avatar
     background-color color-blue-2
 
+
+// Filled job palette
+.palette-filled
+
+  .row.opportunity-post-card-info
+    color color-white
+    background-color color-grey-2a
+
+  @media (max-width: screen-xs-max)
+    &.opportunity-post-card
+      color color-white
+      background-color color-grey-2
+
+  @media (min-width: screen-sm-min)
+    .opportunity-post-card-img-container
+      background linear-gradient(to right, color-grey-2 50%, rgba(0,0,0,0) 50%)
+
+
 // pre-palette (new opportunity)
 .edit-page-header
   color color-white

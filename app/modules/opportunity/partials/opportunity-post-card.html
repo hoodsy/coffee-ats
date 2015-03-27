@@ -1,4 +1,4 @@
-<div class="card-shadow opportunity-post-card palette-{{ count }}">
+<div class="card-shadow opportunity-post-card palette-{{ model.filled && 'filled' || count }}">
 
   <div class="row clear-margin">
     <div class="hidden-xs col-sm-5 clear-padding uppercase">
@@ -59,7 +59,7 @@
             </button>
 
             <button class="btn btn-transparent"
-              title="Job Filled"
+              data-ng-attr-title="{{ model.filled ? 'Un-fill Job' : 'Job Filled' }}"
               data-ng-click="filled($event, model)">
               <i class="ci ci-person-check ci-lg"></i>
             </button>

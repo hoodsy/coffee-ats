@@ -30,11 +30,30 @@ angular.module('opportunity')
     $scope.filled = function($event, opportunity) {
       $event.stopPropagation();
 
-      opportunity.active = false;
-      opportunity.$update(function() {
-        $scope.showControlsId = null;
-      }, function() {
-        console.log('failure');
+      // Open modal with prompt
+      var scope = $scope.$new();
+
+      scope.message = 'Job Filled?';
+      if (opportunity.filled) {
+        scope.message = 'Un-fill Job?';
+      }
+
+      var modalInstance = $modal.open({
+        templateUrl: 'modules/common/partials/prompt-modal.html',
+        scope: scope,
+        size: 'sm'
+      });
+
+      // Handle affirmative response
+      modalInstance.result.then(function() {
+        opportunity.filled = !opportunity.filled;
+        Opportunity.update({ id: opportunity._id }, opportunity, function() {
+          $scope.showControlsId = null;
+        }, function() {
+          console.log('failure');
+        });
+      }).finally(function() {
+        modalInstance.dismiss();
       });
     };
 
