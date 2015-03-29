@@ -10,8 +10,11 @@ angular.module('opportunity')
     // Initialize operations for create/edit
     $scope.manageInit = function() {
       if ($scope.isEditable) {
-        Opportunity.get({ id: $stateParams.id }, function(response) {
-          $scope.opportunity = response;
+        $scope.opportunity = Opportunity.get({ id: $stateParams.id }, function(opportunity) {
+          // Because backend supports array of locations but UI only has single input
+          if (opportunity.locations.length > 0) {
+            opportunity.location = opportunity.locations[0];
+          }
         });
       } else {
         // initialize opportunity to add tags before creation
@@ -49,19 +52,27 @@ angular.module('opportunity')
       opportunity.tags.splice(index, 1);
     };
 
+    function prepLocation(opportunity) {
+      // Because backend supports array of locations but UI only has single input
+      opportunity.locations = [opportunity.location];
+      delete opportunity.location;
+    }
+
     $scope.create = function(opportunity) {
+      prepLocation(opportunity);
       Opportunity.create(opportunity, function(response) {
         console.log('success');
-        $state.go('shell.opportunity.billing');
+        $state.go('shell.opportunity.detail', { id: response._id });
       }, function(response) {
         console.log('error');
       });
     };
 
     $scope.update = function(opportunity) {
+      prepLocation(opportunity);
       Opportunity.update(opportunity, function(response) {
         console.log('success');
-        $state.go('shell.opportunity');
+        $state.go('shell.opportunity.detail', { id: opportunity._id });
       }, function(response) {
         console.log('error');
       });
