@@ -2,11 +2,11 @@
   novalidate
   class="edit-form opportunity-edit-form palette-{{ palette }}"
   data-ng-init="manageInit()">
-  <div class="row xs-clear-margin height-100">
-    <div class="col-sm-12 xs-clear-padding edit-main height-100">
+  <div class="row clear-margin height-100">
+    <div class="col-sm-12 clear-padding edit-main height-100">
 
       <!-- Profile Edit navigation on mobile -->
-      <div class="row edit-row xs-clear-margin visible-xs-block edit-mobile-header">
+      <div class="row edit-row clear-margin visible-xs-block edit-mobile-header">
         <button class="col-xs-2 edit-page-btn btn"
           type="button"
           data-ng-click="previousPage()"
@@ -55,7 +55,7 @@
       <!-- Opportunity Description -->
       <div class="edit-mobile-page"
         data-ng-class="{ 'hidden-xs': page !== 1 }">
-        <div class="row xs-clear-margin white-bg headline-row flex-center-vert">
+        <div class="row clear-margin white-bg headline-row flex-center-vert">
           <div class="col-xs-12">
             <div class="row xs-clear-margin">
               <div class="col-xs-8 col-xs-offset-2 ">
@@ -84,7 +84,7 @@
         </div>
       </div>
 
-      <div class="row xs-clear-margin edit-mobile-page"
+      <div class="row clear-margin edit-mobile-page"
           data-ng-class="{ 'hidden-xs': page === 1 }">
         <div class="col-sm-6 xs-clear-padding height-100"
           data-ng-class="{ 'hidden-xs': !(page === 0 || page === 4) }">
@@ -259,7 +259,7 @@
   </div>
 
   <!-- Submit Button -->
-  <div class="row xs-clear-margin">
+  <div class="row clear-margin">
     <div class="clear-padding">
       <button type="submit"
         class="btn btn-block edit-submit-btn"
