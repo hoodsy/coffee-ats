@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('messaging')
-  .controller('MessagingCtrl', function ($scope, $modal, $state, $q, UserMatch, Incident, DEFAULT_PAGE_SIZE) {
+  .controller('MessagingCtrl', function (
+    $scope, $modal, $state, $stateParams, $q, UserMatch, Incident, DEFAULT_PAGE_SIZE) {
 
     // Flag to activate match controls
     $scope.canShowControls = -1;
@@ -27,7 +28,8 @@ angular.module('messaging')
       $scope.loadingMoreMatches = true;
 
       UserMatch.query({
-        after: earliestMatchDate
+        after: earliestMatchDate,
+        opportunity_id: $stateParams.op_id
       }, function(response) {
         $scope.loadingMoreMatches = false;
 

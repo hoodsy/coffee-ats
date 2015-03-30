@@ -5,7 +5,7 @@ var app = angular.module('feed');
 app.config(function ($stateProvider) {
     $stateProvider
       .state('shell.feed', {
-        url: '/feed',
+        url: '/feed?:op_id',
         views: {
           'main@shell': {
             templateUrl: 'modules/feed/partials/feed.html',

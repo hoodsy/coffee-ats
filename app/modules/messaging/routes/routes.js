@@ -5,7 +5,7 @@ var app = angular.module('messaging');
 app.config(function ($stateProvider) {
     $stateProvider
       .state('shell.messaging', {
-        abstract: true,
+        url: '/messaging?:op_id',
         views: {
           'main@shell': {
             templateUrl: 'modules/messaging/partials/messaging.html',
@@ -14,7 +14,6 @@ app.config(function ($stateProvider) {
         }
       })
       .state('shell.messaging.main', {
-        url: '/messaging',
         views: {
           'main@shell.messaging': {
             templateUrl: 'modules/messaging/partials/messaging-main.html'
