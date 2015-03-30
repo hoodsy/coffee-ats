@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('auth')
-  .factory('authService', function ($rootScope, $resource, $state) {
+  .factory('authService', function ($rootScope, $resource, $state, $location) {
 
     var authResource = $resource('/api/auth');
 
     return function() {
       $rootScope.authenticating = true;
 
-      var redirect = $state.current.name || 'shell.feed';
+      var redirect = $location.url() || '/feed';
       $state.go('login');
 
       authResource.get(function(response) {
@@ -19,7 +19,7 @@ angular.module('auth')
             $state.go('login');
           } else {
             $rootScope._user = response.user;
-            $state.go(redirect);
+            $location.url(redirect);
           }
       }, function(err) {
         console.log(err);
