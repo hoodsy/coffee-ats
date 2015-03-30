@@ -5,11 +5,14 @@ angular.module('opportunity')
 
     $scope.palette = $stateParams.palette || '1';
 
-    if ($stateParams.id) { $scope.isEditable = true; };
+    var editing = false;
+    if ($stateParams.id) {
+      editing = true;
+    };
 
     // Initialize operations for create/edit
     $scope.manageInit = function() {
-      if ($scope.isEditable) {
+      if (editing) {
         $scope.opportunity = Opportunity.get({ id: $stateParams.id }, function(opportunity) {
           // Because backend supports array of locations but UI only has single input
           if (opportunity.locations.length > 0) {
@@ -83,7 +86,7 @@ angular.module('opportunity')
         return;
       }
 
-      if ($scope.isEditable) {
+      if (editing) {
         $scope.update(opportunity);
       } else {
         $scope.create(opportunity);

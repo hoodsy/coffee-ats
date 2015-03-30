@@ -1,10 +1,11 @@
 <div class="text-center palette-{{ palette }} white-bg detail-container">
 
   <div class="user-card detail-header">
-    <a data-ui-sref="shell.user.detail.edit({ id: user._id, palette: palette })"
-      data-ng-if="isEditable(user)">
-      <i class="edit-user-btn ci ci-edit ci-lg"></i>
-    </a>
+    <button class="btn btn-transparent detail-edit-btn"
+      data-ui-sref="shell.user.detail.edit({ id: user._id, palette: palette })"
+      data-ng-if="isEditable()">
+      <i class="ci ci-edit ci-lg"></i>
+    </button>
 
     <div class="card-img-container">
       <div class="flex-center">
