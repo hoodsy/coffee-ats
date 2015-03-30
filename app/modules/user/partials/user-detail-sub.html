@@ -1,6 +1,6 @@
-<div class="text-center palette-{{ palette }} white-bg">
+<div class="text-center palette-{{ palette }} white-bg detail-container">
 
-  <div class="user-card">
+  <div class="user-card detail-header">
     <a data-ui-sref="shell.user.detail.edit({ id: user._id, palette: palette })"
       data-ng-if="isEditable(user)">
       <i class="edit-user-btn ci ci-edit ci-lg"></i>
@@ -34,71 +34,73 @@
     </div>
   </div>
 
-  <div class="row xs-clear-margin">
-    <div class="col-xs-8 col-xs-offset-2">
-      <h1 class="header uppercase"><strong>Experience</strong></h1>
-      <ul class="user-detail-list">
-        <li data-ng-repeat="experience in user.experiences">
-          <ul class="user-detail-sub-list t-experience">
-            <li class="t-organization">
-              <strong>{{ experience.organization }}</strong>
-            </li>
-            <li class="uppercase position t-position">
-              <span>{{ experience.position }}</span>
-            </li>
-            <li class="timespan t-timespan">
-              <span>
-                {{ experience.startTime | date:'MMMM yyyy':'UTC'}}
-              </span>
-              <span data-ng-if="experience.startTime && experience.endTime">
-                &ndash;
-              </span>
-              <span data-ng-if="experience.endTime">
-                {{ experience.endTime | date:'MMMM yyyy':'UTC'}}
-              </span>
-              <span data-ng-if="!experience.endTime">
-                Present
-              </span>
-            </li>
-          </ul>
-        </li>
-      </ul>
+  <div class="detail-body">
+    <div class="row clear-margin">
+      <div class="col-xs-8 col-xs-offset-2">
+        <h1 class="header uppercase"><strong>Experience</strong></h1>
+        <ul class="user-detail-list">
+          <li data-ng-repeat="experience in user.experiences">
+            <ul class="user-detail-sub-list t-experience">
+              <li class="t-organization">
+                <strong>{{ experience.organization }}</strong>
+              </li>
+              <li class="uppercase position t-position">
+                <span>{{ experience.position }}</span>
+              </li>
+              <li class="timespan t-timespan">
+                <span>
+                  {{ experience.startTime | date:'MMMM yyyy':'UTC'}}
+                </span>
+                <span data-ng-if="experience.startTime && experience.endTime">
+                  &ndash;
+                </span>
+                <span data-ng-if="experience.endTime">
+                  {{ experience.endTime | date:'MMMM yyyy':'UTC'}}
+                </span>
+                <span data-ng-if="!experience.endTime">
+                  Present
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
 
-      <h1 class="header uppercase"><strong>Education</strong></h1>
-      <ul class="user-detail-list">
-        <li data-ng-repeat="education in user.educations">
-          <ul class="user-detail-sub-list t-education">
-            <li class="t-school">
-              <strong>{{ education.school }}</strong>
-            </li>
-            <li class="uppercase position t-major">
-              <span>{{ education.degree }} {{ education.major }}</span>
-            </li>
-            <li class="timespan t-timespan">
-              <span>
-                {{ education.startTime | date:'MMMM yyyy':'UTC'}}
-              </span>
-              <span data-ng-if="education.startTime && education.endTime">
-                &ndash;
-              </span>
-              <span data-ng-if="education.endTime">
-                {{ education.endTime | date:'MMMM yyyy':'UTC'}}
-              </span>
-              <span data-ng-if="!education.endTime">
-                Present
-              </span>
-            </li>
-          </ul>
-        </li>
-      </ul>
+        <h1 class="header uppercase"><strong>Education</strong></h1>
+        <ul class="user-detail-list">
+          <li data-ng-repeat="education in user.educations">
+            <ul class="user-detail-sub-list t-education">
+              <li class="t-school">
+                <strong>{{ education.school }}</strong>
+              </li>
+              <li class="uppercase position t-major">
+                <span>{{ education.degree }} {{ education.major }}</span>
+              </li>
+              <li class="timespan t-timespan">
+                <span>
+                  {{ education.startTime | date:'MMMM yyyy':'UTC'}}
+                </span>
+                <span data-ng-if="education.startTime && education.endTime">
+                  &ndash;
+                </span>
+                <span data-ng-if="education.endTime">
+                  {{ education.endTime | date:'MMMM yyyy':'UTC'}}
+                </span>
+                <span data-ng-if="!education.endTime">
+                  Present
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <!-- Tags -->
-  <ul class="detail-tags-list user-detail-tags-list uppercase">
-    <li class="t-tag"
-      data-ng-repeat="tag in user.tags">
-      <span>{{ tag }}</span>
-    </li>
-  </ul>
+    <!-- Tags -->
+    <ul class="detail-tags-list user-detail-tags-list uppercase">
+      <li class="t-tag"
+        data-ng-repeat="tag in user.tags">
+        <span>{{ tag }}</span>
+      </li>
+    </ul>
+  </div>
 </div>
