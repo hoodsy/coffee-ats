@@ -3,6 +3,5 @@
 angular.module('opportunity', [
   'ngResource',
   'ui.router',
-  'ui.bootstrap',
-  'stripe'
+  'ui.bootstrap'
 ]);
