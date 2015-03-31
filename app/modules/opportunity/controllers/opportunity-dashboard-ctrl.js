@@ -31,11 +31,13 @@ angular.module('opportunity')
       }, function(response) {
         $scope.loadingMoreOpportunities = false;
 
+        // No more items to load
         if (response.length < DEFAULT_PAGE_SIZE) {
           $scope.allOpportunitiesLoaded = true;
+        }
 
-        } else {
-          // Extend the end of opportunities with response
+        // Extend the end of opportunities with response
+        if (response.length > 0) {
           response.unshift($scope.opportunities.length, 0);
           $scope.opportunities.splice.apply($scope.opportunities, response);
           earliestOpportunityDate = $scope.opportunities[$scope.opportunities.length-1].created;

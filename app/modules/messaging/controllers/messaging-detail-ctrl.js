@@ -89,12 +89,14 @@ angular.module('messaging')
       promise.then(function(response) {
         $scope.loadingMoreMessages = false;
 
+        // No more items to load
         if (response.length < DEFAULT_PAGE_SIZE) {
           nextScroll = null;
           $scope.allMessagesLoaded = true;
+        }
 
-        } else {
-          // Extend the beginning of matchMessages with response
+        // Extend the beginning of matchMessages with response
+        if (response.length > 0) {
           response.unshift(0, 0);
           nextScroll = 1;
           if ($scope.matchMessages.length === 0) {

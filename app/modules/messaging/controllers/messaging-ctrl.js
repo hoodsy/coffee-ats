@@ -39,11 +39,13 @@ angular.module('messaging')
       }, function(response) {
         $scope.loadingMoreMatches = false;
 
+        // No more items to load
         if (response.length < DEFAULT_PAGE_SIZE) {
           $scope.allMatchesLoaded = true;
+        }
 
-        } else {
-          // Extend the end of matches with response
+        // Extend the end of matches with response
+        if (response.length > 0) {
           response.unshift($scope.matches.length, 0);
           $scope.matches.splice.apply($scope.matches, response);
           earliestMatchDate = $scope.matches[$scope.matches.length-1].updated;
