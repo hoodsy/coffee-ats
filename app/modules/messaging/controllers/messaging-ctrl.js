@@ -64,7 +64,7 @@ angular.module('messaging')
         if ($scope.isDesktop &&
             $scope.matches.length &&
             !/detail$/.test($state.current.name)) {
-          $state.go('.detail', { id: $scope.matches[0]._id });
+          $state.go('shell.messaging.main.detail', { id: $scope.matches[0]._id });
         }
       });
     };
