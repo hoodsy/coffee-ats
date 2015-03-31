@@ -7,16 +7,15 @@ angular.module('messaging')
       ioSocket: io.connect(SOCKETIO_URL)
     });
 
-    console.log($rootScope._user._id);
     socket.emit('join', { userId: $rootScope._user._id });
 
+    // Play the beep sound
     function beep() {
       $("#beep")[0].play();
     }
 
     // Handlers registered by other code
     var handleMessage = [beep];
-
 
     var _handleMessage = function(data) {
       if (handleMessage.length) {
@@ -34,8 +33,14 @@ angular.module('messaging')
       socket.emit('message', data, fn);
     };
 
+    var sendRead = function(matchId, fn) {
+      socket.emit('read', {matchId: matchId}, fn);
+    };
+
     return {
       sendMessage: sendMessage,
+
+      sendRead: sendRead,
 
       registerHandlers: function (fn) {
         if (fn) {

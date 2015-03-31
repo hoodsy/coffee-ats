@@ -111,7 +111,15 @@ angular.module('messaging')
       return ($scope.canShowControls === index);
     };
 
-    // Launch Report model
+    // Mark match as read
+    $scope.markRead = function(matchId) {
+      var match = _.find($scope.matches, { _id: matchId });
+      if (match) {
+        match.unread = false;
+      }
+    };
+
+    // Launch Report modal
     $scope.report = function(userId) {
       var scope = $scope.$new();
       scope.message = 'Report?';
@@ -132,7 +140,7 @@ angular.module('messaging')
       });
     };
 
-    // Launch Delete model
+    // Launch Delete modal
     $scope.delete = function(matchId, $index) {
       var scope = $scope.$new();
       scope.message = 'Delete?';

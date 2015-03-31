@@ -52,10 +52,19 @@ angular.module('messaging')
     UserMatch.get({ id: matchId }, function(response) {
       $scope.match = response;
 
+      // Mark match as read
+      socket.sendRead($scope.match._id, function(err) {
+        if (err) {
+          console.log(err);
+        } else {
+          $scope.$parent.markRead($scope.match._id);
+        }
+      });
+
+      // Find user we are matched with
       matchedUser = _.find($scope.match.users, function(user) {
         return (user._id !== $scope._user._id);
       });
-
       $scope.user = User.get({id: matchedUser._id });
 
       // check if match exists in the parent scope
