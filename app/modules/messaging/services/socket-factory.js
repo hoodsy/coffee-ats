@@ -7,27 +7,32 @@ angular.module('messaging')
       ioSocket: io.connect(SOCKETIO_URL)
     });
 
-    socket.emit('join', { userId: $rootScope._user._id });
-
     // Play the beep sound
     function beep() {
       $("#beep")[0].play();
     }
 
-    // Handlers registered by other code
-    var handleMessage = [beep];
-
-    var _handleMessage = function(data) {
-      if (handleMessage.length) {
-        handleMessage.forEach(function(fn) {
-          fn(data);
-        });
-      } else {
+    function addNotification() {
+      if ($rootScope._user) {
         $rootScope._user.unreadNotificationsCount += 1;
       }
+    }
+
+    // Handlers registered by other code
+    var handleMessage = [beep, addNotification];
+
+    var _handleMessage = function(data) {
+      handleMessage.forEach(function(fn) {
+        fn(data);
+      });
     };
 
     socket.on('message', _handleMessage);
+
+
+    function init() {
+      socket.emit('join', { userId: $rootScope._user._id });
+    }
 
     var sendMessage = function(data, fn) {
       socket.emit('message', data, fn);
@@ -38,6 +43,8 @@ angular.module('messaging')
     };
 
     return {
+      init: init,
+
       sendMessage: sendMessage,
 
       sendRead: sendRead,

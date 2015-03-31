@@ -33,7 +33,7 @@ angular.module('messaging')
 
       $scope.loadingMoreMatches = true;
 
-      UserMatch.query({
+      var request = UserMatch.query({
         after: earliestMatchDate,
         opportunity_id: $stateParams.op_id
       }, function(response) {
@@ -79,9 +79,14 @@ angular.module('messaging')
           $state.go('shell.messaging.main.detail', { id: $scope.matches[0]._id });
         }
       });
+
+      return request.$promise;
     };
 
-    $scope.loadMatches();
+    $scope.loadMatches().then(function() {
+      // Clear unread notifications when user loads matches 1st time
+      $scope._user.unreadNotificationsCount = 0;
+    });
 
     function reloadMatches() {
       earliestMatchDate = null;

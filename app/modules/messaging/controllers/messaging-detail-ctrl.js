@@ -36,8 +36,11 @@ angular.module('messaging')
       if (data.matchId === matchId) {
         $scope.matchMessages.push(data.message);
         nextScroll = -1;
-      } else {
-        $scope._user.unreadNotificationsCount += 1;
+      }
+
+      // User can see the matches, so dont increment notifications
+      if ($scope.isDesktop) {
+        $scope._user.unreadNotificationsCount -= 1;
       }
     }
 
