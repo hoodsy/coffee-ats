@@ -2,7 +2,7 @@
 
 angular.module('messaging')
   .controller('MessagingCtrl', function (
-    $scope, $modal, $state, $stateParams, $q, UserMatch, Incident, DEFAULT_PAGE_SIZE) {
+    $scope, $modal, $state, $stateParams, $q, socket, UserMatch, Incident, DEFAULT_PAGE_SIZE) {
 
     // Flag to activate match controls
     $scope.canShowControls = -1;
@@ -18,6 +18,12 @@ angular.module('messaging')
 
     // Array to hold opportunity objects
     $scope.matches = [];
+
+    // Register message handlers with socket service
+    var tearDown = socket.registerHandlers(null, reloadMatches);
+
+    // De-register message handlers when we leave the scope
+    $scope.$on('$destroy', tearDown);
 
 
     $scope.loadMatches = function() {
@@ -71,6 +77,11 @@ angular.module('messaging')
 
     $scope.loadMatches();
 
+    function reloadMatches() {
+      earliestMatchDate = null;
+      $scope.allMatchesLoaded = false;
+      $scope.loadMatches();
+    }
 
     $scope.toggleControls = function(index) {
       if ($scope.canShowControls === index) {

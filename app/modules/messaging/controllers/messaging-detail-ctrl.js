@@ -48,10 +48,10 @@ angular.module('messaging')
     }
 
     // Register message handlers with socket service
-    socket.registerHandlers(handleSaveMessage, handleMessage);
+    var tearDown = socket.registerHandlers(handleSaveMessage, handleMessage);
 
     // De-register message handlers when we leave the scope
-    $scope.$on('$destroy', socket.tearDown);
+    $scope.$on('$destroy', tearDown);
 
 
     // Query the Match entity
@@ -136,7 +136,7 @@ angular.module('messaging')
       var messageText = $scope.messageText;
 
       var message = {
-        _id: btoa(date+messageText+senderId+recipientId),
+        // _id: btoa(date+messageText+senderId+recipientId),
         senderId: senderId,
         senderName: $scope._user._firstName,
         recipientId: recipientId,

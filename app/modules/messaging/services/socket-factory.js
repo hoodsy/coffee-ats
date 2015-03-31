@@ -9,20 +9,26 @@ angular.module('messaging')
 
     socket.emit('join', { userId: $rootScope._user._id });
 
+    function beep() {
+      $("#beep").play();
+    }
+
     // Handlers registered by other code
-    var handleSaveMessage = null;
-    var handleMessage = null;
+    var handleSaveMessage = [];
+    var handleMessage = [beep];
 
     // Private handlers always called
     var _handleSaveMessage = function(data) {
-      if (handleSaveMessage) {
-        handleSaveMessage(data);
-      }
+      handleSaveMessage.forEach(function(fn) {
+        fn(data);
+      });
     };
 
     var _handleMessage = function(data) {
-      if (handleMessage) {
-        handleMessage(data);
+      if (handleMessage.length) {
+        handleMessage.forEach(function(fn) {
+          fn(data);
+        });
       } else {
         $rootScope._user.unreadNotificationsCount += 1;
       }
@@ -39,13 +45,23 @@ angular.module('messaging')
       sendMessage: sendMessage,
 
       registerHandlers: function (saveFn, fn) {
-        handleSaveMessage = saveFn;
-        handleMessage = fn;
-      },
+        if (saveFn) {
+          handleSaveMessage.push(saveFn);
+        }
 
-      tearDown: function() {
-        handleSaveMessage = null;
-        handleMessage = null;
+        if (fn) {
+          handleMessage.push(fn);
+        }
+
+        return function tearDown() {
+          if (saveFn) {
+            handleSaveMessage.splice(handleSaveMessage.indexOf(saveFn), 1);
+          }
+
+          if (fn) {
+            handleMessage.splice(handleMessage.indexOf(fn), 1);
+          }
+        }
       }
     };
   });
