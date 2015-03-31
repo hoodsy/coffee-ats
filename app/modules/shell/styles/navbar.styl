@@ -1,7 +1,7 @@
 @import 'colors'
 @import 'layout'
 
-navbar-height = 55px
+navbar-height = 54px
 
 //nav.navbar.navbar-fixed-top
 //  border none
@@ -17,6 +17,7 @@ ul.nav
 
 ul.navbar-nav > li > a
   line-height 30px
+  padding-bottom 0
 
   &.nav-active
     color color-grey-30
@@ -61,25 +62,24 @@ img.avatar
   border-radius 50% 50%
 
 // User unread notifications
+.notifications-container
+  position relative
+
 span.unread-notifications
   position absolute
-  background-color red
+  background-color color-green-2b
   border-radius 50% 50%
   width 1.5em
   height 1.5em
-  font-size .5em
-  line-height 1.5em
+  font-size .3em
+  line-height 1.7em
   color white
   text-align center
 
   @media (min-width: screen-sm-min)
-    top 30%
-    left 15%
+    top 45%
+    left 55%
 
   @media (max-width: screen-xs-max)
-    top 25%
-    right 41%
-
-  @media (max-width: screen-iphone5-max)
-    top 25%
-    right 32%
+    top 20%
+    left 55%
