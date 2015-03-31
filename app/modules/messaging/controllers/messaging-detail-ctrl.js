@@ -30,13 +30,7 @@ angular.module('messaging')
     $scope.loadingMoreMessages = false;
 
 
-    // Handlers for message events
-
-    function handleSaveMessage(data) {
-      var msg = _.findLast($scope.matchMessages, { _id: data.message._id });
-      msg._pending = false;
-      nextScroll = -1;
-    }
+    // Handler for message events
 
     function handleMessage(data) {
       if (data.matchId === matchId) {
@@ -48,7 +42,7 @@ angular.module('messaging')
     }
 
     // Register message handlers with socket service
-    var tearDown = socket.registerHandlers(handleSaveMessage, handleMessage);
+    var tearDown = socket.registerHandlers(handleMessage);
 
     // De-register message handlers when we leave the scope
     $scope.$on('$destroy', tearDown);
@@ -138,7 +132,7 @@ angular.module('messaging')
       var message = {
         // _id: btoa(date+messageText+senderId+recipientId),
         senderId: senderId,
-        senderName: $scope._user._firstName,
+        senderName: $scope._user.firstName,
         recipientId: recipientId,
         text: messageText,
         created: date
@@ -149,11 +143,22 @@ angular.module('messaging')
         message: message
       };
 
-      socket.sendMessage(data);
-      nextScroll = -1;
       message._pending = true;
+      nextScroll = -1;
       $scope.matchMessages.push(message);
-      $scope.messageText = '';
+
+      socket.sendMessage(data, function(err) {
+        message._pending = false;
+
+        if (err) {
+          // On error, remove pending message from array
+          console.log('ERROR:', err);
+          $scope.matchMessages.splice($scope.matchMessages.indexOf(message), 1);
+        } else {
+          // On success, clear the input
+          $scope.messageText = '';
+        }
+      });
     };
 
     $scope.delete = function(matchId) {

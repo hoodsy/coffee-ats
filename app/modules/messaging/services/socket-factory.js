@@ -7,22 +7,16 @@ angular.module('messaging')
       ioSocket: io.connect(SOCKETIO_URL)
     });
 
+    console.log($rootScope._user._id);
     socket.emit('join', { userId: $rootScope._user._id });
 
     function beep() {
-      $("#beep").play();
+      $("#beep")[0].play();
     }
 
     // Handlers registered by other code
-    var handleSaveMessage = [];
     var handleMessage = [beep];
 
-    // Private handlers always called
-    var _handleSaveMessage = function(data) {
-      handleSaveMessage.forEach(function(fn) {
-        fn(data);
-      });
-    };
 
     var _handleMessage = function(data) {
       if (handleMessage.length) {
@@ -34,30 +28,21 @@ angular.module('messaging')
       }
     };
 
-    socket.on('saved', _handleSaveMessage);
     socket.on('message', _handleMessage);
 
-    var sendMessage = function(data) {
-      socket.emit('message', data);
+    var sendMessage = function(data, fn) {
+      socket.emit('message', data, fn);
     };
 
     return {
       sendMessage: sendMessage,
 
-      registerHandlers: function (saveFn, fn) {
-        if (saveFn) {
-          handleSaveMessage.push(saveFn);
-        }
-
+      registerHandlers: function (fn) {
         if (fn) {
           handleMessage.push(fn);
         }
 
         return function tearDown() {
-          if (saveFn) {
-            handleSaveMessage.splice(handleSaveMessage.indexOf(saveFn), 1);
-          }
-
           if (fn) {
             handleMessage.splice(handleMessage.indexOf(fn), 1);
           }
