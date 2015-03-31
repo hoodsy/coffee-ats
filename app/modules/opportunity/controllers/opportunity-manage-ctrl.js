@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('opportunity')
-  .controller('OpportunityManageCtrl', function ($scope, $state, $stateParams, Opportunity) {
+  .controller('OpportunityManageCtrl', function ($scope, $state, $stateParams, $q, Opportunity) {
 
     $scope.palette = $stateParams.palette || '1';
+
+    // DOM element id for file input
+    $scope.fileUploadId = "image-upload";
 
     var editing = false;
     if ($stateParams.id) {
@@ -58,38 +61,75 @@ angular.module('opportunity')
     function prepLocation(opportunity) {
       // Because backend supports array of locations but UI only has single input
       opportunity.locations = [opportunity.location];
-      delete opportunity.location;
     }
 
-    $scope.create = function(opportunity) {
-      prepLocation(opportunity);
-      Opportunity.create(opportunity, function(response) {
-        console.log('success');
-        $state.go('shell.opportunity.detail', { id: response._id });
-      }, function(response) {
-        console.log('error');
-      });
-    };
-
-    $scope.update = function(opportunity) {
-      prepLocation(opportunity);
-      Opportunity.update(opportunity, function(response) {
-        console.log('success');
-        $state.go('shell.opportunity.detail', { id: opportunity._id });
-      }, function(response) {
-        console.log('error');
-      });
-    };
-
     $scope.finish = function(opportunity) {
+      prepLocation(opportunity);
+
       if (Object.keys($scope.editForm.$error).length > 0) {
         return;
       }
 
-      if (editing) {
-        $scope.update(opportunity);
-      } else {
-        $scope.create(opportunity);
+      var deferred = $q.defer();
+      var promise = deferred.promise;
+
+      if (!editing) {
+        promise.then(function(opportunity) {
+          return Opportunity.create(opportunity).$promise;
+        });
       }
+
+      promise
+        .then(function(opportunity) {
+          return s3_upload(opportunity);
+        })
+        .then(function(opportunity) {
+          return Opportunity.update(opportunity).$promise;
+        })
+        .then(function(response) {
+          console.log('success');
+          var id = opportunity._id || response._id;
+          $state.go('shell.opportunity.detail', { id: id });
+        })
+        .catch(function(err) {
+          console.log('error: ' + err);
+        });
+
+        deferred.resolve(opportunity);
     };
+
+    function s3_upload(opportunity){
+      var deferred = $q.defer();
+
+      if ($('#'+$scope.fileUploadId)[0].files.length === 0) {
+        deferred.resolve(opportunity);
+        return deferred.promise;
+      }
+
+      var s3upload = new S3Upload({
+        file_dom_selector: $scope.fileUploadId,
+        s3_sign_put_url: '/api/opportunities/' + opportunity._id + '/s3_upload_signature',
+        onFinishS3Put: function(public_url) {
+          opportunity.picture = public_url;
+          deferred.resolve(opportunity);
+        },
+        onError: function(status) {
+          deferred.reject(status);
+        }
+      });
+
+      return deferred.promise;
+    }
+
+    // $scope.uploadFilesChanged = function() {
+    //   if ($scope.opportunity._id) {
+    //     $scope.$apply(function() {
+    //       $scope.imageUploading = true;
+    //       s3_upload($scope.opportunity)
+    //           .finally(function() {
+    //             $scope.imageUploading = false;
+    //           });
+    //     });
+    //   }
+    // };
   });

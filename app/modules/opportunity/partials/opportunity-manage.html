@@ -182,6 +182,26 @@
                   data-ng-model="opportunity.location" />
               </div>
             </div>
+            <div class="row edit-row xs-clear-margin white-bg half-margin-right">
+              <div class="col-xs-4 edit-col flex-center">
+                <img class="rounded"
+                  alt="opportunity img"
+                  data-ng-src="{{ opportunity.picture }}"
+                  data-ng-if="opportunity.picture"/>
+                <!-- <i class="fa fa-spinner fa-spin"
+                  data-ng-if="imageUploading">
+                </i> -->
+                <i class="fa fa-question-circle"
+                  data-ng-if="!opportunity.picture">
+                </i>
+                <h3 class="uppercase">Picture</h3>
+              </div>
+              <div class="col-xs-8 edit-col flex-center-vert">
+                <input id="{{fileUploadId}}"
+                  type="file"/>
+                  <!-- onchange="angular.element(this).scope().uploadFilesChanged()"/> -->
+              </div>
+            </div>
           </div>
 
           <!-- Tags -->
