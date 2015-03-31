@@ -20,13 +20,13 @@ angular.module('messaging')
     $scope.matches = [];
 
     // Register message handlers with socket service
-    var tearDown = socket.registerHandlers(null, reloadMatches);
+    var tearDown = socket.registerHandlers(reloadMatches);
 
     // De-register message handlers when we leave the scope
     $scope.$on('$destroy', tearDown);
 
 
-    $scope.loadMatches = function() {
+    $scope.loadMatches = function(reload) {
       if ($scope.allMatchesLoaded) {
         return;
       }
@@ -38,6 +38,10 @@ angular.module('messaging')
         opportunity_id: $stateParams.op_id
       }, function(response) {
         $scope.loadingMoreMatches = false;
+
+        if (reload) {
+          $scope.matches.splice(0, $scope.matches.length);
+        }
 
         // No more items to load
         if (response.length < DEFAULT_PAGE_SIZE) {
@@ -82,7 +86,7 @@ angular.module('messaging')
     function reloadMatches() {
       earliestMatchDate = null;
       $scope.allMatchesLoaded = false;
-      $scope.loadMatches();
+      $scope.loadMatches(true);
     }
 
     $scope.toggleControls = function(index) {
