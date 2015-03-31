@@ -11,6 +11,8 @@ angular.module('opportunity')
 
     // Only logged in user may edit their own profile
     $scope.isEditable = function() {
-      return ($rootScope._user._id === $scope.opportunity.creatorId);
+      if ($scope.opportunity) {
+        return ($rootScope._user._id === $scope.opportunity.creatorId);
+      }
     };
   });
