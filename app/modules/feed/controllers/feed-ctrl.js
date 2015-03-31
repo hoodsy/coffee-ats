@@ -7,7 +7,7 @@ angular.module('feed')
     $scope.loadingMoreFeed = false;
 
     // Track the last page of feed we retrieved
-    var feedPage = 0;
+    var feedPage = 1;
 
     // Flag to mark when all feed items have been loaded
     $scope.allFeedLoaded = false;
