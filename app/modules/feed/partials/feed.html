@@ -1,7 +1,15 @@
-<div class="row xs-clear-margin">
-  <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 xs-clear-padding"
+<ul class="row xs-clear-margin"
+  data-scroll-loader
+  data-handle-scroll-to-bottom="loadFeed()">
+  <li class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 xs-clear-padding"
     data-ng-repeat="item in feed"
     data-ng-if="item._state !== 'hidden'"
     data-coffee-card>
-  </div>
-</div>
+  </li>
+  <li class="col-xs-12 xs-clear-padding loading-container"
+    data-ng-if="!allFeedLoaded">
+    <div class="flex-center">
+      <i class="fa fa-spinner fa-spin"></i>
+    </div>
+  </li>
+</ul>
