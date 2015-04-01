@@ -11,7 +11,7 @@ angular.module('auth')
         $rootScope.authenticating = true;
 
         var redirect = $location.url() || '/feed';
-        $state.go('login');
+        $state.go('shell.login');
 
         authResource.get(function(response) {
             $rootScope.authenticating = false;
@@ -20,7 +20,7 @@ angular.module('auth')
             if (response.status === 401 ||
                 response.authenticated === false ||
                 response.user === undefined) {
-              $state.go('login');
+              $state.go('shell.login');
 
             } else {
               // User is authenticated
@@ -36,7 +36,7 @@ angular.module('auth')
 
       logout: function() {
         logoutResource.save(function() {
-          $state.go('login');
+          $state.go('shell.login');
         }, function(err) {
           console.log('ERROR:', err);
         });

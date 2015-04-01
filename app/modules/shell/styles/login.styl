@@ -1,5 +1,28 @@
+@import 'colors'
+@import 'layout'
+
 img.logo
   width: 25%
 
-.container.login
-  margin-top 100px
+login-button-margin = .5em
+login-button-height = 2.5em
+login-button-total = login-button-margin*2 + login-button-height
+
+.carousel-container
+  height 'calc(100% - %s)' % login-button-total
+
+  ul[rn-carousel]
+    height 50%
+    width 100%
+    max-width screen-xs-max
+
+    & > li.login-slide
+      color color-white
+      padding 0 25%
+
+button.btn.login-button
+  width 'calc(100% - %s)' % (2*login-button-margin)
+  margin login-button-margin
+  height login-button-height
+  color color-white
+  border 1px solid color-white

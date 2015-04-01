@@ -6,6 +6,9 @@ app.config(function ($stateProvider) {
     $stateProvider
       .state('shell.feed', {
         url: '/feed?:op_id',
+        resolve: {
+          'feedResource': 'Feed'
+        },
         views: {
           'main@shell': {
             templateUrl: 'modules/feed/partials/feed.html',

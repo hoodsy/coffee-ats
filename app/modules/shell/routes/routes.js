@@ -9,8 +9,20 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         abstract: true,
         templateUrl: 'modules/shell/partials/shell.html'
       })
-      .state('login', {
+      .state('shell.login', {
         url: '/login',
-        templateUrl: 'modules/shell/partials/login.html'
+        resolve: {
+          'feedResource': 'LoginFeed'
+        },
+        views: {
+          'main@shell': {
+            templateUrl: 'modules/feed/partials/feed.html',
+            controller: 'FeedCtrl'
+          },
+          'overlay@shell': {
+            templateUrl: 'modules/shell/partials/login.html',
+            controller: 'LoginCtrl'
+          }
+        }
       });
   });

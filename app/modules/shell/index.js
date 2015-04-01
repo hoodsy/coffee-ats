@@ -7,7 +7,8 @@ angular.module('shell', [
   'user',
   'opportunity',
   'messaging',
-  'ui.router'
+  'ui.router',
+  'angular-carousel'
 ]).config(function($httpProvider) {
 
   function prependTransform(transform) {

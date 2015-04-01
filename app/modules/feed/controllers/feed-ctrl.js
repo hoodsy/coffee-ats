@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('feed')
-  .controller('FeedCtrl', function ($scope, $stateParams, Feed, DEFAULT_PAGE_SIZE) {
+  .controller('FeedCtrl', function ($scope, $stateParams, feedResource, DEFAULT_PAGE_SIZE) {
 
     // Flag for when more feed items are being loaded
     $scope.loadingMoreFeed = false;
@@ -22,7 +22,7 @@ angular.module('feed')
 
       $scope.loadingMoreFeed = true;
 
-      Feed.query({
+      feedResource.query({
         page: feedPage,
         opportunity_id: $stateParams.op_id
       }, function(response) {
