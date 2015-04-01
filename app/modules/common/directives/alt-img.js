@@ -13,17 +13,6 @@ angular.module('common')
       },
       link: function(scope, element, attrs) {
 
-        // If the image fails to load, put up a question icon
-        element.bind('error', function() {
-          $(this).hide().after(ques);
-        });
-
-        if (scope.altImg) {
-          element.show();
-          element.attr('src', scope.altImg);
-          return;
-        }
-
         var spin = $('<span class="fa-stack fa-lg alt-img">' +
             '<i class="fa fa-circle fa-stack-2x fa-inverse"></i>' +
             '<i class="fa fa-spinner fa-spin fa-stack-1x"></i>' +
@@ -32,6 +21,18 @@ angular.module('common')
             '<i class="fa fa-circle fa-stack-2x fa-inverse"></i>' +
             '<i class="fa fa-question fa-stack-1x"></i>' +
           '</span>');
+
+        // If the image fails to load, put up a question icon
+        element.bind('error', function() {
+          $(this).hide().after(ques);
+        });
+
+        // Image source already resolved, no need to setup spinner
+        if (scope.altImg) {
+          element.show();
+          element.attr('src', scope.altImg);
+          return;
+        }
 
         function setCss(el) {
           ['top', 'left', 'right', 'bottom'].forEach(function(loc) {
