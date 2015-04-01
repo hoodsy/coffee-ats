@@ -5,6 +5,9 @@ git reset --hard HEAD
 # pull the latest changes.
 git pull origin master
 
+#copy the config is not already done.
+cp -n config.json.sample config.json
+
 #install global deps
 npm install -g bower gulp
 
