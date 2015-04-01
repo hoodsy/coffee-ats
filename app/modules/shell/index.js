@@ -26,5 +26,5 @@ angular.module('shell', [
   });
 
 }).run(function(authService) {
-  authService();
+  authService.auth();
 });

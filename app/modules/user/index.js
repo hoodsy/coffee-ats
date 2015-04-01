@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('user', [
-	'ngResource',
-	'ui.router',
+  'auth',
+  'ngResource',
+  'ui.router',
   'ui.keypress',
-	'ngCookies'
-	]);
+  'ngCookies'
+]);
