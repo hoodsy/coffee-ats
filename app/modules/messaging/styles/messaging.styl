@@ -45,12 +45,12 @@ img-translate = 50%
 .match-unread-badge
   height .8em
   width .8em
-  position relative
-  top -20%
+  position absolute
+  right 5%
+  top 75%
   z-index 9999
   border-radius 50%
   background-color color-green-1
-  right -75%
 
 .match-card-detail,
 .match-card-avatar
@@ -71,6 +71,7 @@ img-translate = 50%
 
     .filter
       position absolute
+      top 0
       border-radius 50%
       background rgba(255,255,255,.3)
       z-index 9999
@@ -78,6 +79,9 @@ img-translate = 50%
 
       @media (max-width: screen-xs-max)
         visibility hidden
+
+  .alt-img ~ .filter
+    visibility hidden
 
   &.active > .img-container > .filter
     visibility hidden

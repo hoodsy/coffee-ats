@@ -34,7 +34,9 @@ angular.module('common')
           '</span>');
 
         function setCss(el) {
-          el.css('top', element.css('top'));
+          ['top', 'left', 'right', 'bottom'].forEach(function(loc) {
+            el.css(loc, element.css(loc));
+          });
         }
 
         setCss(spin);
