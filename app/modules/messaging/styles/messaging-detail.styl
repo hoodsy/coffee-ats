@@ -1,10 +1,14 @@
 @import 'colors'
 @import 'layout'
 
-title-height = 75px
-input-height = 60px
-input-xs-height = 36px
+match-card-height = 9em
+title-height = 5.5em
+input-xs-height = 2.5em
+input-padding = 1em
+input-height = input-xs-height + input-padding
 
+.match-card
+  height 9em
 
 .row.messaging-title
   color color-white
@@ -40,7 +44,7 @@ input-xs-height = 36px
   border none
 
   @media (min-width: screen-sm-min)
-    height calc(100% - 9em)
+    height "calc(100% - 9em)" % (match-card-height)
 
 div.messaging-detail-profile
   float left
@@ -55,7 +59,7 @@ div.messaging-detail-profile
 
   @media (min-width screen-sm-min)
     height input-height
-    padding 12px 0
+    padding input-padding 0 0 0
 
 /*
  * Messages
