@@ -33,16 +33,13 @@ angular.module('common')
       model._cssClass = CARD_CSS_CLASSES.LIKED;
 
       UserLike.save([{ type: model.type, _id: model._id }], function() {
-
-        console.log('success');
-      }, function(err) {
-
         model._state = CARD_STATES.LIKED;
         $timeout(function() {
           model._state = CARD_STATES.HIDDEN;
         }, 2000);
 
-        console.log('err');
+      }, function(err) {
+        console.log('ERROR', err);
       });
     };
 
@@ -75,12 +72,12 @@ angular.module('common')
       params[model.type + 'Ids'] = [model._id];
 
       Feed.delete(params, function() {
-
-        console.log('success');
-      }, function(err) {
-
         model._state = CARD_STATES.HIDDEN;
-        console.log('err');
+
+      }, function(err) {
+        model._cssClass = null;
+        model._state = null;
+        console.log('ERROR', err);
       });
     };
 
