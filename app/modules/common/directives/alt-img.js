@@ -27,13 +27,7 @@ angular.module('common')
           $(this).hide().after(ques);
         });
 
-        // Image source already resolved, no need to setup spinner
-        if (scope.altImg) {
-          element.show();
-          element.attr('src', scope.altImg);
-          return;
-        }
-
+        // Tweak spinner / question css so it matches <img> CSS
         function setCss(el) {
           ['top', 'left', 'right', 'bottom'].forEach(function(loc) {
             el.css(loc, element.css(loc));
@@ -42,6 +36,13 @@ angular.module('common')
 
         setCss(spin);
         setCss(ques);
+
+        // Image source already resolved, no need to setup spinner
+        if (scope.altImg) {
+          element.show();
+          element.attr('src', scope.altImg);
+          return;
+        }
 
         // On init, put spinner in place
         element.hide();
