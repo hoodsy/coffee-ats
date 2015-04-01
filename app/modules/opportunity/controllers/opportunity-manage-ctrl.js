@@ -66,6 +66,8 @@ angular.module('opportunity')
     $scope.finish = function(opportunity) {
       prepLocation(opportunity);
 
+      var opId;
+
       if (Object.keys($scope.editForm.$error).length > 0) {
         return;
       }
@@ -74,7 +76,7 @@ angular.module('opportunity')
       var promise = deferred.promise;
 
       if (!editing) {
-        promise.then(function(opportunity) {
+        promise = promise.then(function(opportunity) {
           return Opportunity.create(opportunity).$promise;
         });
       }
@@ -84,12 +86,11 @@ angular.module('opportunity')
           return s3_upload(opportunity);
         })
         .then(function(opportunity) {
+          opId = opportunity._id;
           return Opportunity.update(opportunity).$promise;
         })
         .then(function(response) {
-          console.log('success');
-          var id = opportunity._id || response._id;
-          $state.go('shell.opportunity.detail', { id: id });
+          $state.go('shell.opportunity.detail', { id: opId });
         })
         .catch(function(err) {
           console.log('error: ' + err);
