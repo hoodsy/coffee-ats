@@ -1,39 +1,67 @@
-<div class="modal-backdrop fade in height-100 text-center">
+<div class="overlay-container height-100 text-center">
 
-    <div class="carousel-container">
-      <div class="flex-center">
-        <ul rn-carousel
-          rn-carousel-index="carouselIndex">
-          <li class="login-slide"
-            data-ng-repeat="slide in slides">
-            <h1 class="uppercase"><strong>{{slide.header}}</strong></h1>
-            <p data-ng-if="slide.subheader"><strong>{{slide.subheader}}</strong></p>
-            <p>{{slide.body}}</p>
-          </li>
-        </ul>
+  <div class="modal-backdrop fade in"></div>
 
-        <div rn-carousel-indicators
-          rn-carousel-index="carouselIndex"
-          slides="slides"
-          data-ng-if="slides.length > 1">
+  <div class="splash-container height-100">
+
+    <!-- Mobile splash -->
+    <div class="visible-xs-block height-100">
+      <div class="carousel-container">
+        <div class="flex-center">
+          <ul rn-carousel
+            rn-carousel-index="carouselIndex">
+            <li class="login-slide"
+              data-ng-repeat="slide in slides">
+              <h1 class="uppercase"><strong>{{slide.header}}</strong></h1>
+              <p data-ng-if="slide.subheader"><strong>{{slide.subheader}}</strong></p>
+              <p>{{slide.body}}</p>
+            </li>
+          </ul>
+
+          <div rn-carousel-indicators
+            rn-carousel-index="carouselIndex"
+            slides="slides"
+            data-ng-if="slides.length > 1">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-4 text-center">
+          <button class="btn btn-transparent btn-block login-button"
+            data-ng-click="loginLinkedin()"
+            data-ng-if="!authenticating">
+            <i class="fa fa-linkedin-square"></i>
+            Sign in with LinkedIn
+          </button>
+          <div data-ng-if="authenticating">
+            <i class="fa fa-spinner fa-spin"></i>
+            Authenticating
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-4 text-center">
-        <button class="btn btn-transparent btn-block login-button"
-          data-ng-click="loginLinkedin()"
-          data-ng-if="!authenticating">
-          <i class="fa fa-linkedin-square"></i>
-          Sign in with LinkedIn
-        </button>
-        <div data-ng-if="authenticating">
-          <i class="fa fa-spinner fa-spin"></i>
-          Authenticating
+    <div class="hidden-xs flex-center">
+      <div class="desktop-splash-container">
+        <div class="flex-center">
+          <p>Discover your professional feed</p>
+
+          <button class="btn btn-linkedin"
+            data-ng-click="loginLinkedin()"
+            data-ng-if="!authenticating">
+            <i class="fa fa-linkedin flex-center-vert"></i>
+            <span class="flex-center-vert">
+              Sign in with LinkedIn
+            </span>
+          </button>
+
+          <div data-ng-if="authenticating">
+            <i class="fa fa-spinner fa-spin"></i>
+            Authenticating
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>

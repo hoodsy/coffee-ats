@@ -4,6 +4,21 @@
 img.logo
   width: 25%
 
+.overlay-container,
+.splash-container
+  position fixed
+  top 0
+  bottom 0
+  left 0
+  right 0
+
+.overlay-container
+  z-index 9998
+
+.splash-container
+  z-index 9999
+
+
 login-button-margin = .5em
 login-button-height = 2.5em
 login-button-total = login-button-margin*2 + login-button-height
@@ -19,6 +34,14 @@ login-button-total = login-button-margin*2 + login-button-height
     & > li.login-slide
       color color-white
       padding 0 25%
+
+.desktop-splash-container
+  background color-white
+  border-radius 1em
+  max-height 50%
+  max-width 50%
+  height 500px
+  width 500px
 
 button.btn.login-button
   width 'calc(100% - %s)' % (2*login-button-margin)
