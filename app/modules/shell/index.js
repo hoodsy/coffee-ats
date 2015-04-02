@@ -26,6 +26,4 @@ angular.module('shell', [
     return value;
   });
 
-}).run(function(authService) {
-  authService.auth();
 });

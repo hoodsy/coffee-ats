@@ -2,12 +2,15 @@
 
 var app = angular.module('shell');
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, authServiceProvider) {
     $urlRouterProvider.otherwise('/login');
     $stateProvider
       .state('shell', {
         abstract: true,
-        templateUrl: 'modules/shell/partials/shell.html'
+        templateUrl: 'modules/shell/partials/shell.html',
+        resolve: {
+          'auth': authServiceProvider.$get().auth
+        }
       })
       .state('shell.login', {
         url: '/login',
