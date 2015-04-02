@@ -125,7 +125,7 @@ angular.module('messaging')
     };
 
     // Launch Report modal
-    $scope.report = function(userId) {
+    $scope.report = function(match) {
       var scope = $scope.$new();
       scope.message = 'Report?';
 
@@ -137,8 +137,17 @@ angular.module('messaging')
 
       // Handle affirmative response
       modalInstance.result.then(function() {
-        Incident.save({ userId: userId }, function() {}, function() {
-          console.log('Implement me');
+
+        var matchedUser = _.find(match.users, function(user) {
+          return (user._id !== $scope._user._id);
+        });
+
+        Incident.save({
+          reporterId: $scope._user._id,
+          reportedId: matchedUser._id,
+          matchId: match._id
+        }, function() {}, function(err) {
+          console.log('ERROR', err);
         });
       }).finally(function() {
         modalInstance.dismiss();
