@@ -9,15 +9,16 @@ git pull origin master
 cp -n config.json.sample config.json
 
 #install global deps
-npm install -g bower gulp
+# npm install -g bower gulp
 
 # remove old installed deps
-rm -rf node_modules
-rm -rf app/bower_components
+# rm -rf node_modules
+# rm -rf app/bower_components
 
 # install deps. exit if it fails
-tmpdir=$(mktemp -d -t ats.XXXX)
-npm install --ignore-scripts --cache=$tmpdir
+# tmpdir=$(mktemp -d -t ats.XXXX)
+# npm install --ignore-scripts --cache=$tmpdir
+npm install --ignore-scripts
 rc=$?;
 rm -rf $tmpdir
 if [[ $rc != 0 ]]; then
