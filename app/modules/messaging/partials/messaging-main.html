@@ -41,7 +41,7 @@
       <div class="match-card-controls flex-center hidden-sm hidden-md hidden-lg"
         data-ng-class="{
         'col-xs-3': !showControls($index),
-        'col-xs-8 grow': showControls($index)
+        'col-xs-6 grow': showControls($index)
         }">
         <button class="btn btn-transparent"
           data-ng-click="toggleControls($index)"
@@ -49,7 +49,7 @@
           <i class="ci ci-more ci-lg"></i>
         </button>
 
-        <div class="row"
+        <div class="row spread-out"
           data-ng-if="showControls($index)">
           <button class="btn btn-transparent"
             data-ng-click="toggleControls($index)">

@@ -45,8 +45,9 @@
         <div class="opportunity-post-card-controls flex-center"
           data-ng-class="{
             'col-xs-2': !showControls(model._id),
-            'col-xs-6 grow': showControls(model._id)
+            'col-xs-5 grow': showControls(model._id)
           }">
+
           <button class="btn btn-transparent visible-xs-block"
             data-ng-click="toggleControls($event, model._id)"
             data-ng-if="!showControls(model._id)">
@@ -54,6 +55,7 @@
           </button>
 
           <div class="row"
+            data-ng-class="{'spread-out': showControls(model._id)}"
             data-ng-if="showControls(model._id) || $root.isDesktop">
             <button class="btn btn-transparent visible-xs-inline"
               data-ng-click="toggleControls($event, model._id)">
