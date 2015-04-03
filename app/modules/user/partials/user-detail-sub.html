@@ -104,7 +104,8 @@
       </li>
     </ul>
 
-    <div class="row clear-margin">
+    <div class="row clear-margin"
+      data-ng-if="isEditable()">
       <div class="col-xs-8 col-xs-offset-2 clear-padding">
         <button class="btn btn-default btn-block"
           data-ng-click="logout()">
