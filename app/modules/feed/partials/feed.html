@@ -9,7 +9,14 @@
   <li class="col-xs-12 xs-clear-padding loading-container"
     data-ng-if="!allFeedLoaded">
     <div class="flex-center">
-      <i class="fa fa-spinner fa-spin"></i>
+      <i class="fa fa-spinner fa-spin"
+        data-ng-if="loadingMoreFeed">
+      </i>
+      <button class="btn btn-primary btn-block btn-load-more"
+        data-ng-if="!loadingMoreFeed"
+        data-ng-click="loadFeed()">
+        Load More
+      </button>
     </div>
   </li>
 </ul>

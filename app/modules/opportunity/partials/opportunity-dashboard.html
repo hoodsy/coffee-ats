@@ -19,12 +19,14 @@
   <li class="col-sm-9 col-sm-offset-1 xs-clear-padding loading-container"
     data-ng-if="!allOpportunitiesLoaded">
     <div class="flex-center">
-      <i class="fa fa-spinner fa-spin"></i>
-      <!-- <button class="btn btn-primary btn-block btn-load-more"
+      <i class="fa fa-spinner fa-spin"
+        data-ng-if="loadingMoreOpportunities">
+      </i>
+      <button class="btn btn-primary btn-block btn-load-more"
         data-ng-if="!loadingMoreOpportunities"
         data-ng-click="loadOpportunities()">
         Load More
-      </button> -->
+      </button>
     </div>
   </li>
 </ul>
