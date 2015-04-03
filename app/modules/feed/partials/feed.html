@@ -13,7 +13,7 @@
         data-ng-if="loadingMoreFeed">
       </i>
       <button class="btn btn-primary btn-block btn-load-more"
-        data-ng-if="!loadingMoreFeed"
+        data-ng-if="!loadingMoreFeed && feedPage > 1"
         data-ng-click="loadFeed()">
         Load More
       </button>

@@ -7,7 +7,7 @@ angular.module('feed')
     $scope.loadingMoreFeed = false;
 
     // Track the last page of feed we retrieved
-    var feedPage = 1;
+    $scope.feedPage = 1;
 
     // Flag to mark when all feed items have been loaded
     $scope.allFeedLoaded = false;
@@ -23,7 +23,7 @@ angular.module('feed')
       $scope.loadingMoreFeed = true;
 
       feedResource.query({
-        page: feedPage,
+        page: $scope.feedPage,
         opportunity_id: $stateParams.op_id
       }, function(response) {
         $scope.loadingMoreFeed = false;
@@ -37,7 +37,7 @@ angular.module('feed')
         if (response.length > 0) {
           response.unshift($scope.feed.length, 0);
           $scope.feed.splice.apply($scope.feed, response);
-          feedPage += 1;
+          $scope.feedPage += 1;
         }
 
       }, function(err) {
