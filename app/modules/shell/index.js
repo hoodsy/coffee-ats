@@ -11,6 +11,8 @@ angular.module('shell', [
   'angular-carousel'
 ]).config(function($httpProvider) {
 
+  $httpProvider.defaults.withCredentials = true;
+
   function prependTransform(transform) {
     var defaults = $httpProvider.defaults.transformRequest;
     defaults = angular.isArray(defaults) ? defaults : [defaults];
