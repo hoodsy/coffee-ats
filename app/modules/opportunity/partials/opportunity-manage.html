@@ -1,7 +1,8 @@
 <form name="editForm"
   novalidate
   class="edit-form opportunity-edit-form palette-{{ palette }}"
-  data-ng-init="manageInit()">
+  data-ng-init="manageInit()"
+  data-on-enter>
   <div class="row clear-margin height-100">
     <div class="col-sm-12 clear-padding edit-main height-100">
 
@@ -214,7 +215,7 @@
                   type="text"
                   placeholder="add tag"
                   data-ng-model="newTag"
-                  data-ui-keypress="{13:'addTag(opportunity, newTag, $event)'}"/>
+                  data-on-enter='addTag(opportunity, newTag)'/>
               </div>
               <div class="col-xs-12  clear-padding">
                 <ul class="detail-tags-list opportunity-detail-tags-list">

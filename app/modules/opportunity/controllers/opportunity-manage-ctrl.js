@@ -45,12 +45,11 @@ angular.module('opportunity')
     };
 
     // Add a tag to the opportunity's tags
-    $scope.addTag = function(opportunity, tag, $event) {
+    $scope.addTag = function(opportunity, tag) {
       if (opportunity.tags.indexOf(tag) === -1) {
         opportunity.tags.push(tag);
       }
       $scope.newTag = '';
-      $event.preventDefault();
     };
 
     // Remove a tag by index number (0-indexed)

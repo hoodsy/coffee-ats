@@ -1,7 +1,7 @@
 <form class="edit-form user-edit-form"
   name="editForm"
-  onsubmit="return false;"
-  novalidate>
+  novalidate
+  data-on-enter>
   <div class="row clear-margin height-100">
     <div class="col-sm-12 clear-padding edit-main height-100">
 
@@ -160,7 +160,7 @@
                   type="text"
                   placeholder="add tag"
                   data-ng-model="newTag"
-                  data-ui-keypress="{13:'addTag($event, user, newTag)'}"/>
+                  data-on-enter='addTag(user, newTag)'/>
               </div>
               <div class="col-xs-12  clear-padding">
                 <ul class="detail-tags-list user-detail-tags-list">
