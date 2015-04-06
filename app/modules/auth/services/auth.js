@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('auth')
-  .factory('authService', function ($rootScope, $resource, $state, $location, socket, API_ROOT_URL) {
-
-    var authResource = $resource(API_ROOT_URL + '/auth');
-    var logoutResource = $resource(API_ROOT_URL + '/auth/logout');
+  .factory('authService', function ($rootScope, $resource, $state, $location, socket, apiUrl) {
+    var authResource = $resource(apiUrl('/auth'));
+    var logoutResource = $resource(apiUrl('/auth/logout'));
 
     return {
       auth: function() {

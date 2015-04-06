@@ -22,7 +22,7 @@ var proxy = httpProxy.createProxyServer({
 /* proxyMiddleware forwards static file requests to BrowserSync server
    and forwards dynamic requests to your real backend */
 function proxyMiddleware(req, res, next) {
-  if (/api/.test(req.url)) {
+  if (/api\//.test(req.url)) {
     req.url = req.url.replace('api/', '');
     proxy.web(req, res);
   } else {

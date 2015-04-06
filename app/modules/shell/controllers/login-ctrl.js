@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('shell')
-  .controller('LoginCtrl', function ($scope, $window) {
+  .controller('LoginCtrl', function ($scope, $window, apiUrl) {
     $scope.carouselIndex = 0;
 
     $scope.slides = [{
@@ -23,6 +23,6 @@ angular.module('shell')
     }];
 
     $scope.loginLinkedin = function() {
-      $window.location.href = '/api/auth/linkedin';
+      $window.location.href = apiUrl('/auth/linkedin');
     };
   });
