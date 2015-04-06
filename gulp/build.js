@@ -8,6 +8,7 @@ var _ = require('lodash');
 var nib = require('nib');
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
+var sprite = require('css-sprite').stream;
 
 var util = require('./util');
 
@@ -188,18 +189,36 @@ function finalHtml(module) {
     .pipe($.size());
 }
 
-gulp.task('final-html', ['styles', 'scripts', 'partials', 'fonts'], _.wrap('shell', finalHtml));
+gulp.task('final-html', ['styles', 'scripts', 'partials', 'fonts', 'images'], _.wrap('shell', finalHtml));
 
-// gulp.task('images', function () {
-//   return gulp.src('app/images/**/*')
-//     .pipe($.cache($.imagemin({
-//       optimizationLevel: 3,
-//       progressive: true,
-//       interlaced: true
-//     })))
-//     .pipe(gulp.dest('dist/images'))
-//     .pipe($.size());
-// });
+
+// Images & Sprites
+//
+
+function sprites(module) {
+  return gulp.src(util.modSprites(module))
+    .pipe(sprite({
+      base64: true,
+      style: 'sprite.css'
+    }))
+    .pipe(gulp.dest(path.join('app', module + '-static', 'styles')));
+}
+
+gulp.task('sprites', _.wrap('shell', sprites));
+
+function images(module) {
+  return gulp.src(util.modImages(module))
+    .pipe($.cache($.imagemin({
+      optimizationLevel: 3,
+      progressive: true,
+      interlaced: true
+    })))
+    .pipe(gulp.dest(module + '-dist/images'))
+    .pipe($.size());
+}
+
+gulp.task('images', ['sprites'], _.wrap('shell', images));
+
 
 // Fonts
 //

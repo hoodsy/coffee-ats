@@ -71,5 +71,9 @@ module.exports = (function() {
     return expandAssets(module, path.join('images', '*'));
   }
 
+  that.modSprites = function(module) {
+    return expandAssets(module, path.join('sprites', '*'));
+  }
+
   return that;
 })();

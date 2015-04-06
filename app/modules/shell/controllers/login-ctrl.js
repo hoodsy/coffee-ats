@@ -5,19 +5,19 @@ angular.module('shell')
     $scope.carouselIndex = 0;
 
     $scope.slides = [{
-      header: 'Hello',
-      subheader: 'Welcome to Coffee',
-      body: 'advance your career'
-    }, {
+      image: 'icon-login-discover',
       header: 'Discover',
       body: 'professional opportunities by scrolling through a curated feed'
     }, {
+      image: 'icon-login-swipe',
       header: 'Match',
       body: 'with people and opportunities you are interested in by swiping or doubletapping'
     }, {
+      image: 'icon-login-chat',
       header: 'Chat',
       body: 'with your matches to set up coffee meetings and potential interviews'
     }, {
+      image: 'icon-login-opportunities',
       header: 'Opportunities',
       body: 'Post interesting jobs, internships, and freelance gigs to promote your company or organization'
     }];

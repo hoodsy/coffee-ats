@@ -12,8 +12,10 @@
             rn-carousel-index="carouselIndex">
             <li class="login-slide"
               data-ng-repeat="slide in slides">
+              <div class="icon-container flex-center">
+                <span class="icon {{slide.image}}"></span>
+              </div>
               <h1 class="uppercase"><strong>{{slide.header}}</strong></h1>
-              <p data-ng-if="slide.subheader"><strong>{{slide.subheader}}</strong></p>
               <p>{{slide.body}}</p>
             </li>
           </ul>

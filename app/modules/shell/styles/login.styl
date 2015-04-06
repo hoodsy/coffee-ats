@@ -27,6 +27,7 @@ login-button-total = login-button-margin*2 + login-button-height
   height 'calc(100% - %s)' % login-button-total
 
   ul[rn-carousel]
+    min-height 320px
     height 50%
     width 100%
     max-width screen-xs-max
@@ -34,6 +35,9 @@ login-button-total = login-button-margin*2 + login-button-height
     & > li.login-slide
       color color-white
       padding 0 25%
+
+      & > .icon-container
+        height 50%
 
 .desktop-splash-container
   background color-white
