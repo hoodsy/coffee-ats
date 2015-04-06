@@ -9,9 +9,13 @@ angular.module('common')
     return {
       restrict: 'A',
       scope: {
-        altImg: '@'
+        altImg: '@',
+        failImg: '@'
       },
       link: function(scope, element, attrs) {
+
+        // Flag when attempting to fallback to failImg incase it also fails
+        var failedOnce = false;
 
         var spin = $('<span class="fa-stack fa-lg alt-img">' +
             '<i class="fa fa-circle fa-stack-2x fa-inverse"></i>' +
@@ -22,9 +26,18 @@ angular.module('common')
             '<i class="fa fa-question fa-stack-1x"></i>' +
           '</span>');
 
+        function fallback(element) {
+          if (scope.failImg && !failedOnce) {
+            failedOnce = true;
+            element.show().attr('src', scope.failImg);
+          } else {
+            element.hide().after(ques);
+          }
+        }
+
         // If the image fails to load, put up a question icon
         element.bind('error', function() {
-          $(this).hide().after(ques);
+          fallback($(this));
         });
 
         // Tweak spinner / question css so it matches <img> CSS
@@ -56,8 +69,7 @@ angular.module('common')
           if (newVal) {
             // When url is not empty, detach spinner and set src attr
             spin.detach();
-            element.show();
-            element.attr('src', newVal);
+            element.show().attr('src', newVal);
           }
 
           // Stop watching
@@ -67,7 +79,7 @@ angular.module('common')
         // After MAX_WAIT we stop the spinner and put up a question icon
         $timeout(function() {
           if (!scope.altImg) {
-            element.after(ques);
+            fallback(element);
             spin.detach();
           }
         }, MAX_WAIT);

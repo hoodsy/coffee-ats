@@ -7,7 +7,8 @@
     <div class="col-xs-2 flex-center">
       <img class="rounded"
         alt="match img"
-        data-alt-img="{{ match.picture }}"/>
+        data-alt-img="{{ match.picture }}"
+        data-fail-img="/images/silhouette.png"/>
     </div>
     <div class="col-xs-6 flex-center">
       <h2 class="uppercase">
@@ -29,7 +30,8 @@
         <div class="img-container flex-center">
           <img class="rounded"
             alt="match img"
-            data-alt-img="{{ match.picture }}"/>
+            data-alt-img="{{ match.picture }}"
+            data-fail-img="/images/silhouette.png"/>
           </div>
       </div>
 
@@ -86,6 +88,7 @@
             <img class="rounded message-image"
               alt="match img"
               data-alt-img="{{ match.picture }}"
+              data-fail-img="/images/silhouette.png"
               data-ng-if="message.senderId !== _user._id"/>
           </div>
 
@@ -97,6 +100,7 @@
             <img class="rounded message-image"
               alt="user img"
               data-alt-img="{{ _user.picture }}"
+              data-fail-img="/images/silhouette.png"
               data-ng-if="!message._pending && message.senderId === _user._id"/>
             <div class="message-loading-icon fa fa-circle-o-notch fa-spin"
               data-ng-if="message._pending">

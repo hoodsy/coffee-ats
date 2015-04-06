@@ -16,7 +16,8 @@
         <div class="flex-center">
           <img class="rounded"
             alt="user img"
-            data-alt-img="{{ model.picture }}"/>
+            data-alt-img="{{ model.picture }}"
+            data-fail-img="/images/silhouette.png"/>
         </div>
       </div>
 
@@ -63,7 +64,8 @@
       </button>
       <img class="rounded"
         alt="user img"
-        data-alt-img="{{ model.picture }}"/>
+        data-alt-img="{{ model.picture }}"
+        data-fail-img="/images/silhouette.png"/>
       <button class="btn btn-transparent btn-like"
         data-ng-click="cardLike({ $event: $event, model: model })">
         <span class="fa-stack fa-2x">
