@@ -5,7 +5,7 @@ var app = angular.module('feed');
 app.config(function ($stateProvider) {
     $stateProvider
       .state('shell.feed', {
-        url: '/feed?:op_id',
+        url: '/feed?:opId',
         resolve: {
           'feedResource': 'Feed'
         },

@@ -136,10 +136,10 @@ angular.module('user')
       user.educations.forEach(setTimes);
       user.experiences.forEach(setTimes);
 
-      user.$update({}, function(response) {
+      user.$update({}, function() {
         $state.go('^');
-      }, function(response) {
-        console.log('error');
+      }, function(err) {
+        console.log('ERROR:', err);
       });
     };
 

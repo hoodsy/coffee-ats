@@ -9,7 +9,7 @@ angular.module('common')
       },
       link: function(scope, element, attrs) {
         element.keydown(function(event){
-          if (event.keyCode == 13) {
+          if (event.keyCode === 13) {
             if (attrs.onEnter) {
               scope.$apply(function() {
                 scope.onEnter();

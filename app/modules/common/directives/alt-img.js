@@ -12,7 +12,7 @@ angular.module('common')
         altImg: '@',
         failImg: '@'
       },
-      link: function(scope, element, attrs) {
+      link: function(scope, element) {
 
         // Flag when attempting to fallback to failImg incase it also fails
         var failedOnce = false;

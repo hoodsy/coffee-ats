@@ -23,6 +23,9 @@
     "_": false,
     "angular": false,
     "btoa": false,
-    "io": false
+    "io": false,
+    "$": false,
+    "jQuery": false,
+    "S3Upload": false
   }
 }

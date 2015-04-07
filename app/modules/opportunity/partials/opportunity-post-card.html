@@ -3,7 +3,7 @@
   <div class="row clear-margin">
     <div class="hidden-xs col-sm-5 clear-padding uppercase">
       <div class="row clear-margin opportunity-post-card-info"
-        data-ui-sref="shell.messaging.main({ op_id: model._id })">
+        data-ui-sref="shell.messaging.main({ opId: model._id })">
         <div class="col-xs-6 clear-padding flex-center text-left">
           <span class="jumbo-count">{{ model.matchesCount }}</span>
         </div>
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="row clear-margin opportunity-post-card-info"
-        data-ui-sref="shell.feed({ op_id: model._id })">
+        data-ui-sref="shell.feed({ opId: model._id })">
         <div class="col-xs-6 clear-padding flex-center text-left">
           <span class="jumbo-count">{{ model.applicantsCount }}</span>
         </div>
@@ -79,11 +79,11 @@
 
       <div class="row visible-xs-block clear-margin opportunity-post-card-info uppercase">
         <div class="col-xs-6 clear-padding flex-center"
-          data-ui-sref="shell.feed({ op_id: model._id })">
+          data-ui-sref="shell.feed({ opId: model._id })">
           {{ model.applicantsCount }} Applicants
         </div>
         <div class="col-xs-6 clear-padding flex-center"
-          data-ui-sref="shell.messaging.main({ op_id: model._id })">
+          data-ui-sref="shell.messaging.main({ opId: model._id })">
           {{ model.matchesCount }} Matches
         </div>
       </div>

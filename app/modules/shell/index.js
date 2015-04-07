@@ -21,7 +21,7 @@ angular.module('shell', [
 
   prependTransform(function(value) {
     if (value && value._id) {
-      var value = jQuery.extend({}, value);
+      value = jQuery.extend({}, value);
       delete value._id;
       console.log('transformed');
     }

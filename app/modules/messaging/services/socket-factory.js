@@ -9,7 +9,7 @@ angular.module('messaging')
 
     // Play the beep sound
     function beep() {
-      $("#beep")[0].play();
+      $('#beep')[0].play();
     }
 
     function addNotification() {
@@ -58,7 +58,7 @@ angular.module('messaging')
           if (fn) {
             handleMessage.splice(handleMessage.indexOf(fn), 1);
           }
-        }
+        };
       }
     };
   });

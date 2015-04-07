@@ -126,8 +126,8 @@ angular.module('messaging')
 
     // Query past messages in this match
     (function next() {
-      if ($(".messaging-detail-well").scrollTop() !== 0
-          || $scope.allMessagesLoaded) {
+      if ($('.messaging-detail-well').scrollTop() !== 0 ||
+          $scope.allMessagesLoaded) {
         return;
       }
       nextScroll = -1;

@@ -1,17 +1,17 @@
 'use strict';
 
 angular.module('opportunity')
-  .controller('OpportunityManageCtrl', function ($scope, $state, $stateParams, $q, Opportunity) {
+  .controller('OpportunityManageCtrl', function ($scope, $state, $stateParams, $q, Opportunity, apiUrl) {
 
     $scope.palette = $stateParams.palette || '1';
 
     // DOM element id for file input
-    $scope.fileUploadId = "image-upload";
+    $scope.fileUploadId = 'image-upload';
 
     var editing = false;
     if ($stateParams.id) {
       editing = true;
-    };
+    }
 
     // Initialize operations for create/edit
     $scope.manageInit = function() {
@@ -82,23 +82,23 @@ angular.module('opportunity')
 
       promise
         .then(function(opportunity) {
-          return s3_upload(opportunity);
+          return doS3Upload(opportunity);
         })
         .then(function(opportunity) {
           opId = opportunity._id;
           return Opportunity.update(opportunity).$promise;
         })
-        .then(function(response) {
+        .then(function() {
           $state.go('shell.opportunity.detail', { id: opId });
         })
         .catch(function(err) {
-          console.log('error: ' + err);
+          console.log('ERROR: ' + err);
         });
 
         deferred.resolve(opportunity);
     };
 
-    function s3_upload(opportunity){
+    function doS3Upload(opportunity){
       var deferred = $q.defer();
 
       if ($('#'+$scope.fileUploadId)[0].files.length === 0) {
@@ -106,7 +106,7 @@ angular.module('opportunity')
         return deferred.promise;
       }
 
-      var s3upload = new S3Upload({
+      new S3Upload({
         file_dom_selector: $scope.fileUploadId,
         s3_sign_put_url: apiUrl('/opportunities/' + opportunity._id + '/s3_upload_signature'),
         onFinishS3Put: function(public_url) {

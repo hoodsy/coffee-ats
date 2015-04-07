@@ -19,12 +19,6 @@ angular.module('messaging')
     // Array to hold opportunity objects
     $scope.matches = [];
 
-    // Register message handlers with socket service
-    var tearDown = socket.registerHandlers(reloadMatches);
-
-    // De-register message handlers when we leave the scope
-    $scope.$on('$destroy', tearDown);
-
 
     $scope.loadMatches = function(reload) {
       if ($scope.allMatchesLoaded) {
@@ -35,7 +29,7 @@ angular.module('messaging')
 
       var request = UserMatch.query({
         after: earliestMatchDate,
-        opportunity_id: $stateParams.op_id
+        opportunity_id: $stateParams.opId
       }, function(response) {
         $scope.loadingMoreMatches = false;
 
@@ -93,6 +87,13 @@ angular.module('messaging')
       $scope.allMatchesLoaded = false;
       $scope.loadMatches(true);
     }
+
+    // Register message handlers with socket service
+    var tearDown = socket.registerHandlers(reloadMatches);
+
+    // De-register message handlers when we leave the scope
+    $scope.$on('$destroy', tearDown);
+
 
     $scope.toggleControls = function(index) {
       if ($scope.canShowControls === index) {
