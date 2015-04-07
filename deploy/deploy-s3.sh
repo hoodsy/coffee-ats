@@ -8,6 +8,9 @@
 # configured to use the Coffee AWS account, which you can do by running
 # `aws configure` and pasting in the credentials (on Google Drive).
 #
+# You'll might also need to configure aws to be able to use cloudfront:
+#   aws configure set preview.cloudfront true
+#
 
 for program in gulp aws; do
     if ! type $program >/dev/null; then
@@ -16,14 +19,17 @@ for program in gulp aws; do
     fi
 done
 
+INVALIDATE=true
 BUILDS_TO_KEEP=3
 BUCKET_NAME="coffee-static"
+CLOUDFRONT_DISTRIBUTION_ID="E1NTALWNUOGHGR"
 ROOT_DIR=$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))
 
 function usage {
     echo "Deploy to S3"
     echo "Options:"
-    echo "  -h, --help       Print this message"
+    echo "  -h, --help             Print this message"
+    echo "  -n, --no-invalidate    Don't invalidate the Cloudfront cache"
 }
 
 function cleanup_old_builds {
@@ -38,10 +44,24 @@ function cleanup_old_builds {
 }
 
 function build_and_deploy {
+    # build ATS
     gulp clean
     gulp build
-    aws s3 sync --delete shell-dist s3://$BUCKET_NAME/release
-    aws s3 cp --recursive s3://$BUCKET_NAME/release s3://$BUCKET_NAME/$(date "+%Y_%m_%d_%H_%M_%S")
+
+    date=$(date "+%Y_%m_%d_%H_%M_%S")
+
+    # Sync dist folder to release folder
+    aws s3 sync --delete --acl public-read shell-dist s3://$BUCKET_NAME/release
+
+    # Archive the release
+    aws s3 cp --recursive --acl private s3://$BUCKET_NAME/release s3://$BUCKET_NAME/$date
+
+    # Invalidate the existing index.html
+    if $INVALIDATE; then
+        aws cloudfront create-invalidation \
+            --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" \
+            --invalidation-batch '{"Paths":{"Quantity":1,"Items":["/index.html"]},"CallerReference":"'"$date"'"}'
+    fi
 }
 
 while [[ "$#" -ge 1 ]]; do
@@ -51,6 +71,10 @@ while [[ "$#" -ge 1 ]]; do
         -h | --help)
         usage
         exit
+        ;;
+
+        -n | --no-invalidate)
+        INVALIDATE=false
         ;;
 
         *)
