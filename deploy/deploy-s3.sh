@@ -44,6 +44,9 @@ function cleanup_old_builds {
 }
 
 function build_and_deploy {
+    # load up the correct config file
+    cp config.json.release config.json
+
     # build ATS
     gulp clean
     gulp build
