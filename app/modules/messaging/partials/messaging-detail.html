@@ -4,13 +4,15 @@
       data-ui-sref="shell.messaging.main">
       <i class="fa fa-caret-left fa-3x"></i>
     </button>
-    <div class="col-xs-2 flex-center">
+    <div class="col-xs-2 flex-center"
+      data-ui-sref="shell.user.detail({ id: matchedUser._id })">
       <img class="rounded"
         alt="match img"
         data-alt-img="{{ match.picture }}"
         data-fail-img="/images/silhouette.png"/>
     </div>
-    <div class="col-xs-6 flex-center">
+    <div class="col-xs-6 flex-center-vert"
+      data-ui-sref="shell.user.detail({ id: matchedUser._id })">
       <h2 class="uppercase">
         {{ match.title }}
       </h2>
@@ -36,7 +38,7 @@
       </div>
 
       <div class="col-sm-6 match-card-detail flex-center-vert"
-        data-ui-sref=".detail({ id: match._id })">
+        data-ui-sref="shell.user.detail({ id: matchedUser._id })">
         <div class="uppercase">
           {{ match.title }}
         </div>

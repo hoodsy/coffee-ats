@@ -9,7 +9,7 @@ angular.module('messaging')
     var matchId = $stateParams.id;
 
     // Reference to user we matched with
-    var matchedUser = null;
+    $scope.matchedUser = null;
 
     // Track the date of the earliest message we have received
     var earliestMsgDate = null;
@@ -65,10 +65,10 @@ angular.module('messaging')
       });
 
       // Find user we are matched with
-      matchedUser = _.find($scope.match.users, function(user) {
+      $scope.matchedUser = _.find($scope.match.users, function(user) {
         return (user._id !== $scope._user._id);
       });
-      $scope.user = User.get({id: matchedUser._id });
+      $scope.user = User.get({id: $scope.matchedUser._id });
 
       // check if match exists in the parent scope
       var parentMatch = _.find($scope.$parent.matches, { _id: matchId });
@@ -140,7 +140,7 @@ angular.module('messaging')
 
       var date = (new Date()).toISOString();
       var senderId = $scope._user._id;
-      var recipientId = matchedUser._id;
+      var recipientId = $scope.matchedUser._id;
       var messageText = $scope.messageText;
 
       var message = {
