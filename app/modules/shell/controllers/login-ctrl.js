@@ -25,4 +25,8 @@ angular.module('shell')
     $scope.loginLinkedin = function() {
       $window.location.href = apiUrl('/auth/linkedin');
     };
+
+    $scope.loginFacebook = function() {
+      $window.location.href = apiUrl('/auth/facebook');
+    };
   });

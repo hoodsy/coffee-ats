@@ -31,6 +31,12 @@
       <div class="row">
         <div class="col-xs-12 col-sm-4 col-sm-offset-4 text-center">
           <button class="btn btn-transparent btn-block login-button"
+            data-ng-click="loginFacebook()"
+            data-ng-if="!authenticating">
+            <i class="fa fa-facebook-square"></i>
+            Sign in with Facebook
+          </button>
+          <button class="btn btn-transparent btn-block login-button"
             data-ng-click="loginLinkedin()"
             data-ng-if="!authenticating">
             <i class="fa fa-linkedin-square"></i>
@@ -46,10 +52,28 @@
 
     <div class="hidden-xs flex-center">
       <div class="desktop-splash-container">
-        <div class="flex-center">
-          <p>Discover your professional feed</p>
+        <div class="desktop-splash-logo">
+          <div class="flex-center">
+            <img class="desktop-splash-logo"
+              src="/images/logo.png"
+              alt="Coffee Logo" />
+          </div>
+        </div>
 
-          <button class="btn btn-linkedin"
+        <div class="uppercase desktop-splash-copy">
+          <p class="flex-center">Discover your professional feed</p>
+        </div>
+
+        <div class="desktop-splash-button-container">
+          <button class="btn btn-service btn-facebook"
+            data-ng-click="loginFacebook()"
+            data-ng-if="!authenticating">
+            <i class="fa fa-facebook flex-center-vert"></i>
+            <span class="flex-center-vert">
+              Sign in with Facebook
+            </span>
+          </button>
+          <button class="btn btn-service btn-linkedin"
             data-ng-click="loginLinkedin()"
             data-ng-if="!authenticating">
             <i class="fa fa-linkedin flex-center-vert"></i>
@@ -57,7 +81,6 @@
               Sign in with LinkedIn
             </span>
           </button>
-
           <div data-ng-if="authenticating">
             <i class="fa fa-spinner fa-spin"></i>
             Authenticating

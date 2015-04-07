@@ -21,7 +21,7 @@ img.logo
 
 login-button-margin = .5em
 login-button-height = 2.5em
-login-button-total = login-button-margin*2 + login-button-height
+login-button-total = login-button-margin*3 + login-button-height*2
 
 .carousel-container
   height 'calc(100% - %s)' % login-button-total
@@ -46,6 +46,23 @@ login-button-total = login-button-margin*2 + login-button-height
   max-width 400px
   height 50%
   width 50%
+
+  .desktop-splash-logo
+    height 30%
+
+  .desktop-splash-copy
+    height 30%
+    font-size 1.25em
+
+  .desktop-splash-button-container
+    width 65%
+    margin auto
+
+    & button
+      width 100%
+
+    & button:first-child
+      margin-bottom .5em
 
 button.btn.login-button
   width 'calc(100% - %s)' % (2*login-button-margin)
