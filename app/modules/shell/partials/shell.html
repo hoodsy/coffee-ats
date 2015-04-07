@@ -55,7 +55,9 @@
 
             <div class="sidebar-quote">
               <div class="flex-center-vert">
-                <i class="ci ci-quote edit-quote"></i>
+                <i class="ci ci-quote edit-quote"
+                  data-ng-if="_user.headline">
+                </i>
                 <div class="headline-text">{{ _user.headline }}</div>
               </div>
             </div>
@@ -69,14 +71,18 @@
             </div>
 
             <div class="sidebar-main-text">
-              <div class="flex-center-vert">
+              <div class="flex-center-vert uppercase">
 
-                <div class="uppercase">{{ _user.firstName }} {{ _user.lastName }}</div>
                 <div>
-                  <span class="uppercase">{{ _user.position }} @
-                  <strong>{{ _user.organization }}</strong> |
-                  {{ _user.locations[0] }}
-                  </span>
+                  {{ _user.firstName }} {{ _user.lastName }}
+                </div>
+                <div>
+                  <span>{{ _user.position }}</span>
+                  <span data-ng-if="_user.organization">@</span>
+                  <span><strong>{{ _user.organization }}</strong></span>
+                </div>
+                <div>
+                  <span>{{ _user.locations[0] }}</span>
                 </div>
               </div>
             </div>
