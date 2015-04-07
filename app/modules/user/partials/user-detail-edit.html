@@ -56,15 +56,18 @@
         <div class="row headline-row clear-margin white-bg height-100">
           <div class="col-xs-8 col-xs-offset-2 flex-center-vert height-100">
             <i class="ci ci-quote edit-quote ci-3x"></i>
-            <textarea
-              name="headline"
-              class="headline-text"
-              placeholder="Driven professional with a background in..."
-              maxlength="140"
-              data-coffee-input
-              data-msd-elastic
-              data-ng-model="user.headline">
-            </textarea>
+            <div>
+              <textarea
+                required
+                name="headline"
+                class="headline-text"
+                placeholder="Driven professional with a background in..."
+                maxlength="140"
+                data-coffee-input
+                data-msd-elastic
+                data-ng-model="user.headline">
+              </textarea>
+            </div>
           </div>
         </div>
       </div>
@@ -86,22 +89,26 @@
               <div class="col-xs-8 edit-col">
                 <div class="row height-50">
                   <div class="col-xs-12 flex-center-vert">
-                    <input type="text"
-                      name="firstName"
-                      required
-                      data-coffee-input
-                      placeholder="First"
-                      data-ng-model="user.firstName" />
+                    <div>
+                      <input type="text"
+                        name="firstName"
+                        required
+                        data-coffee-input
+                        placeholder="First"
+                        data-ng-model="user.firstName" />
+                    </div>
                   </div>
                 </div>
                 <div class="row height-50">
                   <div class="col-xs-12 flex-center-vert">
-                    <input type="text"
-                      name="lastName"
-                      required
-                      data-coffee-input
-                      placeholder="Last"
-                      data-ng-model="user.lastName" />
+                    <div>
+                      <input type="text"
+                        name="lastName"
+                        required
+                        data-coffee-input
+                        placeholder="Last"
+                        data-ng-model="user.lastName" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -112,12 +119,14 @@
                 <div class="uppercase">Location</div>
               </div>
               <div class="col-xs-8 edit-col flex-center-vert">
-                <input type="text"
-                  name="location"
-                  required
-                  data-coffee-input
-                  placeholder="Location"
-                  data-ng-model="user.location" />
+                <div>
+                  <input type="text"
+                    name="location"
+                    required
+                    data-coffee-input
+                    placeholder="Location"
+                    data-ng-model="user.location" />
+                </div>
               </div>
             </div>
             <div class="row edit-row xs-clear-margin white-bg half-margin-right">
@@ -126,12 +135,14 @@
                 <div class="uppercase">Position</div>
               </div>
               <div class="col-xs-8 edit-col flex-center-vert">
-                <input type="text"
-                  name="position"
-                  required
-                  data-coffee-input
-                  placeholder="Postiion"
-                  data-ng-model="user.position" />
+                <div>
+                  <input type="text"
+                    name="position"
+                    required
+                    data-coffee-input
+                    placeholder="Position"
+                    data-ng-model="user.position" />
+                </div>
               </div>
             </div>
             <div class="row edit-row xs-clear-margin white-bg half-margin-right">
@@ -140,12 +151,14 @@
                 <div class="uppercase">Company</div>
               </div>
               <div class="col-xs-8 edit-col flex-center-vert">
-                <input type="text"
-                  name="organization"
-                  required
-                  data-coffee-input
-                  placeholder="Organization"
-                  data-ng-model="user.organization" />
+                <div>
+                  <input type="text"
+                    name="organization"
+                    required
+                    data-coffee-input
+                    placeholder="Organization"
+                    data-ng-model="user.organization" />
+                </div>
               </div>
             </div>
           </div>
