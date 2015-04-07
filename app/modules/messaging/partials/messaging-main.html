@@ -3,8 +3,8 @@
   data-handle-scroll-to-bottom="loadMatches()">
   <li class="col-xs-12 xs-clear-padding matches-list-item"
     data-ng-repeat="match in matches"
-    data-ng-swipe-left="enableControls($index)"
-    data-ng-swipe-right="disableControls($index)">
+    data-ng-swipe-left="isMobile && enableControls($index)"
+    data-ng-swipe-right="isMobile && disableControls($index)">
 
     <div class="row clear-margin palette-{{ match._palette }} {{ match._paletteClass }} match-card"
       data-ng-class="{ 'slide-left': showControls($index) }">
