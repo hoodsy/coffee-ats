@@ -16,7 +16,14 @@ app.config(function($stateProvider) {
   .state('shell.opportunity.detail', {
     url: '/:id?:palette',
     views: {
-      'main@shell': {
+      'overlay@shell': {
+        templateUrl: 'modules/shell/partials/overlay.html'
+      },
+      'overlay-main@shell.opportunity.detail': {
+        templateUrl: 'modules/shell/partials/overlay-detail.html',
+        controller: 'OverlayDetailCtrl'
+      },
+      'overlay-detail@shell.opportunity.detail': {
         controller: 'OpportunityDetailCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-detail.html'
       }
@@ -28,7 +35,8 @@ app.config(function($stateProvider) {
       'main@shell': {
         controller: 'OpportunityManageCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-manage.html'
-      }
+      },
+      'overlay@shell': {}
     }
   })
   .state('shell.opportunity.create', {
@@ -39,14 +47,14 @@ app.config(function($stateProvider) {
         templateUrl: 'modules/opportunity/partials/opportunity-manage.html'
       }
     }
-  })
-  .state('shell.opportunity.billing', {
-    url: '/billing',
-    views: {
-      'main@shell': {
-        controller: 'OpportunityBillingCtrl',
-        templateUrl: 'modules/opportunity/partials/opportunity-billing.html'
-      }
-    }
   });
+  // .state('shell.opportunity.billing', {
+  //   url: '/billing',
+  //   views: {
+  //     'main@shell': {
+  //       controller: 'OpportunityBillingCtrl',
+  //       templateUrl: 'modules/opportunity/partials/opportunity-billing.html'
+  //     }
+  //   }
+  // });
 });
