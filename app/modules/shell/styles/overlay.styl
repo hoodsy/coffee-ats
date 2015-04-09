@@ -2,18 +2,12 @@
 
 .overlay-container,
 .overlay-detail
+  height 100%
   position fixed
   top 0
   left 0
   right 0
-
-  @media (min-width: screen-sm-min)
-    bottom 0
-    height 100%
-
-  @media (max-width: screen-xs-max)
-    bottom navbar-height
-    height 'calc(100% - %s)' % (navbar-height)
+  bottom 0
 
 .overlay-container
   z-index 9998
@@ -32,3 +26,10 @@
 
 .modal-backdrop.detail-backdrop
   cursor zoom-out
+
+
+@media (max-width: screen-xs-max)
+  .modal-backdrop.detail-backdrop,
+  .overlay-detail-container
+    bottom navbar-height
+    height 'calc(100% - %s)' % (navbar-height)
