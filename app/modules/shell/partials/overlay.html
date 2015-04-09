@@ -1,6 +1,10 @@
 <div class="overlay-container height-100 text-center">
-  <div class="modal-backdrop fade in"></div>
-  <div class="overlay-main height-100"
-    data-ui-view="overlay-main">
+
+  <div class="modal-backdrop fade in detail-backdrop"
+    data-ng-click="dismiss($event)">
+  </div>
+
+  <div class="overlay-detail"
+    data-ui-view="overlay-detail">
   </div>
 </div>

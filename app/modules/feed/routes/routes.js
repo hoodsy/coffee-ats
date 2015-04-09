@@ -23,10 +23,7 @@ app.config(function ($stateProvider) {
         url: '/users/:id?:palette',
         views: {
           'overlay@shell': {
-            templateUrl: 'modules/shell/partials/overlay.html'
-          },
-          'overlay-main@shell.feed.user.detail': {
-            templateUrl: 'modules/shell/partials/overlay-detail.html',
+            templateUrl: 'modules/shell/partials/overlay.html',
             controller: 'OverlayDetailCtrl'
           },
           'overlay-detail@shell.feed.user.detail': {
@@ -42,10 +39,7 @@ app.config(function ($stateProvider) {
         url: '/opportunities/:id?:palette',
         views: {
           'overlay@shell': {
-            templateUrl: 'modules/shell/partials/overlay.html'
-          },
-          'overlay-main@shell.feed.opportunity.detail': {
-            templateUrl: 'modules/shell/partials/overlay-detail.html',
+            templateUrl: 'modules/shell/partials/overlay.html',
             controller: 'OverlayDetailCtrl'
           },
           'overlay-detail@shell.feed.opportunity.detail': {
