@@ -1,5 +1,6 @@
 <div class="card-shadow user-card text-center palette-{{ model._palette }}"
   data-ui-sref=".user.detail({ id: model._id, palette: model._palette })"
+  data-hm-doubletap="cardLike({ $event: $event, model: model })"
   data-ng-swipe-right="cardLike({ $event: $event, model: model })"
   data-ng-swipe-left="cardAskDelete({ $event: $event, model: model })">
 
