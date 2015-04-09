@@ -34,8 +34,11 @@ ul.navbar-nav > li > a
   @media (max-width: screen-xs-max)
     position absolute
     width 100%
-    height 'calc(100% - %s)' % navbar-height
-    bottom navbar-height
+    height 100%
+
+    &.logged-in
+      height 'calc(100% - %s)' % navbar-height
+      bottom navbar-height
 
   @media (min-width: screen-sm-min)
     position relative

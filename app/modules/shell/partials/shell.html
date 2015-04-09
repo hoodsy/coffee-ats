@@ -1,7 +1,8 @@
 <div data-ui-view="overlay">
 </div>
 
-<nav class="navbar navbar-fixed-bottom visible-xs-block navbar-inverse">
+<nav class="navbar navbar-fixed-bottom visible-xs-block navbar-inverse"
+  data-ng-if="_user">
   <div class="container">
     <ul class="nav navbar-nav">
       <li>
@@ -44,7 +45,9 @@
   src="http://www.freesound.org/data/previews/80/80921_1022651-lq.mp3">
 </audio>
 
-<div id="main-container" class="container">
+<div id="main-container"
+  class="container"
+  data-ng-class="{ 'logged-in': _user }">
   <div class="row xs-clear-margin height-100">
 
     <div class="col-sm-3 hidden-xs height-100">

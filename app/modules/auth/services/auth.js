@@ -38,6 +38,7 @@ angular.module('auth')
 
       logout: function() {
         logoutResource.save(function() {
+          $rootScope._user = null;
           $state.go('shell.login');
         }, function(err) {
           console.log('ERROR:', err);
