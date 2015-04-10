@@ -182,9 +182,11 @@
                   <li class="text-center t-tag"
                     data-ng-repeat="tag in user.tags"
                     data-ng-click="deleteTag(user, $index)">
-                    <i class="ci ci-x-circle tag-delete-btn"
+                    <span class="fa-stack fa-2x tag-delete-btn"
                       data-ng-click="deleteTag(user, $index)">
-                    </i>
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                    </span>
                     <span>{{ tag }}</span>
                   </li>
                 </ul>
