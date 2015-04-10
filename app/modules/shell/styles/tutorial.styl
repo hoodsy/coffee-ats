@@ -1,0 +1,46 @@
+@import 'colors'
+@import 'layout'
+
+next-button-margin = .5em
+next-button-height = 2.5em
+next-button-total = next-button-margin*2 + next-button-height
+
+.tutorial-card
+  color color-white
+  height 'calc(100% - %s)' % next-button-total
+
+  .green
+    color color-green-2
+
+  .grey
+    color color-grey-2
+
+  .blue
+    color color-blue-2
+
+  .icon-container
+    height 35%
+
+  .ball
+    margin 1em 0
+    width 2em
+    height 2em
+    border-radius 50%
+    background color-grey-70
+    position absolute
+    animation movement 2s ease-in-out infinite
+
+@keyframes movement
+  0%
+    left 10%
+    background transparent
+  100%
+    left 80%
+    background color-white
+
+button.btn.tutorial-next-btn
+  width 'calc(100% - %s)' % (2*next-button-margin)
+  margin next-button-margin
+  height next-button-height
+  color color-white
+  border 1px solid color-white

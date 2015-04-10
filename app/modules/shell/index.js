@@ -22,7 +22,13 @@ angular.module('shell', [
   prependTransform(function(value) {
     if (value && value._id) {
       value = jQuery.extend({}, value);
-      delete value._id;
+
+      // Delete all keys that start with underscore (_)
+      Object.keys(value).forEach(function(key) {
+        if (key.charAt(0) === '_') {
+          delete value[key];
+        }
+      });
     }
     return value;
   });
@@ -32,14 +38,25 @@ angular.module('shell', [
   $rootScope.$on('$stateChangeStart',
     function(event, toState, toParams, fromState, fromParams) {
 
-      // If user is not yet setup, redirect him to setup pages
-      if ($rootScope._user &&
-          $rootScope._user._isSetup === false &&
-          toState.name !== 'shell.user.detail.setup') {
-        event.preventDefault();
-        $state.go('shell.user.detail.setup', {
-          id: $rootScope._user._id
-        }, { reload: true });
+      var setupRoute = 'shell.user.detail.setup';
+      var tutorialRoute = 'shell.tutorial';
+      var redirectList = [setupRoute, tutorialRoute];
+
+      if ($rootScope._user && redirectList.indexOf(toState.name) === -1) {
+
+        // If user is not yet setup, redirect
+        if ($rootScope._user._isSetup === false) {
+          event.preventDefault();
+          return $state.go(setupRoute, {
+            id: $rootScope._user._id
+          }, { reload: true });
+        }
+
+        // If user is not yet done tutorial, redirect
+        if (!$rootScope._user.tutorialCompleted) {
+          event.preventDefault();
+          return $state.go('shell.tutorial');
+        }
       }
     });
 });

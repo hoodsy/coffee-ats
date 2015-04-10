@@ -1,0 +1,45 @@
+<div class="overlay-container height-100 text-center">
+
+  <div class="modal-backdrop fade in"></div>
+
+  <div class="overlay-tutorial height-100">
+
+    <div class="height-100">
+
+      <div class="tutorial-card"
+        data-ng-if="page === 0">
+        <div class="flex-center">
+          <p class="uppercase-2">Swipe to connect and chat!</p>
+          <div class="ball"></div>
+        </div>
+      </div>
+
+      <div class="tutorial-card"
+        data-ng-if="page === 1">
+        <div class="flex-center uppercase-2">
+          <p>One last thing:</p>
+          <div class="icon-container flex-center">
+            <span class="icon icon-tutorial-colors-people"></span>
+          </div>
+          <p>
+            <span class="green">Green</span> &amp; <span class="grey">gray</span> cards represent people</p>
+          <div class="icon-container flex-center">
+            <span class="icon icon-tutorial-colors-jobs"></span>
+          </div>
+          <p>
+            <span class="blue">Blue</span> cards represent jobs
+          </p>
+        </div>
+      </div>
+
+      <div class="row tutorial-next">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-4 text-center">
+          <button class="btn btn-transparent btn-block tutorial-next-btn"
+            data-ng-click="nextPage()">
+            Ok, got it!
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

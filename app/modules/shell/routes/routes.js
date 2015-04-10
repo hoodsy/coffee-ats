@@ -37,5 +37,21 @@ app.config(function ($stateProvider, $urlRouterProvider, authServiceProvider) {
             controller: 'LoginCtrl'
           }
         }
+      })
+      .state('shell.tutorial', {
+        url: '/tutorial',
+        resolve: {
+          'feedResource': 'LoginFeed'
+        },
+        views: {
+          'main@shell': {
+            templateUrl: 'modules/feed/partials/feed.html',
+            controller: 'FeedCtrl'
+          },
+          'overlay@shell': {
+            templateUrl: 'modules/shell/partials/tutorial.html',
+            controller: 'TutorialCtrl'
+          }
+        }
       });
   });
