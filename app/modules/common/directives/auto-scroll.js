@@ -18,9 +18,15 @@ angular.module('common')
         // Un-wrapped DOM element
         var el = element[0];
 
+        var enabled = false;
+
         // Scroll down the scrollable area until the last height matches
         // the current, which means we're done scrolling
         function start() {
+          if (!enabled) {
+            return;
+          }
+
           var lastTop = -1;
           var promise = $interval(function() {
             if (el.scrollTop === lastTop) {
@@ -35,18 +41,21 @@ angular.module('common')
         // Watch for the directive to be enabled
         var unregister = attrs.$observe('autoScroll', function(value) {
           if (value === 'true') {
-
-            // Watch for the area to become scrollable. This is necessary for
-            // content that has to load asynchronously, for example.
-            var promise = $interval(function() {
-              if (el.scrollHeight > 0) {
-                start();
-                $interval.cancel(promise);
-              }
-            }, LOAD_WAIT);
+            enabled = true;
+          } else {
+            enabled = false;
           }
-          unregister();
         });
+
+        // Watch for the area to become scrollable. This is necessary for
+        // content that has to load asynchronously, for example.
+        var promise = $interval(function() {
+          if (el.scrollHeight > 0) {
+            start();
+            $interval.cancel(promise);
+            unregister();
+          }
+        }, LOAD_WAIT);
       }
     };
 });

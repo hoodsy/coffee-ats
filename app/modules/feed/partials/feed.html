@@ -1,6 +1,6 @@
 <ul class="row xs-clear-margin"
   data-scroll-loader
-  data-auto-scroll="{{ !Boolean(_user) }}"
+  data-auto-scroll="{{ _user === null }}"
   data-handle-scroll-to-bottom="loadFeed()">
   <li class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 xs-clear-padding"
     data-ng-repeat="item in feed"

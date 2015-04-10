@@ -7,6 +7,7 @@ angular.module('auth')
 
     return {
       auth: function() {
+        $rootScope._user = null;
         $rootScope.authenticating = true;
 
         var redirect = $location.url() || '/feed';
