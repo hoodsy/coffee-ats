@@ -232,6 +232,9 @@
                   <li class="text-center t-tag"
                     data-ng-repeat="tag in opportunity.tags"
                     data-ng-click="deleteTag(opportunity, $index)">
+                    <i class="ci ci-x-circle tag-delete-btn"
+                      data-ng-click="deleteTag(opportunity, $index)">
+                    </i>
                     <span>{{ tag }}</span>
                   </li>
                 </ul>

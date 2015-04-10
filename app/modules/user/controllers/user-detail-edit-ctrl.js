@@ -48,6 +48,24 @@ angular.module('user')
       user.experiences.forEach(getTimes);
     });
 
+    $scope.suggestedTags = [
+      'engineer',
+      'business',
+      'sales',
+      'data',
+      'designer',
+      'marketing',
+      'product',
+      'media',
+      'investor',
+      'strategist',
+      'human resources',
+      'education',
+      'finance',
+      'operations',
+      'law'
+    ];
+
     $scope.newTag = '';
 
     // On mobile views we split edit form across multiple pages

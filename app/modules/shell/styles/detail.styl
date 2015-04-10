@@ -13,6 +13,7 @@
   flex-wrap wrap
 
   >li
+    position relative
     flex-basis 30%
     margin .25em .5em
     padding .6em
@@ -20,6 +21,17 @@
     &:nth-child(even)
       flex-grow 2
 
+    & > .tag-delete-btn
+      position absolute
+      visibility hidden
+      right -.5em
+      top -.5em
+
+    &:hover
+      cursor pointer
+
+      & > .tag-delete-btn
+        visibility visible
 
 .detail-container
   max-height 100%

@@ -175,15 +175,43 @@
                   data-ng-model="newTag"
                   data-on-enter='addTag(user, newTag)'/>
               </div>
-              <div class="col-xs-12  clear-padding">
+
+              <!-- User's tags -->
+              <div class="col-xs-12 clear-padding">
                 <ul class="detail-tags-list user-detail-tags-list">
                   <li class="text-center t-tag"
                     data-ng-repeat="tag in user.tags"
                     data-ng-click="deleteTag(user, $index)">
+                    <i class="ci ci-x-circle tag-delete-btn"
+                      data-ng-click="deleteTag(user, $index)">
+                    </i>
                     <span>{{ tag }}</span>
                   </li>
                 </ul>
               </div>
+
+              <!-- Suggested Tags -->
+              <div class="col-xs-12 clear-padding suggested-tags">
+                <div class="row clear-margin">
+                  <div class="col-xs-4 clear-padding col-xs-offset-1">
+                    <hr/>
+                  </div>
+                  <div class="col-xs-2 clear-padding uppercase flex-center">
+                    Or Pick
+                  </div>
+                  <div class="col-xs-4 clear-padding">
+                    <hr/>
+                  </div>
+                </div>
+                <ul class="detail-tags-list user-detail-tags-list">
+                  <li class="text-center"
+                    data-ng-repeat="tag in suggestedTags"
+                    data-ng-click="addTag(user, tag)">
+                    <span>{{ tag }}</span>
+                  </li>
+                </ul>
+              </div>
+
             </div>
           </div>
 
