@@ -16,14 +16,7 @@ app.config(function($stateProvider) {
   .state('shell.opportunity.detail', {
     url: '/:id?:palette',
     views: {
-      'overlay@shell': {
-        templateUrl: 'modules/shell/partials/overlay.html'
-      },
-      'overlay-main@shell.opportunity.detail': {
-        templateUrl: 'modules/shell/partials/overlay-detail.html',
-        controller: 'OverlayDetailCtrl'
-      },
-      'overlay-detail@shell.opportunity.detail': {
+      'main@shell': {
         controller: 'OpportunityDetailCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-detail.html'
       }
