@@ -1,12 +1,15 @@
 'use strict';
 
 angular.module('user')
-  .controller('UserDetailEditCtrl', function ($scope, $rootScope, $state, $stateParams, User) {
+  .controller('UserDetailEditCtrl', function ($scope, $rootScope, $state, $stateParams, User, userHelper, USER_CONFIG) {
 
     var MAX_EXPERIENCE = 3;
     var MAX_EDUCATION = 3;
 
+    $scope.config = USER_CONFIG;
+
     $scope.palette = $stateParams.palette || '1';
+    $scope.isSetup = /setup/.test($state.current.name);
 
     function getTimes(item) {
       var date;
@@ -154,9 +157,14 @@ angular.module('user')
       user.educations.forEach(setTimes);
       user.experiences.forEach(setTimes);
 
-      user.$update({}, function() {
-        $state.go('^');
-      }, function(err) {
+      var userId = user._id;
+
+      user.$update({}).then(function() {
+        return User.get({ id: userId }).$promise;
+      }).then(function(user) {
+        $rootScope._user = userHelper.checkNeedsSetup(user);
+        return $state.go('shell.user.detail', { id: user._id });
+      }).catch(function(err) {
         console.log('ERROR:', err);
       });
     };

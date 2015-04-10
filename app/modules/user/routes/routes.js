@@ -24,5 +24,15 @@ app.config(function($stateProvider) {
         templateUrl: 'modules/user/partials/user-detail-edit.html'
       }
     }
+  })
+  .state('shell.user.detail.setup', {
+    url: '/setup',
+    views: {
+      'navbar@shell': {},
+      'container@shell': {
+        controller: 'UserDetailEditCtrl',
+        templateUrl: 'modules/user/partials/user-detail-edit.html'
+      }
+    }
   });
 });

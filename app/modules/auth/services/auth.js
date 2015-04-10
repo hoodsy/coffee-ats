@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('auth')
-  .factory('authService', function ($rootScope, $resource, $state, $location, socket, apiUrl) {
+  .factory('authService', function ($rootScope, $resource, $state, $location, socket, apiUrl, userHelper) {
     var authResource = $resource(apiUrl('/auth'));
     var logoutResource = $resource(apiUrl('/auth/logout'));
 
@@ -28,6 +28,10 @@ angular.module('auth')
               // User is authenticated
               $rootScope._user = response.user;
               socket.init();
+
+              // Check if user is setup
+              userHelper.checkNeedsSetup($rootScope._user);
+
               $location.url(redirect);
             }
           })

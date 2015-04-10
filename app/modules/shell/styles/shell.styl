@@ -33,15 +33,22 @@ img.rounded
   font-family 'seravek'
   src url('../fonts/seravek.ttf') format('truetype')
 
-.uppercase
+.uppercase,
+.uppercase-2
   font-family 'seravek', Helvetica, sans-serif
   text-transform lowercase
-  font-variant small-caps
   letter-spacing .05em
   line-height 1em
 
   @media (min-width: screen-sm-min)
     letter-spacing .075em
+
+.uppercase
+  font-variant small-caps
+
+.uppercase-2
+  text-transform uppercase
+
 
 /* Remove gutters on mobile views */
 @media (max-width: screen-xs-max)

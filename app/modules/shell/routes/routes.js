@@ -7,9 +7,19 @@ app.config(function ($stateProvider, $urlRouterProvider, authServiceProvider) {
     $stateProvider
       .state('shell', {
         abstract: true,
-        templateUrl: 'modules/shell/partials/shell.html',
         resolve: {
           'auth': authServiceProvider.$get().auth
+        },
+        views: {
+          'root@': {
+            templateUrl: 'modules/shell/partials/shell.html'
+          },
+          'navbar@shell': {
+            templateUrl: 'modules/shell/partials/navbar.html'
+          },
+          'container@shell': {
+            templateUrl: 'modules/shell/partials/container.html'
+          }
         }
       })
       .state('shell.login', {

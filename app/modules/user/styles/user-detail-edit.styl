@@ -35,8 +35,11 @@ edit-mobile-header-height = 8em
   // Fix the edit button along the bottom
   .edit-submit-btn
     position fixed
-    bottom 55px
+    bottom 0
     height edit-btn-height
+
+  .clear-nav .edit-submit-btn
+    bottom navbar-height
 
   // Adjust form container to clear the submit button
   .edit-form
@@ -112,6 +115,11 @@ button.edit-page-btn
     &.headline-row
       margin-top 0
       height 17.5em
+
+    &.welcome-row
+      margin-top 0
+      height 8em
+      margin-bottom 1em
 
   &:last-child
     border-bottom 1px solid border-color
