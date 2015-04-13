@@ -7,6 +7,10 @@ angular.module('auth')
 
     return {
       auth: function() {
+        if ($rootScope._user) {
+          return;
+        }
+
         $rootScope._user = null;
         $rootScope.authenticating = true;
 
@@ -26,12 +30,23 @@ angular.module('auth')
               }
             } else {
               // User is authenticated
-              $rootScope._user = response.user;
+              var user = $rootScope._user = response.user;
               socket.init();
 
               // Check if user is setup
-              userHelper.checkNeedsSetup($rootScope._user);
+              userHelper.checkNeedsSetup(user);
 
+              // If not setup, direct user to setup process
+              if (user._isSetup === false) {
+                return $state.go('shell.user.detail.setup', { id: $rootScope._user._id });
+              }
+
+              // If tutorial not completed, direct user to it
+              if (!user.tutorialCompleted) {
+                return $state.go('shell.tutorial');
+              }
+
+              // Direct user to his original destination
               $location.url(redirect);
             }
           })

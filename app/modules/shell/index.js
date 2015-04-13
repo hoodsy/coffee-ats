@@ -33,10 +33,19 @@ angular.module('shell', [
     return value;
   });
 
-}).run(function($rootScope, $state, userHelper) {
+}).run(function($rootScope, $state, userHelper, authService) {
 
   $rootScope.$on('$stateChangeStart',
     function(event, toState, toParams, fromState, fromParams) {
+
+      console.log('from', fromState.name, 'transition', toState.name);
+
+      var loginState = 'shell.login';
+      if (!$rootScope._user
+          && !$rootScope.authenticating
+          && toState.name !== loginState) {
+        return $state.go(loginState, {}, { reload: true });
+      }
 
       var setupRoute = 'shell.user.detail.setup';
       var tutorialRoute = 'shell.tutorial';
@@ -47,15 +56,13 @@ angular.module('shell', [
         // If user is not yet setup, redirect
         if ($rootScope._user._isSetup === false) {
           event.preventDefault();
-          return $state.go(setupRoute, {
-            id: $rootScope._user._id
-          }, { reload: true });
+          return $state.go(setupRoute, { id: $rootScope._user._id });
         }
 
         // If user is not yet done tutorial, redirect
         if (!$rootScope._user.tutorialCompleted) {
           event.preventDefault();
-          return $state.go('shell.tutorial');
+          return $state.go(tutorialRoute);
         }
       }
     });
