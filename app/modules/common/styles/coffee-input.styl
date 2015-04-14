@@ -1,15 +1,18 @@
 .coffee-input-helper
   display none
+  position absolute
+  right 1em
+  font-style italic
+  color red
+
+.edit-sub-row
+  .coffee-input-helper
+    top 0
+    left inherit
 
 .ng-submitted
   .coffee-input-helper
     display initial
-    position absolute
-    right 1em
-    font-style italic
-    color red
 
-  .edit-sub-row
-    .coffee-input-helper
-      top 0
-      left inherit
+.ng-touched ~ .coffee-input-helper
+  display initial

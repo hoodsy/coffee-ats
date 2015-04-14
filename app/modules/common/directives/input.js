@@ -10,7 +10,8 @@ angular.module('common')
 
     var errorTypes = [
       { type: 'required', msg: 'Required' },
-      { type: 'maxlength', msg: 'Too Long' }
+      { type: 'maxlength', msg: 'Too Long' },
+      { type: 'mintags', msg: 'Need more tags' }
     ];
 
     return {
@@ -19,7 +20,8 @@ angular.module('common')
         var name = element.attr('name');
         if (name) {
           errorTypes.forEach(function(type) {
-            if (element.attr(type.type) !== undefined) {
+            if (element.attr(type.type) !== undefined ||
+                element.attr('data-'+type.type) !== undefined) {
               var el = $interpolate(createEl(name, type.type, type.msg))(scope);
               ($compile(el)(scope)).insertAfter(element);
             }

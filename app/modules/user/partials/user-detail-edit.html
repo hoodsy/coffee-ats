@@ -218,6 +218,8 @@
                   type="text"
                   placeholder="add tag"
                   data-ng-model="newTag"
+                  data-coffee-input
+                  data-mintags="{{ user.tags.length }}"
                   data-on-enter='addTag(user, newTag)'/>
               </div>
 
@@ -442,10 +444,16 @@
         class="btn btn-default btn-block edit-submit-btn"
         data-ng-click="save(user)"
         data-ng-if="!(isMobile && isSetup && page < 4)">
-        <span data-ng-if="!(editForm.$error.required && editForm.$submitted)">
+        <span data-ng-if="
+          !(editForm.$submitted &&
+            (editForm.$error.required ||
+             editForm.$error.mintags))">
           Save &amp; Finish
         </span>
-        <span data-ng-if="editForm.$error.required && editForm.$submitted">
+        <span data-ng-if="
+          editForm.$submitted &&
+          (editForm.$error.required ||
+           editForm.$error.mintags)">
           Oops, you may have missed something!
         </span>
       </button>
