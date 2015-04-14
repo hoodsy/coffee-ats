@@ -5,6 +5,15 @@ angular.module('opportunity')
 
     $scope.palette = $stateParams.palette || '1';
 
+    // Placeholder for new tag input
+    $scope.newTag = '';
+
+    // Available schedule types
+    $scope.schedules = ['Full-time', 'Part-time', 'Other'];
+
+    // On mobile views we split edit form across multiple pages
+    $scope.page = 0;
+
     // DOM element id for file input
     $scope.fileUploadId = 'image-upload';
 
@@ -24,17 +33,12 @@ angular.module('opportunity')
         });
       } else {
         // initialize opportunity to add tags before creation
-        $scope.opportunity = {};
-        $scope.opportunity.tags = [];
+        $scope.opportunity = {
+          schedule: $scope.schedules[0],
+          tags: []
+        };
       }
     };
-
-    $scope.newTag = '';
-
-    $scope.schedules = ['Full-time', 'Part-time', 'Other'];
-
-    // On mobile views we split edit form across multiple pages
-    $scope.page = 0;
 
     $scope.previousPage = function() {
       $scope.page -= 1;

@@ -174,7 +174,9 @@
                   required
                   name="schedule"
                   data-ng-model="opportunity.schedule"
-                  data-ng-options="schedule for schedule in schedules"/>
+                  data-coffee-input
+                  data-ng-options="schedule for schedule in schedules">
+                </select>
               </div>
             </div>
             <div class="row edit-row xs-clear-margin white-bg half-margin-right">
@@ -302,16 +304,10 @@
       <button type="submit"
         class="btn btn-block edit-submit-btn"
         data-ng-click="finish(opportunity)">
-        <span data-ng-if="
-          !(editForm.$submitted &&
-            (editForm.$error.required ||
-             editForm.$error.mintags))">
+        <span data-ng-if="!(editForm.$submitted && editForm.$invalid)">
           Save &amp; Finish
         </span>
-        <span data-ng-if="
-          editForm.$submitted &&
-          (editForm.$error.required ||
-           editForm.$error.mintags)">
+        <span data-ng-if="editForm.$submitted && editForm.$invalid">
           Oops, you may have missed something!
         </span>
       </button>

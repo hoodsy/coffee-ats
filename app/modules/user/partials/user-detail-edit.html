@@ -444,16 +444,10 @@
         class="btn btn-default btn-block edit-submit-btn"
         data-ng-click="save(user)"
         data-ng-if="!(isMobile && isSetup && page < 4)">
-        <span data-ng-if="
-          !(editForm.$submitted &&
-            (editForm.$error.required ||
-             editForm.$error.mintags))">
+        <span data-ng-if="!(editForm.$submitted && editForm.$invalid)">
           Save &amp; Finish
         </span>
-        <span data-ng-if="
-          editForm.$submitted &&
-          (editForm.$error.required ||
-           editForm.$error.mintags)">
+        <span data-ng-if="editForm.$submitted && editForm.$invalid">
           Oops, you may have missed something!
         </span>
       </button>
