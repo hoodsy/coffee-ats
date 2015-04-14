@@ -9,7 +9,7 @@
 </div>
 
 <div id="main-container"
-  class="container"
-  data-ng-class="{ 'clear-nav': (_user && _user._isSetup) }"
+  class="container {{ ('shell.*.detail' | includedByState ) ? 'blur' : '' }}"
+  data-ng-class="{'clear-nav': (_user && _user._isSetup)}"
   data-ui-view="container">
 </div>
