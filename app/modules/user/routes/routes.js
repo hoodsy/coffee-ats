@@ -23,6 +23,8 @@ app.config(function($stateProvider) {
   .state('shell.user.detail.edit', {
     url: '/edit',
     views: {
+      'overlay@shell': {},
+      'overlay-detail@shell.user.detail': {},
       'main@shell': {
         controller: 'UserDetailEditCtrl',
         templateUrl: 'modules/user/partials/user-detail-edit.html'
@@ -32,6 +34,8 @@ app.config(function($stateProvider) {
   .state('shell.user.detail.setup', {
     url: '/setup',
     views: {
+      'overlay@shell': {},
+      'overlay-detail@shell.user.detail': {},
       'navbar@shell': {},
       'container@shell': {
         controller: 'UserDetailEditCtrl',

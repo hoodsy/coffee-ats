@@ -35,6 +35,8 @@ app.config(function($stateProvider) {
   .state('shell.opportunity.detail.edit', {
     url: '/edit',
     views: {
+      'overlay@shell': {},
+      'overlay-detail@shell.opportunity.detail': {},
       'main@shell': {
         controller: 'OpportunityManageCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-manage.html'
@@ -44,6 +46,8 @@ app.config(function($stateProvider) {
   .state('shell.opportunity.create', {
     url: '/new',
     views: {
+      'overlay@shell': {},
+      'overlay-detail@shell.opportunity.detail': {},
       'main@shell': {
         controller: 'OpportunityManageCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-manage.html'
