@@ -38,8 +38,6 @@ angular.module('shell', [
   $rootScope.$on('$stateChangeStart',
     function(event, toState, toParams, fromState, fromParams) {
 
-      console.log('from', fromState.name, 'transition', toState.name);
-
       var loginState = 'shell.login';
       if (!$rootScope._user
           && !$rootScope.authenticating

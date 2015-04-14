@@ -3,9 +3,11 @@
 var app = angular.module('opportunity');
 
 app.config(function($stateProvider) {
+
   $stateProvider
-  .state('shell.opportunity', {
+  .state('shell.opportunities', {
     url: '/opportunities',
+    sticky: true,
     views: {
       'main@shell': {
         controller: 'OpportunityDashboardCtrl',
@@ -13,12 +15,20 @@ app.config(function($stateProvider) {
       }
     }
   })
+  .state('shell.opportunity', {
+    url: '/opportunity',
+    abstract: true
+  })
   .state('shell.opportunity.detail', {
     url: '/:id?:palette',
     views: {
-      'main@shell': {
+     'overlay-detail@shell.opportunity.detail': {
         controller: 'OpportunityDetailCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-detail.html'
+      },
+      'overlay@shell': {
+        templateUrl: 'modules/shell/partials/overlay.html',
+        controller: 'OverlayDetailCtrl'
       }
     }
   })
@@ -28,8 +38,7 @@ app.config(function($stateProvider) {
       'main@shell': {
         controller: 'OpportunityManageCtrl',
         templateUrl: 'modules/opportunity/partials/opportunity-manage.html'
-      },
-      'overlay@shell': {}
+      }
     }
   })
   .state('shell.opportunity.create', {
@@ -41,6 +50,7 @@ app.config(function($stateProvider) {
       }
     }
   });
+
   // .state('shell.opportunity.billing', {
   //   url: '/billing',
   //   views: {

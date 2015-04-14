@@ -6,6 +6,7 @@ app.config(function ($stateProvider) {
     $stateProvider
       .state('shell.messaging', {
         url: '/messaging?:opId',
+        sticky: true,
         views: {
           'main@shell': {
             templateUrl: 'modules/messaging/partials/messaging.html',

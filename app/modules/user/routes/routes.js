@@ -10,9 +10,13 @@ app.config(function($stateProvider) {
   .state('shell.user.detail', {
     url: '/:id?:palette',
     views: {
-      'main@shell': {
+     'overlay-detail@shell.user.detail': {
         controller: 'UserDetailCtrl',
         templateUrl: 'modules/user/partials/user-detail.html'
+      },
+      'overlay@shell': {
+        templateUrl: 'modules/shell/partials/overlay.html',
+        controller: 'OverlayDetailCtrl'
       }
     }
   })

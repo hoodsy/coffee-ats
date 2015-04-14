@@ -10,7 +10,7 @@
       data-ng-class="{ 'slide-left': showControls($index) }">
 
       <div class="col-xs-2 col-sm-3 clear-padding flex-center match-card-avatar"
-        data-ui-sref=".detail({ id: match._id })"
+        data-ui-sref="shell.messaging.main.detail({ id: match._id })"
         data-ui-sref-active="active">
         <div class="img-container flex-center">
           <img class="rounded"
@@ -26,7 +26,7 @@
       </div>
 
       <div class="col-xs-7 col-sm-9 match-card-detail flex-center-vert"
-        data-ui-sref=".detail({ id: match._id })">
+        data-ui-sref="shell.messaging.main.detail({ id: match._id })">
         <div class="uppercase">
           {{ match.title }}
         </div>
