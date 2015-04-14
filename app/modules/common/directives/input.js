@@ -11,6 +11,9 @@ angular.module('common')
     var errorTypes = [
       { type: 'required', msg: 'Required' },
       { type: 'maxlength', msg: 'Too Long' },
+      { type: 'number', msg: 'Not a number' },
+      { type: 'max', msg: 'Too high' },
+      { type: 'min', msg: 'Too low' },
       { type: 'mintags', msg: 'Need more tags' }
     ];
 
@@ -21,7 +24,8 @@ angular.module('common')
         if (name) {
           errorTypes.forEach(function(type) {
             if (element.attr(type.type) !== undefined ||
-                element.attr('data-'+type.type) !== undefined) {
+                element.attr('data-'+type.type) !== undefined ||
+                element.attr('type') === type.type) {
               var el = $interpolate(createEl(name, type.type, type.msg))(scope);
               ($compile(el)(scope)).insertAfter(element);
             }

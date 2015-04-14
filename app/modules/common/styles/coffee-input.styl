@@ -16,3 +16,7 @@
 
 .ng-touched ~ .coffee-input-helper
   display initial
+
+// Only display one coffee-input-helper at a time
+.coffee-input-helper ~ .coffee-input-helper
+  display none
