@@ -24,7 +24,7 @@ angular.module('feed')
 
       feedResource.query({
         page: $scope.feedPage,
-        opportunityId: $stateParams.opId
+        opportunity_id: $stateParams.opId
       }, function(response) {
         $scope.loadingMoreFeed = false;
 

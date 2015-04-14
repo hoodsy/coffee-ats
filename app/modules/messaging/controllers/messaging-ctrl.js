@@ -29,7 +29,7 @@ angular.module('messaging')
 
       var request = UserMatch.query({
         after: earliestMatchDate,
-        opportunityId: $stateParams.opId
+        opportunity_id: $stateParams.opId
       }, function(response) {
         $scope.loadingMoreMatches = false;
 
