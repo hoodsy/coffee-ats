@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('opportunity')
-  .controller('OpportunityManageCtrl', function ($scope, $state, $stateParams, $q, Opportunity, apiUrl) {
+  .controller('OpportunityManageCtrl', function ($scope, $state, $stateParams, $q, $timeout, Opportunity, apiUrl) {
 
     $scope.palette = $stateParams.palette || '1';
 
@@ -88,8 +88,20 @@ angular.module('opportunity')
           opId = opportunity._id;
           return Opportunity.update(opportunity).$promise;
         })
+        /**
+         * Redirect first to opportunities dashboard, then to opportunity detail.
+         * This way if user "clicks out" of the detail, he will return to the
+         * dashboard (since he is returned to the previous location). Use of
+         * $timeout is necessary so the state changes occur in separate digest
+         * cycles.
+         */
         .then(function() {
-          $state.go('shell.opportunity.detail', { id: opId });
+          return $state.go('shell.opportunities');
+        })
+        .then(function() {
+          $timeout(function() {
+            $state.go('shell.opportunity.detail', { id: opId });
+          });
         })
         .catch(function(err) {
           console.log('ERROR: ' + err);

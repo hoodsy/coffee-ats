@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('user')
-  .controller('UserDetailEditCtrl', function ($scope, $rootScope, $state, $stateParams, User, userHelper, USER_CONFIG) {
+  .controller('UserDetailEditCtrl', function ($scope, $rootScope, $state, $stateParams, $timeout, User, userHelper, USER_CONFIG) {
 
     var MAX_EXPERIENCE = 3;
     var MAX_EDUCATION = 3;
@@ -161,10 +161,26 @@ angular.module('user')
 
       user.$update({}).then(function() {
         return User.get({ id: userId }).$promise;
-      }).then(function(user) {
+      })
+      .then(function(user) {
         $rootScope._user = userHelper.checkNeedsSetup(user);
-        return $state.go('shell.user.detail', { id: user._id });
-      }).catch(function(err) {
+      })
+      /**
+       * Redirect first to feed, then to user detail.
+       * This way if user "clicks out" of the detail, he will return to the
+       * feed (since he is returned to the previous location). Use of
+       * $timeout is necessary so the state changes occur in separate digest
+       * cycles.
+       */
+      .then(function() {
+        return $state.go('shell.feed');
+      })
+      .then(function() {
+        $timeout(function() {
+          $state.go('shell.user.detail', { id: userId });
+        });
+      })
+      .catch(function(err) {
         console.log('ERROR:', err);
       });
     };
