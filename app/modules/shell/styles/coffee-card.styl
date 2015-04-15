@@ -130,6 +130,7 @@ i.edit-quote
   font-size .9em
   height 100%
   display flex
+  flex-wrap wrap
   flex-direction row
   justify-content space-between
 
@@ -139,12 +140,11 @@ i.edit-quote
   li
     padding 0 1em
     border-left 1px solid color-grey-80
+    flex-grow 1
+    max-width 100%
 
     &:first-child
       border-left none
-
-    &:nth-child(even)
-      flex-grow 2
 
 
 /*
