@@ -2,6 +2,7 @@
   <div class="clear-padding white-bg height-100 detail-container">
     <div class="opportunity-card text-center detail-header">
       <button class="btn btn-transparent detail-edit-btn"
+        data-ng-click="$event.stopPropagation();"
         data-ui-sref="shell.opportunity.detail.edit({ id: opportunity._id, palette: palette })"
         data-ng-if="isEditable()">
         <i class="ci ci-edit ci-lg"></i>

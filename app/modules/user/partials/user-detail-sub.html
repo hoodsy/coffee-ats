@@ -2,6 +2,7 @@
 
   <div class="user-card detail-header">
     <button class="btn btn-transparent detail-edit-btn"
+      data-ng-click="$event.stopPropagation();"
       data-ui-sref="shell.user.detail.edit({ id: user._id, palette: palette })"
       data-ng-if="isEditable()">
       <i class="ci ci-edit ci-lg"></i>
