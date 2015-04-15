@@ -145,23 +145,11 @@ gulp.task('partials', _.wrap('shell', partials));
 // Final HTML
 //
 
-function jsPipeline() {
-  var jsFilter = $.filter('**/*.js');
-  return jsFilter
-    .pipe($.ngAnnotate())
-    .pipe($.uglify())
-    .pipe(jsFilter.restore());
-}
-
-function cssPipeline() {
-  var cssFilter = $.filter('**/*.css');
-  return cssFilter
-    .pipe($.csso())
-    .pipe(cssFilter.restore())
-}
-
 function finalHtml(module) {
   var assets;
+  var jsFilter = $.filter('**/*.js');
+  var cssFilter = $.filter('**/*.css');
+
   return gulp.src(path.join('app', module + '.html'))
     .pipe($.inject(gulp.src(
       path.join('app', module + '-static', 'partials', '*.js')), {
@@ -180,8 +168,18 @@ function finalHtml(module) {
     .pipe($.rename('index.html'))
     .pipe(assets = $.useref.assets())
     .pipe($.rev())
-    .pipe(jsPipeline())
-    .pipe(cssPipeline())
+
+    // JS pipeline
+    .pipe(jsFilter)
+    .pipe($.ngAnnotate())
+    .pipe($.uglify())
+    .pipe(jsFilter.restore())
+
+    // CSS pipeline
+    .pipe(cssFilter)
+    .pipe($.csso())
+    .pipe(cssFilter.restore())
+
     .pipe(assets.restore())
     .pipe($.useref())
     .pipe($.revReplace())
