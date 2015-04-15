@@ -4,7 +4,7 @@
 border-color = color-grey-80
 edit-btn-height = 36px
 card-quote-font-size = 3em
-edit-mobile-header-height = 8em
+edit-mobile-header-height = 5.5em
 
 
 @media (min-width: screen-sm-min)
@@ -34,12 +34,9 @@ edit-mobile-header-height = 8em
 @media (max-width: screen-xs-max)
   // Fix the edit button along the bottom
   .edit-submit-btn
-    position fixed
+    position absolute
     bottom 0
     height edit-btn-height
-
-  .clear-nav .edit-submit-btn
-    bottom navbar-height
 
   // Adjust form container to clear the submit button
   .edit-form
@@ -47,7 +44,6 @@ edit-mobile-header-height = 8em
     bottom edit-btn-height
     height 'calc(100% - %s)' % edit-btn-height
     overflow-y auto
-    -webkit-overflow-scrolling auto
 
 .edit-quote
   position relative
@@ -84,6 +80,7 @@ edit-mobile-header-height = 8em
 
 .edit-mobile-page
   height 'calc(100% - %s)' % edit-mobile-header-height
+  overflow-y auto
 
   .row.white-bg
     border-bottom none
@@ -107,6 +104,7 @@ button.edit-page-btn
 
 .row.white-bg
   border-bottom none
+  overflow-y auto
 
   @media (min-width: screen-sm-min)
     &:first-child
