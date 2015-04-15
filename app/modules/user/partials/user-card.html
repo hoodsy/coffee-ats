@@ -1,8 +1,8 @@
 <div class="card-shadow user-card text-center palette-{{ model._palette }}"
   data-ui-sref="shell.user.detail({ id: model._id, palette: model._palette })"
-  data-hm-doubletap="isMobile && cardLike({ $event: $event, model: model })"
-  data-ng-swipe-right="isMobile && cardLike({ $event: $event, model: model })"
-  data-ng-swipe-left="isMobile && cardAskDelete({ $event: $event, model: model })">
+  data-hm-doubletap="$root.isMobile && cardLike({ $event: $event, model: model })"
+  data-ng-swipe-right="$root.isMobile && cardLike({ $event: $event, model: model })"
+  data-ng-swipe-left="$root.isMobile && cardAskDelete({ $event: $event, model: model })">
 
   <div class="card-states"
     data-ng-if="model._state"
