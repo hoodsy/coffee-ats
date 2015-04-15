@@ -15,6 +15,10 @@ angular.module('auth')
         $rootScope.authenticating = true;
 
         var redirect = $location.url() || '/feed';
+        if (/login$/.test($location.url())) {
+          // If user is already logged in, don't redirect to login page
+          redirect = '/feed';
+        }
 
         return authResource.get().$promise
           .then(function(response) {
