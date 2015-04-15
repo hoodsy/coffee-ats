@@ -254,6 +254,7 @@
                 </div>
                 <ul class="detail-tags-list user-detail-tags-list">
                   <li class="text-center"
+                    data-ng-class="{ 'selected': user.tags.indexOf(tag) !== -1 }"
                     data-ng-repeat="tag in suggestedTags"
                     data-ng-click="addTag(user, tag)">
                     <span>{{ tag }}</span>
