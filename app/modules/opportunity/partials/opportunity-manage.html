@@ -73,7 +73,7 @@
                   class="text-center"
                   name="headline"
                   required
-                  maxlength="140"
+                  maxlength="{{ $root.config.inputLimitHeadline }}"
                   placeholder="e.g. Build websites."
                   data-msd-elastic
                   data-coffee-input
@@ -102,6 +102,7 @@
                   <input type="text"
                     name="companyName"
                     required
+                    maxlength="{{ $root.config.inputLimit }}"
                     placeholder="e.g. Twitter"
                     data-coffee-input
                     data-ng-model="opportunity.companyName" />
@@ -118,6 +119,7 @@
                   <input type="text"
                     name="position"
                     required
+                    maxlength="{{ $root.config.inputLimit }}"
                     placeholder="e.g. Web Developer"
                     data-coffee-input
                     data-ng-model="opportunity.title" />
@@ -188,6 +190,7 @@
                 <div>
                   <input type="text"
                     required
+                    maxlength="{{ $root.config.inputLimit }}"
                     name="location"
                     placeholder="e.g. Boston, MA"
                     data-coffee-input
@@ -225,6 +228,7 @@
                 <input class="text-center form-control"
                   name="newTag"
                   type="text"
+                  maxlength="{{ $root.config.inputLimit }}"
                   placeholder="add tag"
                   data-ng-model="newTag"
                   data-coffee-input
@@ -264,6 +268,7 @@
               <div class="col-sm-12 clear-padding">
                 <textarea class="text-center"
                   required
+                  maxlength="{{ $root.config.inputLimitLong }}"
                   name="companyAbout"
                   placeholder="e.g. Social media platform."
                   data-msd-elastic
@@ -284,6 +289,7 @@
               <div class="col-sm-12 clear-padding">
                 <textarea class="text-center"
                   required
+                  maxlength="{{ $root.config.inputLimitLong }}"
                   name="overview"
                   placeholder="e.g. Design and develop web applications."
                   data-msd-elastic

@@ -36,7 +36,7 @@
           </span>
           <span class="uppercase"
             data-ng-if="isSetup">
-            Describe yourself in {{ config.headlineCharLimit }} characters
+            Describe yourself in {{ $root.config.inputLimitHeadline }} characters
           </span>
         </div>
         <div class="col-xs-8 edit-page-header flex-center"
@@ -107,7 +107,7 @@
                 name="headline"
                 class="headline-text"
                 placeholder="Driven professional with a background in..."
-                maxlength="{{ config.headlineCharLimit }}"
+                maxlength="{{ $root.config.inputLimitHeadline }}"
                 data-coffee-input
                 data-msd-elastic
                 data-ng-model="user.headline">
@@ -138,6 +138,7 @@
                       <input type="text"
                         name="firstName"
                         required
+                        maxlength="{{ $root.config.inputLimit }}"
                         data-coffee-input
                         placeholder="First"
                         data-ng-model="user.firstName" />
@@ -150,6 +151,7 @@
                       <input type="text"
                         name="lastName"
                         required
+                        maxlength="{{ $root.config.inputLimit }}"
                         data-coffee-input
                         placeholder="Last"
                         data-ng-model="user.lastName" />
@@ -168,6 +170,7 @@
                   <input type="text"
                     name="location"
                     required
+                    maxlength="{{ $root.config.inputLimit }}"
                     data-coffee-input
                     placeholder="Location"
                     data-ng-model="user._location" />
@@ -184,6 +187,7 @@
                   <input type="text"
                     name="position"
                     required
+                    maxlength="{{ $root.config.inputLimit }}"
                     data-coffee-input
                     placeholder="Position"
                     data-ng-model="user.position" />
@@ -200,6 +204,7 @@
                   <input type="text"
                     name="organization"
                     required
+                    maxlength="{{ $root.config.inputLimit }}"
                     data-coffee-input
                     placeholder="Organization"
                     data-ng-model="user.organization" />
@@ -216,6 +221,7 @@
                 <input class="text-center form-control"
                   name="tag"
                   type="text"
+                  maxlength="{{ $root.config.inputLimit }}"
                   placeholder="add tag"
                   data-ng-model="newTag"
                   data-coffee-input
@@ -287,6 +293,7 @@
                     <input type="text"
                       name="organizationExperience{{$index}}"
                       required
+                      maxlength="{{ $root.config.inputLimit }}"
                       data-coffee-input
                       placeholder="Organization"
                       data-ng-model="experience.organization" />
@@ -297,6 +304,7 @@
                     <input type="text"
                       name="positionExperience{{$index}}"
                       required
+                      maxlength="{{ $root.config.inputLimit }}"
                       data-coffee-input
                       placeholder="Position"
                       data-ng-model="experience.position" />
@@ -376,6 +384,7 @@
                     <input type="text"
                       name="schoolEducation{{$index}}"
                       required
+                      maxlength="{{ $root.config.inputLimit }}"
                       placeholder="School"
                       data-coffee-input
                       data-ng-model="education.school" />
@@ -386,6 +395,7 @@
                     <input type="text"
                       name="majorEducation{{$index}}"
                       required
+                      maxlength="{{ $root.config.inputLimit }}"
                       placeholder="Major"
                       data-coffee-input
                       data-ng-model="education.major" />
