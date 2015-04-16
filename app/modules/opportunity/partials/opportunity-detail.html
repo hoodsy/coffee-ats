@@ -24,33 +24,36 @@
 
       <div class="card-main-text">
         <div class="flex-center-vert">
-          <span class="uppercase">
-            {{ opportunity.creatorName }} | {{ opportunity.creatorPosition }}
-          </span>
+          <div class="ellipsis uppercase">
+            <span>{{ opportunity.creatorName }}</span>
+            <span data-ng-if="opportunity.creatorPosition">|</span>
+            <span>{{ opportunity.creatorPosition }}</span>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="detail-body">
-      <h1 class="header uppercase">
-        {{ opportunity.title }} @
-        {{ opportunity.companyName }}
+      <h1 class="header uppercase ellipsis">
+        <span>{{ opportunity.title }}</span>
+        <span data-ng-if="opportunity.companyName">@</span>
+        <span>{{ opportunity.companyName }}</span>
       </h1>
 
       <div class="row clear-margin">
         <div class="col-xs-8 col-xs-offset-2 opportunity-infobox">
           <i class="ci ci-salary ci-lg"></i>
-          <span>
+          <span class="ellipsis">
             {{ opportunity.salaryMin | salary:opportunity.salaryMax:opportunity.salaryCurrency }}
           </span>
         </div>
         <div class="col-xs-8 col-xs-offset-2 opportunity-infobox uppercase">
           <i class="ci ci-clock ci-lg"></i>
-          <span>{{ opportunity.schedule }}</span>
+          <span class="ellipsis">{{ opportunity.schedule }}</span>
         </div>
         <div class="col-xs-8 col-xs-offset-2 opportunity-infobox uppercase">
           <i class="ci ci-map-marker ci-lg"></i>
-          <span>{{ opportunity.locations[0] }}</span>
+          <span class="ellipsis">{{ opportunity.locations[0] }}</span>
         </div>
       </div>
 
@@ -70,7 +73,8 @@
 
       <!-- Tags -->
       <ul class="detail-tags-list opportunity-detail-tags-list uppercase">
-        <li data-ng-repeat="tag in opportunity.tags">
+        <li class="ellipsis"
+          data-ng-repeat="tag in opportunity.tags">
           <span>{{ tag }}</span>
         </li>
       </ul>
@@ -81,7 +85,9 @@
           <img class="rounded"
             alt="creator img"
             data-alt-img="{{ opportunity.creatorPicture }}"/>
-          <h2 class="header uppercase">About {{ opportunity.creatorName }}</h2>
+          <h2 class="ellipsis header uppercase">
+            About {{ opportunity.creatorName }}
+          </h2>
           <p>{{ opportunity.creatorHeadline }}</p>
         </div>
       </div>

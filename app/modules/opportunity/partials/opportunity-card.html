@@ -29,9 +29,11 @@
 
       <div class="card-main-text">
         <div class="flex-center-vert">
-          <span class="uppercase">
-            {{ model.creatorName }} | {{ model.creatorPosition }}
-          </span>
+          <div class="ellipsis uppercase">
+            <span>{{ model.creatorName }}</span>
+            <span data-ng-if="model.creatorPosition">|</span>
+            <span>{{ model.creatorPosition }}</span>
+          </div>
         </div>
       </div>
 
@@ -44,7 +46,9 @@
 
       <div class="card-main-top">
         <div class="quote flex-center-vert">
-          <i class="ci ci-quote edit-quote"></i>
+          <i class="ci ci-quote edit-quote"
+            data-ng-if="model.headline">
+          </i>
           <div class="headline-text">{{ model.headline }}</div>
         </div>
       </div>
@@ -72,8 +76,10 @@
         </button>
 
         <div class="card-main-text flex-center-vert">
-          <div>
-            <span class="uppercase">{{ model.creatorName }} | {{ model.creatorPosition }}</span>
+          <div class="ellipsis uppercase">
+            <span>{{ model.creatorName }}</span>
+            <span data-ng-if="model.creatorPosition">|</span>
+            <span>{{ model.creatorPosition }}</span>
           </div>
         </div>
       </div>
@@ -82,15 +88,15 @@
 
   <div class="tags-container {{ model._cssClass }}">
     <ul class="tags-list">
-      <li class="uppercase">
+      <li class="ellipsis uppercase">
         <i class="ci ci-salary ci-lg"></i>
         {{ model.salaryMin | salary:model.salaryMax:model.salaryCurrency }}
       </li>
-      <li class="uppercase">
+      <li class="ellipsis uppercase">
         <i class="ci ci-clock ci-lg"></i>
         {{ model.schedule }}
       </li>
-      <li class="uppercase">
+      <li class="ellipsis uppercase">
         <i class="ci ci-map-marker ci-lg"></i>
         {{ model.locations[0] }}
       </li>

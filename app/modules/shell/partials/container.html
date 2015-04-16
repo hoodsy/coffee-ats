@@ -26,15 +26,15 @@
           <div class="sidebar-main-text">
             <div class="flex-center-vert uppercase">
 
-              <div>
+              <div class="ellipsis">
                 {{ _user.firstName }} {{ _user.lastName }}
               </div>
-              <div>
+              <div class="ellipsis">
                 <span>{{ _user.position }}</span>
                 <span data-ng-if="_user.organization">@</span>
                 <span><strong>{{ _user.organization }}</strong></span>
               </div>
-              <div>
+              <div class="ellipsis">
                 <span>{{ _user.locations[0] }}</span>
               </div>
             </div>

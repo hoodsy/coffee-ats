@@ -29,13 +29,15 @@
       </div>
 
       <div class="card-main-text">
-        <div class="flex-center-vert">
-          <div class="uppercase">{{ model.name }}</div>
-          <div>
-            <span class="uppercase">{{ model.position }} @
-            <strong>{{ model.organization }}</strong> |
+        <div class="flex-center uppercase">
+          <!-- <div class="ellipsis">{{ model.name }}</div> -->
+          <div class="ellipsis">
+            <span>{{ model.position }}<span>
+            <span data-ng-if="model.organization">@</span>
+            <span><strong>{{ model.organization }}</strong></span>
+          </div>
+          <div class="ellipsis">
             {{ model.locations[0] }}
-            </span>
           </div>
         </div>
       </div>
@@ -49,7 +51,9 @@
 
     <div class="card-main-top">
       <div class="quote flex-center-vert">
-        <i class="ci ci-quote edit-quote"></i>
+        <i class="ci ci-quote edit-quote"
+          data-ng-if="model.headline">
+        </i>
         <div class="headline-text">{{ model.headline }}</div>
       </div>
     </div>
@@ -77,11 +81,13 @@
 
       <div class="card-main-text flex-center-vert">
         <div class="uppercase">{{ model.name }}</div>
-        <div>
-          <span class="uppercase">{{ model.position }} @
-          <strong>{{ model.organization }}</strong> |
+        <div class="ellipsis">
+          <span class="uppercase">{{ model.position }}<span>
+          <span data-ng-if="model.organization">@</span>
+          <span><strong>{{ model.organization }}</strong></span>
+        </div>
+        <div class="ellipsis uppercase">
           {{ model.locations[0] }}
-          </span>
         </div>
       </div>
     </div>
@@ -91,7 +97,7 @@
   <div class="tags-container {{ model._cssClass }}">
     <div class="tag-octothorpe">#</div>
     <ul class="tags-list">
-      <li class="uppercase"
+      <li class="ellipsis uppercase"
         data-ng-repeat="tag in model.tags">
         <div>{{ tag }}</div>
       </li>

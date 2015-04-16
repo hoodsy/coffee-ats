@@ -24,14 +24,15 @@
     </div>
 
     <div class="card-main-text uppercase">
-      <div class="t-username">
+      <div class="ellipsis t-username">
         {{ user.firstName }} {{ user.lastName }}
       </div>
-      <div>
+      <div class="ellipsis">
         <span class="t-position">{{ user.position }}</span>
         @
         <span class="t-organization"><strong>{{ user.organization }}</strong></span>
-        |
+      </div>
+      <div class="ellipsis">
         <span class="t-location">{{ user.locations[0] }}</span>
       </div>
     </div>
@@ -44,10 +45,10 @@
         <ul class="user-detail-list">
           <li data-ng-repeat="experience in user.experiences">
             <ul class="user-detail-sub-list t-experience">
-              <li class="t-organization">
+              <li class="ellipsis t-organization">
                 <strong>{{ experience.organization }}</strong>
               </li>
-              <li class="uppercase position t-position">
+              <li class="ellipsis uppercase position t-position">
                 <span>{{ experience.position }}</span>
               </li>
               <li class="timespan t-timespan">
@@ -72,10 +73,10 @@
         <ul class="user-detail-list">
           <li data-ng-repeat="education in user.educations">
             <ul class="user-detail-sub-list t-education">
-              <li class="t-school">
+              <li class="ellipsis t-school">
                 <strong>{{ education.school }}</strong>
               </li>
-              <li class="uppercase position t-major">
+              <li class="ellipsis uppercase position t-major">
                 <span>{{ education.degree }} {{ education.major }}</span>
               </li>
               <li class="timespan t-timespan">
@@ -100,7 +101,7 @@
 
     <!-- Tags -->
     <ul class="detail-tags-list user-detail-tags-list uppercase">
-      <li class="t-tag"
+      <li class="ellipsis t-tag"
         data-ng-repeat="tag in user.tags">
         <span>{{ tag }}</span>
       </li>
