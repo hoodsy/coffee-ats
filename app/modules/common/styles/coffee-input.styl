@@ -21,3 +21,8 @@
 // Only display one coffee-input-helper at a time
 .coffee-input-helper ~ .coffee-input-helper
   display none
+
+// On button hidden invalidations, change color of sibling text
+input[type="hidden"] ~ .coffee-input-helper ~ *
+  color red
+

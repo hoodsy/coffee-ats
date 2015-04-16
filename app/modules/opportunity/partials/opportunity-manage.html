@@ -228,7 +228,9 @@
                   placeholder="add tag"
                   data-ng-model="newTag"
                   data-coffee-input
-                  data-mintags="{{ opportunity.tags.length }}"
+                  data-coffeemin-msg="Add more tags!"
+                  data-coffeemin="5"
+                  data-coffeemin-model="{{ opportunity.tags.length }}"
                   data-on-enter='addTag(opportunity, newTag)'/>
               </div>
               <div class="col-xs-12  clear-padding">

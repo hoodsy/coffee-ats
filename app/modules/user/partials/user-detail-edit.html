@@ -219,7 +219,9 @@
                   placeholder="add tag"
                   data-ng-model="newTag"
                   data-coffee-input
-                  data-mintags="{{ user.tags.length }}"
+                  data-coffeemin-msg="Add more tags!"
+                  data-coffeemin="5"
+                  data-coffeemin-model="{{ user.tags.length }}"
                   data-on-enter='addTag(user, newTag)'/>
               </div>
 
@@ -343,7 +345,15 @@
               data-ng-if="canAddExperience(user)">
               <button class="edit-add-btn edit-page-btn t-add-experience-btn"
                 type="button"
+                name="experiences"
                 data-ng-click="addExperience(user)">
+                <input type="hidden"
+                  name="experiences"
+                  data-coffeemin="1"
+                  data-coffeemin-msg="Add experience!"
+                  data-coffeemin-model="{{ user.experiences.length }}"
+                  data-coffee-input
+                  data-ng-model="user.experiences.length"/>
                 <i class="ci ci-plus ci-3x"></i>
                 <div class="uppercase">Add Experience</div>
               </button>
@@ -425,6 +435,13 @@
               <button class="edit-add-btn edit-page-btn t-add-education-btn"
                 type="button"
                 data-ng-click="addEducation(user)">
+                <input type="hidden"
+                  name="educations"
+                  data-coffeemin="1"
+                  data-coffeemin-msg="Add education!"
+                  data-coffeemin-model="{{ user.educations.length }}"
+                  data-coffee-input
+                  data-ng-model="user.educations.length"/>
                 <i class="ci ci-plus ci-3x"></i>
                 <div class="uppercase">Add Education</div>
               </button>
