@@ -7,5 +7,7 @@ angular.module('user', [
   'ngCookies'
 ]).constant('USER_CONFIG', {
   'headlineCharLimit': 140,
-  'numRequiredTags': 5
+  'numRequiredTags': 5,
+  'maxEducations': 3,
+  'maxExperiences': 3
 });

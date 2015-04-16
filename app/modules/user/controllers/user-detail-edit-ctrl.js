@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('user')
-  .controller('UserDetailEditCtrl', function ($scope, $rootScope, $state, $stateParams, $timeout, User, userHelper, USER_CONFIG) {
-
-    var MAX_EXPERIENCE = 3;
-    var MAX_EDUCATION = 3;
+  .controller('UserDetailEditCtrl', function (
+    $scope, $rootScope, $state, $stateParams, $timeout,
+    User, userHelper, USER_CONFIG) {
 
     $scope.config = USER_CONFIG;
 
@@ -108,7 +107,7 @@ angular.module('user')
 
     $scope.canAddExperience = function(user) {
       return ($scope.experiences &&
-              $scope.experiences.length < MAX_EXPERIENCE);
+              $scope.experiences.length < $scope.config.maxExperiences);
     };
 
     // Add an experience slot to user object
@@ -129,7 +128,7 @@ angular.module('user')
 
     $scope.canAddEducation = function(user) {
       return ($scope.educations &&
-              $scope.educations.length < MAX_EDUCATION);
+              $scope.educations.length < $scope.config.maxEducations);
     };
 
     // Add an education slot to user object
