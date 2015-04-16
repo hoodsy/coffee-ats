@@ -170,7 +170,7 @@
                     required
                     data-coffee-input
                     placeholder="Location"
-                    data-ng-model="user.location" />
+                    data-ng-model="user._location" />
                 </div>
               </div>
             </div>
@@ -274,7 +274,7 @@
           <!-- Experience Detail -->
           <div data-ng-class="{ 'hidden-xs': page !== 2 }">
             <div class="row edit-row xs-clear-margin white-bg half-margin-left"
-              data-ng-repeat="experience in user.experiences">
+              data-ng-repeat="experience in experiences">
               <div class="col-xs-3 edit-col flex-center">
                 <i class="ci ci-x-circle edit-delete-btn t-delete-experience-btn"
                   data-ng-click="deleteExeperience(user, $index)">
@@ -351,9 +351,9 @@
                   name="experiences"
                   data-coffeemin="1"
                   data-coffeemin-msg="Add experience!"
-                  data-coffeemin-model="{{ user.experiences.length }}"
+                  data-coffeemin-model="{{ experiences.length }}"
                   data-coffee-input
-                  data-ng-model="user.experiences.length"/>
+                  data-ng-model="experiences.length"/>
                 <i class="ci ci-plus ci-3x"></i>
                 <div class="uppercase">Add Experience</div>
               </button>
@@ -363,7 +363,7 @@
           <!-- Education Detail -->
           <div data-ng-class="{ 'hidden-xs': page !== 3 }">
             <div class="row edit-row xs-clear-margin white-bg half-margin-left"
-              data-ng-repeat="education in user.educations">
+              data-ng-repeat="education in educations">
               <div class="col-xs-3 edit-col flex-center">
                 <i class="ci ci-x-circle edit-delete-btn t-delete-education-btn"
                   data-ng-click="deleteEducation(user, $index)">
@@ -439,9 +439,9 @@
                   name="educations"
                   data-coffeemin="1"
                   data-coffeemin-msg="Add education!"
-                  data-coffeemin-model="{{ user.educations.length }}"
+                  data-coffeemin-model="{{ educations.length }}"
                   data-coffee-input
-                  data-ng-model="user.educations.length"/>
+                  data-ng-model="educations.length"/>
                 <i class="ci ci-plus ci-3x"></i>
                 <div class="uppercase">Add Education</div>
               </button>

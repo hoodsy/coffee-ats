@@ -28,7 +28,7 @@ angular.module('opportunity')
         $scope.opportunity = Opportunity.get({ id: $stateParams.id }, function(opportunity) {
           // Because backend supports array of locations but UI only has single input
           if (opportunity.locations.length > 0) {
-            opportunity.location = opportunity.locations[0];
+            opportunity._location = opportunity.locations[0];
           }
         });
       } else {
@@ -63,7 +63,7 @@ angular.module('opportunity')
 
     function prepLocation(opportunity) {
       // Because backend supports array of locations but UI only has single input
-      opportunity.locations = [opportunity.location];
+      opportunity.locations = [opportunity._location];
     }
 
     $scope.finish = function(opportunity) {

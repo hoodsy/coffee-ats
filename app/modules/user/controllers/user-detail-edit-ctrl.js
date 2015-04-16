@@ -11,7 +11,13 @@ angular.module('user')
     $scope.palette = $stateParams.palette || '1';
     $scope.isSetup = /setup/.test($state.current.name);
 
+    // User and user sub objects used in view
+    $scope.user = null;
+    $scope.experiences = [];
+    $scope.educations = [];
+
     function getTimes(item) {
+      item = _.clone(item);
       var date;
       if (item.startTime) {
         date = new Date(item.startTime);
@@ -23,6 +29,8 @@ angular.module('user')
         item._endYear = date.getUTCFullYear();
         item._endMonth = date.getUTCMonth() + 1;
       }
+
+      return item;
     }
 
     function setTimes(item) {
@@ -30,25 +38,34 @@ angular.module('user')
       item.endTime = '';
       if (item._startMonth && item._startYear) {
         item.startTime = new Date(Date.UTC(item._startYear, item._startMonth - 1));
-        delete item._startMonth;
-        delete item._startYear;
       }
       if (item._endMonth && item._endYear) {
         item.endTime = new Date(Date.UTC(item._endYear, item._endMonth - 1));
-        delete item._endMonth;
-        delete item._endYear;
       }
+
+      // Return the object without any private keys
+      item = _.clone(item);
+      Object.keys(item).forEach(function(key) {
+        if (key.charAt(0) === '_') {
+          delete item[key];
+        }
+      });
+
+      return item;
     }
 
-    $scope.user = User.get({ id: $stateParams.id }, function(user) {
+    User.get({ id: $stateParams.id }, function(user) {
+
+      $scope.user = user;
+
+      // Set up experiences and educations
+      $scope.experiences = _.map(user.experiences, getTimes);
+      $scope.educations = _.map(user.educations, getTimes);
 
       // Because backend supports array of locations but UI only has single input
       if (user.locations.length > 0) {
-        user.location = user.locations[0];
+        user._location = user.locations[0];
       }
-
-      user.educations.forEach(getTimes);
-      user.experiences.forEach(getTimes);
     });
 
     $scope.suggestedTags = [
@@ -90,14 +107,14 @@ angular.module('user')
     };
 
     $scope.canAddExperience = function(user) {
-      return (user.experiences &&
-              user.experiences.length < MAX_EXPERIENCE);
+      return ($scope.experiences &&
+              $scope.experiences.length < MAX_EXPERIENCE);
     };
 
     // Add an experience slot to user object
     $scope.addExperience = function(user) {
       if ($scope.canAddExperience(user)) {
-        user.experiences.push({
+        $scope.experiences.push({
           organization: '',
           position: '',
           time: ''
@@ -107,18 +124,18 @@ angular.module('user')
 
     // Remove an experience by index number (0-indexed)
     $scope.deleteExeperience = function(user, index) {
-      user.experiences.splice(index, 1);
+      $scope.experiences.splice(index, 1);
     };
 
     $scope.canAddEducation = function(user) {
-      return (user.educations &&
-              user.educations.length < MAX_EDUCATION);
+      return ($scope.educations &&
+              $scope.educations.length < MAX_EDUCATION);
     };
 
     // Add an education slot to user object
     $scope.addEducation = function(user) {
       if ($scope.canAddEducation(user)) {
-        user.educations.push({
+        $scope.educations.push({
           school: '',
           major: '',
           degree: '',
@@ -129,7 +146,7 @@ angular.module('user')
 
     // Remove an education by index number (0-indexed)
     $scope.deleteEducation = function(user, index) {
-      user.educations.splice(index, 1);
+      $scope.educations.splice(index, 1);
     };
 
     // Add a tag to the user's tags
@@ -151,19 +168,18 @@ angular.module('user')
       }
 
       // Because backend supports array of locations but UI only has single input
-      user.locations = [user.location];
-      delete user.location;
+      user.locations = [user._location];
 
-      user.educations.forEach(setTimes);
-      user.experiences.forEach(setTimes);
+      user.educations = $scope.educations.map(setTimes);
+      user.experiences = $scope.experiences.map(setTimes);
 
       var userId = user._id;
 
-      user.$update({}).then(function() {
+      User.update(user).$promise.then(function() {
         return User.get({ id: userId }).$promise;
       })
       .then(function(user) {
-        $rootScope._user = userHelper.checkNeedsSetup(user);
+        $scope.user = $rootScope._user = userHelper.checkNeedsSetup(user);
       })
       /**
        * Redirect first to feed, then to user detail.

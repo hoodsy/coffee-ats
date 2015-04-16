@@ -21,7 +21,7 @@ angular.module('shell', [
 
   prependTransform(function(value) {
     if (value && value._id) {
-      value = jQuery.extend({}, value);
+      value = _.clone(value);
 
       // Delete all keys that start with underscore (_)
       Object.keys(value).forEach(function(key) {
