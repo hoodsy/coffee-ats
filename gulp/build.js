@@ -9,6 +9,8 @@ var nib = require('nib');
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 var sprite = require('css-sprite').stream;
+var gitrev = require('git-rev');
+var Q = require('q');
 
 var util = require('./util');
 
@@ -145,7 +147,7 @@ gulp.task('partials', _.wrap('shell', partials));
 // Final HTML
 //
 
-function finalHtml(module) {
+function _finalHtml(module, revision) {
   var assets;
   var jsFilter = $.filter('**/*.js');
   var cssFilter = $.filter('**/*.css');
@@ -183,8 +185,22 @@ function finalHtml(module) {
     .pipe(assets.restore())
     .pipe($.useref())
     .pipe($.revReplace())
+    .pipe($.replace('COFFEE_VERSION_PLACEHOLDER', revision))
     .pipe(gulp.dest(module + '-dist'))
     .pipe($.size());
+}
+
+function finalHtml(module) {
+  var deferred = Q.defer();
+
+  gitrev.short(function(rev) {
+    _finalHtml(module, rev)
+      .on('end', function() {
+        deferred.resolve();
+      });
+  });
+
+  return deferred.promise;
 }
 
 gulp.task('final-html', ['styles', 'scripts', 'partials', 'fonts', 'images'], _.wrap('shell', finalHtml));
