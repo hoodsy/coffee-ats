@@ -125,6 +125,7 @@ angular.module('opportunity')
       new S3Upload({
         file_dom_selector: $scope.fileUploadId,
         s3_sign_put_url: apiUrl('/opportunities/' + opportunity._id + '/s3_upload_signature'),
+        with_credentials: true,
         onFinishS3Put: function(public_url) {
           opportunity.picture = public_url;
           deferred.resolve(opportunity);

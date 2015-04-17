@@ -21,7 +21,7 @@
     "lodash": "~3.1.0",
     "angular-elastic": "~2.4.2",
     "angular-media-queries": "~0.4.0",
-    "s3upload": "*",
+    "s3upload": "git@github.com:jlas/s3upload-coffee-javascript.git",
     "angular-carousel": "~0.3.10",
     "angular-hammer": "~1.2.4",
     "ui-router-extras": "~0.0.13"
