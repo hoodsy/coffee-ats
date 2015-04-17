@@ -195,7 +195,7 @@ function finalHtml(module) {
 
   gitrev.short(function(rev) {
     _finalHtml(module, rev)
-      .on('end', function() {
+      .on('finish', function() {
         deferred.resolve();
       });
   });
