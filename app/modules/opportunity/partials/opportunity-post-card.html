@@ -42,7 +42,7 @@
           <div class="quote">{{ model.headline }}</div>
         </div>
 
-        <div class="opportunity-post-card-controls flex-center"
+        <div class="opportunity-post-card-controls clear-padding flex-center"
           data-ng-class="{
             'col-xs-2': !showControls(model._id),
             'col-xs-5 grow': showControls(model._id)
@@ -56,7 +56,7 @@
 
           <div class="row"
             data-ng-class="{'spread-out': showControls(model._id)}"
-            data-ng-if="showControls(model._id) || $root.isDesktop">
+            data-ng-if="showControls(model._id) || isDesktop">
             <button class="btn btn-transparent visible-xs-inline"
               data-ng-click="toggleControls($event, model._id)">
               <i class="ci ci-more ci-lg"></i>
