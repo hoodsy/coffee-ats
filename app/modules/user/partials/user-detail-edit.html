@@ -351,8 +351,7 @@
             </div>
             <div class="row edit-row xs-clear-margin half-margin-left white-bg"
               data-ng-if="canAddExperience(user)">
-              <button class="edit-add-btn edit-page-btn t-add-experience-btn"
-                type="button"
+              <div class="edit-add-btn edit-page-btn t-add-experience-btn flex-center"
                 name="experiences"
                 data-ng-click="addExperience(user)">
                 <input type="hidden"
@@ -364,7 +363,7 @@
                   data-ng-model="experiences.length"/>
                 <i class="ci ci-plus ci-3x"></i>
                 <div class="uppercase">Add Experience</div>
-              </button>
+              </div>
             </div>
           </div>
 
@@ -442,8 +441,7 @@
             </div>
             <div class="row edit-row xs-clear-margin half-margin-left white-bg"
               data-ng-if="canAddEducation(user)">
-              <button class="edit-add-btn edit-page-btn t-add-education-btn"
-                type="button"
+              <div class="edit-add-btn edit-page-btn t-add-education-btn flex-center"
                 data-ng-click="addEducation(user)">
                 <input type="hidden"
                   name="educations"
@@ -454,7 +452,7 @@
                   data-ng-model="educations.length"/>
                 <i class="ci ci-plus ci-3x"></i>
                 <div class="uppercase">Add Education</div>
-              </button>
+              </div>
             </div>
           </div>
 
