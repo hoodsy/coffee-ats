@@ -53,27 +53,31 @@ module.exports = (function() {
 
   that.modStyles = function(module) {
     return expandAssets(module, path.join('styles', '**', '*.styl'));
-  }
+  };
 
   that.modPartials = function(module) {
     return expandAssets(module, path.join('**', '*.html'));
-  }
+  };
 
   that.modScripts = function(module) {
     return expandAssets(module, path.join('**', '*.js'));
-  }
+  };
 
   that.modFonts = function(module) {
     return expandAssets(module, path.join('fonts', '*.{eot,svg,ttf,woff}'));
-  }
+  };
 
   that.modImages = function(module) {
     return expandAssets(module, path.join('images', '*'));
-  }
+  };
+
+  that.modSounds = function(module) {
+    return expandAssets(module, path.join('sounds', '*'));
+  };
 
   that.modSprites = function(module) {
     return expandAssets(module, path.join('sprites', '*'));
-  }
+  };
 
   return that;
 })();

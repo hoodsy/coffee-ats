@@ -203,7 +203,7 @@ function finalHtml(module) {
   return deferred.promise;
 }
 
-gulp.task('final-html', ['styles', 'scripts', 'partials', 'fonts', 'images'], _.wrap('shell', finalHtml));
+gulp.task('final-html', ['styles', 'scripts', 'partials', 'fonts', 'images', 'sounds'], _.wrap('shell', finalHtml));
 
 
 // Images & Sprites
@@ -232,6 +232,18 @@ function images(module) {
 }
 
 gulp.task('images', ['sprites'], _.wrap('shell', images));
+
+
+// Sounds
+//
+
+function sounds(module) {
+  return gulp.src(util.modSounds(module))
+    .pipe(gulp.dest(module + '-dist/sounds'))
+    .pipe($.size());
+}
+
+gulp.task('sounds', _.wrap('shell', sounds));
 
 
 // Fonts
