@@ -5,7 +5,7 @@ angular.module('shell')
 
     var MAX_PAGES = 2;
 
-    $scope.page = 0;
+    $scope.page = $rootScope.isMobile ? 0 : 1;
 
     $scope.nextPage = function() {
       $scope.page += 1;
