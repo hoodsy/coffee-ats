@@ -64,7 +64,7 @@ module.exports = (function() {
   };
 
   that.modFonts = function(module) {
-    return expandAssets(module, path.join('fonts', '*.{eot,svg,ttf,woff}'));
+    return expandAssets(module, path.join('fonts', '**', '*.{eot,svg,ttf,woff}'));
   };
 
   that.modImages = function(module) {
