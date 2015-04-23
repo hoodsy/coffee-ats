@@ -23,16 +23,16 @@
       </div>
 
       <div class="card-quote">
-        <div class="flex-center-vert">
+        <div class="flex-center-vert headline">
           {{ model.headline }}
         </div>
       </div>
 
       <div class="card-main-text">
         <div class="flex-center uppercase">
-          <!-- <div class="ellipsis">{{ model.name }}</div> -->
+          <div class="ellipsis">{{ model.firstName }} {{ model.lastName }}</div>
           <div class="ellipsis">
-            <span>{{ model.position }}<span>
+            <span class="light">{{ model.position }}<span>
             <span data-ng-if="model.organization">@</span>
             <span><strong>{{ model.organization }}</strong></span>
           </div>
@@ -54,7 +54,7 @@
         <i class="ci ci-quote edit-quote"
           data-ng-if="model.headline">
         </i>
-        <div class="headline-text">{{ model.headline }}</div>
+        <div class="headline-text headline">{{ model.headline }}</div>
       </div>
     </div>
 
@@ -79,14 +79,14 @@
         </span>
       </button>
 
-      <div class="card-main-text flex-center-vert">
-        <div class="uppercase">{{ model.name }}</div>
+      <div class="card-main-text flex-center-vert uppercase">
+        <div>{{ model.firstName }} {{ model.lastName }}</div>
         <div class="ellipsis">
-          <span class="uppercase">{{ model.position }}<span>
+          <span class="light">{{ model.position }}<span>
           <span data-ng-if="model.organization">@</span>
           <span><strong>{{ model.organization }}</strong></span>
         </div>
-        <div class="ellipsis uppercase">
+        <div class="ellipsis">
           {{ model.locations[0] }}
         </div>
       </div>

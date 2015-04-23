@@ -5,7 +5,7 @@
       <div class="row clear-margin opportunity-post-card-info"
         data-ui-sref="shell.messaging.main({ opId: model._id })">
         <div class="col-xs-6 clear-padding flex-center text-left">
-          <span class="jumbo-count">{{ model.matchesCount }}</span>
+          <span class="jumbo-count">{{ model.matchesCount || '0' }}</span>
         </div>
         <div class="col-xs-6 clear-padding flex-center text-right">
           <h2>Coffee Meetings</h2>
@@ -14,7 +14,7 @@
       <div class="row clear-margin opportunity-post-card-info"
         data-ui-sref="shell.feed({ opId: model._id })">
         <div class="col-xs-6 clear-padding flex-center text-left">
-          <span class="jumbo-count">{{ model.applicantsCount }}</span>
+          <span class="jumbo-count">{{ model.applicantsCount || '0' }}</span>
         </div>
         <div class="col-xs-6 clear-padding flex-center text-right">
           <h2>Applicants</h2>
@@ -37,9 +37,9 @@
 
         <div class="col-xs-7 clear-padding height-100 flex-center-vert">
           <h2 class="uppercase">
-            {{ model.title }} @ {{ model.companyName }}
+            <strong>{{ model.title }} @ {{ model.companyName }}</strong>
           </h2>
-          <div class="quote">{{ model.headline }}</div>
+          <div class="quote"><em>{{ model.headline }}</em></div>
         </div>
 
         <div class="opportunity-post-card-controls clear-padding flex-center"

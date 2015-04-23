@@ -18,7 +18,7 @@
     </div>
 
     <div class="card-quote">
-      <div class="flex-center-vert t-headline">
+      <div class="flex-center-vert t-headline headline">
         {{ user.headline }}
       </div>
     </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="ellipsis">
         <span class="t-position">{{ user.position }}</span>
-        @
+        <span data-ng-if="user.organization">@</span>
         <span class="t-organization"><strong>{{ user.organization }}</strong></span>
       </div>
       <div class="ellipsis">
@@ -46,10 +46,10 @@
           <li data-ng-repeat="experience in user.experiences">
             <ul class="user-detail-sub-list t-experience">
               <li class="ellipsis t-organization">
-                <strong>{{ experience.organization }}</strong>
+                <span>{{ experience.organization }}</span>
               </li>
               <li class="ellipsis uppercase position t-position">
-                <span>{{ experience.position }}</span>
+                <span><strong>{{ experience.position }}</strong></span>
               </li>
               <li class="timespan t-timespan">
                 <span>
@@ -74,10 +74,10 @@
           <li data-ng-repeat="education in user.educations">
             <ul class="user-detail-sub-list t-education">
               <li class="ellipsis t-school">
-                <strong>{{ education.school }}</strong>
+                <span>{{ education.school }}</span>
               </li>
               <li class="ellipsis uppercase position t-major">
-                <span>{{ education.degree }} {{ education.major }}</span>
+                <span><strong>{{ education.degree }} {{ education.major }}</strong></span>
               </li>
               <li class="timespan t-timespan">
                 <span>
