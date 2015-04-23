@@ -12,6 +12,11 @@ angular.module('messaging')
       $('#beep')[0].play();
     }
 
+    // Play the doopdoop sound
+    function doopdoop() {
+      $('#doopdoop')[0].play();
+    }
+
     // Increment unreadNotificationsCount
     function addNotification() {
       if ($rootScope._user) {
@@ -50,6 +55,8 @@ angular.module('messaging')
           scope.matchId = data.matchId;
           scope.userImg = matchedWithUser.picture;
 
+          doopdoop();
+
           notify({
             message: '',
             messageTemplate: '<div data-ng-include="\'modules/messaging/partials/match-toaster.html\'"></div>',
@@ -61,7 +68,7 @@ angular.module('messaging')
         });
     }
 
-    var handleMatchCallbacks = [beep, doMatchNotify];
+    var handleMatchCallbacks = [doMatchNotify];
 
     // Iterates through and calls the callback functions, until
     // one returns true.
