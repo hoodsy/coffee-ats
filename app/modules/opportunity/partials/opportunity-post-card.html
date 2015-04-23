@@ -8,7 +8,8 @@
           <span class="jumbo-count">{{ model.matchesCount || '0' }}</span>
         </div>
         <div class="col-xs-6 clear-padding flex-center text-right">
-          <h2>Coffee Meetings</h2>
+          <h2 data-ng-if="model.matchesCount === 1">Match</h2>
+          <h2 data-ng-if="model.matchesCount !== 1">Matches</h2>
         </div>
       </div>
       <div class="row clear-margin opportunity-post-card-info"
@@ -17,7 +18,8 @@
           <span class="jumbo-count">{{ model.applicantsCount || '0' }}</span>
         </div>
         <div class="col-xs-6 clear-padding flex-center text-right">
-          <h2>Applicants</h2>
+          <h2 data-ng-if="model.applicantsCount === 1">Applicant</h2>
+          <h2 data-ng-if="model.applicantsCount !== 1">Applicants</h2>
         </div>
       </div>
     </div>
@@ -80,11 +82,13 @@
       <div class="row visible-xs-block clear-margin opportunity-post-card-info uppercase">
         <div class="col-xs-6 clear-padding flex-center"
           data-ui-sref="shell.feed({ opId: model._id })">
-          {{ model.applicantsCount }} Applicants
+          <span data-ng-if="model.applicantsCount === 1">{{ model.applicantsCount || '0' }} Applicant</span>
+          <span data-ng-if="model.applicantsCount !== 1">{{ model.applicantsCount || '0' }} Applicants</span>
         </div>
         <div class="col-xs-6 clear-padding flex-center"
           data-ui-sref="shell.messaging.main({ opId: model._id })">
-          {{ model.matchesCount }} Matches
+          <span data-ng-if="model.matchesCount === 1">{{ model.matchesCount || '0' }} Match</span>
+          <span data-ng-if="model.matchesCount !== 1">{{ model.matchesCount || '0' }} Matches</span>
         </div>
       </div>
     </div>
