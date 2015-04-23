@@ -7,7 +7,8 @@ angular.module('common', [
   'ngTouch',
   'hmTouchEvents',
   'monospaced.elastic',  // auto-resizing textarea
-  'matchMedia'
+  'matchMedia',
+  'cgNotify'             // notification pop-ups (toasters)
 ]).constant('APP_CONFIG', {
   'inputLimit': 50,
   'inputLimitLong': 500,

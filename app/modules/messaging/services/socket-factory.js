@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('messaging')
-  .factory('socket', function ($rootScope, socketFactory, SOCKETIO_URL) {
+  .factory('socket', function ($rootScope, $templateCache, notify, User, socketFactory, SOCKETIO_URL) {
 
     var socket = socketFactory({
       ioSocket: io.connect(SOCKETIO_URL)
@@ -12,22 +12,66 @@ angular.module('messaging')
       $('#beep')[0].play();
     }
 
+    // Increment unreadNotificationsCount
     function addNotification() {
       if ($rootScope._user) {
         $rootScope._user.unreadNotificationsCount += 1;
       }
     }
 
-    // Handlers registered by other code
-    var handleMessage = [beep, addNotification];
 
+    /**
+     * Handle message event
+     */
+
+    var handleMessageCallbacks = [beep, addNotification];
+
+    // Iterates through and calls the callback functions, until
+    // one returns true.
     var _handleMessage = function(data) {
-      handleMessage.forEach(function(fn) {
-        fn(data);
+      handleMessageCallbacks.some(function(fn) {
+        return fn(data);
       });
     };
 
     socket.on('message', _handleMessage);
+
+
+    /**
+     * Handle match event
+     */
+
+    // Display a notification pop-up (toaster)
+    function doMatchNotify(data) {
+      User.get({ id: data.otherUserId }).$promise
+        .then(function(matchedWithUser) {
+          var scope = $rootScope.$new();
+          scope.msg = data.text;
+          scope.matchId = data.matchId;
+          scope.userImg = matchedWithUser.picture;
+
+          notify({
+            message: '',
+            messageTemplate: '<div data-ng-include="\'modules/messaging/partials/match-toaster.html\'"></div>',
+            position: 'right',
+            classes: 'match-toaster',
+            duration: 4000,
+            scope: scope
+          });
+        });
+    }
+
+    var handleMatchCallbacks = [beep, doMatchNotify];
+
+    // Iterates through and calls the callback functions, until
+    // one returns true.
+    var _handleMatch = function(data) {
+      handleMatchCallbacks.some(function(fn) {
+        return fn(data);
+      });
+    };
+
+    socket.on('match', _handleMatch);
 
 
     function init() {
@@ -51,12 +95,12 @@ angular.module('messaging')
 
       registerHandlers: function (fn) {
         if (fn) {
-          handleMessage.push(fn);
+          handleMessageCallbacks.unshift(fn);
         }
 
         return function tearDown() {
           if (fn) {
-            handleMessage.splice(handleMessage.indexOf(fn), 1);
+            handleMessageCallbacks.splice(handleMessageCallbacks.indexOf(fn), 1);
           }
         };
       }

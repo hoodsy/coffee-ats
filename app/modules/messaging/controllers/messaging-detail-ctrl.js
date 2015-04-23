@@ -33,14 +33,15 @@ angular.module('messaging')
     // Handler for message events
 
     function handleMessage(data) {
-      if (data.matchId === matchId) {
-        $scope.matchMessages.push(data.message);
-        nextScroll = -1;
-      }
-
       // User can see the matches, so dont increment notifications
       if ($scope.isDesktop) {
         $scope._user.unreadNotificationsCount -= 1;
+      }
+
+      if (data.matchId === matchId) {
+        $scope.matchMessages.push(data.message);
+        nextScroll = -1;
+        return true;  // to end callback chaining
       }
     }
 
