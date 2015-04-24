@@ -1,85 +1,92 @@
-<ul class="row xs-clear-margin"
-  data-scroll-loader
-  data-handle-scroll-to-bottom="loadMatches()">
-  <li class="col-xs-12 xs-clear-padding matches-list-item"
-    data-ng-repeat="match in matches"
-    data-ng-swipe-left="isMobile && enableControls($index)"
-    data-ng-swipe-right="isMobile && disableControls($index)">
+<div class="height-100">
+  <ul class="row xs-clear-margin"
+    data-scroll-loader
+    data-handle-scroll-to-bottom="loadMatches()">
+    <li class="col-xs-12 xs-clear-padding matches-list-item"
+      data-ng-repeat="match in matches"
+      data-ng-swipe-left="isMobile && enableControls($index)"
+      data-ng-swipe-right="isMobile && disableControls($index)">
 
-    <div class="row clear-margin palette-{{ match._palette }} {{ match._paletteClass }} match-card"
-      data-ng-class="{ 'slide-left': showControls($index) }">
+      <div class="row clear-margin palette-{{ match._palette }} {{ match._paletteClass }} match-card"
+        data-ng-class="{ 'slide-left': showControls($index) }">
 
-      <div class="col-xs-2 col-sm-3 clear-padding flex-center match-card-avatar"
-        data-ui-sref="shell.messaging.main.detail({ id: match._id })"
-        data-ui-sref-active="active">
-        <div class="img-container flex-center">
-          <img class="rounded"
-            alt="match img"
-            data-alt-img="{{ match.picture }}"
-            data-fail-img="/images/silhouette.png"/>
-          <div class="match-unread-badge"
-            data-ng-if="match.unread">
+        <div class="col-xs-2 col-sm-3 clear-padding flex-center match-card-avatar"
+          data-ui-sref="shell.messaging.main.detail({ id: match._id })"
+          data-ui-sref-active="active">
+          <div class="img-container flex-center">
+            <img class="rounded"
+              alt="match img"
+              data-alt-img="{{ match.picture }}"
+              data-fail-img="/images/silhouette.png"/>
+            <div class="match-unread-badge"
+              data-ng-if="match.unread">
+            </div>
+            <div class="filter"></div>
           </div>
-          <div class="filter"></div>
         </div>
-      </div>
 
-      <div class="col-xs-7 col-sm-9 match-card-detail flex-center-vert"
-        data-ui-sref="shell.messaging.main.detail({ id: match._id })">
-        <div class="uppercase">
-          <strong>{{ match.title }}</strong>
+        <div class="col-xs-7 col-sm-9 match-card-detail flex-center-vert"
+          data-ui-sref="shell.messaging.main.detail({ id: match._id })">
+          <div class="uppercase">
+            <strong>{{ match.title }}</strong>
+          </div>
+          <div class="uppercase"
+            data-ng-if="match.subtitle">
+            {{ match.subtitle }}
+          </div>
+          <div class="match-latest-message">
+            <em>{{ match.latest }}</em>
+          </div>
         </div>
-        <div class="uppercase"
-          data-ng-if="match.subtitle">
-          {{ match.subtitle }}
-        </div>
-        <div class="match-latest-message">
-          <em>{{ match.latest }}</em>
-        </div>
-      </div>
 
-      <div class="match-card-controls flex-center hidden-sm hidden-md hidden-lg"
-        data-ng-class="{
-        'col-xs-3': !showControls($index),
-        'col-xs-6 grow': showControls($index)
-        }">
-        <button class="btn btn-transparent"
-          data-ng-click="toggleControls($index)"
-          data-ng-if="!showControls($index)">
-          <i class="ci ci-more ci-lg"></i>
-        </button>
-
-        <div class="row spread-out"
-          data-ng-if="showControls($index)">
+        <div class="match-card-controls flex-center hidden-sm hidden-md hidden-lg"
+          data-ng-class="{
+          'col-xs-3': !showControls($index),
+          'col-xs-6 grow': showControls($index)
+          }">
           <button class="btn btn-transparent"
-            data-ng-click="toggleControls($index)">
+            data-ng-click="toggleControls($index)"
+            data-ng-if="!showControls($index)">
             <i class="ci ci-more ci-lg"></i>
           </button>
 
-          <button class="btn btn-transparent"
-            data-ng-click="report(match)">
-            <i class="ci ci-report ci-lg"></i>
-          </button>
+          <div class="row spread-out"
+            data-ng-if="showControls($index)">
+            <button class="btn btn-transparent"
+              data-ng-click="toggleControls($index)">
+              <i class="ci ci-more ci-lg"></i>
+            </button>
 
-          <button class="btn btn-transparent"
-            data-ng-click="delete(match._id)">
-            <i class="ci ci-trash ci-lg"></i>
-          </button>
+            <button class="btn btn-transparent"
+              data-ng-click="report(match)">
+              <i class="ci ci-report ci-lg"></i>
+            </button>
+
+            <button class="btn btn-transparent"
+              data-ng-click="delete(match._id)">
+              <i class="ci ci-trash ci-lg"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </li>
-  <li class="col-xs-12 xs-clear-padding loading-container"
-    data-ng-if="!allMatchesLoaded">
-    <div class="flex-center">
-      <i class="fa fa-spinner fa-spin"
-        data-ng-if="loadingMoreMatches">
-      </i>
-      <button class="btn btn-primary btn-block btn-load-more"
-        data-ng-if="!loadingMoreMatches"
-        data-ng-click="loadMatches()">
-        Load More
-      </button>
-    </div>
-  </li>
-</ul>
+    </li>
+    <li class="col-xs-12 xs-clear-padding loading-container"
+      data-ng-if="!allMatchesLoaded">
+      <div class="flex-center">
+        <i class="fa fa-spinner fa-spin"
+          data-ng-if="loadingMoreMatches">
+        </i>
+        <button class="btn btn-primary btn-block btn-load-more"
+          data-ng-if="!loadingMoreMatches"
+          data-ng-click="loadMatches()">
+          Load More
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <div class="flex-center huge text-center"
+    data-ng-if="allMatchesLoaded && matches.length === 0">
+    <p>No matches yet :(<p>
+  </div>
+</div>

@@ -1,23 +1,31 @@
-<ul class="row xs-clear-margin"
-  data-scroll-loader
-  data-auto-scroll="{{ _user === null }}"
-  data-handle-scroll-to-bottom="loadFeed()">
-  <li class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 xs-clear-padding"
-    data-ng-repeat="item in feed"
-    data-ng-if="item._state !== 'hidden'"
-    data-coffee-card>
-  </li>
-  <li class="col-xs-12 xs-clear-padding loading-container"
-    data-ng-if="!allFeedLoaded">
-    <div class="flex-center">
-      <i class="fa fa-spinner fa-spin"
-        data-ng-if="loadingMoreFeed">
-      </i>
-      <button class="btn btn-primary btn-block btn-load-more"
-        data-ng-if="!loadingMoreFeed && feedPage > 1"
-        data-ng-click="loadFeed()">
-        Load More
-      </button>
-    </div>
-  </li>
-</ul>
+<div class="height-100">
+  <ul class="row xs-clear-margin"
+    data-scroll-loader
+    data-auto-scroll="{{ _user === null }}"
+    data-handle-scroll-to-bottom="loadFeed()">
+    <li class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 xs-clear-padding"
+      data-ng-repeat="item in feed"
+      data-ng-if="item._state !== 'hidden'"
+      data-coffee-card>
+    </li>
+    <li class="col-xs-12 xs-clear-padding loading-container"
+      data-ng-if="!allFeedLoaded">
+      <div class="flex-center">
+        <i class="fa fa-spinner fa-spin"
+          data-ng-if="loadingMoreFeed">
+        </i>
+        <button class="btn btn-primary btn-block btn-load-more"
+          data-ng-if="!loadingMoreFeed && feedPage > 1"
+          data-ng-click="loadFeed()">
+          Load More
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <div class="flex-center huge text-center"
+    data-ng-if="allFeedLoaded && feed.length === 0">
+    <p>We're working to find new matches for you!<p>
+    <p>Check back soon :)</p>
+  </div>
+</div>
