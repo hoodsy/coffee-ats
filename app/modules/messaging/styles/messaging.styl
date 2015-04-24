@@ -24,6 +24,9 @@ img-translate = 50%
   @media (min-width: screen-sm-min)
     margin-bottom .5em
 
+  .match-card-avatar > .img-container > img
+    filter blur(1px)
+
 .match-card
   position relative
   left 0
@@ -69,9 +72,6 @@ img-translate = 50%
       height 100%
       width 100%
 
-    img
-      filter blur(1px)
-
     .filter
       position absolute
       top 0
@@ -94,7 +94,6 @@ img-translate = 50%
 
     & > .filter
       visibility hidden
-
 
 div.match-card-detail
   padding-left 3.5em
