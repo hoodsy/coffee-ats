@@ -48,7 +48,7 @@ img-translate = 50%
   position absolute
   right 5%
   top 75%
-  z-index 9999
+  z-index 9980
   border-radius 50%
   background-color color-green-1
 
@@ -69,13 +69,18 @@ img-translate = 50%
       height 100%
       width 100%
 
+    img
+      filter blur(1px)
+
     .filter
       position absolute
       top 0
+      left 0
       border-radius 50%
       background rgba(255,255,255,.3)
-      z-index 9998
+      z-index 9979
       visibility visible
+      blur(5px)
 
       @media (max-width: screen-xs-max)
         visibility hidden
@@ -83,8 +88,12 @@ img-translate = 50%
   .alt-img ~ .filter
     visibility hidden
 
-  &.active > .img-container > .filter
-    visibility hidden
+  &.active > .img-container
+    & > img
+      filter none
+
+    & > .filter
+      visibility hidden
 
 
 div.match-card-detail
