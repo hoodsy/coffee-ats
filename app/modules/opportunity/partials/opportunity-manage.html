@@ -56,30 +56,21 @@
       <!-- Opportunity Description -->
       <div class="edit-mobile-page"
         data-ng-class="{ 'hidden-xs': page !== 1 }">
-        <div class="row clear-margin white-bg headline-row flex-center-vert">
-          <div class="col-xs-12">
-            <div class="row xs-clear-margin">
-              <div class="col-xs-8 col-xs-offset-2 ">
-                <i class="ci ci-quote edit-quote ci-3x"></i>
-                <div class="headline-text text-center">
-                  <strong>{{ opportunity.companyName }}</strong> is looking for
-                  <strong>{{ opportunity.title }}s</strong> to:
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-8 col-xs-offset-2 clear-padding">
-                <textarea
-                  class="text-center"
-                  name="headline"
-                  required
-                  maxlength="{{ $root.config.inputLimitHeadline }}"
-                  placeholder="e.g. Build websites."
-                  data-msd-elastic
-                  data-coffee-input
-                  data-ng-model="opportunity.headline">
-                </textarea>
-              </div>
+
+        <div class="row headline-row clear-margin white-bg height-100">
+          <div class="col-xs-8 col-xs-offset-2 flex-center-vert height-100">
+            <i class="ci ci-quote edit-quote ci-3x"></i>
+            <div>
+              <textarea
+                class="text-center"
+                name="headline"
+                required
+                maxlength="{{ $root.config.inputLimitHeadline }}"
+                placeholder="ACME Inc. is looking for underwater basket weavers..."
+                data-msd-elastic
+                data-coffee-input
+                data-ng-model="opportunity.headline">
+              </textarea>
             </div>
           </div>
         </div>
@@ -103,7 +94,7 @@
                     name="companyName"
                     required
                     maxlength="{{ $root.config.inputLimit }}"
-                    placeholder="e.g. Twitter"
+                    placeholder="e.g. ACME, Inc."
                     data-coffee-input
                     data-ng-model="opportunity.companyName" />
                 </div>
