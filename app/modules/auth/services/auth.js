@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('auth')
-  .factory('authService', function ($rootScope, $resource, $state, $location, socket, apiUrl, userHelper) {
+  .factory('authService', function ($rootScope, $resource, $state, $location, $mixpanel, socket, apiUrl, userHelper) {
     var authResource = $resource(apiUrl('/auth'));
     var logoutResource = $resource(apiUrl('/auth/logout'));
 
@@ -35,6 +35,16 @@ angular.module('auth')
             } else {
               // User is authenticated
               var user = $rootScope._user = response.user;
+
+              // Initialize mixpanel
+              $mixpanel.identify(user._id);
+              $mixpanel.people.set_once('$created', new Date());
+              $mixpanel.people.set({
+                '$first_name': user.firstName,
+                '$last_name': user.lastName
+              });
+
+              // Initialize socket
               socket.init();
 
               // Check if user is setup

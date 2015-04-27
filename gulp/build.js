@@ -53,11 +53,11 @@ gulp.task('jshint:nofail', jshint(false));
 gulp.task('config', function () {
   return gulp.src('config.json')
     .pipe($.ngConstant({
-      name: 'shell',
+      name: 'common',
       deps: false
     }))
     // Writes config.js to dist/ folder
-    .pipe(gulp.dest('app/modules/shell'));
+    .pipe(gulp.dest('app/modules/common'));
 });
 
 // Styles

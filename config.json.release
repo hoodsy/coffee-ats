@@ -1,5 +1,6 @@
 {
   "SOCKETIO_URL": "https://messaging.coffeetheapp.com",
   "API_ROOT_URL": "https://api.coffeetheapp.com",
-  "DEFAULT_PAGE_SIZE": 15
+  "DEFAULT_PAGE_SIZE": 15,
+  "MIXPANEL_TOKEN": "e6f52311a417bdc8a96cac9573d4b2b1"
 }

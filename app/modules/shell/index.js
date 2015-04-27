@@ -8,8 +8,9 @@ angular.module('shell', [
   'opportunity',
   'messaging',
   'ui.router',
-  'angular-carousel'
-]).config(function($httpProvider) {
+  'angular-carousel',
+  'analytics.mixpanel'
+]).config(function($httpProvider, $mixpanelProvider, MIXPANEL_TOKEN) {
 
   $httpProvider.defaults.withCredentials = true;
 
@@ -32,6 +33,9 @@ angular.module('shell', [
     }
     return value;
   });
+
+  // Setup mixpanel
+  $mixpanelProvider.apiKey(MIXPANEL_TOKEN);
 
 }).run(function($rootScope, $state, userHelper, authService) {
 
